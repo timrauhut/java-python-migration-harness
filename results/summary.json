@@ -1,0 +1,487 @@
+{
+  "dataset_version": "RepoTransBench v1.0",
+  "dataset_summary_sha256": "c4430828b3a37548796b1d78b8211b4c6b2c1c7b850a7f5e46f12f6c04a99ef2",
+  "model": "claude-haiku-4-5-20251001",
+  "variants": {
+    "v0": {
+      "test_accounting": {
+        "passed": 77,
+        "failed_in_valid_suites": 127,
+        "tests_in_invalid_suites": 126,
+        "invalid_suites": 6
+      },
+      "description": "Minimal prompt, one attempt",
+      "prompt_version": "minimal-1",
+      "max_attempts": 1,
+      "runs": 3,
+      "per_run": [
+        {
+          "passed_pct": 24.55,
+          "successful_migrations": 0,
+          "valid_suites": 3,
+          "turn_limit_projects": 3,
+          "first_attempt_pct": 24.55,
+          "attempts": 5,
+          "cost_usd": 1.4251,
+          "passed_first_attempt": null,
+          "passed_final": null
+        },
+        {
+          "passed_pct": 11.82,
+          "successful_migrations": 0,
+          "valid_suites": 3,
+          "turn_limit_projects": 2,
+          "first_attempt_pct": 11.82,
+          "attempts": 5,
+          "cost_usd": 1.4201,
+          "passed_first_attempt": null,
+          "passed_final": null
+        },
+        {
+          "passed_pct": 33.64,
+          "successful_migrations": 1,
+          "valid_suites": 3,
+          "turn_limit_projects": 4,
+          "first_attempt_pct": 33.64,
+          "attempts": 5,
+          "cost_usd": 1.4827,
+          "passed_first_attempt": null,
+          "passed_final": null
+        }
+      ],
+      "mean": {
+        "passed_pct": 23.34,
+        "first_attempt_pct": 23.34,
+        "successful_migrations": 0.33,
+        "valid_suites": 3,
+        "turn_limit_projects": 3,
+        "attempts": 5,
+        "cost_usd": 1.44
+      },
+      "sd": {
+        "passed_pct": 10.96,
+        "first_attempt_pct": 10.96,
+        "successful_migrations": 0.58,
+        "valid_suites": 0.0,
+        "turn_limit_projects": 1.0,
+        "attempts": 0.0,
+        "cost_usd": 0.03
+      },
+      "total": {
+        "successful_migrations": 1,
+        "valid_suites": 9,
+        "turn_limit_projects": 9,
+        "attempts": 15,
+        "cost_usd": 4.3279
+      },
+      "failed_tests_by_category": {
+        "missing name": 101,
+        "missing module": 20,
+        "wrong call signature": 18,
+        "missing dependency": 15,
+        "wrong result": 14,
+        "other exception": 5
+      },
+      "public_hidden": null,
+      "per_project_rates": {
+        "aventrix_jnanoid": [
+          4.35,
+          4.35,
+          78.26
+        ],
+        "agarciadom_xeger": [
+          40.0,
+          30.0,
+          null
+        ],
+        "editorconfig_editorconfig-jetbrains": [
+          83.33,
+          0.0,
+          0.0
+        ],
+        "txusballesteros_fit-chart": [
+          null,
+          null,
+          null
+        ],
+        "googlearchive_android-BluetoothLeGatt": [
+          null,
+          null,
+          100.0
+        ]
+      }
+    },
+    "v1": {
+      "test_accounting": {
+        "passed": 137,
+        "failed_in_valid_suites": 77,
+        "tests_in_invalid_suites": 116,
+        "invalid_suites": 6
+      },
+      "description": "v0 + interface rules (layout, Java names, signatures, stdlib only, scope)",
+      "prompt_version": "interface-rules-1",
+      "max_attempts": 1,
+      "runs": 3,
+      "per_run": [
+        {
+          "passed_pct": 54.55,
+          "successful_migrations": 1,
+          "valid_suites": 4,
+          "turn_limit_projects": 0,
+          "first_attempt_pct": 54.55,
+          "attempts": 5,
+          "cost_usd": 0.8253,
+          "passed_first_attempt": null,
+          "passed_final": null
+        },
+        {
+          "passed_pct": 34.55,
+          "successful_migrations": 0,
+          "valid_suites": 2,
+          "turn_limit_projects": 0,
+          "first_attempt_pct": 34.55,
+          "attempts": 5,
+          "cost_usd": 0.7879,
+          "passed_first_attempt": null,
+          "passed_final": null
+        },
+        {
+          "passed_pct": 35.45,
+          "successful_migrations": 0,
+          "valid_suites": 3,
+          "turn_limit_projects": 1,
+          "first_attempt_pct": 35.45,
+          "attempts": 5,
+          "cost_usd": 0.8494,
+          "passed_first_attempt": null,
+          "passed_final": null
+        }
+      ],
+      "mean": {
+        "passed_pct": 41.52,
+        "first_attempt_pct": 41.52,
+        "successful_migrations": 0.33,
+        "valid_suites": 3,
+        "turn_limit_projects": 0.33,
+        "attempts": 5,
+        "cost_usd": 0.82
+      },
+      "sd": {
+        "passed_pct": 11.3,
+        "first_attempt_pct": 11.3,
+        "successful_migrations": 0.58,
+        "valid_suites": 1.0,
+        "turn_limit_projects": 0.58,
+        "attempts": 0.0,
+        "cost_usd": 0.03
+      },
+      "total": {
+        "successful_migrations": 1,
+        "valid_suites": 9,
+        "turn_limit_projects": 1,
+        "attempts": 15,
+        "cost_usd": 2.4626
+      },
+      "failed_tests_by_category": {
+        "missing name": 60,
+        "other exception": 24,
+        "wrong result": 12,
+        "wrong import path": 8,
+        "wrong call signature": 6
+      },
+      "public_hidden": null,
+      "per_project_rates": {
+        "aventrix_jnanoid": [
+          null,
+          null,
+          47.83
+        ],
+        "agarciadom_xeger": [
+          72.5,
+          95.0,
+          70.0
+        ],
+        "editorconfig_editorconfig-jetbrains": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "txusballesteros_fit-chart": [
+          75.0,
+          null,
+          null
+        ],
+        "googlearchive_android-BluetoothLeGatt": [
+          100.0,
+          null,
+          null
+        ]
+      }
+    },
+    "v2": {
+      "test_accounting": {
+        "passed": 44,
+        "failed_in_valid_suites": 33,
+        "tests_in_invalid_suites": 253,
+        "invalid_suites": 11
+      },
+      "description": "v1 with 5 attempts, same task message each time, no test feedback (control for v3)",
+      "prompt_version": "interface-rules-1+repeat-5",
+      "max_attempts": 5,
+      "runs": 3,
+      "per_run": [
+        {
+          "passed_pct": 0.0,
+          "successful_migrations": 0,
+          "valid_suites": 0,
+          "turn_limit_projects": 2,
+          "first_attempt_pct": 0.0,
+          "attempts": 25,
+          "cost_usd": 5.0652,
+          "passed_first_attempt": {
+            "public": 0,
+            "hidden": 0
+          },
+          "passed_final": {
+            "public": 0,
+            "hidden": 0
+          }
+        },
+        {
+          "passed_pct": 20.0,
+          "successful_migrations": 1,
+          "valid_suites": 2,
+          "turn_limit_projects": 1,
+          "first_attempt_pct": 20.0,
+          "attempts": 25,
+          "cost_usd": 4.3289,
+          "passed_first_attempt": {
+            "public": 9,
+            "hidden": 13
+          },
+          "passed_final": {
+            "public": 9,
+            "hidden": 13
+          }
+        },
+        {
+          "passed_pct": 20.0,
+          "successful_migrations": 0,
+          "valid_suites": 2,
+          "turn_limit_projects": 1,
+          "first_attempt_pct": 0.0,
+          "attempts": 25,
+          "cost_usd": 4.4838,
+          "passed_first_attempt": {
+            "public": 0,
+            "hidden": 0
+          },
+          "passed_final": {
+            "public": 9,
+            "hidden": 13
+          }
+        }
+      ],
+      "mean": {
+        "passed_pct": 13.33,
+        "first_attempt_pct": 6.67,
+        "successful_migrations": 0.33,
+        "valid_suites": 1.33,
+        "turn_limit_projects": 1.33,
+        "attempts": 25,
+        "cost_usd": 4.63
+      },
+      "sd": {
+        "passed_pct": 11.55,
+        "first_attempt_pct": 11.55,
+        "successful_migrations": 0.58,
+        "valid_suites": 1.15,
+        "turn_limit_projects": 0.58,
+        "attempts": 0.0,
+        "cost_usd": 0.39
+      },
+      "total": {
+        "successful_migrations": 1,
+        "valid_suites": 4,
+        "turn_limit_projects": 4,
+        "attempts": 75,
+        "cost_usd": 13.8779
+      },
+      "failed_tests_by_category": {
+        "missing name": 42,
+        "wrong import path": 26,
+        "other exception": 11,
+        "wrong call signature": 1
+      },
+      "public_hidden": {
+        "passed_first_attempt": {
+          "public": 9,
+          "hidden": 13
+        },
+        "passed_final": {
+          "public": 18,
+          "hidden": 26
+        }
+      },
+      "per_project_rates": {
+        "aventrix_jnanoid": [
+          null,
+          13.04,
+          95.65
+        ],
+        "agarciadom_xeger": [
+          null,
+          null,
+          null
+        ],
+        "editorconfig_editorconfig-jetbrains": [
+          null,
+          null,
+          0.0
+        ],
+        "txusballesteros_fit-chart": [
+          null,
+          null,
+          null
+        ],
+        "googlearchive_android-BluetoothLeGatt": [
+          null,
+          100.0,
+          null
+        ]
+      }
+    },
+    "v3": {
+      "test_accounting": {
+        "passed": 289,
+        "failed_in_valid_suites": 6,
+        "tests_in_invalid_suites": 35,
+        "invalid_suites": 2
+      },
+      "description": "v1 + up to 4 repairs from public-test feedback",
+      "prompt_version": "interface-rules-1+public-repair-1",
+      "max_attempts": 5,
+      "runs": 3,
+      "per_run": [
+        {
+          "passed_pct": 99.09,
+          "successful_migrations": 4,
+          "valid_suites": 5,
+          "turn_limit_projects": 0,
+          "first_attempt_pct": 40.91,
+          "attempts": 15,
+          "cost_usd": 1.8372,
+          "passed_first_attempt": {
+            "public": 21,
+            "hidden": 24
+          },
+          "passed_final": {
+            "public": 52,
+            "hidden": 57
+          }
+        },
+        {
+          "passed_pct": 98.18,
+          "successful_migrations": 3,
+          "valid_suites": 5,
+          "turn_limit_projects": 1,
+          "first_attempt_pct": 69.09,
+          "attempts": 11,
+          "cost_usd": 1.382,
+          "passed_first_attempt": {
+            "public": 36,
+            "hidden": 40
+          },
+          "passed_final": {
+            "public": 52,
+            "hidden": 56
+          }
+        },
+        {
+          "passed_pct": 65.45,
+          "successful_migrations": 1,
+          "valid_suites": 3,
+          "turn_limit_projects": 1,
+          "first_attempt_pct": 44.55,
+          "attempts": 13,
+          "cost_usd": 1.8585,
+          "passed_first_attempt": {
+            "public": 25,
+            "hidden": 24
+          },
+          "passed_final": {
+            "public": 36,
+            "hidden": 36
+          }
+        }
+      ],
+      "mean": {
+        "passed_pct": 87.57,
+        "first_attempt_pct": 51.52,
+        "successful_migrations": 2.67,
+        "valid_suites": 4.33,
+        "turn_limit_projects": 0.67,
+        "attempts": 13,
+        "cost_usd": 1.69
+      },
+      "sd": {
+        "passed_pct": 19.16,
+        "first_attempt_pct": 15.33,
+        "successful_migrations": 1.53,
+        "valid_suites": 1.15,
+        "turn_limit_projects": 0.58,
+        "attempts": 2.0,
+        "cost_usd": 0.27
+      },
+      "total": {
+        "successful_migrations": 8,
+        "valid_suites": 13,
+        "turn_limit_projects": 2,
+        "attempts": 39,
+        "cost_usd": 5.0777
+      },
+      "failed_tests_by_category": {
+        "missing name": 8,
+        "wrong result": 3,
+        "wrong import path": 1
+      },
+      "public_hidden": {
+        "passed_first_attempt": {
+          "public": 82,
+          "hidden": 88
+        },
+        "passed_final": {
+          "public": 140,
+          "hidden": 149
+        }
+      },
+      "per_project_rates": {
+        "aventrix_jnanoid": [
+          95.65,
+          95.65,
+          95.65
+        ],
+        "agarciadom_xeger": [
+          100.0,
+          97.5,
+          95.0
+        ],
+        "editorconfig_editorconfig-jetbrains": [
+          100.0,
+          100.0,
+          100.0
+        ],
+        "txusballesteros_fit-chart": [
+          100.0,
+          100.0,
+          null
+        ],
+        "googlearchive_android-BluetoothLeGatt": [
+          100.0,
+          100.0,
+          null
+        ]
+      }
+    }
+  }
+}

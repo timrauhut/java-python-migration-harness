@@ -1,0 +1,303 @@
+{
+  "config": {
+    "dataset_version": "RepoTransBench v1.0",
+    "dataset_summary_sha256": "c4430828b3a37548796b1d78b8211b4c6b2c1c7b850a7f5e46f12f6c04a99ef2",
+    "source_tree_sha256": "75946316c167048cd6b89aaa53c5ea8bab262fd8713ffe5c88f8c490a96e45d4",
+    "test_suite_sha256": "005d4bc56a53dfd54ca8429248372060ba51dc935a8c518bc3ede672eea1e587",
+    "project_ids": [
+      "aventrix_jnanoid",
+      "agarciadom_xeger",
+      "editorconfig_editorconfig-jetbrains",
+      "txusballesteros_fit-chart",
+      "googlearchive_android-BluetoothLeGatt"
+    ],
+    "model": "claude-haiku-4-5-20251001",
+    "variant": "v1",
+    "prompt_version": "interface-rules-1",
+    "evaluator_version": "static-junit-1",
+    "max_attempts": 1,
+    "budget_usd_per_project": 5.0,
+    "timeout_seconds": 180,
+    "python_version": "3.12.12",
+    "pytest_version": "8.4.2",
+    "claude_agent_sdk_version": "0.2.166"
+  },
+  "projects": [
+    {
+      "project": "aventrix_jnanoid",
+      "status": "evaluation_invalid",
+      "migration_passed": false,
+      "test_success_rate": null,
+      "iterations": 1,
+      "variant": "v1",
+      "history": [
+        {
+          "iteration": 1,
+          "phase": "one_shot",
+          "estimated_cost_usd": 0.1054,
+          "tokens": {
+            "input_tokens": 4130,
+            "output_tokens": 11373,
+            "cache_read_input_tokens": 174437,
+            "cache_creation_input_tokens": 21498
+          },
+          "agent_error": null,
+          "migration_passed": false,
+          "test_success_rate": null,
+          "passed": 0,
+          "failed": 2,
+          "skipped": 0,
+          "total": 2,
+          "expected_total": 23,
+          "suite_verified": false,
+          "protected_files_unchanged": true,
+          "evaluation_valid": false,
+          "exit_code": 2,
+          "output_tail": "============================= test session starts ==============================\nplatform linux -- Python 3.12.12, pytest-8.4.2, pluggy-1.7.0\nrootdir: /scratch/work/aventrix_jnanoid\ncollected 0 items / 2 errors\n\n==================================== ERRORS ====================================\n___________ ERROR collecting public_tests/test_nanoidutils_public.py ___________\nImportError while importing test module '/scratch/work/aventrix_jnanoid/public_tests/test_nanoidutils_public.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\npublic_tests/test_nanoidutils_public.py:3: in <module>\n    from src.jnanoid.nano_id_utils import NanoIdUtils\nsrc/jnanoid/__init__.py:8: in <module>\n    from jnanoid.nano_id_utils import NanoIdUtils, IllegalArgumentException\nE   ModuleNotFoundError: No module named 'jnanoid'\n_____________ ERROR collecting tests/original/test_nanoidutils.py ______________\nImportError while importing test module '/scratch/work/aventrix_jnanoid/tests/original/test_nanoidutils.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_nanoidutils.py:4: in <module>\n    from src.jnanoid.nano_id_utils import NanoIdUtils\nsrc/jnanoid/__init__.py:8: in <module>\n    from jnanoid.nano_id_utils import NanoIdUtils, IllegalArgumentException\nE   ModuleNotFoundError: No module named 'jnanoid'\n- generated xml file: /scratch/work/aventrix_jnanoid/.harness-test-results.xml -\n=========================== short test summary info ============================\nERROR public_tests/test_nanoidutils_public.py\nERROR tests/original/test_nanoidutils.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 2 errors during collection !!!!!!!!!!!!!!!!!!!!\n============================== 2 errors in 0.11s ===============================\n\n",
+          "failures": {
+            "::public_tests.test_nanoidutils_public": "ModuleNotFoundError: No module named 'jnanoid'",
+            "::tests.original.test_nanoidutils": "ModuleNotFoundError: No module named 'jnanoid'"
+          },
+          "error": "Collected/executed test identities differ from immutable baseline, or tests were skipped; Test collection: import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_nanoidutils.py:4: in <module>\n    from src.jnanoid.nano_id_utils import NanoIdUtils\nsrc/jnanoid/__init__.py:8: in <module>\n    from jnanoid.nano_id_utils import NanoIdUtils, IllegalArgumentException\nE   ModuleNotFoundError: No module named 'jnanoid'\n=========================== short test summary info ============================\nERROR public_tests/test_nanoidutils_public.py\nERROR tests/original/test_nanoidutils.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 2 errors during collection !!!!!!!!!!!!!!!!!!!!\nno tests collected, 2 errors in 0.06s\n\n"
+        }
+      ],
+      "cost_complete": true,
+      "passed": 0,
+      "expected_total": 23,
+      "error": "Collected/executed test identities differ from immutable baseline, or tests were skipped; Test collection: import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_nanoidutils.py:4: in <module>\n    from src.jnanoid.nano_id_utils import NanoIdUtils\nsrc/jnanoid/__init__.py:8: in <module>\n    from jnanoid.nano_id_utils import NanoIdUtils, IllegalArgumentException\nE   ModuleNotFoundError: No module named 'jnanoid'\n=========================== short test summary info ============================\nERROR public_tests/test_nanoidutils_public.py\nERROR tests/original/test_nanoidutils.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 2 errors during collection !!!!!!!!!!!!!!!!!!!!\nno tests collected, 2 errors in 0.06s\n\n",
+      "estimated_cost_usd": 0.1054,
+      "tokens": {
+        "input_tokens": 4130,
+        "output_tokens": 11373,
+        "cache_read_input_tokens": 174437,
+        "cache_creation_input_tokens": 21498
+      }
+    },
+    {
+      "project": "agarciadom_xeger",
+      "status": "failed",
+      "migration_passed": false,
+      "test_success_rate": 95.0,
+      "iterations": 1,
+      "variant": "v1",
+      "history": [
+        {
+          "iteration": 1,
+          "phase": "one_shot",
+          "estimated_cost_usd": 0.232,
+          "tokens": {
+            "input_tokens": 4187,
+            "output_tokens": 26108,
+            "cache_read_input_tokens": 384494,
+            "cache_creation_input_tokens": 46963
+          },
+          "agent_error": null,
+          "migration_passed": false,
+          "test_success_rate": 95.0,
+          "passed": 38,
+          "failed": 2,
+          "skipped": 0,
+          "total": 40,
+          "expected_total": 40,
+          "suite_verified": true,
+          "protected_files_unchanged": true,
+          "evaluation_valid": true,
+          "exit_code": 1,
+          "output_tail": "eption\n______________________ test_generate_accept_on_first_step ______________________\n\n    def test_generate_accept_on_first_step():\n        gen = Xeger(\"a*\", random.Random(42))\n>       s = gen.generate(0, 0)\n            ^^^^^^^^^^^^^^^^^^\n\ntests/original/test_xeger_edge.py:25: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \nsrc/xeger.py:320: in generate\n    return self._generateConstrained(minLength, maxLength)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = <src.xeger.Xeger object at 0xffff8b88af60>, minLength = 0, maxLength = 0\n\n    def _generateConstrained(self, minLength: int, maxLength: int) -> str:\n        \"\"\"\n        Attempts to generate a random String using a random walk of length between minLength and maxLength steps.\n    \n        Args:\n            minLength: Minimum length for the range\n            maxLength: Maximum length for the range\n    \n        Returns:\n            Generated string from the bounded random walk\n    \n        Raises:\n            FailedRandomWalkException: If minimum length not reached or maximum exceeded\n        \"\"\"\n        builder = []\n        walkLength = 0\n        state = self.automaton.initial_state\n    \n        # Get a uniformly distributed target length\n        targetLength = self.getRandomInt(minLength, maxLength, self.random)\n    \n        while walkLength < targetLength:\n            transitions = state.getSortedTransitions(False)\n    \n            if len(transitions) == 0:\n                if walkLength >= minLength:\n                    if state.isAccept():\n                        return ''.join(builder)\n                    else:\n                        raise FailedRandomWalkException(\n                            f\"Reached non-accept state before target length\"\n                        )\n                else:\n                    raise FailedRandomWalkException(\n                        f\"Reached end state before minimum length (current = {walkLength} < min = {minLength})\"\n                    )\n    \n            # Try to prefer non-final transitions if possible at this first stage\n            nonFinalTransitions = [t for t in transitions if len(t.getDest().getTransitions()) > 0]\n            if nonFinalTransitions:\n                transitions = nonFinalTransitions\n    \n            if len(transitions) == 0:\n                if walkLength >= minLength:\n                    if state.isAccept():\n                        return ''.join(builder)\n                    else:\n                        raise FailedRandomWalkException(\"No transitions available\")\n                else:\n                    raise FailedRandomWalkException(\n                        f\"Reached end state before minimum length\"\n                    )\n    \n            option = self.getRandomInt(0, len(transitions) - 1, self.random)\n            transition = transitions[option]\n            self._appendChoice(builder, transition)\n            state = transition.getDest()\n            walkLength += 1\n    \n        # Now, get to an accept state\n        while not state.isAccept() and walkLength < maxLength:\n            transitions = state.getSortedTransitions(False)\n    \n            if len(transitions) == 0:\n                if state.isAccept():\n                    return ''.join(builder)\n                else:\n                    raise FailedRandomWalkException(\n                        f\"Dead end: no transitions and not in accept state\"\n                    )\n    \n            option = self.getRandomInt(0, len(transitions) - 1, self.random)\n            transition = transitions[option]\n            self._appendChoice(builder, transition)\n            state = transition.getDest()\n            walkLength += 1\n    \n        if state.isAccept():\n            return ''.join(builder)\n        else:\n>           raise FailedRandomWalkException(\n                f\"Exceeded maximum walk length ({maxLength}) before reaching an accept state: \"\n                f\"target length was {targetLength} (min length = {minLength})\"\n            )\nE           src.xeger.FailedRandomWalkException: Exceeded maximum walk length (0) before reaching an accept state: target length was 0 (min length = 0)\n\nsrc/xeger.py:410: FailedRandomWalkException\n=============================== warnings summary ===============================\nsrc/xeger.py:21\n  /scratch/work/agarciadom_xeger/src/xeger.py:21: DeprecationWarning: module 'sre_parse' is deprecated\n    import sre_parse\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n- generated xml file: /scratch/work/agarciadom_xeger/.harness-test-results.xml -\n=========================== short test summary info ============================\nFAILED public_tests/test_xeger_edge_public.py::test_generate_accept_on_first_step_public\nFAILED tests/original/test_xeger_edge.py::test_generate_accept_on_first_step\n=================== 2 failed, 38 passed, 1 warning in 2.82s ====================\n\n",
+          "failures": {
+            "public_tests.test_xeger_edge_public::test_generate_accept_on_first_step_public": "src.xeger.FailedRandomWalkException: Exceeded maximum walk length (0) before reaching an accept state: target length was 0 (min length = 0)",
+            "tests.original.test_xeger_edge::test_generate_accept_on_first_step": "src.xeger.FailedRandomWalkException: Exceeded maximum walk length (0) before reaching an accept state: target length was 0 (min length = 0)"
+          },
+          "error": null
+        }
+      ],
+      "cost_complete": true,
+      "passed": 38,
+      "expected_total": 40,
+      "error": null,
+      "estimated_cost_usd": 0.232,
+      "tokens": {
+        "input_tokens": 4187,
+        "output_tokens": 26108,
+        "cache_read_input_tokens": 384494,
+        "cache_creation_input_tokens": 46963
+      }
+    },
+    {
+      "project": "editorconfig_editorconfig-jetbrains",
+      "status": "failed",
+      "migration_passed": false,
+      "test_success_rate": 0.0,
+      "iterations": 1,
+      "variant": "v1",
+      "history": [
+        {
+          "iteration": 1,
+          "phase": "one_shot",
+          "estimated_cost_usd": 0.0732,
+          "tokens": {
+            "input_tokens": 4159,
+            "output_tokens": 5143,
+            "cache_read_input_tokens": 190174,
+            "cache_creation_input_tokens": 19306
+          },
+          "agent_error": null,
+          "migration_passed": false,
+          "test_success_rate": 0.0,
+          "passed": 0,
+          "failed": 12,
+          "skipped": 0,
+          "total": 12,
+          "expected_total": 12,
+          "suite_verified": true,
+          "protected_files_unchanged": true,
+          "evaluation_valid": true,
+          "exit_code": 1,
+          "output_tail": "invalid_config_message(\"42\", \"answer\", \"deepfile\")\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: module 'src.editorconfig.utils' has no attribute 'invalid_config_message'. Did you mean: 'invalidConfigMessage'?\n\npublic_tests/test_utils_public.py:37: AttributeError\n___________ test_applied_config_message_makes_correct_string_public ____________\n\n    def test_applied_config_message_makes_correct_string_public():\n>       msg = utils.applied_config_message(\"enabled\", \"feature\", \"file.txt\")\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: module 'src.editorconfig.utils' has no attribute 'applied_config_message'. Did you mean: 'appliedConfigMessage'?\n\npublic_tests/test_utils_public.py:41: AttributeError\n_________________ test_config_value_for_key_finds_existing_key _________________\n\n    def test_config_value_for_key_finds_existing_key():\n        pairs = [FakeOutPair(\"foo\", \"bar\"), FakeOutPair(\"baz\", \"qux\")]\n>       assert utils.config_value_for_key(pairs, \"foo\") == \"bar\"\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: module 'src.editorconfig.utils' has no attribute 'config_value_for_key'. Did you mean: 'configValueForKey'?\n\ntests/original/test_utils.py:18: AttributeError\n___________ test_config_value_for_key_returns_empty_for_missing_key ____________\n\n    def test_config_value_for_key_returns_empty_for_missing_key():\n        pairs = [FakeOutPair(\"foo\", \"bar\")]\n>       assert utils.config_value_for_key(pairs, \"notfound\") == \"\"\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: module 'src.editorconfig.utils' has no attribute 'config_value_for_key'. Did you mean: 'configValueForKey'?\n\ntests/original/test_utils.py:23: AttributeError\n_____________________ test_config_value_for_key_empty_list _____________________\n\n    def test_config_value_for_key_empty_list():\n>       assert utils.config_value_for_key([], \"foo\") == \"\"\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: module 'src.editorconfig.utils' has no attribute 'config_value_for_key'. Did you mean: 'configValueForKey'?\n\ntests/original/test_utils.py:26: AttributeError\n__________ test_config_value_for_key_multiple_same_keys_returns_first __________\n\n    def test_config_value_for_key_multiple_same_keys_returns_first():\n        pairs = [\n            FakeOutPair(\"foo\", \"first\"),\n            FakeOutPair(\"foo\", \"second\"),\n            FakeOutPair(\"bar\", \"other\"),\n        ]\n>       assert utils.config_value_for_key(pairs, \"foo\") == \"first\"\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: module 'src.editorconfig.utils' has no attribute 'config_value_for_key'. Did you mean: 'configValueForKey'?\n\ntests/original/test_utils.py:34: AttributeError\n_______________ test_invalid_config_message_makes_correct_string _______________\n\n    def test_invalid_config_message_makes_correct_string():\n>       msg = utils.invalid_config_message(\"value\", \"key\", \"file\")\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: module 'src.editorconfig.utils' has no attribute 'invalid_config_message'. Did you mean: 'invalidConfigMessage'?\n\ntests/original/test_utils.py:37: AttributeError\n_______________ test_applied_config_message_makes_correct_string _______________\n\n    def test_applied_config_message_makes_correct_string():\n>       msg = utils.applied_config_message(\"value\", \"key\", \"file\")\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: module 'src.editorconfig.utils' has no attribute 'applied_config_message'. Did you mean: 'appliedConfigMessage'?\n\ntests/original/test_utils.py:41: AttributeError\n- generated xml file: /scratch/work/editorconfig_editorconfig-jetbrains/.harness-test-results.xml -\n=========================== short test summary info ============================\nFAILED public_tests/test_utils_public.py::test_config_value_for_key_finds_different_existing_key\nFAILED public_tests/test_utils_public.py::test_config_value_for_key_returns_empty_for_another_missing_key\nFAILED public_tests/test_utils_public.py::test_config_value_for_key_empty_list_still_returns_empty\nFAILED public_tests/test_utils_public.py::test_config_value_for_key_multiple_same_keys_returns_first_public\nFAILED public_tests/test_utils_public.py::test_invalid_config_message_makes_correct_string_public\nFAILED public_tests/test_utils_public.py::test_applied_config_message_makes_correct_string_public\nFAILED tests/original/test_utils.py::test_config_value_for_key_finds_existing_key\nFAILED tests/original/test_utils.py::test_config_value_for_key_returns_empty_for_missing_key\nFAILED tests/original/test_utils.py::test_config_value_for_key_empty_list - A...\nFAILED tests/original/test_utils.py::test_config_value_for_key_multiple_same_keys_returns_first\nFAILED tests/original/test_utils.py::test_invalid_config_message_makes_correct_string\nFAILED tests/original/test_utils.py::test_applied_config_message_makes_correct_string\n============================== 12 failed in 0.04s ==============================\n\n",
+          "failures": {
+            "public_tests.test_utils_public::test_config_value_for_key_finds_different_existing_key": "AttributeError: module 'src.editorconfig.utils' has no attribute 'config_value_for_key'. Did you mean: 'configValueForKey'?",
+            "public_tests.test_utils_public::test_config_value_for_key_returns_empty_for_another_missing_key": "AttributeError: module 'src.editorconfig.utils' has no attribute 'config_value_for_key'. Did you mean: 'configValueForKey'?",
+            "public_tests.test_utils_public::test_config_value_for_key_empty_list_still_returns_empty": "AttributeError: module 'src.editorconfig.utils' has no attribute 'config_value_for_key'. Did you mean: 'configValueForKey'?",
+            "public_tests.test_utils_public::test_config_value_for_key_multiple_same_keys_returns_first_public": "AttributeError: module 'src.editorconfig.utils' has no attribute 'config_value_for_key'. Did you mean: 'configValueForKey'?",
+            "public_tests.test_utils_public::test_invalid_config_message_makes_correct_string_public": "AttributeError: module 'src.editorconfig.utils' has no attribute 'invalid_config_message'. Did you mean: 'invalidConfigMessage'?",
+            "public_tests.test_utils_public::test_applied_config_message_makes_correct_string_public": "AttributeError: module 'src.editorconfig.utils' has no attribute 'applied_config_message'. Did you mean: 'appliedConfigMessage'?",
+            "tests.original.test_utils::test_config_value_for_key_finds_existing_key": "AttributeError: module 'src.editorconfig.utils' has no attribute 'config_value_for_key'. Did you mean: 'configValueForKey'?",
+            "tests.original.test_utils::test_config_value_for_key_returns_empty_for_missing_key": "AttributeError: module 'src.editorconfig.utils' has no attribute 'config_value_for_key'. Did you mean: 'configValueForKey'?",
+            "tests.original.test_utils::test_config_value_for_key_empty_list": "AttributeError: module 'src.editorconfig.utils' has no attribute 'config_value_for_key'. Did you mean: 'configValueForKey'?",
+            "tests.original.test_utils::test_config_value_for_key_multiple_same_keys_returns_first": "AttributeError: module 'src.editorconfig.utils' has no attribute 'config_value_for_key'. Did you mean: 'configValueForKey'?",
+            "tests.original.test_utils::test_invalid_config_message_makes_correct_string": "AttributeError: module 'src.editorconfig.utils' has no attribute 'invalid_config_message'. Did you mean: 'invalidConfigMessage'?",
+            "tests.original.test_utils::test_applied_config_message_makes_correct_string": "AttributeError: module 'src.editorconfig.utils' has no attribute 'applied_config_message'. Did you mean: 'appliedConfigMessage'?"
+          },
+          "error": null
+        }
+      ],
+      "cost_complete": true,
+      "passed": 0,
+      "expected_total": 12,
+      "error": null,
+      "estimated_cost_usd": 0.0732,
+      "tokens": {
+        "input_tokens": 4159,
+        "output_tokens": 5143,
+        "cache_read_input_tokens": 190174,
+        "cache_creation_input_tokens": 19306
+      }
+    },
+    {
+      "project": "txusballesteros_fit-chart",
+      "status": "evaluation_invalid",
+      "migration_passed": false,
+      "test_success_rate": null,
+      "iterations": 1,
+      "variant": "v1",
+      "history": [
+        {
+          "iteration": 1,
+          "phase": "one_shot",
+          "estimated_cost_usd": 0.1578,
+          "tokens": {
+            "input_tokens": 4237,
+            "output_tokens": 13880,
+            "cache_read_input_tokens": 431191,
+            "cache_creation_input_tokens": 32696
+          },
+          "agent_error": null,
+          "migration_passed": false,
+          "test_success_rate": null,
+          "passed": 0,
+          "failed": 10,
+          "skipped": 0,
+          "total": 10,
+          "expected_total": 16,
+          "suite_verified": false,
+          "protected_files_unchanged": true,
+          "evaluation_valid": false,
+          "exit_code": 2,
+          "output_tail": "^^^^^^^^^^^\npublic_tests/test_renderer_factory_public.py:3: in <module>\n    from src.fitchart.fake_classes import AnimationMode, FitChartValue\nE   ImportError: cannot import name 'AnimationMode' from 'src.fitchart.fake_classes' (/scratch/work/txusballesteros_fit-chart/src/fitchart/fake_classes.py)\n____________ ERROR collecting tests/original/test_base_renderer.py _____________\nImportError while importing test module '/scratch/work/txusballesteros_fit-chart/tests/original/test_base_renderer.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_base_renderer.py:3: in <module>\n    from src.fitchart.fake_classes import FitChartValue\nE   ImportError: cannot import name 'FitChartValue' from 'src.fitchart.fake_classes' (/scratch/work/txusballesteros_fit-chart/src/fitchart/fake_classes.py)\n________ ERROR collecting tests/original/test_fake_classes_for_test.py _________\nImportError while importing test module '/scratch/work/txusballesteros_fit-chart/tests/original/test_fake_classes_for_test.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_fake_classes_for_test.py:2: in <module>\n    from src.fitchart.fake_classes import AnimationMode, Renderer, FitChartValue\nE   ImportError: cannot import name 'AnimationMode' from 'src.fitchart.fake_classes' (/scratch/work/txusballesteros_fit-chart/src/fitchart/fake_classes.py)\n________ ERROR collecting tests/original/test_linear_value_renderer.py _________\nImportError while importing test module '/scratch/work/txusballesteros_fit-chart/tests/original/test_linear_value_renderer.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_linear_value_renderer.py:3: in <module>\n    from src.fitchart.linear_value_renderer import LinearValueRenderer\nsrc/fitchart/linear_value_renderer.py:6: in <module>\n    from fitchart.base_renderer import BaseRenderer\nE   ModuleNotFoundError: No module named 'fitchart'\n_______ ERROR collecting tests/original/test_overdraw_value_renderer.py ________\nImportError while importing test module '/scratch/work/txusballesteros_fit-chart/tests/original/test_overdraw_value_renderer.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_overdraw_value_renderer.py:2: in <module>\n    from src.fitchart.overdraw_value_renderer import OverdrawValueRenderer\nsrc/fitchart/overdraw_value_renderer.py:6: in <module>\n    from fitchart.base_renderer import BaseRenderer, START_ANGLE\nE   ModuleNotFoundError: No module named 'fitchart'\n___________ ERROR collecting tests/original/test_renderer_factory.py ___________\nImportError while importing test module '/scratch/work/txusballesteros_fit-chart/tests/original/test_renderer_factory.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_renderer_factory.py:3: in <module>\n    from src.fitchart.fake_classes import AnimationMode, FitChartValue\nE   ImportError: cannot import name 'AnimationMode' from 'src.fitchart.fake_classes' (/scratch/work/txusballesteros_fit-chart/src/fitchart/fake_classes.py)\n- generated xml file: /scratch/work/txusballesteros_fit-chart/.harness-test-results.xml -\n=========================== short test summary info ============================\nERROR public_tests/test_base_renderer_public.py\nERROR public_tests/test_fake_classes_for_public_test.py\nERROR public_tests/test_linear_value_renderer_public.py\nERROR public_tests/test_overdraw_value_renderer_public.py\nERROR public_tests/test_renderer_factory_public.py\nERROR tests/original/test_base_renderer.py\nERROR tests/original/test_fake_classes_for_test.py\nERROR tests/original/test_linear_value_renderer.py\nERROR tests/original/test_overdraw_value_renderer.py\nERROR tests/original/test_renderer_factory.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 10 errors during collection !!!!!!!!!!!!!!!!!!!\n============================== 10 errors in 0.28s ==============================\n\n",
+          "failures": {
+            "::public_tests.test_base_renderer_public": "ImportError: cannot import name 'FitChartValue' from 'src.fitchart.fake_classes' (/scratch/work/txusballesteros_fit-chart/src/fitchart/fake_classes.py)",
+            "::public_tests.test_fake_classes_for_public_test": "ImportError: cannot import name 'AnimationMode' from 'src.fitchart.fake_classes' (/scratch/work/txusballesteros_fit-chart/src/fitchart/fake_classes.py)",
+            "::public_tests.test_linear_value_renderer_public": "ModuleNotFoundError: No module named 'fitchart'",
+            "::public_tests.test_overdraw_value_renderer_public": "ModuleNotFoundError: No module named 'fitchart'",
+            "::public_tests.test_renderer_factory_public": "ImportError: cannot import name 'AnimationMode' from 'src.fitchart.fake_classes' (/scratch/work/txusballesteros_fit-chart/src/fitchart/fake_classes.py)",
+            "::tests.original.test_base_renderer": "ImportError: cannot import name 'FitChartValue' from 'src.fitchart.fake_classes' (/scratch/work/txusballesteros_fit-chart/src/fitchart/fake_classes.py)",
+            "::tests.original.test_fake_classes_for_test": "ImportError: cannot import name 'AnimationMode' from 'src.fitchart.fake_classes' (/scratch/work/txusballesteros_fit-chart/src/fitchart/fake_classes.py)",
+            "::tests.original.test_linear_value_renderer": "ModuleNotFoundError: No module named 'fitchart'",
+            "::tests.original.test_overdraw_value_renderer": "ModuleNotFoundError: No module named 'fitchart'",
+            "::tests.original.test_renderer_factory": "ImportError: cannot import name 'AnimationMode' from 'src.fitchart.fake_classes' (/scratch/work/txusballesteros_fit-chart/src/fitchart/fake_classes.py)"
+          },
+          "error": "Collected/executed test identities differ from immutable baseline, or tests were skipped; Test collection: ============ short test summary info ============================\nERROR public_tests/test_base_renderer_public.py\nERROR public_tests/test_fake_classes_for_public_test.py\nERROR public_tests/test_linear_value_renderer_public.py\nERROR public_tests/test_overdraw_value_renderer_public.py\nERROR public_tests/test_renderer_factory_public.py\nERROR tests/original/test_base_renderer.py\nERROR tests/original/test_fake_classes_for_test.py\nERROR tests/original/test_linear_value_renderer.py\nERROR tests/original/test_overdraw_value_renderer.py\nERROR tests/original/test_renderer_factory.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 10 errors during collection !!!!!!!!!!!!!!!!!!!\nno tests collected, 10 errors in 0.17s\n\n"
+        }
+      ],
+      "cost_complete": true,
+      "passed": 0,
+      "expected_total": 16,
+      "error": "Collected/executed test identities differ from immutable baseline, or tests were skipped; Test collection: ============ short test summary info ============================\nERROR public_tests/test_base_renderer_public.py\nERROR public_tests/test_fake_classes_for_public_test.py\nERROR public_tests/test_linear_value_renderer_public.py\nERROR public_tests/test_overdraw_value_renderer_public.py\nERROR public_tests/test_renderer_factory_public.py\nERROR tests/original/test_base_renderer.py\nERROR tests/original/test_fake_classes_for_test.py\nERROR tests/original/test_linear_value_renderer.py\nERROR tests/original/test_overdraw_value_renderer.py\nERROR tests/original/test_renderer_factory.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 10 errors during collection !!!!!!!!!!!!!!!!!!!\nno tests collected, 10 errors in 0.17s\n\n",
+      "estimated_cost_usd": 0.1578,
+      "tokens": {
+        "input_tokens": 4237,
+        "output_tokens": 13880,
+        "cache_read_input_tokens": 431191,
+        "cache_creation_input_tokens": 32696
+      }
+    },
+    {
+      "project": "googlearchive_android-BluetoothLeGatt",
+      "status": "evaluation_invalid",
+      "migration_passed": false,
+      "test_success_rate": null,
+      "iterations": 1,
+      "variant": "v1",
+      "history": [
+        {
+          "iteration": 1,
+          "phase": "one_shot",
+          "estimated_cost_usd": 0.2195,
+          "tokens": {
+            "input_tokens": 4353,
+            "output_tokens": 12809,
+            "cache_read_input_tokens": 1021977,
+            "cache_creation_input_tokens": 39021
+          },
+          "agent_error": null,
+          "migration_passed": false,
+          "test_success_rate": null,
+          "passed": 0,
+          "failed": 5,
+          "skipped": 0,
+          "total": 5,
+          "expected_total": 19,
+          "suite_verified": false,
+          "protected_files_unchanged": true,
+          "evaluation_valid": false,
+          "exit_code": 2,
+          "output_tail": "ollected 2 items / 5 errors\n\n==================================== ERRORS ====================================\n___ ERROR collecting public_tests/test_sample_gatt_attributes_edge_public.py ___\nImportError while importing test module '/scratch/work/googlearchive_android-BluetoothLeGatt/public_tests/test_sample_gatt_attributes_edge_public.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\npublic_tests/test_sample_gatt_attributes_edge_public.py:2: in <module>\n    from src.bluetoothlegatt.sample_gatt_attributes import SampleGattAttributes\nE   ImportError: cannot import name 'SampleGattAttributes' from 'src.bluetoothlegatt.sample_gatt_attributes' (/scratch/work/googlearchive_android-BluetoothLeGatt/src/bluetoothlegatt/sample_gatt_attributes.py)\n_____ ERROR collecting public_tests/test_sample_gatt_attributes_public.py ______\nImportError while importing test module '/scratch/work/googlearchive_android-BluetoothLeGatt/public_tests/test_sample_gatt_attributes_public.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\npublic_tests/test_sample_gatt_attributes_public.py:2: in <module>\n    from src.bluetoothlegatt.sample_gatt_attributes import SampleGattAttributes\nE   ImportError: cannot import name 'SampleGattAttributes' from 'src.bluetoothlegatt.sample_gatt_attributes' (/scratch/work/googlearchive_android-BluetoothLeGatt/src/bluetoothlegatt/sample_gatt_attributes.py)\n_________ ERROR collecting tests/original/test_device_scan_activity.py _________\nImportError while importing test module '/scratch/work/googlearchive_android-BluetoothLeGatt/tests/original/test_device_scan_activity.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_device_scan_activity.py:2: in <module>\n    from src.bluetoothlegatt.device_scan_activity import DeviceScanActivity\nE   ImportError: cannot import name 'DeviceScanActivity' from 'src.bluetoothlegatt.device_scan_activity' (/scratch/work/googlearchive_android-BluetoothLeGatt/src/bluetoothlegatt/device_scan_activity.py)\n________ ERROR collecting tests/original/test_sample_gatt_attributes.py ________\nImportError while importing test module '/scratch/work/googlearchive_android-BluetoothLeGatt/tests/original/test_sample_gatt_attributes.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_sample_gatt_attributes.py:2: in <module>\n    from src.bluetoothlegatt.sample_gatt_attributes import SampleGattAttributes\nE   ImportError: cannot import name 'SampleGattAttributes' from 'src.bluetoothlegatt.sample_gatt_attributes' (/scratch/work/googlearchive_android-BluetoothLeGatt/src/bluetoothlegatt/sample_gatt_attributes.py)\n_____ ERROR collecting tests/original/test_sample_gatt_attributes_edge.py ______\nImportError while importing test module '/scratch/work/googlearchive_android-BluetoothLeGatt/tests/original/test_sample_gatt_attributes_edge.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_sample_gatt_attributes_edge.py:2: in <module>\n    from src.bluetoothlegatt.sample_gatt_attributes import SampleGattAttributes\nE   ImportError: cannot import name 'SampleGattAttributes' from 'src.bluetoothlegatt.sample_gatt_attributes' (/scratch/work/googlearchive_android-BluetoothLeGatt/src/bluetoothlegatt/sample_gatt_attributes.py)\n- generated xml file: /scratch/work/googlearchive_android-BluetoothLeGatt/.harness-test-results.xml -\n=========================== short test summary info ============================\nERROR public_tests/test_sample_gatt_attributes_edge_public.py\nERROR public_tests/test_sample_gatt_attributes_public.py\nERROR tests/original/test_device_scan_activity.py\nERROR tests/original/test_sample_gatt_attributes.py\nERROR tests/original/test_sample_gatt_attributes_edge.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 5 errors during collection !!!!!!!!!!!!!!!!!!!!\n============================== 5 errors in 0.09s ===============================\n\n",
+          "failures": {
+            "::public_tests.test_sample_gatt_attributes_edge_public": "ImportError: cannot import name 'SampleGattAttributes' from 'src.bluetoothlegatt.sample_gatt_attributes' (/scratch/work/googlearchive_android-BluetoothLeGatt/src/bluetoothlegatt/sample_gatt_attributes.py)",
+            "::public_tests.test_sample_gatt_attributes_public": "ImportError: cannot import name 'SampleGattAttributes' from 'src.bluetoothlegatt.sample_gatt_attributes' (/scratch/work/googlearchive_android-BluetoothLeGatt/src/bluetoothlegatt/sample_gatt_attributes.py)",
+            "::tests.original.test_device_scan_activity": "ImportError: cannot import name 'DeviceScanActivity' from 'src.bluetoothlegatt.device_scan_activity' (/scratch/work/googlearchive_android-BluetoothLeGatt/src/bluetoothlegatt/device_scan_activity.py)",
+            "::tests.original.test_sample_gatt_attributes": "ImportError: cannot import name 'SampleGattAttributes' from 'src.bluetoothlegatt.sample_gatt_attributes' (/scratch/work/googlearchive_android-BluetoothLeGatt/src/bluetoothlegatt/sample_gatt_attributes.py)",
+            "::tests.original.test_sample_gatt_attributes_edge": "ImportError: cannot import name 'SampleGattAttributes' from 'src.bluetoothlegatt.sample_gatt_attributes' (/scratch/work/googlearchive_android-BluetoothLeGatt/src/bluetoothlegatt/sample_gatt_attributes.py)"
+          },
+          "error": "Collected/executed test identities differ from immutable baseline, or tests were skipped; Test collection: ttAttributes\nE   ImportError: cannot import name 'SampleGattAttributes' from 'src.bluetoothlegatt.sample_gatt_attributes' (/scratch/work/googlearchive_android-BluetoothLeGatt/src/bluetoothlegatt/sample_gatt_attributes.py)\n=========================== short test summary info ============================\nERROR public_tests/test_sample_gatt_attributes_edge_public.py\nERROR public_tests/test_sample_gatt_attributes_public.py\nERROR tests/original/test_device_scan_activity.py\nERROR tests/original/test_sample_gatt_attributes.py\nERROR tests/original/test_sample_gatt_attributes_edge.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 5 errors during collection !!!!!!!!!!!!!!!!!!!!\n2 tests collected, 5 errors in 0.07s\n\n"
+        }
+      ],
+      "cost_complete": true,
+      "passed": 0,
+      "expected_total": 19,
+      "error": "Collected/executed test identities differ from immutable baseline, or tests were skipped; Test collection: ttAttributes\nE   ImportError: cannot import name 'SampleGattAttributes' from 'src.bluetoothlegatt.sample_gatt_attributes' (/scratch/work/googlearchive_android-BluetoothLeGatt/src/bluetoothlegatt/sample_gatt_attributes.py)\n=========================== short test summary info ============================\nERROR public_tests/test_sample_gatt_attributes_edge_public.py\nERROR public_tests/test_sample_gatt_attributes_public.py\nERROR tests/original/test_device_scan_activity.py\nERROR tests/original/test_sample_gatt_attributes.py\nERROR tests/original/test_sample_gatt_attributes_edge.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 5 errors during collection !!!!!!!!!!!!!!!!!!!!\n2 tests collected, 5 errors in 0.07s\n\n",
+      "estimated_cost_usd": 0.2195,
+      "tokens": {
+        "input_tokens": 4353,
+        "output_tokens": 12809,
+        "cache_read_input_tokens": 1021977,
+        "cache_creation_input_tokens": 39021
+      }
+    }
+  ],
+  "summary": {
+    "migration_passed": 0,
+    "total_projects": 5,
+    "test_success_rate": null
+  }
+}

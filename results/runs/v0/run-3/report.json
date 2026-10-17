@@ -1,0 +1,306 @@
+{
+  "config": {
+    "dataset_version": "RepoTransBench v1.0",
+    "dataset_summary_sha256": "c4430828b3a37548796b1d78b8211b4c6b2c1c7b850a7f5e46f12f6c04a99ef2",
+    "source_tree_sha256": "75946316c167048cd6b89aaa53c5ea8bab262fd8713ffe5c88f8c490a96e45d4",
+    "test_suite_sha256": "005d4bc56a53dfd54ca8429248372060ba51dc935a8c518bc3ede672eea1e587",
+    "project_ids": [
+      "aventrix_jnanoid",
+      "agarciadom_xeger",
+      "editorconfig_editorconfig-jetbrains",
+      "txusballesteros_fit-chart",
+      "googlearchive_android-BluetoothLeGatt"
+    ],
+    "model": "claude-haiku-4-5-20251001",
+    "variant": "v0",
+    "prompt_version": "minimal-1",
+    "evaluator_version": "static-junit-1",
+    "max_attempts": 1,
+    "budget_usd_per_project": 5.0,
+    "timeout_seconds": 180,
+    "python_version": "3.12.12",
+    "pytest_version": "8.4.2",
+    "claude_agent_sdk_version": "0.2.166"
+  },
+  "projects": [
+    {
+      "project": "aventrix_jnanoid",
+      "status": "failed",
+      "migration_passed": false,
+      "test_success_rate": 78.26,
+      "iterations": 1,
+      "variant": "v0",
+      "history": [
+        {
+          "iteration": 1,
+          "phase": "one_shot",
+          "estimated_cost_usd": 0.1177,
+          "tokens": {
+            "input_tokens": 4046,
+            "output_tokens": 11431,
+            "cache_read_input_tokens": 255107,
+            "cache_creation_input_tokens": 24680
+          },
+          "agent_error": null,
+          "migration_passed": false,
+          "test_success_rate": 78.26,
+          "passed": 18,
+          "failed": 5,
+          "skipped": 0,
+          "total": 23,
+          "expected_total": 23,
+          "suite_verified": true,
+          "protected_files_unchanged": true,
+          "evaluation_valid": true,
+          "exit_code": 1,
+          "output_tail": "============================= test session starts ==============================\nplatform linux -- Python 3.12.12, pytest-8.4.2, pluggy-1.7.0\nrootdir: /results/runs/v0/run-3/aventrix_jnanoid\ncollected 23 items\n\npublic_tests/test_nanoidutils_public.py ..F......                        [ 39%]\ntests/original/test_nanoidutils.py .....FF..FF...                        [100%]\n\n=================================== FAILURES ===================================\n___________________ test_random_nanoid_null_alphabet_public ____________________\n\n    def test_random_nanoid_null_alphabet_public():\n        rng = random.SystemRandom()\n>       with pytest.raises(ValueError):\n             ^^^^^^^^^^^^^^^^^^^^^^^^^\nE       Failed: DID NOT RAISE <class 'ValueError'>\n\npublic_tests/test_nanoidutils_public.py:33: Failed\n________________________ test_random_nanoid_null_random ________________________\n\n    def test_random_nanoid_null_random():\n>       with pytest.raises(ValueError):\n             ^^^^^^^^^^^^^^^^^^^^^^^^^\nE       Failed: DID NOT RAISE <class 'ValueError'>\n\ntests/original/test_nanoidutils.py:39: Failed\n_______________________ test_random_nanoid_null_alphabet _______________________\n\n    def test_random_nanoid_null_alphabet():\n>       with pytest.raises(ValueError):\n             ^^^^^^^^^^^^^^^^^^^^^^^^^\nE       Failed: DID NOT RAISE <class 'ValueError'>\n\ntests/original/test_nanoidutils.py:43: Failed\n_________________________ test_nanoid_is_url_friendly __________________________\n\n    def test_nanoid_is_url_friendly():\n        nanoid = NanoIdUtils.randomNanoId()\n>       assert NanoIdUtils.is_url_friendly(nanoid)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: type object 'NanoIdUtils' has no attribute 'is_url_friendly'\n\ntests/original/test_nanoidutils.py:57: AttributeError\n_____________________ test_nanoidutils_private_constructor _____________________\n\nmonkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0xffff95689250>\n\n    def test_nanoidutils_private_constructor(monkeypatch):\n        # Python: just ensure instantiating the class works\n        try:\n>           instance = NanoIdUtils()\n                       ^^^^^^^^^^^^^\n\ntests/original/test_nanoidutils.py:62: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = <src.jnanoid.nano_id_utils.NanoIdUtils object at 0xffff955f36b0>\n\n    def __init__(self):\n        \"\"\"\n        NanoIdUtils instances should NOT be constructed in standard programming.\n        Instead, the class should be used as NanoIdUtils.random_nano_id().\n        \"\"\"\n>       raise TypeError(\"NanoIdUtils should not be instantiated\")\nE       TypeError: NanoIdUtils should not be instantiated\n\nsrc/jnanoid/nano_id_utils.py:59: TypeError\n\nDuring handling of the above exception, another exception occurred:\n\nmonkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0xffff95689250>\n\n    def test_nanoidutils_private_constructor(monkeypatch):\n        # Python: just ensure instantiating the class works\n        try:\n            instance = NanoIdUtils()\n        except Exception as e:\n>           pytest.fail(\"NanoIdUtils() constructor raised Exception: %s\" % e)\nE           Failed: NanoIdUtils() constructor raised Exception: NanoIdUtils should not be instantiated\n\ntests/original/test_nanoidutils.py:64: Failed\n- generated xml file: /results/runs/v0/run-3/aventrix_jnanoid/.harness-test-results.xml -\n=========================== short test summary info ============================\nFAILED public_tests/test_nanoidutils_public.py::test_random_nanoid_null_alphabet_public\nFAILED tests/original/test_nanoidutils.py::test_random_nanoid_null_random - F...\nFAILED tests/original/test_nanoidutils.py::test_random_nanoid_null_alphabet\nFAILED tests/original/test_nanoidutils.py::test_nanoid_is_url_friendly - Attr...\nFAILED tests/original/test_nanoidutils.py::test_nanoidutils_private_constructor\n========================= 5 failed, 18 passed in 0.13s =========================\n\n",
+          "failures": {
+            "public_tests.test_nanoidutils_public::test_random_nanoid_null_alphabet_public": "Failed: DID NOT RAISE <class 'ValueError'>",
+            "tests.original.test_nanoidutils::test_random_nanoid_null_random": "Failed: DID NOT RAISE <class 'ValueError'>",
+            "tests.original.test_nanoidutils::test_random_nanoid_null_alphabet": "Failed: DID NOT RAISE <class 'ValueError'>",
+            "tests.original.test_nanoidutils::test_nanoid_is_url_friendly": "AttributeError: type object 'NanoIdUtils' has no attribute 'is_url_friendly'",
+            "tests.original.test_nanoidutils::test_nanoidutils_private_constructor": "TypeError: NanoIdUtils should not be instantiated"
+          },
+          "error": null
+        }
+      ],
+      "cost_complete": true,
+      "passed": 18,
+      "expected_total": 23,
+      "error": null,
+      "estimated_cost_usd": 0.1177,
+      "tokens": {
+        "input_tokens": 4046,
+        "output_tokens": 11431,
+        "cache_read_input_tokens": 255107,
+        "cache_creation_input_tokens": 24680
+      }
+    },
+    {
+      "project": "agarciadom_xeger",
+      "status": "evaluation_invalid",
+      "migration_passed": false,
+      "test_success_rate": null,
+      "iterations": 1,
+      "variant": "v0",
+      "history": [
+        {
+          "iteration": 1,
+          "phase": "one_shot",
+          "estimated_cost_usd": 0.3483,
+          "tokens": {
+            "input_tokens": 4199,
+            "output_tokens": 32998,
+            "cache_read_input_tokens": 1072048,
+            "cache_creation_input_tokens": 57445
+          },
+          "agent_error": "error_max_turns",
+          "migration_passed": false,
+          "test_success_rate": null,
+          "passed": 0,
+          "failed": 8,
+          "skipped": 0,
+          "total": 8,
+          "expected_total": 40,
+          "suite_verified": false,
+          "protected_files_unchanged": true,
+          "evaluation_valid": false,
+          "exit_code": 2,
+          "output_tail": "test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\npublic_tests/test_xeger_public.py:2: in <module>\n    from src.xeger import Xeger\nsrc/__init__.py:3: in <module>\n    from .xeger import Xeger\nsrc/xeger.py:23: in <module>\n    from greenery import parse as parse_regex\nE   ModuleNotFoundError: No module named 'greenery'\n___________ ERROR collecting public_tests/test_xeger_utils_public.py ___________\nImportError while importing test module '/results/runs/v0/run-3/agarciadom_xeger/public_tests/test_xeger_utils_public.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\npublic_tests/test_xeger_utils_public.py:2: in <module>\n    from src.xeger import Xeger\nsrc/__init__.py:3: in <module>\n    from .xeger import Xeger\nsrc/xeger.py:23: in <module>\n    from greenery import parse as parse_regex\nE   ModuleNotFoundError: No module named 'greenery'\n________________ ERROR collecting tests/original/test_xeger.py _________________\nImportError while importing test module '/results/runs/v0/run-3/agarciadom_xeger/tests/original/test_xeger.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_xeger.py:3: in <module>\n    from src.xeger import Xeger, FailedRandomWalkException\nsrc/__init__.py:3: in <module>\n    from .xeger import Xeger\nsrc/xeger.py:23: in <module>\n    from greenery import parse as parse_regex\nE   ModuleNotFoundError: No module named 'greenery'\n____________ ERROR collecting tests/original/test_xeger_coverage.py ____________\nImportError while importing test module '/results/runs/v0/run-3/agarciadom_xeger/tests/original/test_xeger_coverage.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_xeger_coverage.py:3: in <module>\n    from src.xeger import Xeger, FailedRandomWalkException\nsrc/__init__.py:3: in <module>\n    from .xeger import Xeger\nsrc/xeger.py:23: in <module>\n    from greenery import parse as parse_regex\nE   ModuleNotFoundError: No module named 'greenery'\n______________ ERROR collecting tests/original/test_xeger_edge.py ______________\nImportError while importing test module '/results/runs/v0/run-3/agarciadom_xeger/tests/original/test_xeger_edge.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_xeger_edge.py:3: in <module>\n    from src.xeger import Xeger, FailedRandomWalkException\nsrc/__init__.py:3: in <module>\n    from .xeger import Xeger\nsrc/xeger.py:23: in <module>\n    from greenery import parse as parse_regex\nE   ModuleNotFoundError: No module named 'greenery'\n_____________ ERROR collecting tests/original/test_xeger_utils.py ______________\nImportError while importing test module '/results/runs/v0/run-3/agarciadom_xeger/tests/original/test_xeger_utils.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_xeger_utils.py:2: in <module>\n    from src.xeger import Xeger\nsrc/__init__.py:3: in <module>\n    from .xeger import Xeger\nsrc/xeger.py:23: in <module>\n    from greenery import parse as parse_regex\nE   ModuleNotFoundError: No module named 'greenery'\n- generated xml file: /results/runs/v0/run-3/agarciadom_xeger/.harness-test-results.xml -\n=========================== short test summary info ============================\nERROR public_tests/test_xeger_coverage_public.py\nERROR public_tests/test_xeger_edge_public.py\nERROR public_tests/test_xeger_public.py\nERROR public_tests/test_xeger_utils_public.py\nERROR tests/original/test_xeger.py\nERROR tests/original/test_xeger_coverage.py\nERROR tests/original/test_xeger_edge.py\nERROR tests/original/test_xeger_utils.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 8 errors during collection !!!!!!!!!!!!!!!!!!!!\n============================== 8 errors in 0.21s ===============================\n\n",
+          "failures": {
+            "::public_tests.test_xeger_coverage_public": "ModuleNotFoundError: No module named 'greenery'",
+            "::public_tests.test_xeger_edge_public": "ModuleNotFoundError: No module named 'greenery'",
+            "::public_tests.test_xeger_public": "ModuleNotFoundError: No module named 'greenery'",
+            "::public_tests.test_xeger_utils_public": "ModuleNotFoundError: No module named 'greenery'",
+            "::tests.original.test_xeger": "ModuleNotFoundError: No module named 'greenery'",
+            "::tests.original.test_xeger_coverage": "ModuleNotFoundError: No module named 'greenery'",
+            "::tests.original.test_xeger_edge": "ModuleNotFoundError: No module named 'greenery'",
+            "::tests.original.test_xeger_utils": "ModuleNotFoundError: No module named 'greenery'"
+          },
+          "error": "Collected/executed test identities differ from immutable baseline, or tests were skipped; Test collection: e>\n    from .xeger import Xeger\nsrc/xeger.py:23: in <module>\n    from greenery import parse as parse_regex\nE   ModuleNotFoundError: No module named 'greenery'\n=========================== short test summary info ============================\nERROR public_tests/test_xeger_coverage_public.py\nERROR public_tests/test_xeger_edge_public.py\nERROR public_tests/test_xeger_public.py\nERROR public_tests/test_xeger_utils_public.py\nERROR tests/original/test_xeger.py\nERROR tests/original/test_xeger_coverage.py\nERROR tests/original/test_xeger_edge.py\nERROR tests/original/test_xeger_utils.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 8 errors during collection !!!!!!!!!!!!!!!!!!!!\nno tests collected, 8 errors in 0.11s\n\n"
+        }
+      ],
+      "cost_complete": true,
+      "passed": 0,
+      "expected_total": 40,
+      "error": "Collected/executed test identities differ from immutable baseline, or tests were skipped; Test collection: e>\n    from .xeger import Xeger\nsrc/xeger.py:23: in <module>\n    from greenery import parse as parse_regex\nE   ModuleNotFoundError: No module named 'greenery'\n=========================== short test summary info ============================\nERROR public_tests/test_xeger_coverage_public.py\nERROR public_tests/test_xeger_edge_public.py\nERROR public_tests/test_xeger_public.py\nERROR public_tests/test_xeger_utils_public.py\nERROR tests/original/test_xeger.py\nERROR tests/original/test_xeger_coverage.py\nERROR tests/original/test_xeger_edge.py\nERROR tests/original/test_xeger_utils.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 8 errors during collection !!!!!!!!!!!!!!!!!!!!\nno tests collected, 8 errors in 0.11s\n\n",
+      "estimated_cost_usd": 0.3483,
+      "tokens": {
+        "input_tokens": 4199,
+        "output_tokens": 32998,
+        "cache_read_input_tokens": 1072048,
+        "cache_creation_input_tokens": 57445
+      }
+    },
+    {
+      "project": "editorconfig_editorconfig-jetbrains",
+      "status": "failed",
+      "migration_passed": false,
+      "test_success_rate": 0.0,
+      "iterations": 1,
+      "variant": "v0",
+      "history": [
+        {
+          "iteration": 1,
+          "phase": "one_shot",
+          "estimated_cost_usd": 0.3938,
+          "tokens": {
+            "input_tokens": 4203,
+            "output_tokens": 40873,
+            "cache_read_input_tokens": 1117324,
+            "cache_creation_input_tokens": 58695
+          },
+          "agent_error": "error_max_turns",
+          "migration_passed": false,
+          "test_success_rate": 0.0,
+          "passed": 0,
+          "failed": 12,
+          "skipped": 0,
+          "total": 12,
+          "expected_total": 12,
+          "suite_verified": true,
+          "protected_files_unchanged": true,
+          "evaluation_valid": true,
+          "exit_code": 1,
+          "output_tail": "le 'src.editorconfig.utils' has no attribute 'config_value_for_key'\n\npublic_tests/test_utils_public.py:34: AttributeError\n___________ test_invalid_config_message_makes_correct_string_public ____________\n\n    def test_invalid_config_message_makes_correct_string_public():\n>       msg = utils.invalid_config_message(\"42\", \"answer\", \"deepfile\")\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: module 'src.editorconfig.utils' has no attribute 'invalid_config_message'\n\npublic_tests/test_utils_public.py:37: AttributeError\n___________ test_applied_config_message_makes_correct_string_public ____________\n\n    def test_applied_config_message_makes_correct_string_public():\n>       msg = utils.applied_config_message(\"enabled\", \"feature\", \"file.txt\")\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: module 'src.editorconfig.utils' has no attribute 'applied_config_message'\n\npublic_tests/test_utils_public.py:41: AttributeError\n_________________ test_config_value_for_key_finds_existing_key _________________\n\n    def test_config_value_for_key_finds_existing_key():\n        pairs = [FakeOutPair(\"foo\", \"bar\"), FakeOutPair(\"baz\", \"qux\")]\n>       assert utils.config_value_for_key(pairs, \"foo\") == \"bar\"\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: module 'src.editorconfig.utils' has no attribute 'config_value_for_key'\n\ntests/original/test_utils.py:18: AttributeError\n___________ test_config_value_for_key_returns_empty_for_missing_key ____________\n\n    def test_config_value_for_key_returns_empty_for_missing_key():\n        pairs = [FakeOutPair(\"foo\", \"bar\")]\n>       assert utils.config_value_for_key(pairs, \"notfound\") == \"\"\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: module 'src.editorconfig.utils' has no attribute 'config_value_for_key'\n\ntests/original/test_utils.py:23: AttributeError\n_____________________ test_config_value_for_key_empty_list _____________________\n\n    def test_config_value_for_key_empty_list():\n>       assert utils.config_value_for_key([], \"foo\") == \"\"\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: module 'src.editorconfig.utils' has no attribute 'config_value_for_key'\n\ntests/original/test_utils.py:26: AttributeError\n__________ test_config_value_for_key_multiple_same_keys_returns_first __________\n\n    def test_config_value_for_key_multiple_same_keys_returns_first():\n        pairs = [\n            FakeOutPair(\"foo\", \"first\"),\n            FakeOutPair(\"foo\", \"second\"),\n            FakeOutPair(\"bar\", \"other\"),\n        ]\n>       assert utils.config_value_for_key(pairs, \"foo\") == \"first\"\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: module 'src.editorconfig.utils' has no attribute 'config_value_for_key'\n\ntests/original/test_utils.py:34: AttributeError\n_______________ test_invalid_config_message_makes_correct_string _______________\n\n    def test_invalid_config_message_makes_correct_string():\n>       msg = utils.invalid_config_message(\"value\", \"key\", \"file\")\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: module 'src.editorconfig.utils' has no attribute 'invalid_config_message'\n\ntests/original/test_utils.py:37: AttributeError\n_______________ test_applied_config_message_makes_correct_string _______________\n\n    def test_applied_config_message_makes_correct_string():\n>       msg = utils.applied_config_message(\"value\", \"key\", \"file\")\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: module 'src.editorconfig.utils' has no attribute 'applied_config_message'\n\ntests/original/test_utils.py:41: AttributeError\n- generated xml file: /results/runs/v0/run-3/editorconfig_editorconfig-jetbrains/.harness-test-results.xml -\n=========================== short test summary info ============================\nFAILED public_tests/test_utils_public.py::test_config_value_for_key_finds_different_existing_key\nFAILED public_tests/test_utils_public.py::test_config_value_for_key_returns_empty_for_another_missing_key\nFAILED public_tests/test_utils_public.py::test_config_value_for_key_empty_list_still_returns_empty\nFAILED public_tests/test_utils_public.py::test_config_value_for_key_multiple_same_keys_returns_first_public\nFAILED public_tests/test_utils_public.py::test_invalid_config_message_makes_correct_string_public\nFAILED public_tests/test_utils_public.py::test_applied_config_message_makes_correct_string_public\nFAILED tests/original/test_utils.py::test_config_value_for_key_finds_existing_key\nFAILED tests/original/test_utils.py::test_config_value_for_key_returns_empty_for_missing_key\nFAILED tests/original/test_utils.py::test_config_value_for_key_empty_list - A...\nFAILED tests/original/test_utils.py::test_config_value_for_key_multiple_same_keys_returns_first\nFAILED tests/original/test_utils.py::test_invalid_config_message_makes_correct_string\nFAILED tests/original/test_utils.py::test_applied_config_message_makes_correct_string\n============================== 12 failed in 0.12s ==============================\n\n",
+          "failures": {
+            "public_tests.test_utils_public::test_config_value_for_key_finds_different_existing_key": "AttributeError: module 'src.editorconfig.utils' has no attribute 'config_value_for_key'",
+            "public_tests.test_utils_public::test_config_value_for_key_returns_empty_for_another_missing_key": "AttributeError: module 'src.editorconfig.utils' has no attribute 'config_value_for_key'",
+            "public_tests.test_utils_public::test_config_value_for_key_empty_list_still_returns_empty": "AttributeError: module 'src.editorconfig.utils' has no attribute 'config_value_for_key'",
+            "public_tests.test_utils_public::test_config_value_for_key_multiple_same_keys_returns_first_public": "AttributeError: module 'src.editorconfig.utils' has no attribute 'config_value_for_key'",
+            "public_tests.test_utils_public::test_invalid_config_message_makes_correct_string_public": "AttributeError: module 'src.editorconfig.utils' has no attribute 'invalid_config_message'",
+            "public_tests.test_utils_public::test_applied_config_message_makes_correct_string_public": "AttributeError: module 'src.editorconfig.utils' has no attribute 'applied_config_message'",
+            "tests.original.test_utils::test_config_value_for_key_finds_existing_key": "AttributeError: module 'src.editorconfig.utils' has no attribute 'config_value_for_key'",
+            "tests.original.test_utils::test_config_value_for_key_returns_empty_for_missing_key": "AttributeError: module 'src.editorconfig.utils' has no attribute 'config_value_for_key'",
+            "tests.original.test_utils::test_config_value_for_key_empty_list": "AttributeError: module 'src.editorconfig.utils' has no attribute 'config_value_for_key'",
+            "tests.original.test_utils::test_config_value_for_key_multiple_same_keys_returns_first": "AttributeError: module 'src.editorconfig.utils' has no attribute 'config_value_for_key'",
+            "tests.original.test_utils::test_invalid_config_message_makes_correct_string": "AttributeError: module 'src.editorconfig.utils' has no attribute 'invalid_config_message'",
+            "tests.original.test_utils::test_applied_config_message_makes_correct_string": "AttributeError: module 'src.editorconfig.utils' has no attribute 'applied_config_message'"
+          },
+          "error": null
+        }
+      ],
+      "cost_complete": true,
+      "passed": 0,
+      "expected_total": 12,
+      "error": "Claude SDK: error_max_turns",
+      "estimated_cost_usd": 0.3938,
+      "tokens": {
+        "input_tokens": 4203,
+        "output_tokens": 40873,
+        "cache_read_input_tokens": 1117324,
+        "cache_creation_input_tokens": 58695
+      }
+    },
+    {
+      "project": "txusballesteros_fit-chart",
+      "status": "evaluation_invalid",
+      "migration_passed": false,
+      "test_success_rate": null,
+      "iterations": 1,
+      "variant": "v0",
+      "history": [
+        {
+          "iteration": 1,
+          "phase": "one_shot",
+          "estimated_cost_usd": 0.2563,
+          "tokens": {
+            "input_tokens": 4201,
+            "output_tokens": 24467,
+            "cache_read_input_tokens": 767181,
+            "cache_creation_input_tokens": 42354
+          },
+          "agent_error": "error_max_turns",
+          "migration_passed": false,
+          "test_success_rate": null,
+          "passed": 0,
+          "failed": 10,
+          "skipped": 0,
+          "total": 10,
+          "expected_total": 16,
+          "suite_verified": false,
+          "protected_files_unchanged": true,
+          "evaluation_valid": false,
+          "exit_code": 2,
+          "output_tail": "alue_renderer import OverdrawValueRenderer\nE   ModuleNotFoundError: No module named 'src.fitchart'\n________ ERROR collecting public_tests/test_renderer_factory_public.py _________\nImportError while importing test module '/results/runs/v0/run-3/txusballesteros_fit-chart/public_tests/test_renderer_factory_public.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\npublic_tests/test_renderer_factory_public.py:2: in <module>\n    from src.fitchart.renderer_factory import RendererFactory\nE   ModuleNotFoundError: No module named 'src.fitchart'\n____________ ERROR collecting tests/original/test_base_renderer.py _____________\nImportError while importing test module '/results/runs/v0/run-3/txusballesteros_fit-chart/tests/original/test_base_renderer.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_base_renderer.py:1: in <module>\n    from src.fitchart.base_renderer import BaseRenderer\nE   ModuleNotFoundError: No module named 'src.fitchart'\n________ ERROR collecting tests/original/test_fake_classes_for_test.py _________\nImportError while importing test module '/results/runs/v0/run-3/txusballesteros_fit-chart/tests/original/test_fake_classes_for_test.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_fake_classes_for_test.py:2: in <module>\n    from src.fitchart.fake_classes import AnimationMode, Renderer, FitChartValue\nE   ModuleNotFoundError: No module named 'src.fitchart'\n________ ERROR collecting tests/original/test_linear_value_renderer.py _________\nImportError while importing test module '/results/runs/v0/run-3/txusballesteros_fit-chart/tests/original/test_linear_value_renderer.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_linear_value_renderer.py:3: in <module>\n    from src.fitchart.linear_value_renderer import LinearValueRenderer\nE   ModuleNotFoundError: No module named 'src.fitchart'\n_______ ERROR collecting tests/original/test_overdraw_value_renderer.py ________\nImportError while importing test module '/results/runs/v0/run-3/txusballesteros_fit-chart/tests/original/test_overdraw_value_renderer.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_overdraw_value_renderer.py:2: in <module>\n    from src.fitchart.overdraw_value_renderer import OverdrawValueRenderer\nE   ModuleNotFoundError: No module named 'src.fitchart'\n___________ ERROR collecting tests/original/test_renderer_factory.py ___________\nImportError while importing test module '/results/runs/v0/run-3/txusballesteros_fit-chart/tests/original/test_renderer_factory.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_renderer_factory.py:2: in <module>\n    from src.fitchart.renderer_factory import RendererFactory\nE   ModuleNotFoundError: No module named 'src.fitchart'\n- generated xml file: /results/runs/v0/run-3/txusballesteros_fit-chart/.harness-test-results.xml -\n=========================== short test summary info ============================\nERROR public_tests/test_base_renderer_public.py\nERROR public_tests/test_fake_classes_for_public_test.py\nERROR public_tests/test_linear_value_renderer_public.py\nERROR public_tests/test_overdraw_value_renderer_public.py\nERROR public_tests/test_renderer_factory_public.py\nERROR tests/original/test_base_renderer.py\nERROR tests/original/test_fake_classes_for_test.py\nERROR tests/original/test_linear_value_renderer.py\nERROR tests/original/test_overdraw_value_renderer.py\nERROR tests/original/test_renderer_factory.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 10 errors during collection !!!!!!!!!!!!!!!!!!!\n============================== 10 errors in 0.23s ==============================\n\n",
+          "failures": {
+            "::public_tests.test_base_renderer_public": "ModuleNotFoundError: No module named 'src.fitchart'",
+            "::public_tests.test_fake_classes_for_public_test": "ModuleNotFoundError: No module named 'src.fitchart'",
+            "::public_tests.test_linear_value_renderer_public": "ModuleNotFoundError: No module named 'src.fitchart'",
+            "::public_tests.test_overdraw_value_renderer_public": "ModuleNotFoundError: No module named 'src.fitchart'",
+            "::public_tests.test_renderer_factory_public": "ModuleNotFoundError: No module named 'src.fitchart'",
+            "::tests.original.test_base_renderer": "ModuleNotFoundError: No module named 'src.fitchart'",
+            "::tests.original.test_fake_classes_for_test": "ModuleNotFoundError: No module named 'src.fitchart'",
+            "::tests.original.test_linear_value_renderer": "ModuleNotFoundError: No module named 'src.fitchart'",
+            "::tests.original.test_overdraw_value_renderer": "ModuleNotFoundError: No module named 'src.fitchart'",
+            "::tests.original.test_renderer_factory": "ModuleNotFoundError: No module named 'src.fitchart'"
+          },
+          "error": "Collected/executed test identities differ from immutable baseline, or tests were skipped; Test collection: ============ short test summary info ============================\nERROR public_tests/test_base_renderer_public.py\nERROR public_tests/test_fake_classes_for_public_test.py\nERROR public_tests/test_linear_value_renderer_public.py\nERROR public_tests/test_overdraw_value_renderer_public.py\nERROR public_tests/test_renderer_factory_public.py\nERROR tests/original/test_base_renderer.py\nERROR tests/original/test_fake_classes_for_test.py\nERROR tests/original/test_linear_value_renderer.py\nERROR tests/original/test_overdraw_value_renderer.py\nERROR tests/original/test_renderer_factory.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 10 errors during collection !!!!!!!!!!!!!!!!!!!\nno tests collected, 10 errors in 0.16s\n\n"
+        }
+      ],
+      "cost_complete": true,
+      "passed": 0,
+      "expected_total": 16,
+      "error": "Collected/executed test identities differ from immutable baseline, or tests were skipped; Test collection: ============ short test summary info ============================\nERROR public_tests/test_base_renderer_public.py\nERROR public_tests/test_fake_classes_for_public_test.py\nERROR public_tests/test_linear_value_renderer_public.py\nERROR public_tests/test_overdraw_value_renderer_public.py\nERROR public_tests/test_renderer_factory_public.py\nERROR tests/original/test_base_renderer.py\nERROR tests/original/test_fake_classes_for_test.py\nERROR tests/original/test_linear_value_renderer.py\nERROR tests/original/test_overdraw_value_renderer.py\nERROR tests/original/test_renderer_factory.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 10 errors during collection !!!!!!!!!!!!!!!!!!!\nno tests collected, 10 errors in 0.16s\n\n",
+      "estimated_cost_usd": 0.2563,
+      "tokens": {
+        "input_tokens": 4201,
+        "output_tokens": 24467,
+        "cache_read_input_tokens": 767181,
+        "cache_creation_input_tokens": 42354
+      }
+    },
+    {
+      "project": "googlearchive_android-BluetoothLeGatt",
+      "status": "passed",
+      "migration_passed": true,
+      "test_success_rate": 100.0,
+      "iterations": 1,
+      "variant": "v0",
+      "history": [
+        {
+          "iteration": 1,
+          "phase": "one_shot",
+          "estimated_cost_usd": 0.3666,
+          "tokens": {
+            "input_tokens": 4205,
+            "output_tokens": 36480,
+            "cache_read_input_tokens": 1081698,
+            "cache_creation_input_tokens": 57320
+          },
+          "agent_error": "error_max_turns",
+          "migration_passed": true,
+          "test_success_rate": 100.0,
+          "passed": 19,
+          "failed": 0,
+          "skipped": 0,
+          "total": 19,
+          "expected_total": 19,
+          "suite_verified": true,
+          "protected_files_unchanged": true,
+          "evaluation_valid": true,
+          "exit_code": 0,
+          "output_tail": "============================= test session starts ==============================\nplatform linux -- Python 3.12.12, pytest-8.4.2, pluggy-1.7.0\nrootdir: /results/runs/v0/run-3/googlearchive_android-BluetoothLeGatt\ncollected 19 items\n\npublic_tests/test_sample_gatt_attributes_edge_public.py ...              [ 15%]\npublic_tests/test_sample_gatt_attributes_public.py .....                 [ 42%]\ntests/original/test_bluetooth_le_service.py .                            [ 47%]\ntests/original/test_device_control_activity.py .                         [ 52%]\ntests/original/test_device_scan_activity.py .                            [ 57%]\ntests/original/test_sample_gatt_attributes.py .....                      [ 84%]\ntests/original/test_sample_gatt_attributes_edge.py ...                   [100%]\n\n- generated xml file: /results/runs/v0/run-3/googlearchive_android-BluetoothLeGatt/.harness-test-results.xml -\n============================== 19 passed in 0.13s ==============================\n\n",
+          "failures": {},
+          "error": null
+        }
+      ],
+      "cost_complete": true,
+      "passed": 19,
+      "expected_total": 19,
+      "error": "Claude SDK: error_max_turns",
+      "estimated_cost_usd": 0.3666,
+      "tokens": {
+        "input_tokens": 4205,
+        "output_tokens": 36480,
+        "cache_read_input_tokens": 1081698,
+        "cache_creation_input_tokens": 57320
+      }
+    }
+  ],
+  "summary": {
+    "migration_passed": 1,
+    "total_projects": 5,
+    "test_success_rate": null
+  }
+}

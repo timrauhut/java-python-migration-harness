@@ -1,0 +1,1 @@
+Translate the complete Java repository in _java_reference/ to working Python code under src/. Preserve observable behavior. Do not change tests, run_tests.sh, or Java reference files.

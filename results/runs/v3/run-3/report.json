@@ -1,0 +1,653 @@
+{
+  "config": {
+    "dataset_version": "RepoTransBench v1.0",
+    "dataset_summary_sha256": "c4430828b3a37548796b1d78b8211b4c6b2c1c7b850a7f5e46f12f6c04a99ef2",
+    "source_tree_sha256": "75946316c167048cd6b89aaa53c5ea8bab262fd8713ffe5c88f8c490a96e45d4",
+    "test_suite_sha256": "005d4bc56a53dfd54ca8429248372060ba51dc935a8c518bc3ede672eea1e587",
+    "project_ids": [
+      "aventrix_jnanoid",
+      "agarciadom_xeger",
+      "editorconfig_editorconfig-jetbrains",
+      "txusballesteros_fit-chart",
+      "googlearchive_android-BluetoothLeGatt"
+    ],
+    "model": "claude-haiku-4-5-20251001",
+    "variant": "v3",
+    "prompt_version": "interface-rules-1+public-repair-1",
+    "evaluator_version": "static-junit-1",
+    "max_attempts": 5,
+    "budget_usd_per_project": 5.0,
+    "timeout_seconds": 180,
+    "python_version": "3.12.12",
+    "pytest_version": "8.4.2",
+    "claude_agent_sdk_version": "0.2.166",
+    "renamed_from": "v2"
+  },
+  "projects": [
+    {
+      "project": "aventrix_jnanoid",
+      "status": "failed",
+      "migration_passed": false,
+      "test_success_rate": 95.65,
+      "iterations": 2,
+      "variant": "v3",
+      "history": [
+        {
+          "iteration": 1,
+          "phase": "one_shot",
+          "estimated_cost_usd": 0.1603,
+          "tokens": {
+            "input_tokens": 4218,
+            "output_tokens": 17448,
+            "cache_read_input_tokens": 320743,
+            "cache_creation_input_tokens": 29342
+          },
+          "agent_error": null,
+          "migration_passed": false,
+          "test_success_rate": 47.83,
+          "passed": 11,
+          "failed": 12,
+          "skipped": 0,
+          "total": 23,
+          "expected_total": 23,
+          "suite_verified": true,
+          "protected_files_unchanged": true,
+          "evaluation_valid": true,
+          "exit_code": 1,
+          "output_tail": " invalid, or size is invalid.\n        \"\"\"\n        # Apply defaults for any None parameters\n        if random is None:\n            random = NanoIdUtils.DEFAULT_NUMBER_GENERATOR\n        if alphabet is None:\n            alphabet = NanoIdUtils.DEFAULT_ALPHABET\n        if size is None:\n            size = NanoIdUtils.DEFAULT_SIZE\n    \n        # Validate inputs\n        if random is None:\n            raise IllegalArgumentException(\"random cannot be null.\")\n    \n        if alphabet is None:\n            raise IllegalArgumentException(\"alphabet cannot be null.\")\n    \n        alphabet_len = len(alphabet)\n        if alphabet_len == 0 or alphabet_len >= 256:\n>           raise IllegalArgumentException(\"alphabet must contain between 1 and 255 symbols.\")\nE           src.jnanoid.nano_id_utils.IllegalArgumentException: alphabet must contain between 1 and 255 symbols.\n\nsrc/jnanoid/nano_id_utils.py:88: IllegalArgumentException\n____________________ test_random_nanoid_oversized_alphabet _____________________\n\n    def test_random_nanoid_oversized_alphabet():\n        big_alphabet = [chr(ord('a') + (i % 26)) for i in range(256)]\n        with pytest.raises(ValueError):\n>           NanoIdUtils.randomNanoId(random.SystemRandom(), big_alphabet, 10)\n\ntests/original/test_nanoidutils.py:53: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nrandom = <random.SystemRandom object at 0xaaaae96789e0>\nalphabet = ['a', 'b', 'c', 'd', 'e', 'f', ...], size = 10\n\n    @staticmethod\n    def randomNanoId(random=None, alphabet=None, size=None):\n        \"\"\"\n        Static factory to retrieve a NanoId String.\n    \n        Can be called with:\n        - No arguments: randomNanoId()\n          Generates a URL-friendly, cryptographically secure NanoId with 21 symbols.\n    \n        - Full arguments: randomNanoId(random, alphabet, size)\n          Generates a NanoId using the given random number generator, alphabet, and size.\n    \n        Args:\n            random: The random number generator (optional, defaults to DEFAULT_NUMBER_GENERATOR)\n            alphabet: The symbols used in the NanoId String (optional, defaults to DEFAULT_ALPHABET)\n            size: The number of symbols in the NanoId String (optional, defaults to DEFAULT_SIZE)\n    \n        Returns:\n            A randomly generated NanoId String.\n    \n        Raises:\n            IllegalArgumentException: If random is None, alphabet is None, alphabet length is invalid, or size is invalid.\n        \"\"\"\n        # Apply defaults for any None parameters\n        if random is None:\n            random = NanoIdUtils.DEFAULT_NUMBER_GENERATOR\n        if alphabet is None:\n            alphabet = NanoIdUtils.DEFAULT_ALPHABET\n        if size is None:\n            size = NanoIdUtils.DEFAULT_SIZE\n    \n        # Validate inputs\n        if random is None:\n            raise IllegalArgumentException(\"random cannot be null.\")\n    \n        if alphabet is None:\n            raise IllegalArgumentException(\"alphabet cannot be null.\")\n    \n        alphabet_len = len(alphabet)\n        if alphabet_len == 0 or alphabet_len >= 256:\n>           raise IllegalArgumentException(\"alphabet must contain between 1 and 255 symbols.\")\nE           src.jnanoid.nano_id_utils.IllegalArgumentException: alphabet must contain between 1 and 255 symbols.\n\nsrc/jnanoid/nano_id_utils.py:88: IllegalArgumentException\n_________________________ test_nanoid_is_url_friendly __________________________\n\n    def test_nanoid_is_url_friendly():\n        nanoid = NanoIdUtils.randomNanoId()\n>       assert NanoIdUtils.is_url_friendly(nanoid)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: type object 'NanoIdUtils' has no attribute 'is_url_friendly'\n\ntests/original/test_nanoidutils.py:57: AttributeError\n- generated xml file: /scratch/work/aventrix_jnanoid/.harness-test-results.xml -\n=========================== short test summary info ============================\nFAILED public_tests/test_nanoidutils_public.py::test_random_nanoid_null_alphabet_public\nFAILED public_tests/test_nanoidutils_public.py::test_random_nanoid_empty_alphabet_public\nFAILED public_tests/test_nanoidutils_public.py::test_random_nanoid_too_short_length_public\nFAILED public_tests/test_nanoidutils_public.py::test_random_nanoid_negative_length_public\nFAILED public_tests/test_nanoidutils_public.py::test_random_nanoid_alphabet_too_long_public\nFAILED tests/original/test_nanoidutils.py::test_random_nanoid_zero_size - src...\nFAILED tests/original/test_nanoidutils.py::test_random_nanoid_negative_size\nFAILED tests/original/test_nanoidutils.py::test_random_nanoid_null_random - F...\nFAILED tests/original/test_nanoidutils.py::test_random_nanoid_null_alphabet\nFAILED tests/original/test_nanoidutils.py::test_random_nanoid_empty_alphabet\nFAILED tests/original/test_nanoidutils.py::test_random_nanoid_oversized_alphabet\nFAILED tests/original/test_nanoidutils.py::test_nanoid_is_url_friendly - Attr...\n======================== 12 failed, 11 passed in 0.07s =========================\n\n",
+          "failures": {
+            "public_tests.test_nanoidutils_public::test_random_nanoid_null_alphabet_public": "Failed: DID NOT RAISE <class 'ValueError'>",
+            "public_tests.test_nanoidutils_public::test_random_nanoid_empty_alphabet_public": "src.jnanoid.nano_id_utils.IllegalArgumentException: alphabet must contain between 1 and 255 symbols.",
+            "public_tests.test_nanoidutils_public::test_random_nanoid_too_short_length_public": "src.jnanoid.nano_id_utils.IllegalArgumentException: size must be greater than zero.",
+            "public_tests.test_nanoidutils_public::test_random_nanoid_negative_length_public": "src.jnanoid.nano_id_utils.IllegalArgumentException: size must be greater than zero.",
+            "public_tests.test_nanoidutils_public::test_random_nanoid_alphabet_too_long_public": "src.jnanoid.nano_id_utils.IllegalArgumentException: alphabet must contain between 1 and 255 symbols.",
+            "tests.original.test_nanoidutils::test_random_nanoid_zero_size": "src.jnanoid.nano_id_utils.IllegalArgumentException: size must be greater than zero.",
+            "tests.original.test_nanoidutils::test_random_nanoid_negative_size": "src.jnanoid.nano_id_utils.IllegalArgumentException: size must be greater than zero.",
+            "tests.original.test_nanoidutils::test_random_nanoid_null_random": "Failed: DID NOT RAISE <class 'ValueError'>",
+            "tests.original.test_nanoidutils::test_random_nanoid_null_alphabet": "Failed: DID NOT RAISE <class 'ValueError'>",
+            "tests.original.test_nanoidutils::test_random_nanoid_empty_alphabet": "src.jnanoid.nano_id_utils.IllegalArgumentException: alphabet must contain between 1 and 255 symbols.",
+            "tests.original.test_nanoidutils::test_random_nanoid_oversized_alphabet": "src.jnanoid.nano_id_utils.IllegalArgumentException: alphabet must contain between 1 and 255 symbols.",
+            "tests.original.test_nanoidutils::test_nanoid_is_url_friendly": "AttributeError: type object 'NanoIdUtils' has no attribute 'is_url_friendly'"
+          },
+          "passed_by_folder": {
+            "public_tests": 4,
+            "tests": 7
+          },
+          "error": null,
+          "public_feedback": {
+            "all_public_passed": false,
+            "public_test_output": "..FFFFF..                                                                [100%]\n=================================== FAILURES ===================================\n___________________ test_random_nanoid_null_alphabet_public ____________________\npublic_tests/test_nanoidutils_public.py:33: in test_random_nanoid_null_alphabet_public\n    with pytest.raises(ValueError):\n         ^^^^^^^^^^^^^^^^^^^^^^^^^\nE   Failed: DID NOT RAISE <class 'ValueError'>\n___________________ test_random_nanoid_empty_alphabet_public ___________________\npublic_tests/test_nanoidutils_public.py:39: in test_random_nanoid_empty_alphabet_public\n    NanoIdUtils.randomNanoId(rng, [], 8)\nsrc/jnanoid/nano_id_utils.py:88: in randomNanoId\n    raise IllegalArgumentException(\"alphabet must contain between 1 and 255 symbols.\")\nE   src.jnanoid.nano_id_utils.IllegalArgumentException: alphabet must contain between 1 and 255 symbols.\n__________________ test_random_nanoid_too_short_length_public __________________\npublic_tests/test_nanoidutils_public.py:45: in test_random_nanoid_too_short_length_public\n    NanoIdUtils.randomNanoId(rng, alphabet, 0)\nsrc/jnanoid/nano_id_utils.py:91: in randomNanoId\n    raise IllegalArgumentException(\"size must be greater than zero.\")\nE   src.jnanoid.nano_id_utils.IllegalArgumentException: size must be greater than zero.\n__________________ test_random_nanoid_negative_length_public ___________________\npublic_tests/test_nanoidutils_public.py:51: in test_random_nanoid_negative_length_public\n    NanoIdUtils.randomNanoId(rng, alphabet, -5)\nsrc/jnanoid/nano_id_utils.py:91: in randomNanoId\n    raise IllegalArgumentException(\"size must be greater than zero.\")\nE   src.jnanoid.nano_id_utils.IllegalArgumentException: size must be greater than zero.\n_________________ test_random_nanoid_alphabet_too_long_public __________________\npublic_tests/test_nanoidutils_public.py:57: in test_random_nanoid_alphabet_too_long_public\n    NanoIdUtils.randomNanoId(rng, alphabet, 8)\nsrc/jnanoid/nano_id_utils.py:88: in randomNanoId\n    raise IllegalArgumentException(\"alphabet must contain between 1 and 255 symbols.\")\nE   src.jnanoid.nano_id_utils.IllegalArgumentException: alphabet must contain between 1 and 255 symbols.\n=========================== short test summary info ============================\nFAILED public_tests/test_nanoidutils_public.py::test_random_nanoid_null_alphabet_public\nFAILED public_tests/test_nanoidutils_public.py::test_random_nanoid_empty_alphabet_public\nFAILED public_tests/test_nanoidutils_public.py::test_random_nanoid_too_short_length_public\nFAILED public_tests/test_nanoidutils_public.py::test_random_nanoid_negative_length_public\nFAILED public_tests/test_nanoidutils_public.py::test_random_nanoid_alphabet_too_long_public\n5 failed, 4 passed in 0.02s\n\n"
+          }
+        },
+        {
+          "iteration": 2,
+          "phase": "repair",
+          "estimated_cost_usd": 0.045,
+          "tokens": {
+            "input_tokens": 66,
+            "output_tokens": 4341,
+            "cache_read_input_tokens": 55426,
+            "cache_creation_input_tokens": 13944
+          },
+          "agent_error": null,
+          "migration_passed": false,
+          "test_success_rate": 95.65,
+          "passed": 22,
+          "failed": 1,
+          "skipped": 0,
+          "total": 23,
+          "expected_total": 23,
+          "suite_verified": true,
+          "protected_files_unchanged": true,
+          "evaluation_valid": true,
+          "exit_code": 1,
+          "output_tail": "============================= test session starts ==============================\nplatform linux -- Python 3.12.12, pytest-8.4.2, pluggy-1.7.0\nrootdir: /scratch/work/aventrix_jnanoid\ncollected 23 items\n\npublic_tests/test_nanoidutils_public.py .........                        [ 39%]\ntests/original/test_nanoidutils.py .........F....                        [100%]\n\n=================================== FAILURES ===================================\n_________________________ test_nanoid_is_url_friendly __________________________\n\n    def test_nanoid_is_url_friendly():\n        nanoid = NanoIdUtils.randomNanoId()\n>       assert NanoIdUtils.is_url_friendly(nanoid)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: type object 'NanoIdUtils' has no attribute 'is_url_friendly'\n\ntests/original/test_nanoidutils.py:57: AttributeError\n- generated xml file: /scratch/work/aventrix_jnanoid/.harness-test-results.xml -\n=========================== short test summary info ============================\nFAILED tests/original/test_nanoidutils.py::test_nanoid_is_url_friendly - Attr...\n========================= 1 failed, 22 passed in 0.04s =========================\n\n",
+          "failures": {
+            "tests.original.test_nanoidutils::test_nanoid_is_url_friendly": "AttributeError: type object 'NanoIdUtils' has no attribute 'is_url_friendly'"
+          },
+          "passed_by_folder": {
+            "public_tests": 9,
+            "tests": 13
+          },
+          "error": null,
+          "public_feedback": {
+            "all_public_passed": true,
+            "public_test_output": ".........                                                                [100%]\n9 passed in 0.01s\n\n"
+          }
+        }
+      ],
+      "cost_complete": true,
+      "passed": 22,
+      "expected_total": 23,
+      "error": null,
+      "estimated_cost_usd": 0.2053,
+      "tokens": {
+        "input_tokens": 4284,
+        "output_tokens": 21789,
+        "cache_read_input_tokens": 376169,
+        "cache_creation_input_tokens": 43286
+      }
+    },
+    {
+      "project": "agarciadom_xeger",
+      "status": "failed",
+      "migration_passed": false,
+      "test_success_rate": 95.0,
+      "iterations": 1,
+      "variant": "v3",
+      "history": [
+        {
+          "iteration": 1,
+          "phase": "one_shot",
+          "estimated_cost_usd": 0.367,
+          "tokens": {
+            "input_tokens": 4211,
+            "output_tokens": 44741,
+            "cache_read_input_tokens": 658817,
+            "cache_creation_input_tokens": 58471
+          },
+          "agent_error": null,
+          "migration_passed": false,
+          "test_success_rate": 95.0,
+          "passed": 38,
+          "failed": 2,
+          "skipped": 0,
+          "total": 40,
+          "expected_total": 40,
+          "suite_verified": true,
+          "protected_files_unchanged": true,
+          "evaluation_valid": true,
+          "exit_code": 1,
+          "output_tail": "============================= test session starts ==============================\nplatform linux -- Python 3.12.12, pytest-8.4.2, pluggy-1.7.0\nrootdir: /scratch/work/agarciadom_xeger\ncollected 40 items\n\npublic_tests/test_xeger_coverage_public.py ..........                    [ 25%]\npublic_tests/test_xeger_edge_public.py .....                             [ 37%]\npublic_tests/test_xeger_public.py .....                                  [ 50%]\npublic_tests/test_xeger_utils_public.py .                                [ 52%]\ntests/original/test_xeger.py .FF                                         [ 60%]\ntests/original/test_xeger_coverage.py ..........                         [ 85%]\ntests/original/test_xeger_edge.py .....                                  [ 97%]\ntests/original/test_xeger_utils.py .                                     [100%]\n\n=================================== FAILURES ===================================\n____________________________ test_repeatable_regex _____________________________\n\n    def test_repeatable_regex():\n        for _ in range(1000):\n            generator = Xeger(\"[ab]{4,6}c\", random.Random(1000))\n            generator2 = Xeger(\"[ab]{4,6}c\", random.Random(1000))\n    \n            firstList = [generator.generate() for _ in range(100)]\n            secondList = [generator2.generate() for _ in range(100)]\n>           assert firstList == secondList\nE           AssertionError: assert ['bbaaabc', '... 'aabbc', ...] == ['bbaac', 'ab... 'aabbc', ...]\nE             \nE             At index 0 diff: 'bbaaabc' != 'bbaac'\nE             Use -v to get more diff\n\ntests/original/test_xeger.py:19: AssertionError\n_______________________________ test_walk_range ________________________________\n\n    def test_walk_range():\n        for _ in range(100):\n            generator = Xeger(\"[ab]{0,100}c\", random.Random(1000))\n            generator2 = Xeger(\"[ab]{0,100}c\", random.Random(1000))\n    \n            def generate_regex(gen, cnt, min_length, max_length):\n                out = []\n                for __ in range(cnt):\n                    try:\n                        out.append(gen.generate(min_length, max_length))\n                    except FailedRandomWalkException:\n                        out.append(None)\n                return out\n    \n            firstList = generate_regex(generator, 100, 0, 100)\n            secondList = generate_regex(generator2, 100, 0, 100)\n            assert len(firstList) == len(secondList)\n>           assert firstList == secondList\nE           AssertionError: assert [None, 'abbab...aabbbbc', ...] == [None, 'abbab...bbaabac', ...]\nE             \nE             At index 1 diff: 'abbabbaabaaababbaabbbabaaaabaabbbabaabababbbabababbbabbbabaabbaababbbbaabaaababaabaaac' != 'abbabbaabaaababbaabbbabaaaabaabbbabaabababbbabababbbabbbabaabbaababbbbaabaaababaabaac'\nE             Use -v to get more diff\n\ntests/original/test_xeger.py:38: AssertionError\n=============================== warnings summary ===============================\nsrc/xeger.py:21\n  /scratch/work/agarciadom_xeger/src/xeger.py:21: DeprecationWarning: module 'sre_parse' is deprecated\n    import sre_parse\n\nsrc/xeger.py:22\n  /scratch/work/agarciadom_xeger/src/xeger.py:22: DeprecationWarning: module 'sre_constants' is deprecated\n    import sre_constants\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n- generated xml file: /scratch/work/agarciadom_xeger/.harness-test-results.xml -\n=========================== short test summary info ============================\nFAILED tests/original/test_xeger.py::test_repeatable_regex - AssertionError: ...\nFAILED tests/original/test_xeger.py::test_walk_range - AssertionError: assert...\n=================== 2 failed, 38 passed, 2 warnings in 1.81s ===================\n\n",
+          "failures": {
+            "tests.original.test_xeger::test_repeatable_regex": "AssertionError: assert ['bbaaabc', '... 'aabbc', ...] == ['bbaac', 'ab... 'aabbc', ...]",
+            "tests.original.test_xeger::test_walk_range": "AssertionError: assert [None, 'abbab...aabbbbc', ...] == [None, 'abbab...bbaabac', ...]"
+          },
+          "passed_by_folder": {
+            "public_tests": 21,
+            "tests": 17
+          },
+          "error": null,
+          "public_feedback": {
+            "all_public_passed": true,
+            "public_test_output": ".....................                                                    [100%]\n=============================== warnings summary ===============================\nsrc/xeger.py:21\n  /scratch/work/agarciadom_xeger/src/xeger.py:21: DeprecationWarning: module 'sre_parse' is deprecated\n    import sre_parse\n\nsrc/xeger.py:22\n  /scratch/work/agarciadom_xeger/src/xeger.py:22: DeprecationWarning: module 'sre_constants' is deprecated\n    import sre_constants\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n21 passed, 2 warnings in 0.02s\n\n"
+          }
+        }
+      ],
+      "cost_complete": true,
+      "passed": 38,
+      "expected_total": 40,
+      "error": null,
+      "estimated_cost_usd": 0.367,
+      "tokens": {
+        "input_tokens": 4211,
+        "output_tokens": 44741,
+        "cache_read_input_tokens": 658817,
+        "cache_creation_input_tokens": 58471
+      }
+    },
+    {
+      "project": "editorconfig_editorconfig-jetbrains",
+      "status": "passed",
+      "migration_passed": true,
+      "test_success_rate": 100.0,
+      "iterations": 4,
+      "variant": "v3",
+      "history": [
+        {
+          "iteration": 1,
+          "phase": "one_shot",
+          "estimated_cost_usd": 0.0829,
+          "tokens": {
+            "input_tokens": 4239,
+            "output_tokens": 4901,
+            "cache_read_input_tokens": 291977,
+            "cache_creation_input_tokens": 19831
+          },
+          "agent_error": null,
+          "migration_passed": false,
+          "test_success_rate": 0.0,
+          "passed": 0,
+          "failed": 12,
+          "skipped": 0,
+          "total": 12,
+          "expected_total": 12,
+          "suite_verified": true,
+          "protected_files_unchanged": true,
+          "evaluation_valid": true,
+          "exit_code": 1,
+          "output_tail": "invalid_config_message(\"42\", \"answer\", \"deepfile\")\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: module 'src.editorconfig.utils' has no attribute 'invalid_config_message'. Did you mean: 'invalidConfigMessage'?\n\npublic_tests/test_utils_public.py:37: AttributeError\n___________ test_applied_config_message_makes_correct_string_public ____________\n\n    def test_applied_config_message_makes_correct_string_public():\n>       msg = utils.applied_config_message(\"enabled\", \"feature\", \"file.txt\")\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: module 'src.editorconfig.utils' has no attribute 'applied_config_message'. Did you mean: 'appliedConfigMessage'?\n\npublic_tests/test_utils_public.py:41: AttributeError\n_________________ test_config_value_for_key_finds_existing_key _________________\n\n    def test_config_value_for_key_finds_existing_key():\n        pairs = [FakeOutPair(\"foo\", \"bar\"), FakeOutPair(\"baz\", \"qux\")]\n>       assert utils.config_value_for_key(pairs, \"foo\") == \"bar\"\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: module 'src.editorconfig.utils' has no attribute 'config_value_for_key'. Did you mean: 'configValueForKey'?\n\ntests/original/test_utils.py:18: AttributeError\n___________ test_config_value_for_key_returns_empty_for_missing_key ____________\n\n    def test_config_value_for_key_returns_empty_for_missing_key():\n        pairs = [FakeOutPair(\"foo\", \"bar\")]\n>       assert utils.config_value_for_key(pairs, \"notfound\") == \"\"\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: module 'src.editorconfig.utils' has no attribute 'config_value_for_key'. Did you mean: 'configValueForKey'?\n\ntests/original/test_utils.py:23: AttributeError\n_____________________ test_config_value_for_key_empty_list _____________________\n\n    def test_config_value_for_key_empty_list():\n>       assert utils.config_value_for_key([], \"foo\") == \"\"\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: module 'src.editorconfig.utils' has no attribute 'config_value_for_key'. Did you mean: 'configValueForKey'?\n\ntests/original/test_utils.py:26: AttributeError\n__________ test_config_value_for_key_multiple_same_keys_returns_first __________\n\n    def test_config_value_for_key_multiple_same_keys_returns_first():\n        pairs = [\n            FakeOutPair(\"foo\", \"first\"),\n            FakeOutPair(\"foo\", \"second\"),\n            FakeOutPair(\"bar\", \"other\"),\n        ]\n>       assert utils.config_value_for_key(pairs, \"foo\") == \"first\"\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: module 'src.editorconfig.utils' has no attribute 'config_value_for_key'. Did you mean: 'configValueForKey'?\n\ntests/original/test_utils.py:34: AttributeError\n_______________ test_invalid_config_message_makes_correct_string _______________\n\n    def test_invalid_config_message_makes_correct_string():\n>       msg = utils.invalid_config_message(\"value\", \"key\", \"file\")\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: module 'src.editorconfig.utils' has no attribute 'invalid_config_message'. Did you mean: 'invalidConfigMessage'?\n\ntests/original/test_utils.py:37: AttributeError\n_______________ test_applied_config_message_makes_correct_string _______________\n\n    def test_applied_config_message_makes_correct_string():\n>       msg = utils.applied_config_message(\"value\", \"key\", \"file\")\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: module 'src.editorconfig.utils' has no attribute 'applied_config_message'. Did you mean: 'appliedConfigMessage'?\n\ntests/original/test_utils.py:41: AttributeError\n- generated xml file: /scratch/work/editorconfig_editorconfig-jetbrains/.harness-test-results.xml -\n=========================== short test summary info ============================\nFAILED public_tests/test_utils_public.py::test_config_value_for_key_finds_different_existing_key\nFAILED public_tests/test_utils_public.py::test_config_value_for_key_returns_empty_for_another_missing_key\nFAILED public_tests/test_utils_public.py::test_config_value_for_key_empty_list_still_returns_empty\nFAILED public_tests/test_utils_public.py::test_config_value_for_key_multiple_same_keys_returns_first_public\nFAILED public_tests/test_utils_public.py::test_invalid_config_message_makes_correct_string_public\nFAILED public_tests/test_utils_public.py::test_applied_config_message_makes_correct_string_public\nFAILED tests/original/test_utils.py::test_config_value_for_key_finds_existing_key\nFAILED tests/original/test_utils.py::test_config_value_for_key_returns_empty_for_missing_key\nFAILED tests/original/test_utils.py::test_config_value_for_key_empty_list - A...\nFAILED tests/original/test_utils.py::test_config_value_for_key_multiple_same_keys_returns_first\nFAILED tests/original/test_utils.py::test_invalid_config_message_makes_correct_string\nFAILED tests/original/test_utils.py::test_applied_config_message_makes_correct_string\n============================== 12 failed in 0.04s ==============================\n\n",
+          "failures": {
+            "public_tests.test_utils_public::test_config_value_for_key_finds_different_existing_key": "AttributeError: module 'src.editorconfig.utils' has no attribute 'config_value_for_key'. Did you mean: 'configValueForKey'?",
+            "public_tests.test_utils_public::test_config_value_for_key_returns_empty_for_another_missing_key": "AttributeError: module 'src.editorconfig.utils' has no attribute 'config_value_for_key'. Did you mean: 'configValueForKey'?",
+            "public_tests.test_utils_public::test_config_value_for_key_empty_list_still_returns_empty": "AttributeError: module 'src.editorconfig.utils' has no attribute 'config_value_for_key'. Did you mean: 'configValueForKey'?",
+            "public_tests.test_utils_public::test_config_value_for_key_multiple_same_keys_returns_first_public": "AttributeError: module 'src.editorconfig.utils' has no attribute 'config_value_for_key'. Did you mean: 'configValueForKey'?",
+            "public_tests.test_utils_public::test_invalid_config_message_makes_correct_string_public": "AttributeError: module 'src.editorconfig.utils' has no attribute 'invalid_config_message'. Did you mean: 'invalidConfigMessage'?",
+            "public_tests.test_utils_public::test_applied_config_message_makes_correct_string_public": "AttributeError: module 'src.editorconfig.utils' has no attribute 'applied_config_message'. Did you mean: 'appliedConfigMessage'?",
+            "tests.original.test_utils::test_config_value_for_key_finds_existing_key": "AttributeError: module 'src.editorconfig.utils' has no attribute 'config_value_for_key'. Did you mean: 'configValueForKey'?",
+            "tests.original.test_utils::test_config_value_for_key_returns_empty_for_missing_key": "AttributeError: module 'src.editorconfig.utils' has no attribute 'config_value_for_key'. Did you mean: 'configValueForKey'?",
+            "tests.original.test_utils::test_config_value_for_key_empty_list": "AttributeError: module 'src.editorconfig.utils' has no attribute 'config_value_for_key'. Did you mean: 'configValueForKey'?",
+            "tests.original.test_utils::test_config_value_for_key_multiple_same_keys_returns_first": "AttributeError: module 'src.editorconfig.utils' has no attribute 'config_value_for_key'. Did you mean: 'configValueForKey'?",
+            "tests.original.test_utils::test_invalid_config_message_makes_correct_string": "AttributeError: module 'src.editorconfig.utils' has no attribute 'invalid_config_message'. Did you mean: 'invalidConfigMessage'?",
+            "tests.original.test_utils::test_applied_config_message_makes_correct_string": "AttributeError: module 'src.editorconfig.utils' has no attribute 'applied_config_message'. Did you mean: 'appliedConfigMessage'?"
+          },
+          "passed_by_folder": {},
+          "error": null,
+          "public_feedback": {
+            "all_public_passed": false,
+            "public_test_output": "FFFFFF                                                                   [100%]\n=================================== FAILURES ===================================\n____________ test_config_value_for_key_finds_different_existing_key ____________\npublic_tests/test_utils_public.py:18: in test_config_value_for_key_finds_different_existing_key\n    assert utils.config_value_for_key(pairs, \"alpha\") == \"beta\"\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   AttributeError: module 'src.editorconfig.utils' has no attribute 'config_value_for_key'. Did you mean: 'configValueForKey'?\n_______ test_config_value_for_key_returns_empty_for_another_missing_key ________\npublic_tests/test_utils_public.py:23: in test_config_value_for_key_returns_empty_for_another_missing_key\n    assert utils.config_value_for_key(pairs, \"absent\") == \"\"\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   AttributeError: module 'src.editorconfig.utils' has no attribute 'config_value_for_key'. Did you mean: 'configValueForKey'?\n___________ test_config_value_for_key_empty_list_still_returns_empty ___________\npublic_tests/test_utils_public.py:26: in test_config_value_for_key_empty_list_still_returns_empty\n    assert utils.config_value_for_key([], \"doesnotexist\") == \"\"\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   AttributeError: module 'src.editorconfig.utils' has no attribute 'config_value_for_key'. Did you mean: 'configValueForKey'?\n______ test_config_value_for_key_multiple_same_keys_returns_first_public _______\npublic_tests/test_utils_public.py:34: in test_config_value_for_key_multiple_same_keys_returns_first_public\n    assert utils.config_value_for_key(pairs, \"dup\") == \"uno\"\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   AttributeError: module 'src.editorconfig.utils' has no attribute 'config_value_for_key'. Did you mean: 'configValueForKey'?\n___________ test_invalid_config_message_makes_correct_string_public ____________\npublic_tests/test_utils_public.py:37: in test_invalid_config_message_makes_correct_string_public\n    msg = utils.invalid_config_message(\"42\", \"answer\", \"deepfile\")\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   AttributeError: module 'src.editorconfig.utils' has no attribute 'invalid_config_message'. Did you mean: 'invalidConfigMessage'?\n___________ test_applied_config_message_makes_correct_string_public ____________\npublic_tests/test_utils_public.py:41: in test_applied_config_message_makes_correct_string_public\n    msg = utils.applied_config_message(\"enabled\", \"feature\", \"file.txt\")\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   AttributeError: module 'src.editorconfig.utils' has no attribute 'applied_config_message'. Did you mean: 'appliedConfigMessage'?\n=========================== short test summary info ============================\nFAILED public_tests/test_utils_public.py::test_config_value_for_key_finds_different_existing_key\nFAILED public_tests/test_utils_public.py::test_config_value_for_key_returns_empty_for_another_missing_key\nFAILED public_tests/test_utils_public.py::test_config_value_for_key_empty_list_still_returns_empty\nFAILED public_tests/test_utils_public.py::test_config_value_for_key_multiple_same_keys_returns_first_public\nFAILED public_tests/test_utils_public.py::test_invalid_config_message_makes_correct_string_public\nFAILED public_tests/test_utils_public.py::test_applied_config_message_makes_correct_string_public\n6 failed in 0.02s\n\n"
+          }
+        },
+        {
+          "iteration": 2,
+          "phase": "repair",
+          "estimated_cost_usd": 0.0369,
+          "tokens": {
+            "input_tokens": 58,
+            "output_tokens": 3810,
+            "cache_read_input_tokens": 47040,
+            "cache_creation_input_tokens": 10142
+          },
+          "agent_error": null,
+          "migration_passed": false,
+          "test_success_rate": 33.33,
+          "passed": 4,
+          "failed": 8,
+          "skipped": 0,
+          "total": 12,
+          "expected_total": 12,
+          "suite_verified": true,
+          "protected_files_unchanged": true,
+          "evaluation_valid": true,
+          "exit_code": 1,
+          "output_tail": "\")\n>       assert msg == '\"42\" is not a valid value for answer for file deepfile'\nE       assert '\"42\" is not ...file deepfile' == '\"42\" is not ...file deepfile'\nE         \nE         - \"42\" is not a valid value for answer for file deepfile\nE         ?                               ^^^^ ^\nE         + \"42\" is not a valid value for key for file deepfile\nE         ?                               ^ ^\n\npublic_tests/test_utils_public.py:38: AssertionError\n___________ test_applied_config_message_makes_correct_string_public ____________\n\n    def test_applied_config_message_makes_correct_string_public():\n        msg = utils.applied_config_message(\"enabled\", \"feature\", \"file.txt\")\n>       assert msg == 'Applied \"enabled\" as feature for file file.txt'\nE       assert 'Applied \"ena...file file.txt' == 'Applied \"ena...file file.txt'\nE         \nE         - Applied \"enabled\" as feature for file file.txt\nE         ?                      ^ ^^^^^\nE         + Applied \"enabled\" as key for file file.txt\nE         ?                      ^ ^\n\npublic_tests/test_utils_public.py:42: AssertionError\n_________________ test_config_value_for_key_finds_existing_key _________________\n\n    def test_config_value_for_key_finds_existing_key():\n        pairs = [FakeOutPair(\"foo\", \"bar\"), FakeOutPair(\"baz\", \"qux\")]\n>       assert utils.config_value_for_key(pairs, \"foo\") == \"bar\"\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\ntests/original/test_utils.py:18: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \nsrc/editorconfig/utils.py:30: in config_value_for_key\n    if outPair.getKey() == key:\n       ^^^^^^^^^^^^^^^^\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = <test_utils.FakeOutPair object at 0xffffb4d12b70>\n\n    def getKey(self):\n        \"\"\"Get the key.\"\"\"\n>       raise NotImplementedError(\"Subclasses must implement getKey\")\nE       NotImplementedError: Subclasses must implement getKey\n\nsrc/editorconfig/utils.py:11: NotImplementedError\n___________ test_config_value_for_key_returns_empty_for_missing_key ____________\n\n    def test_config_value_for_key_returns_empty_for_missing_key():\n        pairs = [FakeOutPair(\"foo\", \"bar\")]\n>       assert utils.config_value_for_key(pairs, \"notfound\") == \"\"\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\ntests/original/test_utils.py:23: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \nsrc/editorconfig/utils.py:30: in config_value_for_key\n    if outPair.getKey() == key:\n       ^^^^^^^^^^^^^^^^\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = <test_utils.FakeOutPair object at 0xffffb4d13bc0>\n\n    def getKey(self):\n        \"\"\"Get the key.\"\"\"\n>       raise NotImplementedError(\"Subclasses must implement getKey\")\nE       NotImplementedError: Subclasses must implement getKey\n\nsrc/editorconfig/utils.py:11: NotImplementedError\n__________ test_config_value_for_key_multiple_same_keys_returns_first __________\n\n    def test_config_value_for_key_multiple_same_keys_returns_first():\n        pairs = [\n            FakeOutPair(\"foo\", \"first\"),\n            FakeOutPair(\"foo\", \"second\"),\n            FakeOutPair(\"bar\", \"other\"),\n        ]\n>       assert utils.config_value_for_key(pairs, \"foo\") == \"first\"\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\ntests/original/test_utils.py:34: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \nsrc/editorconfig/utils.py:30: in config_value_for_key\n    if outPair.getKey() == key:\n       ^^^^^^^^^^^^^^^^\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = <test_utils.FakeOutPair object at 0xffffb4d11610>\n\n    def getKey(self):\n        \"\"\"Get the key.\"\"\"\n>       raise NotImplementedError(\"Subclasses must implement getKey\")\nE       NotImplementedError: Subclasses must implement getKey\n\nsrc/editorconfig/utils.py:11: NotImplementedError\n- generated xml file: /scratch/work/editorconfig_editorconfig-jetbrains/.harness-test-results.xml -\n=========================== short test summary info ============================\nFAILED public_tests/test_utils_public.py::test_config_value_for_key_finds_different_existing_key\nFAILED public_tests/test_utils_public.py::test_config_value_for_key_returns_empty_for_another_missing_key\nFAILED public_tests/test_utils_public.py::test_config_value_for_key_multiple_same_keys_returns_first_public\nFAILED public_tests/test_utils_public.py::test_invalid_config_message_makes_correct_string_public\nFAILED public_tests/test_utils_public.py::test_applied_config_message_makes_correct_string_public\nFAILED tests/original/test_utils.py::test_config_value_for_key_finds_existing_key\nFAILED tests/original/test_utils.py::test_config_value_for_key_returns_empty_for_missing_key\nFAILED tests/original/test_utils.py::test_config_value_for_key_multiple_same_keys_returns_first\n========================= 8 failed, 4 passed in 0.04s ==========================\n\n",
+          "failures": {
+            "public_tests.test_utils_public::test_config_value_for_key_finds_different_existing_key": "NotImplementedError: Subclasses must implement getKey",
+            "public_tests.test_utils_public::test_config_value_for_key_returns_empty_for_another_missing_key": "NotImplementedError: Subclasses must implement getKey",
+            "public_tests.test_utils_public::test_config_value_for_key_multiple_same_keys_returns_first_public": "NotImplementedError: Subclasses must implement getKey",
+            "public_tests.test_utils_public::test_invalid_config_message_makes_correct_string_public": "assert '\"42\" is not ...file deepfile' == '\"42\" is not ...file deepfile'",
+            "public_tests.test_utils_public::test_applied_config_message_makes_correct_string_public": "assert 'Applied \"ena...file file.txt' == 'Applied \"ena...file file.txt'",
+            "tests.original.test_utils::test_config_value_for_key_finds_existing_key": "NotImplementedError: Subclasses must implement getKey",
+            "tests.original.test_utils::test_config_value_for_key_returns_empty_for_missing_key": "NotImplementedError: Subclasses must implement getKey",
+            "tests.original.test_utils::test_config_value_for_key_multiple_same_keys_returns_first": "NotImplementedError: Subclasses must implement getKey"
+          },
+          "passed_by_folder": {
+            "public_tests": 1,
+            "tests": 3
+          },
+          "error": null,
+          "public_feedback": {
+            "all_public_passed": false,
+            "public_test_output": "FF.FFF                                                                   [100%]\n=================================== FAILURES ===================================\n____________ test_config_value_for_key_finds_different_existing_key ____________\npublic_tests/test_utils_public.py:18: in test_config_value_for_key_finds_different_existing_key\n    assert utils.config_value_for_key(pairs, \"alpha\") == \"beta\"\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nsrc/editorconfig/utils.py:30: in config_value_for_key\n    if outPair.getKey() == key:\n       ^^^^^^^^^^^^^^^^\nsrc/editorconfig/utils.py:11: in getKey\n    raise NotImplementedError(\"Subclasses must implement getKey\")\nE   NotImplementedError: Subclasses must implement getKey\n_______ test_config_value_for_key_returns_empty_for_another_missing_key ________\npublic_tests/test_utils_public.py:23: in test_config_value_for_key_returns_empty_for_another_missing_key\n    assert utils.config_value_for_key(pairs, \"absent\") == \"\"\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nsrc/editorconfig/utils.py:30: in config_value_for_key\n    if outPair.getKey() == key:\n       ^^^^^^^^^^^^^^^^\nsrc/editorconfig/utils.py:11: in getKey\n    raise NotImplementedError(\"Subclasses must implement getKey\")\nE   NotImplementedError: Subclasses must implement getKey\n______ test_config_value_for_key_multiple_same_keys_returns_first_public _______\npublic_tests/test_utils_public.py:34: in test_config_value_for_key_multiple_same_keys_returns_first_public\n    assert utils.config_value_for_key(pairs, \"dup\") == \"uno\"\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nsrc/editorconfig/utils.py:30: in config_value_for_key\n    if outPair.getKey() == key:\n       ^^^^^^^^^^^^^^^^\nsrc/editorconfig/utils.py:11: in getKey\n    raise NotImplementedError(\"Subclasses must implement getKey\")\nE   NotImplementedError: Subclasses must implement getKey\n___________ test_invalid_config_message_makes_correct_string_public ____________\npublic_tests/test_utils_public.py:38: in test_invalid_config_message_makes_correct_string_public\n    assert msg == '\"42\" is not a valid value for answer for file deepfile'\nE   assert '\"42\" is not ...file deepfile' == '\"42\" is not ...file deepfile'\nE     \nE     - \"42\" is not a valid value for answer for file deepfile\nE     ?                               ^^^^ ^\nE     + \"42\" is not a valid value for key for file deepfile\nE     ?                               ^ ^\n___________ test_applied_config_message_makes_correct_string_public ____________\npublic_tests/test_utils_public.py:42: in test_applied_config_message_makes_correct_string_public\n    assert msg == 'Applied \"enabled\" as feature for file file.txt'\nE   assert 'Applied \"ena...file file.txt' == 'Applied \"ena...file file.txt'\nE     \nE     - Applied \"enabled\" as feature for file file.txt\nE     ?                      ^ ^^^^^\nE     + Applied \"enabled\" as key for file file.txt\nE     ?                      ^ ^\n=========================== short test summary info ============================\nFAILED public_tests/test_utils_public.py::test_config_value_for_key_finds_different_existing_key\nFAILED public_tests/test_utils_public.py::test_config_value_for_key_returns_empty_for_another_missing_key\nFAILED public_tests/test_utils_public.py::test_config_value_for_key_multiple_same_keys_returns_first_public\nFAILED public_tests/test_utils_public.py::test_invalid_config_message_makes_correct_string_public\nFAILED public_tests/test_utils_public.py::test_applied_config_message_makes_correct_string_public\n5 failed, 1 passed in 0.02s\n\n"
+          }
+        },
+        {
+          "iteration": 3,
+          "phase": "repair",
+          "estimated_cost_usd": 0.0798,
+          "tokens": {
+            "input_tokens": 114,
+            "output_tokens": 9643,
+            "cache_read_input_tokens": 101343,
+            "cache_creation_input_tokens": 16765
+          },
+          "agent_error": null,
+          "migration_passed": false,
+          "test_success_rate": 50.0,
+          "passed": 6,
+          "failed": 6,
+          "skipped": 0,
+          "total": 12,
+          "expected_total": 12,
+          "suite_verified": true,
+          "protected_files_unchanged": true,
+          "evaluation_valid": true,
+          "exit_code": 1,
+          "output_tail": "        Search for a key in the list of OutPair objects and return its value.\n    \n        Args:\n            outPairs: List of OutPair objects\n            key: The key to search for\n    \n        Returns:\n            The value associated with the key, or empty string if not found\n        \"\"\"\n        for outPair in outPairs:\n>           if outPair.getKey() == key:\n               ^^^^^^^^^^^^^^\nE           AttributeError: 'FakeOutPair' object has no attribute 'getKey'. Did you mean: 'get_key'?\n\nsrc/editorconfig/utils.py:23: AttributeError\n_________________ test_config_value_for_key_finds_existing_key _________________\n\n    def test_config_value_for_key_finds_existing_key():\n        pairs = [FakeOutPair(\"foo\", \"bar\"), FakeOutPair(\"baz\", \"qux\")]\n>       assert utils.config_value_for_key(pairs, \"foo\") == \"bar\"\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\ntests/original/test_utils.py:18: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\noutPairs = [<test_utils.FakeOutPair object at 0xffffa473bb60>, <test_utils.FakeOutPair object at 0xffffa4739ac0>]\nkey = 'foo'\n\n    def config_value_for_key(outPairs, key):\n        \"\"\"\n        Search for a key in the list of OutPair objects and return its value.\n    \n        Args:\n            outPairs: List of OutPair objects\n            key: The key to search for\n    \n        Returns:\n            The value associated with the key, or empty string if not found\n        \"\"\"\n        for outPair in outPairs:\n>           if outPair.getKey() == key:\n               ^^^^^^^^^^^^^^\nE           AttributeError: 'FakeOutPair' object has no attribute 'getKey'. Did you mean: 'get_key'?\n\nsrc/editorconfig/utils.py:23: AttributeError\n___________ test_config_value_for_key_returns_empty_for_missing_key ____________\n\n    def test_config_value_for_key_returns_empty_for_missing_key():\n        pairs = [FakeOutPair(\"foo\", \"bar\")]\n>       assert utils.config_value_for_key(pairs, \"notfound\") == \"\"\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\ntests/original/test_utils.py:23: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\noutPairs = [<test_utils.FakeOutPair object at 0xffffa4571ac0>], key = 'notfound'\n\n    def config_value_for_key(outPairs, key):\n        \"\"\"\n        Search for a key in the list of OutPair objects and return its value.\n    \n        Args:\n            outPairs: List of OutPair objects\n            key: The key to search for\n    \n        Returns:\n            The value associated with the key, or empty string if not found\n        \"\"\"\n        for outPair in outPairs:\n>           if outPair.getKey() == key:\n               ^^^^^^^^^^^^^^\nE           AttributeError: 'FakeOutPair' object has no attribute 'getKey'. Did you mean: 'get_key'?\n\nsrc/editorconfig/utils.py:23: AttributeError\n__________ test_config_value_for_key_multiple_same_keys_returns_first __________\n\n    def test_config_value_for_key_multiple_same_keys_returns_first():\n        pairs = [\n            FakeOutPair(\"foo\", \"first\"),\n            FakeOutPair(\"foo\", \"second\"),\n            FakeOutPair(\"bar\", \"other\"),\n        ]\n>       assert utils.config_value_for_key(pairs, \"foo\") == \"first\"\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\ntests/original/test_utils.py:34: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\noutPairs = [<test_utils.FakeOutPair object at 0xffffa4573cb0>, <test_utils.FakeOutPair object at 0xffffa4573d40>, <test_utils.FakeOutPair object at 0xffffa4573da0>]\nkey = 'foo'\n\n    def config_value_for_key(outPairs, key):\n        \"\"\"\n        Search for a key in the list of OutPair objects and return its value.\n    \n        Args:\n            outPairs: List of OutPair objects\n            key: The key to search for\n    \n        Returns:\n            The value associated with the key, or empty string if not found\n        \"\"\"\n        for outPair in outPairs:\n>           if outPair.getKey() == key:\n               ^^^^^^^^^^^^^^\nE           AttributeError: 'FakeOutPair' object has no attribute 'getKey'. Did you mean: 'get_key'?\n\nsrc/editorconfig/utils.py:23: AttributeError\n- generated xml file: /scratch/work/editorconfig_editorconfig-jetbrains/.harness-test-results.xml -\n=========================== short test summary info ============================\nFAILED public_tests/test_utils_public.py::test_config_value_for_key_finds_different_existing_key\nFAILED public_tests/test_utils_public.py::test_config_value_for_key_returns_empty_for_another_missing_key\nFAILED public_tests/test_utils_public.py::test_config_value_for_key_multiple_same_keys_returns_first_public\nFAILED tests/original/test_utils.py::test_config_value_for_key_finds_existing_key\nFAILED tests/original/test_utils.py::test_config_value_for_key_returns_empty_for_missing_key\nFAILED tests/original/test_utils.py::test_config_value_for_key_multiple_same_keys_returns_first\n========================= 6 failed, 6 passed in 0.04s ==========================\n\n",
+          "failures": {
+            "public_tests.test_utils_public::test_config_value_for_key_finds_different_existing_key": "AttributeError: 'FakeOutPair' object has no attribute 'getKey'. Did you mean: 'get_key'?",
+            "public_tests.test_utils_public::test_config_value_for_key_returns_empty_for_another_missing_key": "AttributeError: 'FakeOutPair' object has no attribute 'getKey'. Did you mean: 'get_key'?",
+            "public_tests.test_utils_public::test_config_value_for_key_multiple_same_keys_returns_first_public": "AttributeError: 'FakeOutPair' object has no attribute 'getKey'. Did you mean: 'get_key'?",
+            "tests.original.test_utils::test_config_value_for_key_finds_existing_key": "AttributeError: 'FakeOutPair' object has no attribute 'getKey'. Did you mean: 'get_key'?",
+            "tests.original.test_utils::test_config_value_for_key_returns_empty_for_missing_key": "AttributeError: 'FakeOutPair' object has no attribute 'getKey'. Did you mean: 'get_key'?",
+            "tests.original.test_utils::test_config_value_for_key_multiple_same_keys_returns_first": "AttributeError: 'FakeOutPair' object has no attribute 'getKey'. Did you mean: 'get_key'?"
+          },
+          "passed_by_folder": {
+            "public_tests": 3,
+            "tests": 3
+          },
+          "error": null,
+          "public_feedback": {
+            "all_public_passed": false,
+            "public_test_output": "FF.F..                                                                   [100%]\n=================================== FAILURES ===================================\n____________ test_config_value_for_key_finds_different_existing_key ____________\npublic_tests/test_utils_public.py:18: in test_config_value_for_key_finds_different_existing_key\n    assert utils.config_value_for_key(pairs, \"alpha\") == \"beta\"\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nsrc/editorconfig/utils.py:23: in config_value_for_key\n    if outPair.getKey() == key:\n       ^^^^^^^^^^^^^^\nE   AttributeError: 'FakeOutPair' object has no attribute 'getKey'. Did you mean: 'get_key'?\n_______ test_config_value_for_key_returns_empty_for_another_missing_key ________\npublic_tests/test_utils_public.py:23: in test_config_value_for_key_returns_empty_for_another_missing_key\n    assert utils.config_value_for_key(pairs, \"absent\") == \"\"\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nsrc/editorconfig/utils.py:23: in config_value_for_key\n    if outPair.getKey() == key:\n       ^^^^^^^^^^^^^^\nE   AttributeError: 'FakeOutPair' object has no attribute 'getKey'. Did you mean: 'get_key'?\n______ test_config_value_for_key_multiple_same_keys_returns_first_public _______\npublic_tests/test_utils_public.py:34: in test_config_value_for_key_multiple_same_keys_returns_first_public\n    assert utils.config_value_for_key(pairs, \"dup\") == \"uno\"\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nsrc/editorconfig/utils.py:23: in config_value_for_key\n    if outPair.getKey() == key:\n       ^^^^^^^^^^^^^^\nE   AttributeError: 'FakeOutPair' object has no attribute 'getKey'. Did you mean: 'get_key'?\n=========================== short test summary info ============================\nFAILED public_tests/test_utils_public.py::test_config_value_for_key_finds_different_existing_key\nFAILED public_tests/test_utils_public.py::test_config_value_for_key_returns_empty_for_another_missing_key\nFAILED public_tests/test_utils_public.py::test_config_value_for_key_multiple_same_keys_returns_first_public\n3 failed, 3 passed in 0.02s\n\n"
+          }
+        },
+        {
+          "iteration": 4,
+          "phase": "repair",
+          "estimated_cost_usd": 0.0351,
+          "tokens": {
+            "input_tokens": 82,
+            "output_tokens": 3251,
+            "cache_read_input_tokens": 60740,
+            "cache_creation_input_tokens": 9805
+          },
+          "agent_error": null,
+          "migration_passed": true,
+          "test_success_rate": 100.0,
+          "passed": 12,
+          "failed": 0,
+          "skipped": 0,
+          "total": 12,
+          "expected_total": 12,
+          "suite_verified": true,
+          "protected_files_unchanged": true,
+          "evaluation_valid": true,
+          "exit_code": 0,
+          "output_tail": "============================= test session starts ==============================\nplatform linux -- Python 3.12.12, pytest-8.4.2, pluggy-1.7.0\nrootdir: /scratch/work/editorconfig_editorconfig-jetbrains\ncollected 12 items\n\npublic_tests/test_utils_public.py ......                                 [ 50%]\ntests/original/test_utils.py ......                                      [100%]\n\n- generated xml file: /scratch/work/editorconfig_editorconfig-jetbrains/.harness-test-results.xml -\n============================== 12 passed in 0.02s ==============================\n\n",
+          "failures": {},
+          "passed_by_folder": {
+            "public_tests": 6,
+            "tests": 6
+          },
+          "error": null
+        }
+      ],
+      "cost_complete": true,
+      "passed": 12,
+      "expected_total": 12,
+      "error": null,
+      "estimated_cost_usd": 0.2347,
+      "tokens": {
+        "input_tokens": 4493,
+        "output_tokens": 21605,
+        "cache_read_input_tokens": 501100,
+        "cache_creation_input_tokens": 56543
+      }
+    },
+    {
+      "project": "txusballesteros_fit-chart",
+      "status": "evaluation_invalid",
+      "migration_passed": false,
+      "test_success_rate": null,
+      "iterations": 5,
+      "variant": "v3",
+      "history": [
+        {
+          "iteration": 1,
+          "phase": "one_shot",
+          "estimated_cost_usd": 0.2507,
+          "tokens": {
+            "input_tokens": 4341,
+            "output_tokens": 20412,
+            "cache_read_input_tokens": 904257,
+            "cache_creation_input_tokens": 42984
+          },
+          "agent_error": null,
+          "migration_passed": false,
+          "test_success_rate": null,
+          "passed": 0,
+          "failed": 10,
+          "skipped": 0,
+          "total": 10,
+          "expected_total": 16,
+          "suite_verified": false,
+          "protected_files_unchanged": true,
+          "evaluation_valid": false,
+          "exit_code": 2,
+          "output_tail": "rtlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\npublic_tests/test_renderer_factory_public.py:2: in <module>\n    from src.fitchart.renderer_factory import RendererFactory\nsrc/fitchart/__init__.py:7: in <module>\n    from fitchart.fake_classes import Paint\nE   ModuleNotFoundError: No module named 'fitchart'\n____________ ERROR collecting tests/original/test_base_renderer.py _____________\nImportError while importing test module '/scratch/work/txusballesteros_fit-chart/tests/original/test_base_renderer.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_base_renderer.py:1: in <module>\n    from src.fitchart.base_renderer import BaseRenderer\nsrc/fitchart/__init__.py:7: in <module>\n    from fitchart.fake_classes import Paint\nE   ModuleNotFoundError: No module named 'fitchart'\n________ ERROR collecting tests/original/test_fake_classes_for_test.py _________\nImportError while importing test module '/scratch/work/txusballesteros_fit-chart/tests/original/test_fake_classes_for_test.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_fake_classes_for_test.py:2: in <module>\n    from src.fitchart.fake_classes import AnimationMode, Renderer, FitChartValue\nsrc/fitchart/__init__.py:7: in <module>\n    from fitchart.fake_classes import Paint\nE   ModuleNotFoundError: No module named 'fitchart'\n________ ERROR collecting tests/original/test_linear_value_renderer.py _________\nImportError while importing test module '/scratch/work/txusballesteros_fit-chart/tests/original/test_linear_value_renderer.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_linear_value_renderer.py:3: in <module>\n    from src.fitchart.linear_value_renderer import LinearValueRenderer\nsrc/fitchart/__init__.py:7: in <module>\n    from fitchart.fake_classes import Paint\nE   ModuleNotFoundError: No module named 'fitchart'\n_______ ERROR collecting tests/original/test_overdraw_value_renderer.py ________\nImportError while importing test module '/scratch/work/txusballesteros_fit-chart/tests/original/test_overdraw_value_renderer.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_overdraw_value_renderer.py:2: in <module>\n    from src.fitchart.overdraw_value_renderer import OverdrawValueRenderer\nsrc/fitchart/__init__.py:7: in <module>\n    from fitchart.fake_classes import Paint\nE   ModuleNotFoundError: No module named 'fitchart'\n___________ ERROR collecting tests/original/test_renderer_factory.py ___________\nImportError while importing test module '/scratch/work/txusballesteros_fit-chart/tests/original/test_renderer_factory.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_renderer_factory.py:2: in <module>\n    from src.fitchart.renderer_factory import RendererFactory\nsrc/fitchart/__init__.py:7: in <module>\n    from fitchart.fake_classes import Paint\nE   ModuleNotFoundError: No module named 'fitchart'\n- generated xml file: /scratch/work/txusballesteros_fit-chart/.harness-test-results.xml -\n=========================== short test summary info ============================\nERROR public_tests/test_base_renderer_public.py\nERROR public_tests/test_fake_classes_for_public_test.py\nERROR public_tests/test_linear_value_renderer_public.py\nERROR public_tests/test_overdraw_value_renderer_public.py\nERROR public_tests/test_renderer_factory_public.py\nERROR tests/original/test_base_renderer.py\nERROR tests/original/test_fake_classes_for_test.py\nERROR tests/original/test_linear_value_renderer.py\nERROR tests/original/test_overdraw_value_renderer.py\nERROR tests/original/test_renderer_factory.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 10 errors during collection !!!!!!!!!!!!!!!!!!!\n============================== 10 errors in 0.23s ==============================\n\n",
+          "failures": {
+            "::public_tests.test_base_renderer_public": "ModuleNotFoundError: No module named 'fitchart'",
+            "::public_tests.test_fake_classes_for_public_test": "ModuleNotFoundError: No module named 'fitchart'",
+            "::public_tests.test_linear_value_renderer_public": "ModuleNotFoundError: No module named 'fitchart'",
+            "::public_tests.test_overdraw_value_renderer_public": "ModuleNotFoundError: No module named 'fitchart'",
+            "::public_tests.test_renderer_factory_public": "ModuleNotFoundError: No module named 'fitchart'",
+            "::tests.original.test_base_renderer": "ModuleNotFoundError: No module named 'fitchart'",
+            "::tests.original.test_fake_classes_for_test": "ModuleNotFoundError: No module named 'fitchart'",
+            "::tests.original.test_linear_value_renderer": "ModuleNotFoundError: No module named 'fitchart'",
+            "::tests.original.test_overdraw_value_renderer": "ModuleNotFoundError: No module named 'fitchart'",
+            "::tests.original.test_renderer_factory": "ModuleNotFoundError: No module named 'fitchart'"
+          },
+          "passed_by_folder": {},
+          "error": "Collected/executed test identities differ from immutable baseline, or tests were skipped; Test collection: ============ short test summary info ============================\nERROR public_tests/test_base_renderer_public.py\nERROR public_tests/test_fake_classes_for_public_test.py\nERROR public_tests/test_linear_value_renderer_public.py\nERROR public_tests/test_overdraw_value_renderer_public.py\nERROR public_tests/test_renderer_factory_public.py\nERROR tests/original/test_base_renderer.py\nERROR tests/original/test_fake_classes_for_test.py\nERROR tests/original/test_linear_value_renderer.py\nERROR tests/original/test_overdraw_value_renderer.py\nERROR tests/original/test_renderer_factory.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 10 errors during collection !!!!!!!!!!!!!!!!!!!\nno tests collected, 10 errors in 0.16s\n\n",
+          "public_feedback": {
+            "all_public_passed": false,
+            "public_test_output": "\n==================================== ERRORS ====================================\n__________ ERROR collecting public_tests/test_base_renderer_public.py __________\nImportError while importing test module '/scratch/work/txusballesteros_fit-chart/public_tests/test_base_renderer_public.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\npublic_tests/test_base_renderer_public.py:1: in <module>\n    from src.fitchart.base_renderer import BaseRenderer\nsrc/fitchart/__init__.py:7: in <module>\n    from fitchart.fake_classes import Paint\nE   ModuleNotFoundError: No module named 'fitchart'\n______ ERROR collecting public_tests/test_fake_classes_for_public_test.py ______\nImportError while importing test module '/scratch/work/txusballesteros_fit-chart/public_tests/test_fake_classes_for_public_test.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\npublic_tests/test_fake_classes_for_public_test.py:1: in <module>\n    from src.fitchart.fake_classes import AnimationMode, Renderer, FitChartValue\nsrc/fitchart/__init__.py:7: in <module>\n    from fitchart.fake_classes import Paint\nE   ModuleNotFoundError: No module named 'fitchart'\n______ ERROR collecting public_tests/test_linear_value_renderer_public.py ______\nImportError while importing test module '/scratch/work/txusballesteros_fit-chart/public_tests/test_linear_value_renderer_public.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\npublic_tests/test_linear_value_renderer_public.py:2: in <module>\n    from src.fitchart.linear_value_renderer import LinearValueRenderer\nsrc/fitchart/__init__.py:7: in <module>\n    from fitchart.fake_classes import Paint\nE   ModuleNotFoundError: No module named 'fitchart'\n_____ ERROR collecting public_tests/test_overdraw_value_renderer_public.py _____\nImportError while importing test module '/scratch/work/txusballesteros_fit-chart/public_tests/test_overdraw_value_renderer_public.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\npublic_tests/test_overdraw_value_renderer_public.py:2: in <module>\n    from src.fitchart.overdraw_value_renderer import OverdrawValueRenderer\nsrc/fitchart/__init__.py:7: in <module>\n    from fitchart.fake_classes import Paint\nE   ModuleNotFoundError: No module named 'fitchart'\n________ ERROR collecting public_tests/test_renderer_factory_public.py _________\nImportError while importing test module '/scratch/work/txusballesteros_fit-chart/public_tests/test_renderer_factory_public.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\npublic_tests/test_renderer_factory_public.py:2: in <module>\n    from src.fitchart.renderer_factory import RendererFactory\nsrc/fitchart/__init__.py:7: in <module>\n    from fitchart.fake_classes import Paint\nE   ModuleNotFoundError: No module named 'fitchart'\n=========================== short test summary info ============================\nERROR public_tests/test_base_renderer_public.py\nERROR public_tests/test_fake_classes_for_public_test.py\nERROR public_tests/test_linear_value_renderer_public.py\nERROR public_tests/test_overdraw_value_renderer_public.py\nERROR public_tests/test_renderer_factory_public.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 5 errors during collection !!!!!!!!!!!!!!!!!!!!\n5 errors in 0.15s\n\n"
+          }
+        },
+        {
+          "iteration": 2,
+          "phase": "repair",
+          "estimated_cost_usd": 0.1184,
+          "tokens": {
+            "input_tokens": 274,
+            "output_tokens": 8225,
+            "cache_read_input_tokens": 472814,
+            "cache_creation_input_tokens": 23469
+          },
+          "agent_error": null,
+          "migration_passed": false,
+          "test_success_rate": null,
+          "passed": 0,
+          "failed": 10,
+          "skipped": 0,
+          "total": 10,
+          "expected_total": 16,
+          "suite_verified": false,
+          "protected_files_unchanged": true,
+          "evaluation_valid": false,
+          "exit_code": 2,
+          "output_tail": "          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\npublic_tests/test_renderer_factory_public.py:3: in <module>\n    from src.fitchart.fake_classes import AnimationMode, FitChartValue\nE   ImportError: cannot import name 'AnimationMode' from 'src.fitchart.fake_classes' (/scratch/work/txusballesteros_fit-chart/src/fitchart/fake_classes.py)\n____________ ERROR collecting tests/original/test_base_renderer.py _____________\nImportError while importing test module '/scratch/work/txusballesteros_fit-chart/tests/original/test_base_renderer.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_base_renderer.py:3: in <module>\n    from src.fitchart.fake_classes import FitChartValue\nE   ImportError: cannot import name 'FitChartValue' from 'src.fitchart.fake_classes' (/scratch/work/txusballesteros_fit-chart/src/fitchart/fake_classes.py)\n________ ERROR collecting tests/original/test_fake_classes_for_test.py _________\nImportError while importing test module '/scratch/work/txusballesteros_fit-chart/tests/original/test_fake_classes_for_test.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_fake_classes_for_test.py:2: in <module>\n    from src.fitchart.fake_classes import AnimationMode, Renderer, FitChartValue\nE   ImportError: cannot import name 'AnimationMode' from 'src.fitchart.fake_classes' (/scratch/work/txusballesteros_fit-chart/src/fitchart/fake_classes.py)\n________ ERROR collecting tests/original/test_linear_value_renderer.py _________\nImportError while importing test module '/scratch/work/txusballesteros_fit-chart/tests/original/test_linear_value_renderer.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_linear_value_renderer.py:4: in <module>\n    from src.fitchart.fake_classes import FitChartValue\nE   ImportError: cannot import name 'FitChartValue' from 'src.fitchart.fake_classes' (/scratch/work/txusballesteros_fit-chart/src/fitchart/fake_classes.py)\n_______ ERROR collecting tests/original/test_overdraw_value_renderer.py ________\nImportError while importing test module '/scratch/work/txusballesteros_fit-chart/tests/original/test_overdraw_value_renderer.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_overdraw_value_renderer.py:3: in <module>\n    from src.fitchart.fake_classes import FitChartValue\nE   ImportError: cannot import name 'FitChartValue' from 'src.fitchart.fake_classes' (/scratch/work/txusballesteros_fit-chart/src/fitchart/fake_classes.py)\n___________ ERROR collecting tests/original/test_renderer_factory.py ___________\nImportError while importing test module '/scratch/work/txusballesteros_fit-chart/tests/original/test_renderer_factory.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_renderer_factory.py:3: in <module>\n    from src.fitchart.fake_classes import AnimationMode, FitChartValue\nE   ImportError: cannot import name 'AnimationMode' from 'src.fitchart.fake_classes' (/scratch/work/txusballesteros_fit-chart/src/fitchart/fake_classes.py)\n- generated xml file: /scratch/work/txusballesteros_fit-chart/.harness-test-results.xml -\n=========================== short test summary info ============================\nERROR public_tests/test_base_renderer_public.py\nERROR public_tests/test_fake_classes_for_public_test.py\nERROR public_tests/test_linear_value_renderer_public.py\nERROR public_tests/test_overdraw_value_renderer_public.py\nERROR public_tests/test_renderer_factory_public.py\nERROR tests/original/test_base_renderer.py\nERROR tests/original/test_fake_classes_for_test.py\nERROR tests/original/test_linear_value_renderer.py\nERROR tests/original/test_overdraw_value_renderer.py\nERROR tests/original/test_renderer_factory.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 10 errors during collection !!!!!!!!!!!!!!!!!!!\n============================== 10 errors in 0.23s ==============================\n\n",
+          "failures": {
+            "::public_tests.test_base_renderer_public": "ImportError: cannot import name 'FitChartValue' from 'src.fitchart.fake_classes' (/scratch/work/txusballesteros_fit-chart/src/fitchart/fake_classes.py)",
+            "::public_tests.test_fake_classes_for_public_test": "ImportError: cannot import name 'AnimationMode' from 'src.fitchart.fake_classes' (/scratch/work/txusballesteros_fit-chart/src/fitchart/fake_classes.py)",
+            "::public_tests.test_linear_value_renderer_public": "ImportError: cannot import name 'FitChartValue' from 'src.fitchart.fake_classes' (/scratch/work/txusballesteros_fit-chart/src/fitchart/fake_classes.py)",
+            "::public_tests.test_overdraw_value_renderer_public": "ImportError: cannot import name 'FitChartValue' from 'src.fitchart.fake_classes' (/scratch/work/txusballesteros_fit-chart/src/fitchart/fake_classes.py)",
+            "::public_tests.test_renderer_factory_public": "ImportError: cannot import name 'AnimationMode' from 'src.fitchart.fake_classes' (/scratch/work/txusballesteros_fit-chart/src/fitchart/fake_classes.py)",
+            "::tests.original.test_base_renderer": "ImportError: cannot import name 'FitChartValue' from 'src.fitchart.fake_classes' (/scratch/work/txusballesteros_fit-chart/src/fitchart/fake_classes.py)",
+            "::tests.original.test_fake_classes_for_test": "ImportError: cannot import name 'AnimationMode' from 'src.fitchart.fake_classes' (/scratch/work/txusballesteros_fit-chart/src/fitchart/fake_classes.py)",
+            "::tests.original.test_linear_value_renderer": "ImportError: cannot import name 'FitChartValue' from 'src.fitchart.fake_classes' (/scratch/work/txusballesteros_fit-chart/src/fitchart/fake_classes.py)",
+            "::tests.original.test_overdraw_value_renderer": "ImportError: cannot import name 'FitChartValue' from 'src.fitchart.fake_classes' (/scratch/work/txusballesteros_fit-chart/src/fitchart/fake_classes.py)",
+            "::tests.original.test_renderer_factory": "ImportError: cannot import name 'AnimationMode' from 'src.fitchart.fake_classes' (/scratch/work/txusballesteros_fit-chart/src/fitchart/fake_classes.py)"
+          },
+          "passed_by_folder": {},
+          "error": "Collected/executed test identities differ from immutable baseline, or tests were skipped; Test collection: ============ short test summary info ============================\nERROR public_tests/test_base_renderer_public.py\nERROR public_tests/test_fake_classes_for_public_test.py\nERROR public_tests/test_linear_value_renderer_public.py\nERROR public_tests/test_overdraw_value_renderer_public.py\nERROR public_tests/test_renderer_factory_public.py\nERROR tests/original/test_base_renderer.py\nERROR tests/original/test_fake_classes_for_test.py\nERROR tests/original/test_linear_value_renderer.py\nERROR tests/original/test_overdraw_value_renderer.py\nERROR tests/original/test_renderer_factory.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 10 errors during collection !!!!!!!!!!!!!!!!!!!\nno tests collected, 10 errors in 0.15s\n\n",
+          "public_feedback": {
+            "all_public_passed": false,
+            "public_test_output": "\n==================================== ERRORS ====================================\n__________ ERROR collecting public_tests/test_base_renderer_public.py __________\nImportError while importing test module '/scratch/work/txusballesteros_fit-chart/public_tests/test_base_renderer_public.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\npublic_tests/test_base_renderer_public.py:2: in <module>\n    from src.fitchart.fake_classes import FitChartValue\nE   ImportError: cannot import name 'FitChartValue' from 'src.fitchart.fake_classes' (/scratch/work/txusballesteros_fit-chart/src/fitchart/fake_classes.py)\n______ ERROR collecting public_tests/test_fake_classes_for_public_test.py ______\nImportError while importing test module '/scratch/work/txusballesteros_fit-chart/public_tests/test_fake_classes_for_public_test.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\npublic_tests/test_fake_classes_for_public_test.py:1: in <module>\n    from src.fitchart.fake_classes import AnimationMode, Renderer, FitChartValue\nE   ImportError: cannot import name 'AnimationMode' from 'src.fitchart.fake_classes' (/scratch/work/txusballesteros_fit-chart/src/fitchart/fake_classes.py)\n______ ERROR collecting public_tests/test_linear_value_renderer_public.py ______\nImportError while importing test module '/scratch/work/txusballesteros_fit-chart/public_tests/test_linear_value_renderer_public.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\npublic_tests/test_linear_value_renderer_public.py:3: in <module>\n    from src.fitchart.fake_classes import FitChartValue\nE   ImportError: cannot import name 'FitChartValue' from 'src.fitchart.fake_classes' (/scratch/work/txusballesteros_fit-chart/src/fitchart/fake_classes.py)\n_____ ERROR collecting public_tests/test_overdraw_value_renderer_public.py _____\nImportError while importing test module '/scratch/work/txusballesteros_fit-chart/public_tests/test_overdraw_value_renderer_public.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\npublic_tests/test_overdraw_value_renderer_public.py:3: in <module>\n    from src.fitchart.fake_classes import FitChartValue\nE   ImportError: cannot import name 'FitChartValue' from 'src.fitchart.fake_classes' (/scratch/work/txusballesteros_fit-chart/src/fitchart/fake_classes.py)\n________ ERROR collecting public_tests/test_renderer_factory_public.py _________\nImportError while importing test module '/scratch/work/txusballesteros_fit-chart/public_tests/test_renderer_factory_public.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\npublic_tests/test_renderer_factory_public.py:3: in <module>\n    from src.fitchart.fake_classes import AnimationMode, FitChartValue\nE   ImportError: cannot import name 'AnimationMode' from 'src.fitchart.fake_classes' (/scratch/work/txusballesteros_fit-chart/src/fitchart/fake_classes.py)\n=========================== short test summary info ============================\nERROR public_tests/test_base_renderer_public.py\nERROR public_tests/test_fake_classes_for_public_test.py\nERROR public_tests/test_linear_value_renderer_public.py\nERROR public_tests/test_overdraw_value_renderer_public.py\nERROR public_tests/test_renderer_factory_public.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 5 errors during collection !!!!!!!!!!!!!!!!!!!!\n5 errors in 0.14s\n\n"
+          }
+        },
+        {
+          "iteration": 3,
+          "phase": "repair",
+          "estimated_cost_usd": 0.1804,
+          "tokens": {
+            "input_tokens": 322,
+            "output_tokens": 15453,
+            "cache_read_input_tokens": 651370,
+            "cache_creation_input_tokens": 29732
+          },
+          "agent_error": "error_max_turns",
+          "migration_passed": false,
+          "test_success_rate": null,
+          "passed": 0,
+          "failed": 10,
+          "skipped": 0,
+          "total": 10,
+          "expected_total": 16,
+          "suite_verified": false,
+          "protected_files_unchanged": true,
+          "evaluation_valid": false,
+          "exit_code": 2,
+          "output_tail": "          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\npublic_tests/test_renderer_factory_public.py:3: in <module>\n    from src.fitchart.fake_classes import AnimationMode, FitChartValue\nE   ImportError: cannot import name 'AnimationMode' from 'src.fitchart.fake_classes' (/scratch/work/txusballesteros_fit-chart/src/fitchart/fake_classes.py)\n____________ ERROR collecting tests/original/test_base_renderer.py _____________\nImportError while importing test module '/scratch/work/txusballesteros_fit-chart/tests/original/test_base_renderer.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_base_renderer.py:3: in <module>\n    from src.fitchart.fake_classes import FitChartValue\nE   ImportError: cannot import name 'FitChartValue' from 'src.fitchart.fake_classes' (/scratch/work/txusballesteros_fit-chart/src/fitchart/fake_classes.py)\n________ ERROR collecting tests/original/test_fake_classes_for_test.py _________\nImportError while importing test module '/scratch/work/txusballesteros_fit-chart/tests/original/test_fake_classes_for_test.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_fake_classes_for_test.py:2: in <module>\n    from src.fitchart.fake_classes import AnimationMode, Renderer, FitChartValue\nE   ImportError: cannot import name 'AnimationMode' from 'src.fitchart.fake_classes' (/scratch/work/txusballesteros_fit-chart/src/fitchart/fake_classes.py)\n________ ERROR collecting tests/original/test_linear_value_renderer.py _________\nImportError while importing test module '/scratch/work/txusballesteros_fit-chart/tests/original/test_linear_value_renderer.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_linear_value_renderer.py:4: in <module>\n    from src.fitchart.fake_classes import FitChartValue\nE   ImportError: cannot import name 'FitChartValue' from 'src.fitchart.fake_classes' (/scratch/work/txusballesteros_fit-chart/src/fitchart/fake_classes.py)\n_______ ERROR collecting tests/original/test_overdraw_value_renderer.py ________\nImportError while importing test module '/scratch/work/txusballesteros_fit-chart/tests/original/test_overdraw_value_renderer.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_overdraw_value_renderer.py:3: in <module>\n    from src.fitchart.fake_classes import FitChartValue\nE   ImportError: cannot import name 'FitChartValue' from 'src.fitchart.fake_classes' (/scratch/work/txusballesteros_fit-chart/src/fitchart/fake_classes.py)\n___________ ERROR collecting tests/original/test_renderer_factory.py ___________\nImportError while importing test module '/scratch/work/txusballesteros_fit-chart/tests/original/test_renderer_factory.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_renderer_factory.py:3: in <module>\n    from src.fitchart.fake_classes import AnimationMode, FitChartValue\nE   ImportError: cannot import name 'AnimationMode' from 'src.fitchart.fake_classes' (/scratch/work/txusballesteros_fit-chart/src/fitchart/fake_classes.py)\n- generated xml file: /scratch/work/txusballesteros_fit-chart/.harness-test-results.xml -\n=========================== short test summary info ============================\nERROR public_tests/test_base_renderer_public.py\nERROR public_tests/test_fake_classes_for_public_test.py\nERROR public_tests/test_linear_value_renderer_public.py\nERROR public_tests/test_overdraw_value_renderer_public.py\nERROR public_tests/test_renderer_factory_public.py\nERROR tests/original/test_base_renderer.py\nERROR tests/original/test_fake_classes_for_test.py\nERROR tests/original/test_linear_value_renderer.py\nERROR tests/original/test_overdraw_value_renderer.py\nERROR tests/original/test_renderer_factory.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 10 errors during collection !!!!!!!!!!!!!!!!!!!\n============================== 10 errors in 0.19s ==============================\n\n",
+          "failures": {
+            "::public_tests.test_base_renderer_public": "ImportError: cannot import name 'FitChartValue' from 'src.fitchart.fake_classes' (/scratch/work/txusballesteros_fit-chart/src/fitchart/fake_classes.py)",
+            "::public_tests.test_fake_classes_for_public_test": "ImportError: cannot import name 'AnimationMode' from 'src.fitchart.fake_classes' (/scratch/work/txusballesteros_fit-chart/src/fitchart/fake_classes.py)",
+            "::public_tests.test_linear_value_renderer_public": "ImportError: cannot import name 'FitChartValue' from 'src.fitchart.fake_classes' (/scratch/work/txusballesteros_fit-chart/src/fitchart/fake_classes.py)",
+            "::public_tests.test_overdraw_value_renderer_public": "ImportError: cannot import name 'FitChartValue' from 'src.fitchart.fake_classes' (/scratch/work/txusballesteros_fit-chart/src/fitchart/fake_classes.py)",
+            "::public_tests.test_renderer_factory_public": "ImportError: cannot import name 'AnimationMode' from 'src.fitchart.fake_classes' (/scratch/work/txusballesteros_fit-chart/src/fitchart/fake_classes.py)",
+            "::tests.original.test_base_renderer": "ImportError: cannot import name 'FitChartValue' from 'src.fitchart.fake_classes' (/scratch/work/txusballesteros_fit-chart/src/fitchart/fake_classes.py)",
+            "::tests.original.test_fake_classes_for_test": "ImportError: cannot import name 'AnimationMode' from 'src.fitchart.fake_classes' (/scratch/work/txusballesteros_fit-chart/src/fitchart/fake_classes.py)",
+            "::tests.original.test_linear_value_renderer": "ImportError: cannot import name 'FitChartValue' from 'src.fitchart.fake_classes' (/scratch/work/txusballesteros_fit-chart/src/fitchart/fake_classes.py)",
+            "::tests.original.test_overdraw_value_renderer": "ImportError: cannot import name 'FitChartValue' from 'src.fitchart.fake_classes' (/scratch/work/txusballesteros_fit-chart/src/fitchart/fake_classes.py)",
+            "::tests.original.test_renderer_factory": "ImportError: cannot import name 'AnimationMode' from 'src.fitchart.fake_classes' (/scratch/work/txusballesteros_fit-chart/src/fitchart/fake_classes.py)"
+          },
+          "passed_by_folder": {},
+          "error": "Collected/executed test identities differ from immutable baseline, or tests were skipped; Test collection: ============ short test summary info ============================\nERROR public_tests/test_base_renderer_public.py\nERROR public_tests/test_fake_classes_for_public_test.py\nERROR public_tests/test_linear_value_renderer_public.py\nERROR public_tests/test_overdraw_value_renderer_public.py\nERROR public_tests/test_renderer_factory_public.py\nERROR tests/original/test_base_renderer.py\nERROR tests/original/test_fake_classes_for_test.py\nERROR tests/original/test_linear_value_renderer.py\nERROR tests/original/test_overdraw_value_renderer.py\nERROR tests/original/test_renderer_factory.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 10 errors during collection !!!!!!!!!!!!!!!!!!!\nno tests collected, 10 errors in 0.15s\n\n",
+          "public_feedback": {
+            "all_public_passed": false,
+            "public_test_output": "\n==================================== ERRORS ====================================\n__________ ERROR collecting public_tests/test_base_renderer_public.py __________\nImportError while importing test module '/scratch/work/txusballesteros_fit-chart/public_tests/test_base_renderer_public.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\npublic_tests/test_base_renderer_public.py:2: in <module>\n    from src.fitchart.fake_classes import FitChartValue\nE   ImportError: cannot import name 'FitChartValue' from 'src.fitchart.fake_classes' (/scratch/work/txusballesteros_fit-chart/src/fitchart/fake_classes.py)\n______ ERROR collecting public_tests/test_fake_classes_for_public_test.py ______\nImportError while importing test module '/scratch/work/txusballesteros_fit-chart/public_tests/test_fake_classes_for_public_test.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\npublic_tests/test_fake_classes_for_public_test.py:1: in <module>\n    from src.fitchart.fake_classes import AnimationMode, Renderer, FitChartValue\nE   ImportError: cannot import name 'AnimationMode' from 'src.fitchart.fake_classes' (/scratch/work/txusballesteros_fit-chart/src/fitchart/fake_classes.py)\n______ ERROR collecting public_tests/test_linear_value_renderer_public.py ______\nImportError while importing test module '/scratch/work/txusballesteros_fit-chart/public_tests/test_linear_value_renderer_public.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\npublic_tests/test_linear_value_renderer_public.py:3: in <module>\n    from src.fitchart.fake_classes import FitChartValue\nE   ImportError: cannot import name 'FitChartValue' from 'src.fitchart.fake_classes' (/scratch/work/txusballesteros_fit-chart/src/fitchart/fake_classes.py)\n_____ ERROR collecting public_tests/test_overdraw_value_renderer_public.py _____\nImportError while importing test module '/scratch/work/txusballesteros_fit-chart/public_tests/test_overdraw_value_renderer_public.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\npublic_tests/test_overdraw_value_renderer_public.py:3: in <module>\n    from src.fitchart.fake_classes import FitChartValue\nE   ImportError: cannot import name 'FitChartValue' from 'src.fitchart.fake_classes' (/scratch/work/txusballesteros_fit-chart/src/fitchart/fake_classes.py)\n________ ERROR collecting public_tests/test_renderer_factory_public.py _________\nImportError while importing test module '/scratch/work/txusballesteros_fit-chart/public_tests/test_renderer_factory_public.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\npublic_tests/test_renderer_factory_public.py:3: in <module>\n    from src.fitchart.fake_classes import AnimationMode, FitChartValue\nE   ImportError: cannot import name 'AnimationMode' from 'src.fitchart.fake_classes' (/scratch/work/txusballesteros_fit-chart/src/fitchart/fake_classes.py)\n=========================== short test summary info ============================\nERROR public_tests/test_base_renderer_public.py\nERROR public_tests/test_fake_classes_for_public_test.py\nERROR public_tests/test_linear_value_renderer_public.py\nERROR public_tests/test_overdraw_value_renderer_public.py\nERROR public_tests/test_renderer_factory_public.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 5 errors during collection !!!!!!!!!!!!!!!!!!!!\n5 errors in 0.13s\n\n"
+          }
+        },
+        {
+          "iteration": 4,
+          "phase": "repair",
+          "estimated_cost_usd": 0.185,
+          "tokens": {
+            "input_tokens": 314,
+            "output_tokens": 13573,
+            "cache_read_input_tokens": 738942,
+            "cache_creation_input_tokens": 34000
+          },
+          "agent_error": null,
+          "migration_passed": false,
+          "test_success_rate": 37.5,
+          "passed": 6,
+          "failed": 10,
+          "skipped": 0,
+          "total": 16,
+          "expected_total": 16,
+          "suite_verified": true,
+          "protected_files_unchanged": true,
+          "evaluation_valid": true,
+          "exit_code": 1,
+          "output_tail": "rt/linear_value_renderer.py:37: in buildPath\n    path.addArc(self.getDrawingArea(), self.getValue().getStartAngle(), sweepAngle)\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = <src.fitchart.fake_classes.Path object at 0xffffb998b8f0>\nrect = (0, 0, 100, 100), startAngle = 0.0, sweepAngle = 50.0\n\n    def addArc(self, rect, startAngle, sweepAngle):\n        \"\"\"Add an arc to the path.\"\"\"\n>       self.arcs.append((rect.left, rect.top, rect.right, rect.bottom, startAngle, sweepAngle))\n                          ^^^^^^^^^\nE       AttributeError: 'RectF' object has no attribute 'left'\n\nsrc/fitchart/fake_classes.py:24: AttributeError\n___________________ test_calculate_sweep_angle_path_branches ___________________\n\n    def test_calculate_sweep_angle_path_branches():\n        area = RectF(0, 0, 100, 100)\n        value = MagicMock(spec=FitChartValue)\n        value.getStartAngle.return_value = 20.0\n        value.getSweepAngle.return_value = 50.0\n        renderer = LinearValueRenderer(area, value)\n    \n        # force totalSizeOfValue > animationSeek\n>       path1 = renderer.buildPath(0.5, 40.0)\n                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\ntests/original/test_linear_value_renderer.py:40: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \nsrc/fitchart/linear_value_renderer.py:37: in buildPath\n    path.addArc(self.getDrawingArea(), self.getValue().getStartAngle(), sweepAngle)\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = <src.fitchart.fake_classes.Path object at 0xffffb998bd10>\nrect = (0, 0, 100, 100), startAngle = 20.0, sweepAngle = 20.0\n\n    def addArc(self, rect, startAngle, sweepAngle):\n        \"\"\"Add an arc to the path.\"\"\"\n>       self.arcs.append((rect.left, rect.top, rect.right, rect.bottom, startAngle, sweepAngle))\n                          ^^^^^^^^^\nE       AttributeError: 'RectF' object has no attribute 'left'\n\nsrc/fitchart/fake_classes.py:24: AttributeError\n_______________________________ test_build_path ________________________________\n\n    def test_build_path():\n        area = RectF(0, 0, 100, 100)\n        value = MagicMock(spec=FitChartValue)\n        value.getStartAngle.return_value = 10.0\n        value.getSweepAngle.return_value = 100.0\n        renderer = OverdrawValueRenderer(area, value)\n>       path = renderer.buildPath(0.5, 50.0)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\ntests/original/test_overdraw_value_renderer.py:15: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \nsrc/fitchart/overdraw_value_renderer.py:39: in buildPath\n    path.addArc(self.getDrawingArea(), startAngle, sweepAngle)\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = <src.fitchart.fake_classes.Path object at 0xffffb998b830>\nrect = (0, 0, 100, 100), startAngle = -90, sweepAngle = 100.0\n\n    def addArc(self, rect, startAngle, sweepAngle):\n        \"\"\"Add an arc to the path.\"\"\"\n>       self.arcs.append((rect.left, rect.top, rect.right, rect.bottom, startAngle, sweepAngle))\n                          ^^^^^^^^^\nE       AttributeError: 'RectF' object has no attribute 'left'\n\nsrc/fitchart/fake_classes.py:24: AttributeError\n=============================== warnings summary ===============================\npublic_tests/test_base_renderer_public.py:8\n  /scratch/work/txusballesteros_fit-chart/public_tests/test_base_renderer_public.py:8: PytestCollectionWarning: cannot collect test class 'TestRenderer' because it has a __init__ constructor (from: public_tests/test_base_renderer_public.py)\n    class TestRenderer(BaseRenderer):\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n- generated xml file: /scratch/work/txusballesteros_fit-chart/.harness-test-results.xml -\n=========================== short test summary info ============================\nFAILED public_tests/test_fake_classes_for_public_test.py::test_fake_classes_exist_public\nFAILED public_tests/test_linear_value_renderer_public.py::test_build_path_with_different_start_angle_less_than_seek_builds_arc\nFAILED public_tests/test_linear_value_renderer_public.py::test_calculate_sweep_angle_branches_with_different_data\nFAILED public_tests/test_overdraw_value_renderer_public.py::test_build_path_with_other_angles\nFAILED public_tests/test_renderer_factory_public.py::test_create_renderer_returns_linear_value_renderer_with_different_area\nFAILED public_tests/test_renderer_factory_public.py::test_create_renderer_returns_overdraw_value_renderer_with_different_area\nFAILED tests/original/test_fake_classes_for_test.py::test_fake_classes_exist\nFAILED tests/original/test_linear_value_renderer.py::test_build_path_with_start_angle_less_than_seek_builds_arc\nFAILED tests/original/test_linear_value_renderer.py::test_calculate_sweep_angle_path_branches\nFAILED tests/original/test_overdraw_value_renderer.py::test_build_path - Attr...\n=================== 10 failed, 6 passed, 1 warning in 0.18s ====================\n\n",
+          "failures": {
+            "public_tests.test_fake_classes_for_public_test::test_fake_classes_exist_public": "AttributeError: 'str' object has no attribute 'setColor'",
+            "public_tests.test_linear_value_renderer_public::test_build_path_with_different_start_angle_less_than_seek_builds_arc": "AttributeError: 'RectF' object has no attribute 'left'",
+            "public_tests.test_linear_value_renderer_public::test_calculate_sweep_angle_branches_with_different_data": "AttributeError: 'RectF' object has no attribute 'left'",
+            "public_tests.test_overdraw_value_renderer_public::test_build_path_with_other_angles": "AttributeError: 'RectF' object has no attribute 'left'",
+            "public_tests.test_renderer_factory_public::test_create_renderer_returns_linear_value_renderer_with_different_area": "AttributeError: type object 'RendererFactory' has no attribute 'create'",
+            "public_tests.test_renderer_factory_public::test_create_renderer_returns_overdraw_value_renderer_with_different_area": "AttributeError: type object 'RendererFactory' has no attribute 'create'",
+            "tests.original.test_fake_classes_for_test::test_fake_classes_exist": "AttributeError: 'str' object has no attribute 'setColor'",
+            "tests.original.test_linear_value_renderer::test_build_path_with_start_angle_less_than_seek_builds_arc": "AttributeError: 'RectF' object has no attribute 'left'",
+            "tests.original.test_linear_value_renderer::test_calculate_sweep_angle_path_branches": "AttributeError: 'RectF' object has no attribute 'left'",
+            "tests.original.test_overdraw_value_renderer::test_build_path": "AttributeError: 'RectF' object has no attribute 'left'"
+          },
+          "passed_by_folder": {
+            "public_tests": 2,
+            "tests": 4
+          },
+          "error": null,
+          "public_feedback": {
+            "all_public_passed": false,
+            "public_test_output": ".FF.FFFF                                                                 [100%]\n=================================== FAILURES ===================================\n________________________ test_fake_classes_exist_public ________________________\npublic_tests/test_fake_classes_for_public_test.py:11: in test_fake_classes_exist_public\n    fc.setPaint(\"paint_pub\")\nsrc/fitchart/fake_classes.py:158: in setPaint\n    paint.setColor(self._color)\n    ^^^^^^^^^^^^^^\nE   AttributeError: 'str' object has no attribute 'setColor'\n_____ test_build_path_with_different_start_angle_less_than_seek_builds_arc _____\npublic_tests/test_linear_value_renderer_public.py:15: in test_build_path_with_different_start_angle_less_than_seek_builds_arc\n    path = renderer.buildPath(0.7, 25.0)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nsrc/fitchart/linear_value_renderer.py:37: in buildPath\n    path.addArc(self.getDrawingArea(), self.getValue().getStartAngle(), sweepAngle)\nsrc/fitchart/fake_classes.py:24: in addArc\n    self.arcs.append((rect.left, rect.top, rect.right, rect.bottom, startAngle, sweepAngle))\n                      ^^^^^^^^^\nE   AttributeError: 'RectF' object has no attribute 'left'\n___________ test_calculate_sweep_angle_branches_with_different_data ____________\npublic_tests/test_linear_value_renderer_public.py:34: in test_calculate_sweep_angle_branches_with_different_data\n    renderer.buildPath(0.3, 20.0)\nsrc/fitchart/linear_value_renderer.py:37: in buildPath\n    path.addArc(self.getDrawingArea(), self.getValue().getStartAngle(), sweepAngle)\nsrc/fitchart/fake_classes.py:24: in addArc\n    self.arcs.append((rect.left, rect.top, rect.right, rect.bottom, startAngle, sweepAngle))\n                      ^^^^^^^^^\nE   AttributeError: 'RectF' object has no attribute 'left'\n______________________ test_build_path_with_other_angles _______________________\npublic_tests/test_overdraw_value_renderer_public.py:15: in test_build_path_with_other_angles\n    path = renderer.buildPath(0.6, 35.0)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nsrc/fitchart/overdraw_value_renderer.py:39: in buildPath\n    path.addArc(self.getDrawingArea(), startAngle, sweepAngle)\nsrc/fitchart/fake_classes.py:24: in addArc\n    self.arcs.append((rect.left, rect.top, rect.right, rect.bottom, startAngle, sweepAngle))\n                      ^^^^^^^^^\nE   AttributeError: 'RectF' object has no attribute 'left'\n____ test_create_renderer_returns_linear_value_renderer_with_different_area ____\npublic_tests/test_renderer_factory_public.py:14: in test_create_renderer_returns_linear_value_renderer_with_different_area\n    renderer = RendererFactory.create(area, value, AnimationMode.LINEAR)\n               ^^^^^^^^^^^^^^^^^^^^^^\nE   AttributeError: type object 'RendererFactory' has no attribute 'create'\n___ test_create_renderer_returns_overdraw_value_renderer_with_different_area ___\npublic_tests/test_renderer_factory_public.py:20: in test_create_renderer_returns_overdraw_value_renderer_with_different_area\n    renderer = RendererFactory.create(area, value, AnimationMode.OVERDRAW)\n               ^^^^^^^^^^^^^^^^^^^^^^\nE   AttributeError: type object 'RendererFactory' has no attribute 'create'\n=============================== warnings summary ===============================\npublic_tests/test_base_renderer_public.py:8\n  /scratch/work/txusballesteros_fit-chart/public_tests/test_base_renderer_public.py:8: PytestCollectionWarning: cannot collect test class 'TestRenderer' because it has a __init__ constructor (from: public_tests/test_base_renderer_public.py)\n    class TestRenderer(BaseRenderer):\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n=========================== short test summary info ============================\nFAILED public_tests/test_fake_classes_for_public_test.py::test_fake_classes_exist_public\nFAILED public_tests/test_linear_value_renderer_public.py::test_build_path_with_different_start_angle_less_than_seek_builds_arc\nFAILED public_tests/test_linear_value_renderer_public.py::test_calculate_sweep_angle_branches_with_different_data\nFAILED public_tests/test_overdraw_value_renderer_public.py::test_build_path_with_other_angles\nFAILED public_tests/test_renderer_factory_public.py::test_create_renderer_returns_linear_value_renderer_with_different_area\nFAILED public_tests/test_renderer_factory_public.py::test_create_renderer_returns_overdraw_value_renderer_with_different_area\n6 failed, 2 passed, 1 warning in 0.11s\n\n"
+          }
+        },
+        {
+          "iteration": 5,
+          "phase": "repair",
+          "estimated_cost_usd": 0.2082,
+          "tokens": {
+            "input_tokens": 322,
+            "output_tokens": 18830,
+            "cache_read_input_tokens": 682888,
+            "cache_creation_input_tokens": 36089
+          },
+          "agent_error": "error_max_turns",
+          "migration_passed": false,
+          "test_success_rate": null,
+          "passed": 0,
+          "failed": 5,
+          "skipped": 0,
+          "total": 5,
+          "expected_total": 16,
+          "suite_verified": false,
+          "protected_files_unchanged": true,
+          "evaluation_valid": false,
+          "exit_code": 2,
+          "output_tail": "t__.py)\n_____ ERROR collecting public_tests/test_overdraw_value_renderer_public.py _____\nImportError while importing test module '/scratch/work/txusballesteros_fit-chart/public_tests/test_overdraw_value_renderer_public.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\npublic_tests/test_overdraw_value_renderer_public.py:2: in <module>\n    from src.fitchart.overdraw_value_renderer import OverdrawValueRenderer\nsrc/fitchart/__init__.py:6: in <module>\n    from .renderer_factory import RendererFactory\nsrc/fitchart/renderer_factory.py:7: in <module>\n    from .overdraw_value_renderer import OverdrawValueRenderer\nsrc/fitchart/overdraw_value_renderer.py:7: in <module>\n    from . import FitChart\nE   ImportError: cannot import name 'FitChart' from partially initialized module 'src.fitchart' (most likely due to a circular import) (/scratch/work/txusballesteros_fit-chart/src/fitchart/__init__.py)\n________ ERROR collecting public_tests/test_renderer_factory_public.py _________\nImportError while importing test module '/scratch/work/txusballesteros_fit-chart/public_tests/test_renderer_factory_public.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\npublic_tests/test_renderer_factory_public.py:2: in <module>\n    from src.fitchart.renderer_factory import RendererFactory\nsrc/fitchart/__init__.py:6: in <module>\n    from .renderer_factory import RendererFactory\nsrc/fitchart/renderer_factory.py:7: in <module>\n    from .overdraw_value_renderer import OverdrawValueRenderer\nsrc/fitchart/overdraw_value_renderer.py:7: in <module>\n    from . import FitChart\nE   ImportError: cannot import name 'FitChart' from partially initialized module 'src.fitchart' (most likely due to a circular import) (/scratch/work/txusballesteros_fit-chart/src/fitchart/__init__.py)\n_______ ERROR collecting tests/original/test_overdraw_value_renderer.py ________\nImportError while importing test module '/scratch/work/txusballesteros_fit-chart/tests/original/test_overdraw_value_renderer.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_overdraw_value_renderer.py:2: in <module>\n    from src.fitchart.overdraw_value_renderer import OverdrawValueRenderer\nsrc/fitchart/__init__.py:6: in <module>\n    from .renderer_factory import RendererFactory\nsrc/fitchart/renderer_factory.py:7: in <module>\n    from .overdraw_value_renderer import OverdrawValueRenderer\nsrc/fitchart/overdraw_value_renderer.py:7: in <module>\n    from . import FitChart\nE   ImportError: cannot import name 'FitChart' from partially initialized module 'src.fitchart' (most likely due to a circular import) (/scratch/work/txusballesteros_fit-chart/src/fitchart/__init__.py)\n___________ ERROR collecting tests/original/test_renderer_factory.py ___________\nImportError while importing test module '/scratch/work/txusballesteros_fit-chart/tests/original/test_renderer_factory.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_renderer_factory.py:2: in <module>\n    from src.fitchart.renderer_factory import RendererFactory\nsrc/fitchart/__init__.py:6: in <module>\n    from .renderer_factory import RendererFactory\nsrc/fitchart/renderer_factory.py:7: in <module>\n    from .overdraw_value_renderer import OverdrawValueRenderer\nsrc/fitchart/overdraw_value_renderer.py:7: in <module>\n    from . import FitChart\nE   ImportError: cannot import name 'FitChart' from partially initialized module 'src.fitchart' (most likely due to a circular import) (/scratch/work/txusballesteros_fit-chart/src/fitchart/__init__.py)\n- generated xml file: /scratch/work/txusballesteros_fit-chart/.harness-test-results.xml -\n=========================== short test summary info ============================\nERROR public_tests/test_base_renderer_public.py\nERROR public_tests/test_overdraw_value_renderer_public.py\nERROR public_tests/test_renderer_factory_public.py\nERROR tests/original/test_overdraw_value_renderer.py\nERROR tests/original/test_renderer_factory.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 5 errors during collection !!!!!!!!!!!!!!!!!!!!\n============================== 5 errors in 0.19s ===============================\n\n",
+          "failures": {
+            "::public_tests.test_base_renderer_public": "ImportError: cannot import name 'FitChart' from partially initialized module 'src.fitchart' (most likely due to a circular import) (/scratch/work/txusballesteros_fit-chart/src/fitchart/__init__.py)",
+            "::public_tests.test_overdraw_value_renderer_public": "ImportError: cannot import name 'FitChart' from partially initialized module 'src.fitchart' (most likely due to a circular import) (/scratch/work/txusballesteros_fit-chart/src/fitchart/__init__.py)",
+            "::public_tests.test_renderer_factory_public": "ImportError: cannot import name 'FitChart' from partially initialized module 'src.fitchart' (most likely due to a circular import) (/scratch/work/txusballesteros_fit-chart/src/fitchart/__init__.py)",
+            "::tests.original.test_overdraw_value_renderer": "ImportError: cannot import name 'FitChart' from partially initialized module 'src.fitchart' (most likely due to a circular import) (/scratch/work/txusballesteros_fit-chart/src/fitchart/__init__.py)",
+            "::tests.original.test_renderer_factory": "ImportError: cannot import name 'FitChart' from partially initialized module 'src.fitchart' (most likely due to a circular import) (/scratch/work/txusballesteros_fit-chart/src/fitchart/__init__.py)"
+          },
+          "passed_by_folder": {},
+          "error": "Collected/executed test identities differ from immutable baseline, or tests were skipped; Test collection: 7: in <module>\n    from . import FitChart\nE   ImportError: cannot import name 'FitChart' from partially initialized module 'src.fitchart' (most likely due to a circular import) (/scratch/work/txusballesteros_fit-chart/src/fitchart/__init__.py)\n=========================== short test summary info ============================\nERROR public_tests/test_base_renderer_public.py\nERROR public_tests/test_overdraw_value_renderer_public.py\nERROR public_tests/test_renderer_factory_public.py\nERROR tests/original/test_overdraw_value_renderer.py\nERROR tests/original/test_renderer_factory.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 5 errors during collection !!!!!!!!!!!!!!!!!!!!\n9 tests collected, 5 errors in 0.16s\n\n"
+        }
+      ],
+      "cost_complete": true,
+      "passed": 0,
+      "expected_total": 16,
+      "error": "Collected/executed test identities differ from immutable baseline, or tests were skipped; Test collection: 7: in <module>\n    from . import FitChart\nE   ImportError: cannot import name 'FitChart' from partially initialized module 'src.fitchart' (most likely due to a circular import) (/scratch/work/txusballesteros_fit-chart/src/fitchart/__init__.py)\n=========================== short test summary info ============================\nERROR public_tests/test_base_renderer_public.py\nERROR public_tests/test_overdraw_value_renderer_public.py\nERROR public_tests/test_renderer_factory_public.py\nERROR tests/original/test_overdraw_value_renderer.py\nERROR tests/original/test_renderer_factory.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 5 errors during collection !!!!!!!!!!!!!!!!!!!!\n9 tests collected, 5 errors in 0.16s\n\n",
+      "estimated_cost_usd": 0.9427,
+      "tokens": {
+        "input_tokens": 5573,
+        "output_tokens": 76493,
+        "cache_read_input_tokens": 3450271,
+        "cache_creation_input_tokens": 166274
+      }
+    },
+    {
+      "project": "googlearchive_android-BluetoothLeGatt",
+      "status": "evaluation_invalid",
+      "migration_passed": false,
+      "test_success_rate": null,
+      "iterations": 1,
+      "variant": "v3",
+      "history": [
+        {
+          "iteration": 1,
+          "phase": "one_shot",
+          "estimated_cost_usd": 0.1088,
+          "tokens": {
+            "input_tokens": 4193,
+            "output_tokens": 7321,
+            "cache_read_input_tokens": 321393,
+            "cache_creation_input_tokens": 28587
+          },
+          "agent_error": null,
+          "migration_passed": false,
+          "test_success_rate": null,
+          "passed": 0,
+          "failed": 1,
+          "skipped": 0,
+          "total": 1,
+          "expected_total": 19,
+          "suite_verified": false,
+          "protected_files_unchanged": true,
+          "evaluation_valid": false,
+          "exit_code": 2,
+          "output_tail": "============================= test session starts ==============================\nplatform linux -- Python 3.12.12, pytest-8.4.2, pluggy-1.7.0\nrootdir: /scratch/work/googlearchive_android-BluetoothLeGatt\ncollected 18 items / 1 error\n\n==================================== ERRORS ====================================\n_________ ERROR collecting tests/original/test_bluetooth_le_service.py _________\nImportError while importing test module '/scratch/work/googlearchive_android-BluetoothLeGatt/tests/original/test_bluetooth_le_service.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_bluetooth_le_service.py:2: in <module>\n    from src.bluetoothlegatt.bluetooth_le_service import BluetoothLeService\nsrc/bluetoothlegatt/bluetooth_le_service.py:17: in <module>\n    from bluetoothlegatt.sample_gatt_attributes import SampleGattAttributes\nE   ModuleNotFoundError: No module named 'bluetoothlegatt'\n- generated xml file: /scratch/work/googlearchive_android-BluetoothLeGatt/.harness-test-results.xml -\n=========================== short test summary info ============================\nERROR tests/original/test_bluetooth_le_service.py\n!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n=============================== 1 error in 0.09s ===============================\n\n",
+          "failures": {
+            "::tests.original.test_bluetooth_le_service": "ModuleNotFoundError: No module named 'bluetoothlegatt'"
+          },
+          "passed_by_folder": {},
+          "error": "Collected/executed test identities differ from immutable baseline, or tests were skipped; Test collection: rn _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_bluetooth_le_service.py:2: in <module>\n    from src.bluetoothlegatt.bluetooth_le_service import BluetoothLeService\nsrc/bluetoothlegatt/bluetooth_le_service.py:17: in <module>\n    from bluetoothlegatt.sample_gatt_attributes import SampleGattAttributes\nE   ModuleNotFoundError: No module named 'bluetoothlegatt'\n=========================== short test summary info ============================\nERROR tests/original/test_bluetooth_le_service.py\n!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n18 tests collected, 1 error in 0.06s\n\n",
+          "public_feedback": {
+            "all_public_passed": true,
+            "public_test_output": "........                                                                 [100%]\n8 passed in 0.01s\n\n"
+          }
+        }
+      ],
+      "cost_complete": true,
+      "passed": 0,
+      "expected_total": 19,
+      "error": "Collected/executed test identities differ from immutable baseline, or tests were skipped; Test collection: rn _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_bluetooth_le_service.py:2: in <module>\n    from src.bluetoothlegatt.bluetooth_le_service import BluetoothLeService\nsrc/bluetoothlegatt/bluetooth_le_service.py:17: in <module>\n    from bluetoothlegatt.sample_gatt_attributes import SampleGattAttributes\nE   ModuleNotFoundError: No module named 'bluetoothlegatt'\n=========================== short test summary info ============================\nERROR tests/original/test_bluetooth_le_service.py\n!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n18 tests collected, 1 error in 0.06s\n\n",
+      "estimated_cost_usd": 0.1088,
+      "tokens": {
+        "input_tokens": 4193,
+        "output_tokens": 7321,
+        "cache_read_input_tokens": 321393,
+        "cache_creation_input_tokens": 28587
+      }
+    }
+  ],
+  "summary": {
+    "migration_passed": 1,
+    "total_projects": 5,
+    "test_success_rate": null
+  }
+}

@@ -1,0 +1,8 @@
+Translate the complete Java repository in _java_reference/ to working Python code under src/. Preserve observable behavior. Do not change tests, run_tests.sh, or Java reference files.
+
+Follow these rules:
+- Module layout: create exactly the Python packages and modules listed under src/ in _java_reference/project_structure.txt.
+- Names: keep every Java class, method, field and constant name exactly as spelled in Java (for example getValue, not get_value). Public Java members stay public in Python; do not prefix them with an underscore.
+- Signatures: keep Java parameter order. Merge overloaded Java methods into one Python method that accepts every overload's arguments.
+- Dependencies: use only the Python standard library; no third-party packages are installed.
+- Scope: write only implementation .py files under src/. Do not write tests, documentation, examples or helper scripts.

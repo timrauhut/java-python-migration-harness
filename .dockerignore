@@ -1,0 +1,8 @@
+*
+!Dockerfile
+!requirements.txt
+!repotransbench.py
+!run.py
+!failures.py
+!prompts/
+!prompts/*.txt
