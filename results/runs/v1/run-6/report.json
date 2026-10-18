@@ -1,0 +1,305 @@
+{
+  "config": {
+    "dataset_version": "RepoTransBench v1.0",
+    "dataset_summary_sha256": "c4430828b3a37548796b1d78b8211b4c6b2c1c7b850a7f5e46f12f6c04a99ef2",
+    "source_tree_sha256": "75946316c167048cd6b89aaa53c5ea8bab262fd8713ffe5c88f8c490a96e45d4",
+    "test_suite_sha256": "005d4bc56a53dfd54ca8429248372060ba51dc935a8c518bc3ede672eea1e587",
+    "project_ids": [
+      "aventrix_jnanoid",
+      "agarciadom_xeger",
+      "editorconfig_editorconfig-jetbrains",
+      "txusballesteros_fit-chart",
+      "googlearchive_android-BluetoothLeGatt"
+    ],
+    "model": "claude-haiku-4-5-20251001",
+    "variant": "v1",
+    "prompt_version": "interface-rules-1",
+    "evaluator_version": "static-junit-1",
+    "max_attempts": 1,
+    "budget_usd_per_project": 5.0,
+    "timeout_seconds": 180,
+    "python_version": "3.12.12",
+    "pytest_version": "8.4.2",
+    "claude_agent_sdk_version": "0.2.166"
+  },
+  "projects": [
+    {
+      "project": "aventrix_jnanoid",
+      "status": "evaluation_invalid",
+      "migration_passed": false,
+      "test_success_rate": null,
+      "iterations": 1,
+      "variant": "v1",
+      "history": [
+        {
+          "iteration": 1,
+          "phase": "one_shot",
+          "estimated_cost_usd": 0.109,
+          "tokens": {
+            "input_tokens": 4141,
+            "output_tokens": 12482,
+            "cache_read_input_tokens": 139596,
+            "cache_creation_input_tokens": 22669
+          },
+          "agent_error": null,
+          "migration_passed": false,
+          "test_success_rate": null,
+          "passed": 0,
+          "failed": 2,
+          "skipped": 0,
+          "total": 2,
+          "expected_total": 23,
+          "suite_verified": false,
+          "protected_files_unchanged": true,
+          "evaluation_valid": false,
+          "exit_code": 2,
+          "output_tail": "============================= test session starts ==============================\nplatform linux -- Python 3.12.12, pytest-8.4.2, pluggy-1.7.0\nrootdir: /scratch/work/v1/aventrix_jnanoid\ncollected 0 items / 2 errors\n\n==================================== ERRORS ====================================\n___________ ERROR collecting public_tests/test_nanoidutils_public.py ___________\nImportError while importing test module '/scratch/work/v1/aventrix_jnanoid/public_tests/test_nanoidutils_public.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\npublic_tests/test_nanoidutils_public.py:3: in <module>\n    from src.jnanoid.nano_id_utils import NanoIdUtils\nE   ImportError: cannot import name 'NanoIdUtils' from 'src.jnanoid.nano_id_utils' (/scratch/work/v1/aventrix_jnanoid/src/jnanoid/nano_id_utils.py)\n_____________ ERROR collecting tests/original/test_nanoidutils.py ______________\nImportError while importing test module '/scratch/work/v1/aventrix_jnanoid/tests/original/test_nanoidutils.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_nanoidutils.py:4: in <module>\n    from src.jnanoid.nano_id_utils import NanoIdUtils\nE   ImportError: cannot import name 'NanoIdUtils' from 'src.jnanoid.nano_id_utils' (/scratch/work/v1/aventrix_jnanoid/src/jnanoid/nano_id_utils.py)\n- generated xml file: /scratch/work/v1/aventrix_jnanoid/.harness-test-results.xml -\n=========================== short test summary info ============================\nERROR public_tests/test_nanoidutils_public.py\nERROR tests/original/test_nanoidutils.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 2 errors during collection !!!!!!!!!!!!!!!!!!!!\n============================== 2 errors in 0.07s ===============================\n\n",
+          "failures": {
+            "::public_tests.test_nanoidutils_public": "ImportError: cannot import name 'NanoIdUtils' from 'src.jnanoid.nano_id_utils' (/scratch/work/v1/aventrix_jnanoid/src/jnanoid/nano_id_utils.py)",
+            "::tests.original.test_nanoidutils": "ImportError: cannot import name 'NanoIdUtils' from 'src.jnanoid.nano_id_utils' (/scratch/work/v1/aventrix_jnanoid/src/jnanoid/nano_id_utils.py)"
+          },
+          "passed_by_folder": {},
+          "error": "Collected/executed test identities differ from immutable baseline, or tests were skipped; Test collection: _init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_nanoidutils.py:4: in <module>\n    from src.jnanoid.nano_id_utils import NanoIdUtils\nE   ImportError: cannot import name 'NanoIdUtils' from 'src.jnanoid.nano_id_utils' (/scratch/work/v1/aventrix_jnanoid/src/jnanoid/nano_id_utils.py)\n=========================== short test summary info ============================\nERROR public_tests/test_nanoidutils_public.py\nERROR tests/original/test_nanoidutils.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 2 errors during collection !!!!!!!!!!!!!!!!!!!!\nno tests collected, 2 errors in 0.06s\n\n"
+        }
+      ],
+      "cost_complete": true,
+      "passed": 0,
+      "expected_total": 23,
+      "error": "Collected/executed test identities differ from immutable baseline, or tests were skipped; Test collection: _init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_nanoidutils.py:4: in <module>\n    from src.jnanoid.nano_id_utils import NanoIdUtils\nE   ImportError: cannot import name 'NanoIdUtils' from 'src.jnanoid.nano_id_utils' (/scratch/work/v1/aventrix_jnanoid/src/jnanoid/nano_id_utils.py)\n=========================== short test summary info ============================\nERROR public_tests/test_nanoidutils_public.py\nERROR tests/original/test_nanoidutils.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 2 errors during collection !!!!!!!!!!!!!!!!!!!!\nno tests collected, 2 errors in 0.06s\n\n",
+      "estimated_cost_usd": 0.109,
+      "tokens": {
+        "input_tokens": 4141,
+        "output_tokens": 12482,
+        "cache_read_input_tokens": 139596,
+        "cache_creation_input_tokens": 22669
+      }
+    },
+    {
+      "project": "agarciadom_xeger",
+      "status": "failed",
+      "migration_passed": false,
+      "test_success_rate": 92.5,
+      "iterations": 1,
+      "variant": "v1",
+      "history": [
+        {
+          "iteration": 1,
+          "phase": "one_shot",
+          "estimated_cost_usd": 0.3524,
+          "tokens": {
+            "input_tokens": 4278,
+            "output_tokens": 35012,
+            "cache_read_input_tokens": 997830,
+            "cache_creation_input_tokens": 58506
+          },
+          "agent_error": null,
+          "migration_passed": false,
+          "test_success_rate": 92.5,
+          "passed": 37,
+          "failed": 3,
+          "skipped": 0,
+          "total": 40,
+          "expected_total": 40,
+          "suite_verified": true,
+          "protected_files_unchanged": true,
+          "evaluation_valid": true,
+          "exit_code": 1,
+          "output_tail": "r, next_state)\nsrc/xeger.py:274: in _generate_recursive\n    self._generate_recursive(builder, next_state)\nsrc/xeger.py:274: in _generate_recursive\n    self._generate_recursive(builder, next_state)\nsrc/xeger.py:274: in _generate_recursive\n    self._generate_recursive(builder, next_state)\nsrc/xeger.py:274: in _generate_recursive\n    self._generate_recursive(builder, next_state)\nsrc/xeger.py:274: in _generate_recursive\n    self._generate_recursive(builder, next_state)\nsrc/xeger.py:274: in _generate_recursive\n    self._generate_recursive(builder, next_state)\nsrc/xeger.py:274: in _generate_recursive\n    self._generate_recursive(builder, next_state)\nsrc/xeger.py:274: in _generate_recursive\n    self._generate_recursive(builder, next_state)\nsrc/xeger.py:274: in _generate_recursive\n    self._generate_recursive(builder, next_state)\nsrc/xeger.py:274: in _generate_recursive\n    self._generate_recursive(builder, next_state)\nsrc/xeger.py:274: in _generate_recursive\n    self._generate_recursive(builder, next_state)\nsrc/xeger.py:274: in _generate_recursive\n    self._generate_recursive(builder, next_state)\nsrc/xeger.py:269: in _generate_recursive\n    self._append_choice(builder, transition)\nsrc/xeger.py:367: in _append_choice\n    char_code = Xeger.getRandomInt(transition.getMin(), transition.getMax(), self.random)\n                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nsrc/xeger.py:539: in getRandomInt\n    return random_instance.randint(min_val, max_val)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n/usr/local/lib/python3.12/random.py:336: in randint\n    return self.randrange(a, b+1)\n           ^^^^^^^^^^^^^^^^^^^^^^\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = <random.Random object at 0xaaaae1682c70>, start = 97, stop = 99, step = 1\n\n    def randrange(self, start, stop=None, step=_ONE):\n        \"\"\"Choose a random item from range(stop) or range(start, stop[, step]).\n    \n        Roughly equivalent to ``choice(range(start, stop, step))`` but\n        supports arbitrarily large ranges and is optimized for common cases.\n    \n        \"\"\"\n    \n        # This code is a bit messy to make it fast for the\n        # common case while still doing adequate error checking.\n        istart = _index(start)\n        if stop is None:\n            # We don't check for \"step != 1\" because it hasn't been\n            # type checked and converted to an integer yet.\n            if step is not _ONE:\n                raise TypeError(\"Missing a non-None stop argument\")\n            if istart > 0:\n                return self._randbelow(istart)\n            raise ValueError(\"empty range for randrange()\")\n    \n        # Stop argument supplied.\n        istop = _index(stop)\n        width = istop - istart\n        istep = _index(step)\n        # Fast path.\n        if istep == 1:\n            if width > 0:\n>               return istart + self._randbelow(width)\n                                ^^^^^^^^^^^^^^^^^^^^^^\nE               RecursionError: maximum recursion depth exceeded\n\n/usr/local/lib/python3.12/random.py:318: RecursionError\n_______________________________ test_walk_range ________________________________\n\n    def test_walk_range():\n        for _ in range(100):\n            generator = Xeger(\"[ab]{0,100}c\", random.Random(1000))\n            generator2 = Xeger(\"[ab]{0,100}c\", random.Random(1000))\n    \n            def generate_regex(gen, cnt, min_length, max_length):\n                out = []\n                for __ in range(cnt):\n                    try:\n                        out.append(gen.generate(min_length, max_length))\n                    except FailedRandomWalkException:\n                        out.append(None)\n                return out\n    \n            firstList = generate_regex(generator, 100, 0, 100)\n            secondList = generate_regex(generator2, 100, 0, 100)\n            assert len(firstList) == len(secondList)\n>           assert firstList == secondList\nE           AssertionError: assert [None, None, ...ne, None, ...] == ['c', 'c', 'c...'c', 'c', ...]\nE             \nE             At index 0 diff: None != 'c'\nE             Use -v to get more diff\n\ntests/original/test_xeger.py:38: AssertionError\n=============================== warnings summary ===============================\nsrc/xeger.py:21\n  /scratch/work/v1/agarciadom_xeger/src/xeger.py:21: DeprecationWarning: module 'sre_parse' is deprecated\n    import sre_parse\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n- generated xml file: /scratch/work/v1/agarciadom_xeger/.harness-test-results.xml -\n=========================== short test summary info ============================\nFAILED public_tests/test_xeger_public.py::test_range_with_special_char_public\nFAILED tests/original/test_xeger.py::test_repeatable_regex - RecursionError: ...\nFAILED tests/original/test_xeger.py::test_walk_range - AssertionError: assert...\n=================== 3 failed, 37 passed, 1 warning in 1.70s ====================\n\n",
+          "failures": {
+            "public_tests.test_xeger_public::test_range_with_special_char_public": "AssertionError: assert None",
+            "tests.original.test_xeger::test_repeatable_regex": "RecursionError: maximum recursion depth exceeded",
+            "tests.original.test_xeger::test_walk_range": "AssertionError: assert [None, None, ...ne, None, ...] == ['c', 'c', 'c...'c', 'c', ...]"
+          },
+          "passed_by_folder": {
+            "public_tests": 20,
+            "tests": 17
+          },
+          "error": null
+        }
+      ],
+      "cost_complete": true,
+      "passed": 37,
+      "expected_total": 40,
+      "error": null,
+      "estimated_cost_usd": 0.3524,
+      "tokens": {
+        "input_tokens": 4278,
+        "output_tokens": 35012,
+        "cache_read_input_tokens": 997830,
+        "cache_creation_input_tokens": 58506
+      }
+    },
+    {
+      "project": "editorconfig_editorconfig-jetbrains",
+      "status": "failed",
+      "migration_passed": false,
+      "test_success_rate": 0.0,
+      "iterations": 1,
+      "variant": "v1",
+      "history": [
+        {
+          "iteration": 1,
+          "phase": "one_shot",
+          "estimated_cost_usd": 0.0667,
+          "tokens": {
+            "input_tokens": 4162,
+            "output_tokens": 4366,
+            "cache_read_input_tokens": 171054,
+            "cache_creation_input_tokens": 18805
+          },
+          "agent_error": null,
+          "migration_passed": false,
+          "test_success_rate": 0.0,
+          "passed": 0,
+          "failed": 12,
+          "skipped": 0,
+          "total": 12,
+          "expected_total": 12,
+          "suite_verified": true,
+          "protected_files_unchanged": true,
+          "evaluation_valid": true,
+          "exit_code": 1,
+          "output_tail": "alid_config_message(\"42\", \"answer\", \"deepfile\")\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: module 'src.editorconfig.utils' has no attribute 'invalid_config_message'. Did you mean: 'invalidConfigMessage'?\n\npublic_tests/test_utils_public.py:37: AttributeError\n___________ test_applied_config_message_makes_correct_string_public ____________\n\n    def test_applied_config_message_makes_correct_string_public():\n>       msg = utils.applied_config_message(\"enabled\", \"feature\", \"file.txt\")\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: module 'src.editorconfig.utils' has no attribute 'applied_config_message'. Did you mean: 'appliedConfigMessage'?\n\npublic_tests/test_utils_public.py:41: AttributeError\n_________________ test_config_value_for_key_finds_existing_key _________________\n\n    def test_config_value_for_key_finds_existing_key():\n        pairs = [FakeOutPair(\"foo\", \"bar\"), FakeOutPair(\"baz\", \"qux\")]\n>       assert utils.config_value_for_key(pairs, \"foo\") == \"bar\"\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: module 'src.editorconfig.utils' has no attribute 'config_value_for_key'. Did you mean: 'configValueForKey'?\n\ntests/original/test_utils.py:18: AttributeError\n___________ test_config_value_for_key_returns_empty_for_missing_key ____________\n\n    def test_config_value_for_key_returns_empty_for_missing_key():\n        pairs = [FakeOutPair(\"foo\", \"bar\")]\n>       assert utils.config_value_for_key(pairs, \"notfound\") == \"\"\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: module 'src.editorconfig.utils' has no attribute 'config_value_for_key'. Did you mean: 'configValueForKey'?\n\ntests/original/test_utils.py:23: AttributeError\n_____________________ test_config_value_for_key_empty_list _____________________\n\n    def test_config_value_for_key_empty_list():\n>       assert utils.config_value_for_key([], \"foo\") == \"\"\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: module 'src.editorconfig.utils' has no attribute 'config_value_for_key'. Did you mean: 'configValueForKey'?\n\ntests/original/test_utils.py:26: AttributeError\n__________ test_config_value_for_key_multiple_same_keys_returns_first __________\n\n    def test_config_value_for_key_multiple_same_keys_returns_first():\n        pairs = [\n            FakeOutPair(\"foo\", \"first\"),\n            FakeOutPair(\"foo\", \"second\"),\n            FakeOutPair(\"bar\", \"other\"),\n        ]\n>       assert utils.config_value_for_key(pairs, \"foo\") == \"first\"\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: module 'src.editorconfig.utils' has no attribute 'config_value_for_key'. Did you mean: 'configValueForKey'?\n\ntests/original/test_utils.py:34: AttributeError\n_______________ test_invalid_config_message_makes_correct_string _______________\n\n    def test_invalid_config_message_makes_correct_string():\n>       msg = utils.invalid_config_message(\"value\", \"key\", \"file\")\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: module 'src.editorconfig.utils' has no attribute 'invalid_config_message'. Did you mean: 'invalidConfigMessage'?\n\ntests/original/test_utils.py:37: AttributeError\n_______________ test_applied_config_message_makes_correct_string _______________\n\n    def test_applied_config_message_makes_correct_string():\n>       msg = utils.applied_config_message(\"value\", \"key\", \"file\")\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: module 'src.editorconfig.utils' has no attribute 'applied_config_message'. Did you mean: 'appliedConfigMessage'?\n\ntests/original/test_utils.py:41: AttributeError\n- generated xml file: /scratch/work/v1/editorconfig_editorconfig-jetbrains/.harness-test-results.xml -\n=========================== short test summary info ============================\nFAILED public_tests/test_utils_public.py::test_config_value_for_key_finds_different_existing_key\nFAILED public_tests/test_utils_public.py::test_config_value_for_key_returns_empty_for_another_missing_key\nFAILED public_tests/test_utils_public.py::test_config_value_for_key_empty_list_still_returns_empty\nFAILED public_tests/test_utils_public.py::test_config_value_for_key_multiple_same_keys_returns_first_public\nFAILED public_tests/test_utils_public.py::test_invalid_config_message_makes_correct_string_public\nFAILED public_tests/test_utils_public.py::test_applied_config_message_makes_correct_string_public\nFAILED tests/original/test_utils.py::test_config_value_for_key_finds_existing_key\nFAILED tests/original/test_utils.py::test_config_value_for_key_returns_empty_for_missing_key\nFAILED tests/original/test_utils.py::test_config_value_for_key_empty_list - A...\nFAILED tests/original/test_utils.py::test_config_value_for_key_multiple_same_keys_returns_first\nFAILED tests/original/test_utils.py::test_invalid_config_message_makes_correct_string\nFAILED tests/original/test_utils.py::test_applied_config_message_makes_correct_string\n============================== 12 failed in 0.03s ==============================\n\n",
+          "failures": {
+            "public_tests.test_utils_public::test_config_value_for_key_finds_different_existing_key": "AttributeError: module 'src.editorconfig.utils' has no attribute 'config_value_for_key'. Did you mean: 'configValueForKey'?",
+            "public_tests.test_utils_public::test_config_value_for_key_returns_empty_for_another_missing_key": "AttributeError: module 'src.editorconfig.utils' has no attribute 'config_value_for_key'. Did you mean: 'configValueForKey'?",
+            "public_tests.test_utils_public::test_config_value_for_key_empty_list_still_returns_empty": "AttributeError: module 'src.editorconfig.utils' has no attribute 'config_value_for_key'. Did you mean: 'configValueForKey'?",
+            "public_tests.test_utils_public::test_config_value_for_key_multiple_same_keys_returns_first_public": "AttributeError: module 'src.editorconfig.utils' has no attribute 'config_value_for_key'. Did you mean: 'configValueForKey'?",
+            "public_tests.test_utils_public::test_invalid_config_message_makes_correct_string_public": "AttributeError: module 'src.editorconfig.utils' has no attribute 'invalid_config_message'. Did you mean: 'invalidConfigMessage'?",
+            "public_tests.test_utils_public::test_applied_config_message_makes_correct_string_public": "AttributeError: module 'src.editorconfig.utils' has no attribute 'applied_config_message'. Did you mean: 'appliedConfigMessage'?",
+            "tests.original.test_utils::test_config_value_for_key_finds_existing_key": "AttributeError: module 'src.editorconfig.utils' has no attribute 'config_value_for_key'. Did you mean: 'configValueForKey'?",
+            "tests.original.test_utils::test_config_value_for_key_returns_empty_for_missing_key": "AttributeError: module 'src.editorconfig.utils' has no attribute 'config_value_for_key'. Did you mean: 'configValueForKey'?",
+            "tests.original.test_utils::test_config_value_for_key_empty_list": "AttributeError: module 'src.editorconfig.utils' has no attribute 'config_value_for_key'. Did you mean: 'configValueForKey'?",
+            "tests.original.test_utils::test_config_value_for_key_multiple_same_keys_returns_first": "AttributeError: module 'src.editorconfig.utils' has no attribute 'config_value_for_key'. Did you mean: 'configValueForKey'?",
+            "tests.original.test_utils::test_invalid_config_message_makes_correct_string": "AttributeError: module 'src.editorconfig.utils' has no attribute 'invalid_config_message'. Did you mean: 'invalidConfigMessage'?",
+            "tests.original.test_utils::test_applied_config_message_makes_correct_string": "AttributeError: module 'src.editorconfig.utils' has no attribute 'applied_config_message'. Did you mean: 'appliedConfigMessage'?"
+          },
+          "passed_by_folder": {},
+          "error": null
+        }
+      ],
+      "cost_complete": true,
+      "passed": 0,
+      "expected_total": 12,
+      "error": null,
+      "estimated_cost_usd": 0.0667,
+      "tokens": {
+        "input_tokens": 4162,
+        "output_tokens": 4366,
+        "cache_read_input_tokens": 171054,
+        "cache_creation_input_tokens": 18805
+      }
+    },
+    {
+      "project": "txusballesteros_fit-chart",
+      "status": "evaluation_invalid",
+      "migration_passed": false,
+      "test_success_rate": null,
+      "iterations": 1,
+      "variant": "v1",
+      "history": [
+        {
+          "iteration": 1,
+          "phase": "one_shot",
+          "estimated_cost_usd": 0.094,
+          "tokens": {
+            "input_tokens": 4168,
+            "output_tokens": 7497,
+            "cache_read_input_tokens": 217727,
+            "cache_creation_input_tokens": 24374
+          },
+          "agent_error": null,
+          "migration_passed": false,
+          "test_success_rate": null,
+          "passed": 0,
+          "failed": 2,
+          "skipped": 0,
+          "total": 2,
+          "expected_total": 16,
+          "suite_verified": false,
+          "protected_files_unchanged": true,
+          "evaluation_valid": false,
+          "exit_code": 2,
+          "output_tail": "============================= test session starts ==============================\nplatform linux -- Python 3.12.12, pytest-8.4.2, pluggy-1.7.0\nrootdir: /scratch/work/v1/txusballesteros_fit-chart\ncollected 14 items / 2 errors\n\n==================================== ERRORS ====================================\n______ ERROR collecting public_tests/test_fake_classes_for_public_test.py ______\nImportError while importing test module '/scratch/work/v1/txusballesteros_fit-chart/public_tests/test_fake_classes_for_public_test.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\npublic_tests/test_fake_classes_for_public_test.py:1: in <module>\n    from src.fitchart.fake_classes import AnimationMode, Renderer, FitChartValue\nE   ImportError: cannot import name 'Renderer' from 'src.fitchart.fake_classes' (/scratch/work/v1/txusballesteros_fit-chart/src/fitchart/fake_classes.py)\n________ ERROR collecting tests/original/test_fake_classes_for_test.py _________\nImportError while importing test module '/scratch/work/v1/txusballesteros_fit-chart/tests/original/test_fake_classes_for_test.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_fake_classes_for_test.py:2: in <module>\n    from src.fitchart.fake_classes import AnimationMode, Renderer, FitChartValue\nE   ImportError: cannot import name 'Renderer' from 'src.fitchart.fake_classes' (/scratch/work/v1/txusballesteros_fit-chart/src/fitchart/fake_classes.py)\n=============================== warnings summary ===============================\npublic_tests/test_base_renderer_public.py:8\n  /scratch/work/v1/txusballesteros_fit-chart/public_tests/test_base_renderer_public.py:8: PytestCollectionWarning: cannot collect test class 'TestRenderer' because it has a __init__ constructor (from: public_tests/test_base_renderer_public.py)\n    class TestRenderer(BaseRenderer):\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n- generated xml file: /scratch/work/v1/txusballesteros_fit-chart/.harness-test-results.xml -\n=========================== short test summary info ============================\nERROR public_tests/test_fake_classes_for_public_test.py\nERROR tests/original/test_fake_classes_for_test.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 2 errors during collection !!!!!!!!!!!!!!!!!!!!\n========================= 1 warning, 2 errors in 0.15s =========================\n\n",
+          "failures": {
+            "::public_tests.test_fake_classes_for_public_test": "ImportError: cannot import name 'Renderer' from 'src.fitchart.fake_classes' (/scratch/work/v1/txusballesteros_fit-chart/src/fitchart/fake_classes.py)",
+            "::tests.original.test_fake_classes_for_test": "ImportError: cannot import name 'Renderer' from 'src.fitchart.fake_classes' (/scratch/work/v1/txusballesteros_fit-chart/src/fitchart/fake_classes.py)"
+          },
+          "passed_by_folder": {},
+          "error": "Collected/executed test identities differ from immutable baseline, or tests were skipped; Test collection: tests/test_base_renderer_public.py:8\n  /scratch/work/v1/txusballesteros_fit-chart/public_tests/test_base_renderer_public.py:8: PytestCollectionWarning: cannot collect test class 'TestRenderer' because it has a __init__ constructor (from: public_tests/test_base_renderer_public.py)\n    class TestRenderer(BaseRenderer):\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n=========================== short test summary info ============================\nERROR public_tests/test_fake_classes_for_public_test.py\nERROR tests/original/test_fake_classes_for_test.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 2 errors during collection !!!!!!!!!!!!!!!!!!!!\n14 tests collected, 2 errors in 0.15s\n\n"
+        }
+      ],
+      "cost_complete": true,
+      "passed": 0,
+      "expected_total": 16,
+      "error": "Collected/executed test identities differ from immutable baseline, or tests were skipped; Test collection: tests/test_base_renderer_public.py:8\n  /scratch/work/v1/txusballesteros_fit-chart/public_tests/test_base_renderer_public.py:8: PytestCollectionWarning: cannot collect test class 'TestRenderer' because it has a __init__ constructor (from: public_tests/test_base_renderer_public.py)\n    class TestRenderer(BaseRenderer):\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n=========================== short test summary info ============================\nERROR public_tests/test_fake_classes_for_public_test.py\nERROR tests/original/test_fake_classes_for_test.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 2 errors during collection !!!!!!!!!!!!!!!!!!!!\n14 tests collected, 2 errors in 0.15s\n\n",
+      "estimated_cost_usd": 0.094,
+      "tokens": {
+        "input_tokens": 4168,
+        "output_tokens": 7497,
+        "cache_read_input_tokens": 217727,
+        "cache_creation_input_tokens": 24374
+      }
+    },
+    {
+      "project": "googlearchive_android-BluetoothLeGatt",
+      "status": "evaluation_invalid",
+      "migration_passed": false,
+      "test_success_rate": null,
+      "iterations": 1,
+      "variant": "v1",
+      "history": [
+        {
+          "iteration": 1,
+          "phase": "one_shot",
+          "estimated_cost_usd": 0.1508,
+          "tokens": {
+            "input_tokens": 4284,
+            "output_tokens": 8969,
+            "cache_read_input_tokens": 609383,
+            "cache_creation_input_tokens": 32444
+          },
+          "agent_error": null,
+          "migration_passed": false,
+          "test_success_rate": null,
+          "passed": 0,
+          "failed": 6,
+          "skipped": 0,
+          "total": 6,
+          "expected_total": 19,
+          "suite_verified": false,
+          "protected_files_unchanged": true,
+          "evaluation_valid": false,
+          "exit_code": 2,
+          "output_tail": "othlegatt/sample_gatt_attributes.py)\n_____ ERROR collecting public_tests/test_sample_gatt_attributes_public.py ______\nImportError while importing test module '/scratch/work/v1/googlearchive_android-BluetoothLeGatt/public_tests/test_sample_gatt_attributes_public.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\npublic_tests/test_sample_gatt_attributes_public.py:2: in <module>\n    from src.bluetoothlegatt.sample_gatt_attributes import SampleGattAttributes\nE   ImportError: cannot import name 'SampleGattAttributes' from 'src.bluetoothlegatt.sample_gatt_attributes' (/scratch/work/v1/googlearchive_android-BluetoothLeGatt/src/bluetoothlegatt/sample_gatt_attributes.py)\n_______ ERROR collecting tests/original/test_device_control_activity.py ________\nImportError while importing test module '/scratch/work/v1/googlearchive_android-BluetoothLeGatt/tests/original/test_device_control_activity.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_device_control_activity.py:2: in <module>\n    from src.bluetoothlegatt.device_control_activity import DeviceControlActivity\nE   ImportError: cannot import name 'DeviceControlActivity' from 'src.bluetoothlegatt.device_control_activity' (/scratch/work/v1/googlearchive_android-BluetoothLeGatt/src/bluetoothlegatt/device_control_activity.py)\n_________ ERROR collecting tests/original/test_device_scan_activity.py _________\nImportError while importing test module '/scratch/work/v1/googlearchive_android-BluetoothLeGatt/tests/original/test_device_scan_activity.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_device_scan_activity.py:2: in <module>\n    from src.bluetoothlegatt.device_scan_activity import DeviceScanActivity\nE   ImportError: cannot import name 'DeviceScanActivity' from 'src.bluetoothlegatt.device_scan_activity' (/scratch/work/v1/googlearchive_android-BluetoothLeGatt/src/bluetoothlegatt/device_scan_activity.py)\n________ ERROR collecting tests/original/test_sample_gatt_attributes.py ________\nImportError while importing test module '/scratch/work/v1/googlearchive_android-BluetoothLeGatt/tests/original/test_sample_gatt_attributes.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_sample_gatt_attributes.py:2: in <module>\n    from src.bluetoothlegatt.sample_gatt_attributes import SampleGattAttributes\nE   ImportError: cannot import name 'SampleGattAttributes' from 'src.bluetoothlegatt.sample_gatt_attributes' (/scratch/work/v1/googlearchive_android-BluetoothLeGatt/src/bluetoothlegatt/sample_gatt_attributes.py)\n_____ ERROR collecting tests/original/test_sample_gatt_attributes_edge.py ______\nImportError while importing test module '/scratch/work/v1/googlearchive_android-BluetoothLeGatt/tests/original/test_sample_gatt_attributes_edge.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_sample_gatt_attributes_edge.py:2: in <module>\n    from src.bluetoothlegatt.sample_gatt_attributes import SampleGattAttributes\nE   ImportError: cannot import name 'SampleGattAttributes' from 'src.bluetoothlegatt.sample_gatt_attributes' (/scratch/work/v1/googlearchive_android-BluetoothLeGatt/src/bluetoothlegatt/sample_gatt_attributes.py)\n- generated xml file: /scratch/work/v1/googlearchive_android-BluetoothLeGatt/.harness-test-results.xml -\n=========================== short test summary info ============================\nERROR public_tests/test_sample_gatt_attributes_edge_public.py\nERROR public_tests/test_sample_gatt_attributes_public.py\nERROR tests/original/test_device_control_activity.py\nERROR tests/original/test_device_scan_activity.py\nERROR tests/original/test_sample_gatt_attributes.py\nERROR tests/original/test_sample_gatt_attributes_edge.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 6 errors during collection !!!!!!!!!!!!!!!!!!!!\n============================== 6 errors in 0.08s ===============================\n\n",
+          "failures": {
+            "::public_tests.test_sample_gatt_attributes_edge_public": "ImportError: cannot import name 'SampleGattAttributes' from 'src.bluetoothlegatt.sample_gatt_attributes' (/scratch/work/v1/googlearchive_android-BluetoothLeGatt/src/bluetoothlegatt/sample_gatt_attributes.py)",
+            "::public_tests.test_sample_gatt_attributes_public": "ImportError: cannot import name 'SampleGattAttributes' from 'src.bluetoothlegatt.sample_gatt_attributes' (/scratch/work/v1/googlearchive_android-BluetoothLeGatt/src/bluetoothlegatt/sample_gatt_attributes.py)",
+            "::tests.original.test_device_control_activity": "ImportError: cannot import name 'DeviceControlActivity' from 'src.bluetoothlegatt.device_control_activity' (/scratch/work/v1/googlearchive_android-BluetoothLeGatt/src/bluetoothlegatt/device_control_activity.py)",
+            "::tests.original.test_device_scan_activity": "ImportError: cannot import name 'DeviceScanActivity' from 'src.bluetoothlegatt.device_scan_activity' (/scratch/work/v1/googlearchive_android-BluetoothLeGatt/src/bluetoothlegatt/device_scan_activity.py)",
+            "::tests.original.test_sample_gatt_attributes": "ImportError: cannot import name 'SampleGattAttributes' from 'src.bluetoothlegatt.sample_gatt_attributes' (/scratch/work/v1/googlearchive_android-BluetoothLeGatt/src/bluetoothlegatt/sample_gatt_attributes.py)",
+            "::tests.original.test_sample_gatt_attributes_edge": "ImportError: cannot import name 'SampleGattAttributes' from 'src.bluetoothlegatt.sample_gatt_attributes' (/scratch/work/v1/googlearchive_android-BluetoothLeGatt/src/bluetoothlegatt/sample_gatt_attributes.py)"
+          },
+          "passed_by_folder": {},
+          "error": "Collected/executed test identities differ from immutable baseline, or tests were skipped; Test collection: eGattAttributes' from 'src.bluetoothlegatt.sample_gatt_attributes' (/scratch/work/v1/googlearchive_android-BluetoothLeGatt/src/bluetoothlegatt/sample_gatt_attributes.py)\n=========================== short test summary info ============================\nERROR public_tests/test_sample_gatt_attributes_edge_public.py\nERROR public_tests/test_sample_gatt_attributes_public.py\nERROR tests/original/test_device_control_activity.py\nERROR tests/original/test_device_scan_activity.py\nERROR tests/original/test_sample_gatt_attributes.py\nERROR tests/original/test_sample_gatt_attributes_edge.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 6 errors during collection !!!!!!!!!!!!!!!!!!!!\n1 test collected, 6 errors in 0.07s\n\n"
+        }
+      ],
+      "cost_complete": true,
+      "passed": 0,
+      "expected_total": 19,
+      "error": "Collected/executed test identities differ from immutable baseline, or tests were skipped; Test collection: eGattAttributes' from 'src.bluetoothlegatt.sample_gatt_attributes' (/scratch/work/v1/googlearchive_android-BluetoothLeGatt/src/bluetoothlegatt/sample_gatt_attributes.py)\n=========================== short test summary info ============================\nERROR public_tests/test_sample_gatt_attributes_edge_public.py\nERROR public_tests/test_sample_gatt_attributes_public.py\nERROR tests/original/test_device_control_activity.py\nERROR tests/original/test_device_scan_activity.py\nERROR tests/original/test_sample_gatt_attributes.py\nERROR tests/original/test_sample_gatt_attributes_edge.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 6 errors during collection !!!!!!!!!!!!!!!!!!!!\n1 test collected, 6 errors in 0.07s\n\n",
+      "estimated_cost_usd": 0.1508,
+      "tokens": {
+        "input_tokens": 4284,
+        "output_tokens": 8969,
+        "cache_read_input_tokens": 609383,
+        "cache_creation_input_tokens": 32444
+      }
+    }
+  ],
+  "summary": {
+    "migration_passed": 0,
+    "total_projects": 5,
+    "test_success_rate": null
+  }
+}

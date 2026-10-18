@@ -104,6 +104,8 @@ def render_report(summary, runs, output):
     e = lambda value: html.escape(str(value), quote=True)
     variants = summary['variants']
     n_projects = len(PROJECTS)
+    counts = sorted({d['runs'] for d in variants.values()})
+    n_runs = str(counts[0]) if len(counts) == 1 else f'{counts[0]}–{counts[-1]}'
     page = ['<!doctype html><html lang="en"><meta charset="utf-8">',
             '<meta name="viewport" content="width=device-width, initial-scale=1">',
             '<title>Migration Harness Report</title>',
@@ -151,13 +153,13 @@ def render_report(summary, runs, output):
             '<h1>Java → Python<br>migration harness</h1>',
             f'<p>A coding agent ({e(summary["model"])}) translates {n_projects} Java repositories to Python. '
             f'The harness then runs each project\'s official tests ({TOTAL} in total) on the result. '
-            'Each version tests an instruction bundle or an attempt strategy and was run 3 times.</p></header>',
+            f'Each version tests an instruction bundle or an attempt strategy and was run {n_runs} times.</p></header>',
             '<div class="keys">',
             f'<div class="panel"><b>Tests passed</b>Share of the {TOTAL} official tests that pass. '
             'All tests in invalid suites receive zero credit.</div>',
             f'<div class="panel"><b>Projects fully migrated</b>Projects where every official test passes, '
             f'out of {n_projects} per run.</div>',
-            '<div class="panel"><b>Runs</b>The agent is not deterministic, so every version ran 3 times. '
+            f'<div class="panel"><b>Runs</b>The agent is not deterministic, so every version ran {n_runs} times. '
             'The black line is the average, the dots are the single runs.</div></div>',
             '<h2>Results</h2><p class="intro">Tests passed per version. <b>Black line:</b> average of the runs · <b>dots:</b> single runs · '
             '<b>grey band:</b> lowest to highest run. Same model, projects and tests.</p><div class="panel">']
@@ -223,7 +225,7 @@ def render_report(summary, runs, output):
                 page.append(f'<tr><td><b>{e(v)}</b></td><td>{side} ({size} tests × {n} runs)</td>'
                             f'<td class="num">{100 * a / (size * n):.0f}%</td><td class="num">{100 * b / (size * n):.0f}%</td></tr>')
         page.append('</table></div>')
-    page.append('<h2>Per project</h2><p class="intro">Tests passed in each of the 3 runs. ✓ = all tests pass, '
+    page.append(f'<h2>Per project</h2><p class="intro">Tests passed in each of the {n_runs} runs. ✓ = all tests pass, '
                 '<span class="invalid">—</span> = the suite was invalid (e.g. a collection error or skipped test), so the project counts 0.</p>'
                 '<div class="panel"><table><tr><th>Project</th>' + ''.join(f'<th>{e(v)}</th>' for v in variants) + '</tr>')
     cell = lambda r: ('<span class="invalid">—</span>' if r is None else

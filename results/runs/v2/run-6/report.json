@@ -1,0 +1,937 @@
+{
+  "config": {
+    "dataset_version": "RepoTransBench v1.0",
+    "dataset_summary_sha256": "c4430828b3a37548796b1d78b8211b4c6b2c1c7b850a7f5e46f12f6c04a99ef2",
+    "source_tree_sha256": "75946316c167048cd6b89aaa53c5ea8bab262fd8713ffe5c88f8c490a96e45d4",
+    "test_suite_sha256": "005d4bc56a53dfd54ca8429248372060ba51dc935a8c518bc3ede672eea1e587",
+    "project_ids": [
+      "aventrix_jnanoid",
+      "agarciadom_xeger",
+      "editorconfig_editorconfig-jetbrains",
+      "txusballesteros_fit-chart",
+      "googlearchive_android-BluetoothLeGatt"
+    ],
+    "model": "claude-haiku-4-5-20251001",
+    "variant": "v2",
+    "prompt_version": "interface-rules-1+repeat-5",
+    "evaluator_version": "static-junit-1",
+    "max_attempts": 5,
+    "budget_usd_per_project": 5.0,
+    "timeout_seconds": 180,
+    "python_version": "3.12.12",
+    "pytest_version": "8.4.2",
+    "claude_agent_sdk_version": "0.2.166"
+  },
+  "projects": [
+    {
+      "project": "aventrix_jnanoid",
+      "status": "evaluation_invalid",
+      "migration_passed": false,
+      "test_success_rate": null,
+      "iterations": 5,
+      "variant": "v2",
+      "history": [
+        {
+          "iteration": 1,
+          "phase": "one_shot",
+          "estimated_cost_usd": 0.0901,
+          "tokens": {
+            "input_tokens": 4229,
+            "output_tokens": 6852,
+            "cache_read_input_tokens": 270696,
+            "cache_creation_input_tokens": 19501
+          },
+          "agent_error": null,
+          "migration_passed": false,
+          "test_success_rate": null,
+          "passed": 0,
+          "failed": 2,
+          "skipped": 0,
+          "total": 2,
+          "expected_total": 23,
+          "suite_verified": false,
+          "protected_files_unchanged": true,
+          "evaluation_valid": false,
+          "exit_code": 2,
+          "output_tail": "============================= test session starts ==============================\nplatform linux -- Python 3.12.12, pytest-8.4.2, pluggy-1.7.0\nrootdir: /scratch/work/v2/aventrix_jnanoid\ncollected 0 items / 2 errors\n\n==================================== ERRORS ====================================\n___________ ERROR collecting public_tests/test_nanoidutils_public.py ___________\nImportError while importing test module '/scratch/work/v2/aventrix_jnanoid/public_tests/test_nanoidutils_public.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\npublic_tests/test_nanoidutils_public.py:3: in <module>\n    from src.jnanoid.nano_id_utils import NanoIdUtils\nE   ImportError: cannot import name 'NanoIdUtils' from 'src.jnanoid.nano_id_utils' (/scratch/work/v2/aventrix_jnanoid/src/jnanoid/nano_id_utils.py)\n_____________ ERROR collecting tests/original/test_nanoidutils.py ______________\nImportError while importing test module '/scratch/work/v2/aventrix_jnanoid/tests/original/test_nanoidutils.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_nanoidutils.py:4: in <module>\n    from src.jnanoid.nano_id_utils import NanoIdUtils\nE   ImportError: cannot import name 'NanoIdUtils' from 'src.jnanoid.nano_id_utils' (/scratch/work/v2/aventrix_jnanoid/src/jnanoid/nano_id_utils.py)\n- generated xml file: /scratch/work/v2/aventrix_jnanoid/.harness-test-results.xml -\n=========================== short test summary info ============================\nERROR public_tests/test_nanoidutils_public.py\nERROR tests/original/test_nanoidutils.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 2 errors during collection !!!!!!!!!!!!!!!!!!!!\n============================== 2 errors in 0.08s ===============================\n\n",
+          "failures": {
+            "::public_tests.test_nanoidutils_public": "ImportError: cannot import name 'NanoIdUtils' from 'src.jnanoid.nano_id_utils' (/scratch/work/v2/aventrix_jnanoid/src/jnanoid/nano_id_utils.py)",
+            "::tests.original.test_nanoidutils": "ImportError: cannot import name 'NanoIdUtils' from 'src.jnanoid.nano_id_utils' (/scratch/work/v2/aventrix_jnanoid/src/jnanoid/nano_id_utils.py)"
+          },
+          "passed_by_folder": {},
+          "error": "Collected/executed test identities differ from immutable baseline, or tests were skipped; Test collection: _init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_nanoidutils.py:4: in <module>\n    from src.jnanoid.nano_id_utils import NanoIdUtils\nE   ImportError: cannot import name 'NanoIdUtils' from 'src.jnanoid.nano_id_utils' (/scratch/work/v2/aventrix_jnanoid/src/jnanoid/nano_id_utils.py)\n=========================== short test summary info ============================\nERROR public_tests/test_nanoidutils_public.py\nERROR tests/original/test_nanoidutils.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 2 errors during collection !!!!!!!!!!!!!!!!!!!!\nno tests collected, 2 errors in 0.07s\n\n"
+        },
+        {
+          "iteration": 2,
+          "phase": "repair",
+          "estimated_cost_usd": 0.1354,
+          "tokens": {
+            "input_tokens": 4221,
+            "output_tokens": 14573,
+            "cache_read_input_tokens": 284312,
+            "cache_creation_input_tokens": 23785
+          },
+          "agent_error": null,
+          "migration_passed": false,
+          "test_success_rate": null,
+          "passed": 0,
+          "failed": 2,
+          "skipped": 0,
+          "total": 2,
+          "expected_total": 23,
+          "suite_verified": false,
+          "protected_files_unchanged": true,
+          "evaluation_valid": false,
+          "exit_code": 2,
+          "output_tail": "============================= test session starts ==============================\nplatform linux -- Python 3.12.12, pytest-8.4.2, pluggy-1.7.0\nrootdir: /scratch/work/v2/aventrix_jnanoid\ncollected 0 items / 2 errors\n\n==================================== ERRORS ====================================\n___________ ERROR collecting public_tests/test_nanoidutils_public.py ___________\nImportError while importing test module '/scratch/work/v2/aventrix_jnanoid/public_tests/test_nanoidutils_public.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\npublic_tests/test_nanoidutils_public.py:3: in <module>\n    from src.jnanoid.nano_id_utils import NanoIdUtils\nE   ImportError: cannot import name 'NanoIdUtils' from 'src.jnanoid.nano_id_utils' (/scratch/work/v2/aventrix_jnanoid/src/jnanoid/nano_id_utils.py)\n_____________ ERROR collecting tests/original/test_nanoidutils.py ______________\nImportError while importing test module '/scratch/work/v2/aventrix_jnanoid/tests/original/test_nanoidutils.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_nanoidutils.py:4: in <module>\n    from src.jnanoid.nano_id_utils import NanoIdUtils\nE   ImportError: cannot import name 'NanoIdUtils' from 'src.jnanoid.nano_id_utils' (/scratch/work/v2/aventrix_jnanoid/src/jnanoid/nano_id_utils.py)\n- generated xml file: /scratch/work/v2/aventrix_jnanoid/.harness-test-results.xml -\n=========================== short test summary info ============================\nERROR public_tests/test_nanoidutils_public.py\nERROR tests/original/test_nanoidutils.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 2 errors during collection !!!!!!!!!!!!!!!!!!!!\n============================== 2 errors in 0.07s ===============================\n\n",
+          "failures": {
+            "::public_tests.test_nanoidutils_public": "ImportError: cannot import name 'NanoIdUtils' from 'src.jnanoid.nano_id_utils' (/scratch/work/v2/aventrix_jnanoid/src/jnanoid/nano_id_utils.py)",
+            "::tests.original.test_nanoidutils": "ImportError: cannot import name 'NanoIdUtils' from 'src.jnanoid.nano_id_utils' (/scratch/work/v2/aventrix_jnanoid/src/jnanoid/nano_id_utils.py)"
+          },
+          "passed_by_folder": {},
+          "error": "Collected/executed test identities differ from immutable baseline, or tests were skipped; Test collection: _init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_nanoidutils.py:4: in <module>\n    from src.jnanoid.nano_id_utils import NanoIdUtils\nE   ImportError: cannot import name 'NanoIdUtils' from 'src.jnanoid.nano_id_utils' (/scratch/work/v2/aventrix_jnanoid/src/jnanoid/nano_id_utils.py)\n=========================== short test summary info ============================\nERROR public_tests/test_nanoidutils_public.py\nERROR tests/original/test_nanoidutils.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 2 errors during collection !!!!!!!!!!!!!!!!!!!!\nno tests collected, 2 errors in 0.06s\n\n"
+        },
+        {
+          "iteration": 3,
+          "phase": "repair",
+          "estimated_cost_usd": 0.0954,
+          "tokens": {
+            "input_tokens": 4213,
+            "output_tokens": 8955,
+            "cache_read_input_tokens": 207055,
+            "cache_creation_input_tokens": 20483
+          },
+          "agent_error": null,
+          "migration_passed": false,
+          "test_success_rate": null,
+          "passed": 0,
+          "failed": 2,
+          "skipped": 0,
+          "total": 2,
+          "expected_total": 23,
+          "suite_verified": false,
+          "protected_files_unchanged": true,
+          "evaluation_valid": false,
+          "exit_code": 2,
+          "output_tail": "============================= test session starts ==============================\nplatform linux -- Python 3.12.12, pytest-8.4.2, pluggy-1.7.0\nrootdir: /scratch/work/v2/aventrix_jnanoid\ncollected 0 items / 2 errors\n\n==================================== ERRORS ====================================\n___________ ERROR collecting public_tests/test_nanoidutils_public.py ___________\nImportError while importing test module '/scratch/work/v2/aventrix_jnanoid/public_tests/test_nanoidutils_public.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\npublic_tests/test_nanoidutils_public.py:3: in <module>\n    from src.jnanoid.nano_id_utils import NanoIdUtils\nE   ImportError: cannot import name 'NanoIdUtils' from 'src.jnanoid.nano_id_utils' (/scratch/work/v2/aventrix_jnanoid/src/jnanoid/nano_id_utils.py)\n_____________ ERROR collecting tests/original/test_nanoidutils.py ______________\nImportError while importing test module '/scratch/work/v2/aventrix_jnanoid/tests/original/test_nanoidutils.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_nanoidutils.py:4: in <module>\n    from src.jnanoid.nano_id_utils import NanoIdUtils\nE   ImportError: cannot import name 'NanoIdUtils' from 'src.jnanoid.nano_id_utils' (/scratch/work/v2/aventrix_jnanoid/src/jnanoid/nano_id_utils.py)\n- generated xml file: /scratch/work/v2/aventrix_jnanoid/.harness-test-results.xml -\n=========================== short test summary info ============================\nERROR public_tests/test_nanoidutils_public.py\nERROR tests/original/test_nanoidutils.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 2 errors during collection !!!!!!!!!!!!!!!!!!!!\n============================== 2 errors in 0.13s ===============================\n\n",
+          "failures": {
+            "::public_tests.test_nanoidutils_public": "ImportError: cannot import name 'NanoIdUtils' from 'src.jnanoid.nano_id_utils' (/scratch/work/v2/aventrix_jnanoid/src/jnanoid/nano_id_utils.py)",
+            "::tests.original.test_nanoidutils": "ImportError: cannot import name 'NanoIdUtils' from 'src.jnanoid.nano_id_utils' (/scratch/work/v2/aventrix_jnanoid/src/jnanoid/nano_id_utils.py)"
+          },
+          "passed_by_folder": {},
+          "error": "Collected/executed test identities differ from immutable baseline, or tests were skipped; Test collection: _init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_nanoidutils.py:4: in <module>\n    from src.jnanoid.nano_id_utils import NanoIdUtils\nE   ImportError: cannot import name 'NanoIdUtils' from 'src.jnanoid.nano_id_utils' (/scratch/work/v2/aventrix_jnanoid/src/jnanoid/nano_id_utils.py)\n=========================== short test summary info ============================\nERROR public_tests/test_nanoidutils_public.py\nERROR tests/original/test_nanoidutils.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 2 errors during collection !!!!!!!!!!!!!!!!!!!!\nno tests collected, 2 errors in 0.07s\n\n"
+        },
+        {
+          "iteration": 4,
+          "phase": "repair",
+          "estimated_cost_usd": 0.0906,
+          "tokens": {
+            "input_tokens": 4173,
+            "output_tokens": 8899,
+            "cache_read_input_tokens": 166536,
+            "cache_creation_input_tokens": 20119
+          },
+          "agent_error": null,
+          "migration_passed": false,
+          "test_success_rate": null,
+          "passed": 0,
+          "failed": 2,
+          "skipped": 0,
+          "total": 2,
+          "expected_total": 23,
+          "suite_verified": false,
+          "protected_files_unchanged": true,
+          "evaluation_valid": false,
+          "exit_code": 2,
+          "output_tail": "============================= test session starts ==============================\nplatform linux -- Python 3.12.12, pytest-8.4.2, pluggy-1.7.0\nrootdir: /scratch/work/v2/aventrix_jnanoid\ncollected 0 items / 2 errors\n\n==================================== ERRORS ====================================\n___________ ERROR collecting public_tests/test_nanoidutils_public.py ___________\nImportError while importing test module '/scratch/work/v2/aventrix_jnanoid/public_tests/test_nanoidutils_public.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\npublic_tests/test_nanoidutils_public.py:3: in <module>\n    from src.jnanoid.nano_id_utils import NanoIdUtils\nE   ImportError: cannot import name 'NanoIdUtils' from 'src.jnanoid.nano_id_utils' (/scratch/work/v2/aventrix_jnanoid/src/jnanoid/nano_id_utils.py)\n_____________ ERROR collecting tests/original/test_nanoidutils.py ______________\nImportError while importing test module '/scratch/work/v2/aventrix_jnanoid/tests/original/test_nanoidutils.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_nanoidutils.py:4: in <module>\n    from src.jnanoid.nano_id_utils import NanoIdUtils\nE   ImportError: cannot import name 'NanoIdUtils' from 'src.jnanoid.nano_id_utils' (/scratch/work/v2/aventrix_jnanoid/src/jnanoid/nano_id_utils.py)\n- generated xml file: /scratch/work/v2/aventrix_jnanoid/.harness-test-results.xml -\n=========================== short test summary info ============================\nERROR public_tests/test_nanoidutils_public.py\nERROR tests/original/test_nanoidutils.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 2 errors during collection !!!!!!!!!!!!!!!!!!!!\n============================== 2 errors in 0.07s ===============================\n\n",
+          "failures": {
+            "::public_tests.test_nanoidutils_public": "ImportError: cannot import name 'NanoIdUtils' from 'src.jnanoid.nano_id_utils' (/scratch/work/v2/aventrix_jnanoid/src/jnanoid/nano_id_utils.py)",
+            "::tests.original.test_nanoidutils": "ImportError: cannot import name 'NanoIdUtils' from 'src.jnanoid.nano_id_utils' (/scratch/work/v2/aventrix_jnanoid/src/jnanoid/nano_id_utils.py)"
+          },
+          "passed_by_folder": {},
+          "error": "Collected/executed test identities differ from immutable baseline, or tests were skipped; Test collection: _init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_nanoidutils.py:4: in <module>\n    from src.jnanoid.nano_id_utils import NanoIdUtils\nE   ImportError: cannot import name 'NanoIdUtils' from 'src.jnanoid.nano_id_utils' (/scratch/work/v2/aventrix_jnanoid/src/jnanoid/nano_id_utils.py)\n=========================== short test summary info ============================\nERROR public_tests/test_nanoidutils_public.py\nERROR tests/original/test_nanoidutils.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 2 errors during collection !!!!!!!!!!!!!!!!!!!!\nno tests collected, 2 errors in 0.06s\n\n"
+        },
+        {
+          "iteration": 5,
+          "phase": "repair",
+          "estimated_cost_usd": 0.0878,
+          "tokens": {
+            "input_tokens": 4189,
+            "output_tokens": 8763,
+            "cache_read_input_tokens": 159006,
+            "cache_creation_input_tokens": 19049
+          },
+          "agent_error": null,
+          "migration_passed": false,
+          "test_success_rate": null,
+          "passed": 0,
+          "failed": 2,
+          "skipped": 0,
+          "total": 2,
+          "expected_total": 23,
+          "suite_verified": false,
+          "protected_files_unchanged": true,
+          "evaluation_valid": false,
+          "exit_code": 2,
+          "output_tail": "============================= test session starts ==============================\nplatform linux -- Python 3.12.12, pytest-8.4.2, pluggy-1.7.0\nrootdir: /scratch/work/v2/aventrix_jnanoid\ncollected 0 items / 2 errors\n\n==================================== ERRORS ====================================\n___________ ERROR collecting public_tests/test_nanoidutils_public.py ___________\nImportError while importing test module '/scratch/work/v2/aventrix_jnanoid/public_tests/test_nanoidutils_public.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\npublic_tests/test_nanoidutils_public.py:3: in <module>\n    from src.jnanoid.nano_id_utils import NanoIdUtils\nE   ImportError: cannot import name 'NanoIdUtils' from 'src.jnanoid.nano_id_utils' (/scratch/work/v2/aventrix_jnanoid/src/jnanoid/nano_id_utils.py)\n_____________ ERROR collecting tests/original/test_nanoidutils.py ______________\nImportError while importing test module '/scratch/work/v2/aventrix_jnanoid/tests/original/test_nanoidutils.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_nanoidutils.py:4: in <module>\n    from src.jnanoid.nano_id_utils import NanoIdUtils\nE   ImportError: cannot import name 'NanoIdUtils' from 'src.jnanoid.nano_id_utils' (/scratch/work/v2/aventrix_jnanoid/src/jnanoid/nano_id_utils.py)\n- generated xml file: /scratch/work/v2/aventrix_jnanoid/.harness-test-results.xml -\n=========================== short test summary info ============================\nERROR public_tests/test_nanoidutils_public.py\nERROR tests/original/test_nanoidutils.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 2 errors during collection !!!!!!!!!!!!!!!!!!!!\n============================== 2 errors in 0.07s ===============================\n\n",
+          "failures": {
+            "::public_tests.test_nanoidutils_public": "ImportError: cannot import name 'NanoIdUtils' from 'src.jnanoid.nano_id_utils' (/scratch/work/v2/aventrix_jnanoid/src/jnanoid/nano_id_utils.py)",
+            "::tests.original.test_nanoidutils": "ImportError: cannot import name 'NanoIdUtils' from 'src.jnanoid.nano_id_utils' (/scratch/work/v2/aventrix_jnanoid/src/jnanoid/nano_id_utils.py)"
+          },
+          "passed_by_folder": {},
+          "error": "Collected/executed test identities differ from immutable baseline, or tests were skipped; Test collection: _init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_nanoidutils.py:4: in <module>\n    from src.jnanoid.nano_id_utils import NanoIdUtils\nE   ImportError: cannot import name 'NanoIdUtils' from 'src.jnanoid.nano_id_utils' (/scratch/work/v2/aventrix_jnanoid/src/jnanoid/nano_id_utils.py)\n=========================== short test summary info ============================\nERROR public_tests/test_nanoidutils_public.py\nERROR tests/original/test_nanoidutils.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 2 errors during collection !!!!!!!!!!!!!!!!!!!!\nno tests collected, 2 errors in 0.06s\n\n"
+        }
+      ],
+      "cost_complete": true,
+      "passed": 0,
+      "expected_total": 23,
+      "error": "Collected/executed test identities differ from immutable baseline, or tests were skipped; Test collection: _init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_nanoidutils.py:4: in <module>\n    from src.jnanoid.nano_id_utils import NanoIdUtils\nE   ImportError: cannot import name 'NanoIdUtils' from 'src.jnanoid.nano_id_utils' (/scratch/work/v2/aventrix_jnanoid/src/jnanoid/nano_id_utils.py)\n=========================== short test summary info ============================\nERROR public_tests/test_nanoidutils_public.py\nERROR tests/original/test_nanoidutils.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 2 errors during collection !!!!!!!!!!!!!!!!!!!!\nno tests collected, 2 errors in 0.06s\n\n",
+      "estimated_cost_usd": 0.4993,
+      "tokens": {
+        "input_tokens": 21025,
+        "output_tokens": 48042,
+        "cache_read_input_tokens": 1087605,
+        "cache_creation_input_tokens": 102937
+      }
+    },
+    {
+      "project": "agarciadom_xeger",
+      "status": "passed",
+      "migration_passed": true,
+      "test_success_rate": 100.0,
+      "iterations": 5,
+      "variant": "v2",
+      "history": [
+        {
+          "iteration": 1,
+          "phase": "one_shot",
+          "estimated_cost_usd": 0.4841,
+          "tokens": {
+            "input_tokens": 4350,
+            "output_tokens": 48101,
+            "cache_read_input_tokens": 1486139,
+            "cache_creation_input_tokens": 72431
+          },
+          "agent_error": "error_max_turns",
+          "migration_passed": true,
+          "test_success_rate": 100.0,
+          "passed": 40,
+          "failed": 0,
+          "skipped": 0,
+          "total": 40,
+          "expected_total": 40,
+          "suite_verified": true,
+          "protected_files_unchanged": true,
+          "evaluation_valid": true,
+          "exit_code": 0,
+          "output_tail": "============================= test session starts ==============================\nplatform linux -- Python 3.12.12, pytest-8.4.2, pluggy-1.7.0\nrootdir: /scratch/work/v2/agarciadom_xeger\ncollected 40 items\n\npublic_tests/test_xeger_coverage_public.py ..........                    [ 25%]\npublic_tests/test_xeger_edge_public.py .....                             [ 37%]\npublic_tests/test_xeger_public.py .....                                  [ 50%]\npublic_tests/test_xeger_utils_public.py .                                [ 52%]\ntests/original/test_xeger.py ...                                         [ 60%]\ntests/original/test_xeger_coverage.py ..........                         [ 85%]\ntests/original/test_xeger_edge.py .....                                  [ 97%]\ntests/original/test_xeger_utils.py .                                     [100%]\n\n=============================== warnings summary ===============================\nsrc/xeger.py:22\n  /scratch/work/v2/agarciadom_xeger/src/xeger.py:22: DeprecationWarning: module 'sre_parse' is deprecated\n    import sre_parse\n\nsrc/xeger.py:23\n  /scratch/work/v2/agarciadom_xeger/src/xeger.py:23: DeprecationWarning: module 'sre_constants' is deprecated\n    import sre_constants\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n- generated xml file: /scratch/work/v2/agarciadom_xeger/.harness-test-results.xml -\n======================== 40 passed, 2 warnings in 3.39s ========================\n\n",
+          "failures": {},
+          "passed_by_folder": {
+            "public_tests": 21,
+            "tests": 19
+          },
+          "error": null
+        },
+        {
+          "iteration": 2,
+          "phase": "repair",
+          "estimated_cost_usd": 0.3674,
+          "tokens": {
+            "input_tokens": 4238,
+            "output_tokens": 40020,
+            "cache_read_input_tokens": 787812,
+            "cache_creation_input_tokens": 67317
+          },
+          "agent_error": null,
+          "migration_passed": true,
+          "test_success_rate": 100.0,
+          "passed": 40,
+          "failed": 0,
+          "skipped": 0,
+          "total": 40,
+          "expected_total": 40,
+          "suite_verified": true,
+          "protected_files_unchanged": true,
+          "evaluation_valid": true,
+          "exit_code": 0,
+          "output_tail": "============================= test session starts ==============================\nplatform linux -- Python 3.12.12, pytest-8.4.2, pluggy-1.7.0\nrootdir: /scratch/work/v2/agarciadom_xeger\ncollected 40 items\n\npublic_tests/test_xeger_coverage_public.py ..........                    [ 25%]\npublic_tests/test_xeger_edge_public.py .....                             [ 37%]\npublic_tests/test_xeger_public.py .....                                  [ 50%]\npublic_tests/test_xeger_utils_public.py .                                [ 52%]\ntests/original/test_xeger.py ...                                         [ 60%]\ntests/original/test_xeger_coverage.py ..........                         [ 85%]\ntests/original/test_xeger_edge.py .....                                  [ 97%]\ntests/original/test_xeger_utils.py .                                     [100%]\n\n=============================== warnings summary ===============================\nsrc/xeger.py:22\n  /scratch/work/v2/agarciadom_xeger/src/xeger.py:22: DeprecationWarning: module 'sre_parse' is deprecated\n    import sre_parse\n\nsrc/xeger.py:23\n  /scratch/work/v2/agarciadom_xeger/src/xeger.py:23: DeprecationWarning: module 'sre_constants' is deprecated\n    import sre_constants\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n- generated xml file: /scratch/work/v2/agarciadom_xeger/.harness-test-results.xml -\n======================== 40 passed, 2 warnings in 4.84s ========================\n\n",
+          "failures": {},
+          "passed_by_folder": {
+            "public_tests": 21,
+            "tests": 19
+          },
+          "error": null
+        },
+        {
+          "iteration": 3,
+          "phase": "repair",
+          "estimated_cost_usd": 0.2074,
+          "tokens": {
+            "input_tokens": 4142,
+            "output_tokens": 23976,
+            "cache_read_input_tokens": 281379,
+            "cache_creation_input_tokens": 44088
+          },
+          "agent_error": null,
+          "migration_passed": true,
+          "test_success_rate": 100.0,
+          "passed": 40,
+          "failed": 0,
+          "skipped": 0,
+          "total": 40,
+          "expected_total": 40,
+          "suite_verified": true,
+          "protected_files_unchanged": true,
+          "evaluation_valid": true,
+          "exit_code": 0,
+          "output_tail": "============================= test session starts ==============================\nplatform linux -- Python 3.12.12, pytest-8.4.2, pluggy-1.7.0\nrootdir: /scratch/work/v2/agarciadom_xeger\ncollected 40 items\n\npublic_tests/test_xeger_coverage_public.py ..........                    [ 25%]\npublic_tests/test_xeger_edge_public.py .....                             [ 37%]\npublic_tests/test_xeger_public.py .....                                  [ 50%]\npublic_tests/test_xeger_utils_public.py .                                [ 52%]\ntests/original/test_xeger.py ...                                         [ 60%]\ntests/original/test_xeger_coverage.py ..........                         [ 85%]\ntests/original/test_xeger_edge.py .....                                  [ 97%]\ntests/original/test_xeger_utils.py .                                     [100%]\n\n=============================== warnings summary ===============================\nsrc/xeger.py:22\n  /scratch/work/v2/agarciadom_xeger/src/xeger.py:22: DeprecationWarning: module 'sre_parse' is deprecated\n    import sre_parse\n\nsrc/xeger.py:23\n  /scratch/work/v2/agarciadom_xeger/src/xeger.py:23: DeprecationWarning: module 'sre_constants' is deprecated\n    import sre_constants\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n- generated xml file: /scratch/work/v2/agarciadom_xeger/.harness-test-results.xml -\n======================== 40 passed, 2 warnings in 4.74s ========================\n\n",
+          "failures": {},
+          "passed_by_folder": {
+            "public_tests": 21,
+            "tests": 19
+          },
+          "error": null
+        },
+        {
+          "iteration": 4,
+          "phase": "repair",
+          "estimated_cost_usd": 0.2057,
+          "tokens": {
+            "input_tokens": 4174,
+            "output_tokens": 23231,
+            "cache_read_input_tokens": 313012,
+            "cache_creation_input_tokens": 43140
+          },
+          "agent_error": null,
+          "migration_passed": true,
+          "test_success_rate": 100.0,
+          "passed": 40,
+          "failed": 0,
+          "skipped": 0,
+          "total": 40,
+          "expected_total": 40,
+          "suite_verified": true,
+          "protected_files_unchanged": true,
+          "evaluation_valid": true,
+          "exit_code": 0,
+          "output_tail": "============================= test session starts ==============================\nplatform linux -- Python 3.12.12, pytest-8.4.2, pluggy-1.7.0\nrootdir: /scratch/work/v2/agarciadom_xeger\ncollected 40 items\n\npublic_tests/test_xeger_coverage_public.py ..........                    [ 25%]\npublic_tests/test_xeger_edge_public.py .....                             [ 37%]\npublic_tests/test_xeger_public.py .....                                  [ 50%]\npublic_tests/test_xeger_utils_public.py .                                [ 52%]\ntests/original/test_xeger.py ...                                         [ 60%]\ntests/original/test_xeger_coverage.py ..........                         [ 85%]\ntests/original/test_xeger_edge.py .....                                  [ 97%]\ntests/original/test_xeger_utils.py .                                     [100%]\n\n=============================== warnings summary ===============================\nsrc/xeger.py:22\n  /scratch/work/v2/agarciadom_xeger/src/xeger.py:22: DeprecationWarning: module 'sre_parse' is deprecated\n    import sre_parse\n\nsrc/xeger.py:23\n  /scratch/work/v2/agarciadom_xeger/src/xeger.py:23: DeprecationWarning: module 'sre_constants' is deprecated\n    import sre_constants\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n- generated xml file: /scratch/work/v2/agarciadom_xeger/.harness-test-results.xml -\n======================== 40 passed, 2 warnings in 4.85s ========================\n\n",
+          "failures": {},
+          "passed_by_folder": {
+            "public_tests": 21,
+            "tests": 19
+          },
+          "error": null
+        },
+        {
+          "iteration": 5,
+          "phase": "repair",
+          "estimated_cost_usd": 0.2578,
+          "tokens": {
+            "input_tokens": 4188,
+            "output_tokens": 30341,
+            "cache_read_input_tokens": 413344,
+            "cache_creation_input_tokens": 48364
+          },
+          "agent_error": null,
+          "migration_passed": true,
+          "test_success_rate": 100.0,
+          "passed": 40,
+          "failed": 0,
+          "skipped": 0,
+          "total": 40,
+          "expected_total": 40,
+          "suite_verified": true,
+          "protected_files_unchanged": true,
+          "evaluation_valid": true,
+          "exit_code": 0,
+          "output_tail": "============================= test session starts ==============================\nplatform linux -- Python 3.12.12, pytest-8.4.2, pluggy-1.7.0\nrootdir: /scratch/work/v2/agarciadom_xeger\ncollected 40 items\n\npublic_tests/test_xeger_coverage_public.py ..........                    [ 25%]\npublic_tests/test_xeger_edge_public.py .....                             [ 37%]\npublic_tests/test_xeger_public.py .....                                  [ 50%]\npublic_tests/test_xeger_utils_public.py .                                [ 52%]\ntests/original/test_xeger.py ...                                         [ 60%]\ntests/original/test_xeger_coverage.py ..........                         [ 85%]\ntests/original/test_xeger_edge.py .....                                  [ 97%]\ntests/original/test_xeger_utils.py .                                     [100%]\n\n=============================== warnings summary ===============================\nsrc/xeger.py:22\n  /scratch/work/v2/agarciadom_xeger/src/xeger.py:22: DeprecationWarning: module 'sre_parse' is deprecated\n    import sre_parse\n\nsrc/xeger.py:23\n  /scratch/work/v2/agarciadom_xeger/src/xeger.py:23: DeprecationWarning: module 'sre_constants' is deprecated\n    import sre_constants\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n- generated xml file: /scratch/work/v2/agarciadom_xeger/.harness-test-results.xml -\n======================== 40 passed, 2 warnings in 4.84s ========================\n\n",
+          "failures": {},
+          "passed_by_folder": {
+            "public_tests": 21,
+            "tests": 19
+          },
+          "error": null
+        }
+      ],
+      "cost_complete": true,
+      "passed": 40,
+      "expected_total": 40,
+      "error": null,
+      "estimated_cost_usd": 1.5224,
+      "tokens": {
+        "input_tokens": 21092,
+        "output_tokens": 165669,
+        "cache_read_input_tokens": 3281686,
+        "cache_creation_input_tokens": 275340
+      }
+    },
+    {
+      "project": "editorconfig_editorconfig-jetbrains",
+      "status": "evaluation_invalid",
+      "migration_passed": false,
+      "test_success_rate": null,
+      "iterations": 5,
+      "variant": "v2",
+      "history": [
+        {
+          "iteration": 1,
+          "phase": "one_shot",
+          "estimated_cost_usd": 0.1082,
+          "tokens": {
+            "input_tokens": 4290,
+            "output_tokens": 7810,
+            "cache_read_input_tokens": 354755,
+            "cache_creation_input_tokens": 23383
+          },
+          "agent_error": null,
+          "migration_passed": false,
+          "test_success_rate": 0.0,
+          "passed": 0,
+          "failed": 12,
+          "skipped": 0,
+          "total": 12,
+          "expected_total": 12,
+          "suite_verified": true,
+          "protected_files_unchanged": true,
+          "evaluation_valid": true,
+          "exit_code": 1,
+          "output_tail": "alid_config_message(\"42\", \"answer\", \"deepfile\")\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: module 'src.editorconfig.utils' has no attribute 'invalid_config_message'. Did you mean: 'invalidConfigMessage'?\n\npublic_tests/test_utils_public.py:37: AttributeError\n___________ test_applied_config_message_makes_correct_string_public ____________\n\n    def test_applied_config_message_makes_correct_string_public():\n>       msg = utils.applied_config_message(\"enabled\", \"feature\", \"file.txt\")\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: module 'src.editorconfig.utils' has no attribute 'applied_config_message'. Did you mean: 'appliedConfigMessage'?\n\npublic_tests/test_utils_public.py:41: AttributeError\n_________________ test_config_value_for_key_finds_existing_key _________________\n\n    def test_config_value_for_key_finds_existing_key():\n        pairs = [FakeOutPair(\"foo\", \"bar\"), FakeOutPair(\"baz\", \"qux\")]\n>       assert utils.config_value_for_key(pairs, \"foo\") == \"bar\"\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: module 'src.editorconfig.utils' has no attribute 'config_value_for_key'. Did you mean: 'configValueForKey'?\n\ntests/original/test_utils.py:18: AttributeError\n___________ test_config_value_for_key_returns_empty_for_missing_key ____________\n\n    def test_config_value_for_key_returns_empty_for_missing_key():\n        pairs = [FakeOutPair(\"foo\", \"bar\")]\n>       assert utils.config_value_for_key(pairs, \"notfound\") == \"\"\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: module 'src.editorconfig.utils' has no attribute 'config_value_for_key'. Did you mean: 'configValueForKey'?\n\ntests/original/test_utils.py:23: AttributeError\n_____________________ test_config_value_for_key_empty_list _____________________\n\n    def test_config_value_for_key_empty_list():\n>       assert utils.config_value_for_key([], \"foo\") == \"\"\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: module 'src.editorconfig.utils' has no attribute 'config_value_for_key'. Did you mean: 'configValueForKey'?\n\ntests/original/test_utils.py:26: AttributeError\n__________ test_config_value_for_key_multiple_same_keys_returns_first __________\n\n    def test_config_value_for_key_multiple_same_keys_returns_first():\n        pairs = [\n            FakeOutPair(\"foo\", \"first\"),\n            FakeOutPair(\"foo\", \"second\"),\n            FakeOutPair(\"bar\", \"other\"),\n        ]\n>       assert utils.config_value_for_key(pairs, \"foo\") == \"first\"\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: module 'src.editorconfig.utils' has no attribute 'config_value_for_key'. Did you mean: 'configValueForKey'?\n\ntests/original/test_utils.py:34: AttributeError\n_______________ test_invalid_config_message_makes_correct_string _______________\n\n    def test_invalid_config_message_makes_correct_string():\n>       msg = utils.invalid_config_message(\"value\", \"key\", \"file\")\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: module 'src.editorconfig.utils' has no attribute 'invalid_config_message'. Did you mean: 'invalidConfigMessage'?\n\ntests/original/test_utils.py:37: AttributeError\n_______________ test_applied_config_message_makes_correct_string _______________\n\n    def test_applied_config_message_makes_correct_string():\n>       msg = utils.applied_config_message(\"value\", \"key\", \"file\")\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: module 'src.editorconfig.utils' has no attribute 'applied_config_message'. Did you mean: 'appliedConfigMessage'?\n\ntests/original/test_utils.py:41: AttributeError\n- generated xml file: /scratch/work/v2/editorconfig_editorconfig-jetbrains/.harness-test-results.xml -\n=========================== short test summary info ============================\nFAILED public_tests/test_utils_public.py::test_config_value_for_key_finds_different_existing_key\nFAILED public_tests/test_utils_public.py::test_config_value_for_key_returns_empty_for_another_missing_key\nFAILED public_tests/test_utils_public.py::test_config_value_for_key_empty_list_still_returns_empty\nFAILED public_tests/test_utils_public.py::test_config_value_for_key_multiple_same_keys_returns_first_public\nFAILED public_tests/test_utils_public.py::test_invalid_config_message_makes_correct_string_public\nFAILED public_tests/test_utils_public.py::test_applied_config_message_makes_correct_string_public\nFAILED tests/original/test_utils.py::test_config_value_for_key_finds_existing_key\nFAILED tests/original/test_utils.py::test_config_value_for_key_returns_empty_for_missing_key\nFAILED tests/original/test_utils.py::test_config_value_for_key_empty_list - A...\nFAILED tests/original/test_utils.py::test_config_value_for_key_multiple_same_keys_returns_first\nFAILED tests/original/test_utils.py::test_invalid_config_message_makes_correct_string\nFAILED tests/original/test_utils.py::test_applied_config_message_makes_correct_string\n============================== 12 failed in 0.04s ==============================\n\n",
+          "failures": {
+            "public_tests.test_utils_public::test_config_value_for_key_finds_different_existing_key": "AttributeError: module 'src.editorconfig.utils' has no attribute 'config_value_for_key'. Did you mean: 'configValueForKey'?",
+            "public_tests.test_utils_public::test_config_value_for_key_returns_empty_for_another_missing_key": "AttributeError: module 'src.editorconfig.utils' has no attribute 'config_value_for_key'. Did you mean: 'configValueForKey'?",
+            "public_tests.test_utils_public::test_config_value_for_key_empty_list_still_returns_empty": "AttributeError: module 'src.editorconfig.utils' has no attribute 'config_value_for_key'. Did you mean: 'configValueForKey'?",
+            "public_tests.test_utils_public::test_config_value_for_key_multiple_same_keys_returns_first_public": "AttributeError: module 'src.editorconfig.utils' has no attribute 'config_value_for_key'. Did you mean: 'configValueForKey'?",
+            "public_tests.test_utils_public::test_invalid_config_message_makes_correct_string_public": "AttributeError: module 'src.editorconfig.utils' has no attribute 'invalid_config_message'. Did you mean: 'invalidConfigMessage'?",
+            "public_tests.test_utils_public::test_applied_config_message_makes_correct_string_public": "AttributeError: module 'src.editorconfig.utils' has no attribute 'applied_config_message'. Did you mean: 'appliedConfigMessage'?",
+            "tests.original.test_utils::test_config_value_for_key_finds_existing_key": "AttributeError: module 'src.editorconfig.utils' has no attribute 'config_value_for_key'. Did you mean: 'configValueForKey'?",
+            "tests.original.test_utils::test_config_value_for_key_returns_empty_for_missing_key": "AttributeError: module 'src.editorconfig.utils' has no attribute 'config_value_for_key'. Did you mean: 'configValueForKey'?",
+            "tests.original.test_utils::test_config_value_for_key_empty_list": "AttributeError: module 'src.editorconfig.utils' has no attribute 'config_value_for_key'. Did you mean: 'configValueForKey'?",
+            "tests.original.test_utils::test_config_value_for_key_multiple_same_keys_returns_first": "AttributeError: module 'src.editorconfig.utils' has no attribute 'config_value_for_key'. Did you mean: 'configValueForKey'?",
+            "tests.original.test_utils::test_invalid_config_message_makes_correct_string": "AttributeError: module 'src.editorconfig.utils' has no attribute 'invalid_config_message'. Did you mean: 'invalidConfigMessage'?",
+            "tests.original.test_utils::test_applied_config_message_makes_correct_string": "AttributeError: module 'src.editorconfig.utils' has no attribute 'applied_config_message'. Did you mean: 'appliedConfigMessage'?"
+          },
+          "passed_by_folder": {},
+          "error": null
+        },
+        {
+          "iteration": 2,
+          "phase": "repair",
+          "estimated_cost_usd": 0.0635,
+          "tokens": {
+            "input_tokens": 4202,
+            "output_tokens": 4014,
+            "cache_read_input_tokens": 159945,
+            "cache_creation_input_tokens": 18460
+          },
+          "agent_error": null,
+          "migration_passed": false,
+          "test_success_rate": null,
+          "passed": 0,
+          "failed": 2,
+          "skipped": 0,
+          "total": 2,
+          "expected_total": 12,
+          "suite_verified": false,
+          "protected_files_unchanged": true,
+          "evaluation_valid": false,
+          "exit_code": 2,
+          "output_tail": "============================= test session starts ==============================\nplatform linux -- Python 3.12.12, pytest-8.4.2, pluggy-1.7.0\nrootdir: /scratch/work/v2/editorconfig_editorconfig-jetbrains\ncollected 0 items / 2 errors\n\n==================================== ERRORS ====================================\n______________ ERROR collecting public_tests/test_utils_public.py ______________\nImportError while importing test module '/scratch/work/v2/editorconfig_editorconfig-jetbrains/public_tests/test_utils_public.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\npublic_tests/test_utils_public.py:3: in <module>\n    from src.editorconfig import utils\nsrc/editorconfig/__init__.py:4: in <module>\n    from editorconfig.utils import (\nE   ModuleNotFoundError: No module named 'editorconfig'\n________________ ERROR collecting tests/original/test_utils.py _________________\nImportError while importing test module '/scratch/work/v2/editorconfig_editorconfig-jetbrains/tests/original/test_utils.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_utils.py:3: in <module>\n    from src.editorconfig import utils\nsrc/editorconfig/__init__.py:4: in <module>\n    from editorconfig.utils import (\nE   ModuleNotFoundError: No module named 'editorconfig'\n- generated xml file: /scratch/work/v2/editorconfig_editorconfig-jetbrains/.harness-test-results.xml -\n=========================== short test summary info ============================\nERROR public_tests/test_utils_public.py\nERROR tests/original/test_utils.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 2 errors during collection !!!!!!!!!!!!!!!!!!!!\n============================== 2 errors in 0.07s ===============================\n\n",
+          "failures": {
+            "::public_tests.test_utils_public": "ModuleNotFoundError: No module named 'editorconfig'",
+            "::tests.original.test_utils": "ModuleNotFoundError: No module named 'editorconfig'"
+          },
+          "passed_by_folder": {},
+          "error": "Collected/executed test identities differ from immutable baseline, or tests were skipped; Test collection: eback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_utils.py:3: in <module>\n    from src.editorconfig import utils\nsrc/editorconfig/__init__.py:4: in <module>\n    from editorconfig.utils import (\nE   ModuleNotFoundError: No module named 'editorconfig'\n=========================== short test summary info ============================\nERROR public_tests/test_utils_public.py\nERROR tests/original/test_utils.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 2 errors during collection !!!!!!!!!!!!!!!!!!!!\nno tests collected, 2 errors in 0.06s\n\n"
+        },
+        {
+          "iteration": 3,
+          "phase": "repair",
+          "estimated_cost_usd": 0.0751,
+          "tokens": {
+            "input_tokens": 4146,
+            "output_tokens": 6298,
+            "cache_read_input_tokens": 141102,
+            "cache_creation_input_tokens": 20215
+          },
+          "agent_error": null,
+          "migration_passed": false,
+          "test_success_rate": null,
+          "passed": 0,
+          "failed": 2,
+          "skipped": 0,
+          "total": 2,
+          "expected_total": 12,
+          "suite_verified": false,
+          "protected_files_unchanged": true,
+          "evaluation_valid": false,
+          "exit_code": 2,
+          "output_tail": "============================= test session starts ==============================\nplatform linux -- Python 3.12.12, pytest-8.4.2, pluggy-1.7.0\nrootdir: /scratch/work/v2/editorconfig_editorconfig-jetbrains\ncollected 0 items / 2 errors\n\n==================================== ERRORS ====================================\n______________ ERROR collecting public_tests/test_utils_public.py ______________\nImportError while importing test module '/scratch/work/v2/editorconfig_editorconfig-jetbrains/public_tests/test_utils_public.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\npublic_tests/test_utils_public.py:3: in <module>\n    from src.editorconfig import utils\nsrc/editorconfig/__init__.py:4: in <module>\n    from editorconfig.utils import (\nE   ModuleNotFoundError: No module named 'editorconfig'\n________________ ERROR collecting tests/original/test_utils.py _________________\nImportError while importing test module '/scratch/work/v2/editorconfig_editorconfig-jetbrains/tests/original/test_utils.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_utils.py:3: in <module>\n    from src.editorconfig import utils\nsrc/editorconfig/__init__.py:4: in <module>\n    from editorconfig.utils import (\nE   ModuleNotFoundError: No module named 'editorconfig'\n- generated xml file: /scratch/work/v2/editorconfig_editorconfig-jetbrains/.harness-test-results.xml -\n=========================== short test summary info ============================\nERROR public_tests/test_utils_public.py\nERROR tests/original/test_utils.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 2 errors during collection !!!!!!!!!!!!!!!!!!!!\n============================== 2 errors in 0.07s ===============================\n\n",
+          "failures": {
+            "::public_tests.test_utils_public": "ModuleNotFoundError: No module named 'editorconfig'",
+            "::tests.original.test_utils": "ModuleNotFoundError: No module named 'editorconfig'"
+          },
+          "passed_by_folder": {},
+          "error": "Collected/executed test identities differ from immutable baseline, or tests were skipped; Test collection: eback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_utils.py:3: in <module>\n    from src.editorconfig import utils\nsrc/editorconfig/__init__.py:4: in <module>\n    from editorconfig.utils import (\nE   ModuleNotFoundError: No module named 'editorconfig'\n=========================== short test summary info ============================\nERROR public_tests/test_utils_public.py\nERROR tests/original/test_utils.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 2 errors during collection !!!!!!!!!!!!!!!!!!!!\nno tests collected, 2 errors in 0.06s\n\n"
+        },
+        {
+          "iteration": 4,
+          "phase": "repair",
+          "estimated_cost_usd": 0.0835,
+          "tokens": {
+            "input_tokens": 4194,
+            "output_tokens": 6632,
+            "cache_read_input_tokens": 204255,
+            "cache_creation_input_tokens": 20438
+          },
+          "agent_error": null,
+          "migration_passed": false,
+          "test_success_rate": null,
+          "passed": 0,
+          "failed": 2,
+          "skipped": 0,
+          "total": 2,
+          "expected_total": 12,
+          "suite_verified": false,
+          "protected_files_unchanged": true,
+          "evaluation_valid": false,
+          "exit_code": 2,
+          "output_tail": "============================= test session starts ==============================\nplatform linux -- Python 3.12.12, pytest-8.4.2, pluggy-1.7.0\nrootdir: /scratch/work/v2/editorconfig_editorconfig-jetbrains\ncollected 0 items / 2 errors\n\n==================================== ERRORS ====================================\n______________ ERROR collecting public_tests/test_utils_public.py ______________\nImportError while importing test module '/scratch/work/v2/editorconfig_editorconfig-jetbrains/public_tests/test_utils_public.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\npublic_tests/test_utils_public.py:3: in <module>\n    from src.editorconfig import utils\nsrc/editorconfig/__init__.py:4: in <module>\n    from editorconfig.utils import (\nE   ModuleNotFoundError: No module named 'editorconfig'\n________________ ERROR collecting tests/original/test_utils.py _________________\nImportError while importing test module '/scratch/work/v2/editorconfig_editorconfig-jetbrains/tests/original/test_utils.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_utils.py:3: in <module>\n    from src.editorconfig import utils\nsrc/editorconfig/__init__.py:4: in <module>\n    from editorconfig.utils import (\nE   ModuleNotFoundError: No module named 'editorconfig'\n- generated xml file: /scratch/work/v2/editorconfig_editorconfig-jetbrains/.harness-test-results.xml -\n=========================== short test summary info ============================\nERROR public_tests/test_utils_public.py\nERROR tests/original/test_utils.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 2 errors during collection !!!!!!!!!!!!!!!!!!!!\n============================== 2 errors in 0.08s ===============================\n\n",
+          "failures": {
+            "::public_tests.test_utils_public": "ModuleNotFoundError: No module named 'editorconfig'",
+            "::tests.original.test_utils": "ModuleNotFoundError: No module named 'editorconfig'"
+          },
+          "passed_by_folder": {},
+          "error": "Collected/executed test identities differ from immutable baseline, or tests were skipped; Test collection: eback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_utils.py:3: in <module>\n    from src.editorconfig import utils\nsrc/editorconfig/__init__.py:4: in <module>\n    from editorconfig.utils import (\nE   ModuleNotFoundError: No module named 'editorconfig'\n=========================== short test summary info ============================\nERROR public_tests/test_utils_public.py\nERROR tests/original/test_utils.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 2 errors during collection !!!!!!!!!!!!!!!!!!!!\nno tests collected, 2 errors in 0.06s\n\n"
+        },
+        {
+          "iteration": 5,
+          "phase": "repair",
+          "estimated_cost_usd": 0.0646,
+          "tokens": {
+            "input_tokens": 4170,
+            "output_tokens": 4651,
+            "cache_read_input_tokens": 135249,
+            "cache_creation_input_tokens": 18805
+          },
+          "agent_error": null,
+          "migration_passed": false,
+          "test_success_rate": null,
+          "passed": 0,
+          "failed": 2,
+          "skipped": 0,
+          "total": 2,
+          "expected_total": 12,
+          "suite_verified": false,
+          "protected_files_unchanged": true,
+          "evaluation_valid": false,
+          "exit_code": 2,
+          "output_tail": "============================= test session starts ==============================\nplatform linux -- Python 3.12.12, pytest-8.4.2, pluggy-1.7.0\nrootdir: /scratch/work/v2/editorconfig_editorconfig-jetbrains\ncollected 0 items / 2 errors\n\n==================================== ERRORS ====================================\n______________ ERROR collecting public_tests/test_utils_public.py ______________\nImportError while importing test module '/scratch/work/v2/editorconfig_editorconfig-jetbrains/public_tests/test_utils_public.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\npublic_tests/test_utils_public.py:3: in <module>\n    from src.editorconfig import utils\nsrc/editorconfig/__init__.py:4: in <module>\n    from editorconfig.utils import (\nE   ModuleNotFoundError: No module named 'editorconfig'\n________________ ERROR collecting tests/original/test_utils.py _________________\nImportError while importing test module '/scratch/work/v2/editorconfig_editorconfig-jetbrains/tests/original/test_utils.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_utils.py:3: in <module>\n    from src.editorconfig import utils\nsrc/editorconfig/__init__.py:4: in <module>\n    from editorconfig.utils import (\nE   ModuleNotFoundError: No module named 'editorconfig'\n- generated xml file: /scratch/work/v2/editorconfig_editorconfig-jetbrains/.harness-test-results.xml -\n=========================== short test summary info ============================\nERROR public_tests/test_utils_public.py\nERROR tests/original/test_utils.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 2 errors during collection !!!!!!!!!!!!!!!!!!!!\n============================== 2 errors in 0.08s ===============================\n\n",
+          "failures": {
+            "::public_tests.test_utils_public": "ModuleNotFoundError: No module named 'editorconfig'",
+            "::tests.original.test_utils": "ModuleNotFoundError: No module named 'editorconfig'"
+          },
+          "passed_by_folder": {},
+          "error": "Collected/executed test identities differ from immutable baseline, or tests were skipped; Test collection: eback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_utils.py:3: in <module>\n    from src.editorconfig import utils\nsrc/editorconfig/__init__.py:4: in <module>\n    from editorconfig.utils import (\nE   ModuleNotFoundError: No module named 'editorconfig'\n=========================== short test summary info ============================\nERROR public_tests/test_utils_public.py\nERROR tests/original/test_utils.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 2 errors during collection !!!!!!!!!!!!!!!!!!!!\nno tests collected, 2 errors in 0.06s\n\n"
+        }
+      ],
+      "cost_complete": true,
+      "passed": 0,
+      "expected_total": 12,
+      "error": "Collected/executed test identities differ from immutable baseline, or tests were skipped; Test collection: eback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_utils.py:3: in <module>\n    from src.editorconfig import utils\nsrc/editorconfig/__init__.py:4: in <module>\n    from editorconfig.utils import (\nE   ModuleNotFoundError: No module named 'editorconfig'\n=========================== short test summary info ============================\nERROR public_tests/test_utils_public.py\nERROR tests/original/test_utils.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 2 errors during collection !!!!!!!!!!!!!!!!!!!!\nno tests collected, 2 errors in 0.06s\n\n",
+      "estimated_cost_usd": 0.3948,
+      "tokens": {
+        "input_tokens": 21002,
+        "output_tokens": 29405,
+        "cache_read_input_tokens": 995306,
+        "cache_creation_input_tokens": 101301
+      }
+    },
+    {
+      "project": "txusballesteros_fit-chart",
+      "status": "evaluation_invalid",
+      "migration_passed": false,
+      "test_success_rate": null,
+      "iterations": 5,
+      "variant": "v2",
+      "history": [
+        {
+          "iteration": 1,
+          "phase": "one_shot",
+          "estimated_cost_usd": 0.1722,
+          "tokens": {
+            "input_tokens": 4248,
+            "output_tokens": 14927,
+            "cache_read_input_tokens": 506850,
+            "cache_creation_input_tokens": 34023
+          },
+          "agent_error": null,
+          "migration_passed": false,
+          "test_success_rate": null,
+          "passed": 0,
+          "failed": 10,
+          "skipped": 0,
+          "total": 10,
+          "expected_total": 16,
+          "suite_verified": false,
+          "protected_files_unchanged": true,
+          "evaluation_valid": false,
+          "exit_code": 2,
+          "output_tail": "2/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\npublic_tests/test_renderer_factory_public.py:2: in <module>\n    from src.fitchart.renderer_factory import RendererFactory\nsrc/fitchart/__init__.py:6: in <module>\n    from fitchart.fake_classes import (\nE   ModuleNotFoundError: No module named 'fitchart'\n____________ ERROR collecting tests/original/test_base_renderer.py _____________\nImportError while importing test module '/scratch/work/v2/txusballesteros_fit-chart/tests/original/test_base_renderer.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_base_renderer.py:1: in <module>\n    from src.fitchart.base_renderer import BaseRenderer\nsrc/fitchart/__init__.py:6: in <module>\n    from fitchart.fake_classes import (\nE   ModuleNotFoundError: No module named 'fitchart'\n________ ERROR collecting tests/original/test_fake_classes_for_test.py _________\nImportError while importing test module '/scratch/work/v2/txusballesteros_fit-chart/tests/original/test_fake_classes_for_test.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_fake_classes_for_test.py:2: in <module>\n    from src.fitchart.fake_classes import AnimationMode, Renderer, FitChartValue\nsrc/fitchart/__init__.py:6: in <module>\n    from fitchart.fake_classes import (\nE   ModuleNotFoundError: No module named 'fitchart'\n________ ERROR collecting tests/original/test_linear_value_renderer.py _________\nImportError while importing test module '/scratch/work/v2/txusballesteros_fit-chart/tests/original/test_linear_value_renderer.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_linear_value_renderer.py:3: in <module>\n    from src.fitchart.linear_value_renderer import LinearValueRenderer\nsrc/fitchart/__init__.py:6: in <module>\n    from fitchart.fake_classes import (\nE   ModuleNotFoundError: No module named 'fitchart'\n_______ ERROR collecting tests/original/test_overdraw_value_renderer.py ________\nImportError while importing test module '/scratch/work/v2/txusballesteros_fit-chart/tests/original/test_overdraw_value_renderer.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_overdraw_value_renderer.py:2: in <module>\n    from src.fitchart.overdraw_value_renderer import OverdrawValueRenderer\nsrc/fitchart/__init__.py:6: in <module>\n    from fitchart.fake_classes import (\nE   ModuleNotFoundError: No module named 'fitchart'\n___________ ERROR collecting tests/original/test_renderer_factory.py ___________\nImportError while importing test module '/scratch/work/v2/txusballesteros_fit-chart/tests/original/test_renderer_factory.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_renderer_factory.py:2: in <module>\n    from src.fitchart.renderer_factory import RendererFactory\nsrc/fitchart/__init__.py:6: in <module>\n    from fitchart.fake_classes import (\nE   ModuleNotFoundError: No module named 'fitchart'\n- generated xml file: /scratch/work/v2/txusballesteros_fit-chart/.harness-test-results.xml -\n=========================== short test summary info ============================\nERROR public_tests/test_base_renderer_public.py\nERROR public_tests/test_fake_classes_for_public_test.py\nERROR public_tests/test_linear_value_renderer_public.py\nERROR public_tests/test_overdraw_value_renderer_public.py\nERROR public_tests/test_renderer_factory_public.py\nERROR tests/original/test_base_renderer.py\nERROR tests/original/test_fake_classes_for_test.py\nERROR tests/original/test_linear_value_renderer.py\nERROR tests/original/test_overdraw_value_renderer.py\nERROR tests/original/test_renderer_factory.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 10 errors during collection !!!!!!!!!!!!!!!!!!!\n============================== 10 errors in 0.19s ==============================\n\n",
+          "failures": {
+            "::public_tests.test_base_renderer_public": "ModuleNotFoundError: No module named 'fitchart'",
+            "::public_tests.test_fake_classes_for_public_test": "ModuleNotFoundError: No module named 'fitchart'",
+            "::public_tests.test_linear_value_renderer_public": "ModuleNotFoundError: No module named 'fitchart'",
+            "::public_tests.test_overdraw_value_renderer_public": "ModuleNotFoundError: No module named 'fitchart'",
+            "::public_tests.test_renderer_factory_public": "ModuleNotFoundError: No module named 'fitchart'",
+            "::tests.original.test_base_renderer": "ModuleNotFoundError: No module named 'fitchart'",
+            "::tests.original.test_fake_classes_for_test": "ModuleNotFoundError: No module named 'fitchart'",
+            "::tests.original.test_linear_value_renderer": "ModuleNotFoundError: No module named 'fitchart'",
+            "::tests.original.test_overdraw_value_renderer": "ModuleNotFoundError: No module named 'fitchart'",
+            "::tests.original.test_renderer_factory": "ModuleNotFoundError: No module named 'fitchart'"
+          },
+          "passed_by_folder": {},
+          "error": "Collected/executed test identities differ from immutable baseline, or tests were skipped; Test collection: ============ short test summary info ============================\nERROR public_tests/test_base_renderer_public.py\nERROR public_tests/test_fake_classes_for_public_test.py\nERROR public_tests/test_linear_value_renderer_public.py\nERROR public_tests/test_overdraw_value_renderer_public.py\nERROR public_tests/test_renderer_factory_public.py\nERROR tests/original/test_base_renderer.py\nERROR tests/original/test_fake_classes_for_test.py\nERROR tests/original/test_linear_value_renderer.py\nERROR tests/original/test_overdraw_value_renderer.py\nERROR tests/original/test_renderer_factory.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 10 errors during collection !!!!!!!!!!!!!!!!!!!\nno tests collected, 10 errors in 0.16s\n\n"
+        },
+        {
+          "iteration": 2,
+          "phase": "repair",
+          "estimated_cost_usd": 0.1369,
+          "tokens": {
+            "input_tokens": 4168,
+            "output_tokens": 13983,
+            "cache_read_input_tokens": 237033,
+            "cache_creation_input_tokens": 31152
+          },
+          "agent_error": null,
+          "migration_passed": false,
+          "test_success_rate": null,
+          "passed": 0,
+          "failed": 10,
+          "skipped": 0,
+          "total": 10,
+          "expected_total": 16,
+          "suite_verified": false,
+          "protected_files_unchanged": true,
+          "evaluation_valid": false,
+          "exit_code": 2,
+          "output_tail": "2/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\npublic_tests/test_renderer_factory_public.py:2: in <module>\n    from src.fitchart.renderer_factory import RendererFactory\nsrc/fitchart/__init__.py:6: in <module>\n    from fitchart.fake_classes import (\nE   ModuleNotFoundError: No module named 'fitchart'\n____________ ERROR collecting tests/original/test_base_renderer.py _____________\nImportError while importing test module '/scratch/work/v2/txusballesteros_fit-chart/tests/original/test_base_renderer.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_base_renderer.py:1: in <module>\n    from src.fitchart.base_renderer import BaseRenderer\nsrc/fitchart/__init__.py:6: in <module>\n    from fitchart.fake_classes import (\nE   ModuleNotFoundError: No module named 'fitchart'\n________ ERROR collecting tests/original/test_fake_classes_for_test.py _________\nImportError while importing test module '/scratch/work/v2/txusballesteros_fit-chart/tests/original/test_fake_classes_for_test.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_fake_classes_for_test.py:2: in <module>\n    from src.fitchart.fake_classes import AnimationMode, Renderer, FitChartValue\nsrc/fitchart/__init__.py:6: in <module>\n    from fitchart.fake_classes import (\nE   ModuleNotFoundError: No module named 'fitchart'\n________ ERROR collecting tests/original/test_linear_value_renderer.py _________\nImportError while importing test module '/scratch/work/v2/txusballesteros_fit-chart/tests/original/test_linear_value_renderer.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_linear_value_renderer.py:3: in <module>\n    from src.fitchart.linear_value_renderer import LinearValueRenderer\nsrc/fitchart/__init__.py:6: in <module>\n    from fitchart.fake_classes import (\nE   ModuleNotFoundError: No module named 'fitchart'\n_______ ERROR collecting tests/original/test_overdraw_value_renderer.py ________\nImportError while importing test module '/scratch/work/v2/txusballesteros_fit-chart/tests/original/test_overdraw_value_renderer.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_overdraw_value_renderer.py:2: in <module>\n    from src.fitchart.overdraw_value_renderer import OverdrawValueRenderer\nsrc/fitchart/__init__.py:6: in <module>\n    from fitchart.fake_classes import (\nE   ModuleNotFoundError: No module named 'fitchart'\n___________ ERROR collecting tests/original/test_renderer_factory.py ___________\nImportError while importing test module '/scratch/work/v2/txusballesteros_fit-chart/tests/original/test_renderer_factory.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_renderer_factory.py:2: in <module>\n    from src.fitchart.renderer_factory import RendererFactory\nsrc/fitchart/__init__.py:6: in <module>\n    from fitchart.fake_classes import (\nE   ModuleNotFoundError: No module named 'fitchart'\n- generated xml file: /scratch/work/v2/txusballesteros_fit-chart/.harness-test-results.xml -\n=========================== short test summary info ============================\nERROR public_tests/test_base_renderer_public.py\nERROR public_tests/test_fake_classes_for_public_test.py\nERROR public_tests/test_linear_value_renderer_public.py\nERROR public_tests/test_overdraw_value_renderer_public.py\nERROR public_tests/test_renderer_factory_public.py\nERROR tests/original/test_base_renderer.py\nERROR tests/original/test_fake_classes_for_test.py\nERROR tests/original/test_linear_value_renderer.py\nERROR tests/original/test_overdraw_value_renderer.py\nERROR tests/original/test_renderer_factory.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 10 errors during collection !!!!!!!!!!!!!!!!!!!\n============================== 10 errors in 0.25s ==============================\n\n",
+          "failures": {
+            "::public_tests.test_base_renderer_public": "ModuleNotFoundError: No module named 'fitchart'",
+            "::public_tests.test_fake_classes_for_public_test": "ModuleNotFoundError: No module named 'fitchart'",
+            "::public_tests.test_linear_value_renderer_public": "ModuleNotFoundError: No module named 'fitchart'",
+            "::public_tests.test_overdraw_value_renderer_public": "ModuleNotFoundError: No module named 'fitchart'",
+            "::public_tests.test_renderer_factory_public": "ModuleNotFoundError: No module named 'fitchart'",
+            "::tests.original.test_base_renderer": "ModuleNotFoundError: No module named 'fitchart'",
+            "::tests.original.test_fake_classes_for_test": "ModuleNotFoundError: No module named 'fitchart'",
+            "::tests.original.test_linear_value_renderer": "ModuleNotFoundError: No module named 'fitchart'",
+            "::tests.original.test_overdraw_value_renderer": "ModuleNotFoundError: No module named 'fitchart'",
+            "::tests.original.test_renderer_factory": "ModuleNotFoundError: No module named 'fitchart'"
+          },
+          "passed_by_folder": {},
+          "error": "Collected/executed test identities differ from immutable baseline, or tests were skipped; Test collection: ============ short test summary info ============================\nERROR public_tests/test_base_renderer_public.py\nERROR public_tests/test_fake_classes_for_public_test.py\nERROR public_tests/test_linear_value_renderer_public.py\nERROR public_tests/test_overdraw_value_renderer_public.py\nERROR public_tests/test_renderer_factory_public.py\nERROR tests/original/test_base_renderer.py\nERROR tests/original/test_fake_classes_for_test.py\nERROR tests/original/test_linear_value_renderer.py\nERROR tests/original/test_overdraw_value_renderer.py\nERROR tests/original/test_renderer_factory.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 10 errors during collection !!!!!!!!!!!!!!!!!!!\nno tests collected, 10 errors in 0.18s\n\n"
+        },
+        {
+          "iteration": 3,
+          "phase": "repair",
+          "estimated_cost_usd": 0.1786,
+          "tokens": {
+            "input_tokens": 4240,
+            "output_tokens": 15682,
+            "cache_read_input_tokens": 503823,
+            "cache_creation_input_tokens": 36314
+          },
+          "agent_error": null,
+          "migration_passed": false,
+          "test_success_rate": null,
+          "passed": 0,
+          "failed": 10,
+          "skipped": 0,
+          "total": 10,
+          "expected_total": 16,
+          "suite_verified": false,
+          "protected_files_unchanged": true,
+          "evaluation_valid": false,
+          "exit_code": 2,
+          "output_tail": "2/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\npublic_tests/test_renderer_factory_public.py:2: in <module>\n    from src.fitchart.renderer_factory import RendererFactory\nsrc/fitchart/__init__.py:6: in <module>\n    from fitchart.fake_classes import (\nE   ModuleNotFoundError: No module named 'fitchart'\n____________ ERROR collecting tests/original/test_base_renderer.py _____________\nImportError while importing test module '/scratch/work/v2/txusballesteros_fit-chart/tests/original/test_base_renderer.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_base_renderer.py:1: in <module>\n    from src.fitchart.base_renderer import BaseRenderer\nsrc/fitchart/__init__.py:6: in <module>\n    from fitchart.fake_classes import (\nE   ModuleNotFoundError: No module named 'fitchart'\n________ ERROR collecting tests/original/test_fake_classes_for_test.py _________\nImportError while importing test module '/scratch/work/v2/txusballesteros_fit-chart/tests/original/test_fake_classes_for_test.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_fake_classes_for_test.py:2: in <module>\n    from src.fitchart.fake_classes import AnimationMode, Renderer, FitChartValue\nsrc/fitchart/__init__.py:6: in <module>\n    from fitchart.fake_classes import (\nE   ModuleNotFoundError: No module named 'fitchart'\n________ ERROR collecting tests/original/test_linear_value_renderer.py _________\nImportError while importing test module '/scratch/work/v2/txusballesteros_fit-chart/tests/original/test_linear_value_renderer.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_linear_value_renderer.py:3: in <module>\n    from src.fitchart.linear_value_renderer import LinearValueRenderer\nsrc/fitchart/__init__.py:6: in <module>\n    from fitchart.fake_classes import (\nE   ModuleNotFoundError: No module named 'fitchart'\n_______ ERROR collecting tests/original/test_overdraw_value_renderer.py ________\nImportError while importing test module '/scratch/work/v2/txusballesteros_fit-chart/tests/original/test_overdraw_value_renderer.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_overdraw_value_renderer.py:2: in <module>\n    from src.fitchart.overdraw_value_renderer import OverdrawValueRenderer\nsrc/fitchart/__init__.py:6: in <module>\n    from fitchart.fake_classes import (\nE   ModuleNotFoundError: No module named 'fitchart'\n___________ ERROR collecting tests/original/test_renderer_factory.py ___________\nImportError while importing test module '/scratch/work/v2/txusballesteros_fit-chart/tests/original/test_renderer_factory.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_renderer_factory.py:2: in <module>\n    from src.fitchart.renderer_factory import RendererFactory\nsrc/fitchart/__init__.py:6: in <module>\n    from fitchart.fake_classes import (\nE   ModuleNotFoundError: No module named 'fitchart'\n- generated xml file: /scratch/work/v2/txusballesteros_fit-chart/.harness-test-results.xml -\n=========================== short test summary info ============================\nERROR public_tests/test_base_renderer_public.py\nERROR public_tests/test_fake_classes_for_public_test.py\nERROR public_tests/test_linear_value_renderer_public.py\nERROR public_tests/test_overdraw_value_renderer_public.py\nERROR public_tests/test_renderer_factory_public.py\nERROR tests/original/test_base_renderer.py\nERROR tests/original/test_fake_classes_for_test.py\nERROR tests/original/test_linear_value_renderer.py\nERROR tests/original/test_overdraw_value_renderer.py\nERROR tests/original/test_renderer_factory.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 10 errors during collection !!!!!!!!!!!!!!!!!!!\n============================== 10 errors in 0.18s ==============================\n\n",
+          "failures": {
+            "::public_tests.test_base_renderer_public": "ModuleNotFoundError: No module named 'fitchart'",
+            "::public_tests.test_fake_classes_for_public_test": "ModuleNotFoundError: No module named 'fitchart'",
+            "::public_tests.test_linear_value_renderer_public": "ModuleNotFoundError: No module named 'fitchart'",
+            "::public_tests.test_overdraw_value_renderer_public": "ModuleNotFoundError: No module named 'fitchart'",
+            "::public_tests.test_renderer_factory_public": "ModuleNotFoundError: No module named 'fitchart'",
+            "::tests.original.test_base_renderer": "ModuleNotFoundError: No module named 'fitchart'",
+            "::tests.original.test_fake_classes_for_test": "ModuleNotFoundError: No module named 'fitchart'",
+            "::tests.original.test_linear_value_renderer": "ModuleNotFoundError: No module named 'fitchart'",
+            "::tests.original.test_overdraw_value_renderer": "ModuleNotFoundError: No module named 'fitchart'",
+            "::tests.original.test_renderer_factory": "ModuleNotFoundError: No module named 'fitchart'"
+          },
+          "passed_by_folder": {},
+          "error": "Collected/executed test identities differ from immutable baseline, or tests were skipped; Test collection: ============ short test summary info ============================\nERROR public_tests/test_base_renderer_public.py\nERROR public_tests/test_fake_classes_for_public_test.py\nERROR public_tests/test_linear_value_renderer_public.py\nERROR public_tests/test_overdraw_value_renderer_public.py\nERROR public_tests/test_renderer_factory_public.py\nERROR tests/original/test_base_renderer.py\nERROR tests/original/test_fake_classes_for_test.py\nERROR tests/original/test_linear_value_renderer.py\nERROR tests/original/test_overdraw_value_renderer.py\nERROR tests/original/test_renderer_factory.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 10 errors during collection !!!!!!!!!!!!!!!!!!!\nno tests collected, 10 errors in 0.16s\n\n"
+        },
+        {
+          "iteration": 4,
+          "phase": "repair",
+          "estimated_cost_usd": 0.1278,
+          "tokens": {
+            "input_tokens": 4312,
+            "output_tokens": 8114,
+            "cache_read_input_tokens": 498639,
+            "cache_creation_input_tokens": 26352
+          },
+          "agent_error": null,
+          "migration_passed": false,
+          "test_success_rate": null,
+          "passed": 0,
+          "failed": 10,
+          "skipped": 0,
+          "total": 10,
+          "expected_total": 16,
+          "suite_verified": false,
+          "protected_files_unchanged": true,
+          "evaluation_valid": false,
+          "exit_code": 2,
+          "output_tail": "2/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\npublic_tests/test_renderer_factory_public.py:2: in <module>\n    from src.fitchart.renderer_factory import RendererFactory\nsrc/fitchart/__init__.py:6: in <module>\n    from fitchart.fake_classes import (\nE   ModuleNotFoundError: No module named 'fitchart'\n____________ ERROR collecting tests/original/test_base_renderer.py _____________\nImportError while importing test module '/scratch/work/v2/txusballesteros_fit-chart/tests/original/test_base_renderer.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_base_renderer.py:1: in <module>\n    from src.fitchart.base_renderer import BaseRenderer\nsrc/fitchart/__init__.py:6: in <module>\n    from fitchart.fake_classes import (\nE   ModuleNotFoundError: No module named 'fitchart'\n________ ERROR collecting tests/original/test_fake_classes_for_test.py _________\nImportError while importing test module '/scratch/work/v2/txusballesteros_fit-chart/tests/original/test_fake_classes_for_test.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_fake_classes_for_test.py:2: in <module>\n    from src.fitchart.fake_classes import AnimationMode, Renderer, FitChartValue\nsrc/fitchart/__init__.py:6: in <module>\n    from fitchart.fake_classes import (\nE   ModuleNotFoundError: No module named 'fitchart'\n________ ERROR collecting tests/original/test_linear_value_renderer.py _________\nImportError while importing test module '/scratch/work/v2/txusballesteros_fit-chart/tests/original/test_linear_value_renderer.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_linear_value_renderer.py:3: in <module>\n    from src.fitchart.linear_value_renderer import LinearValueRenderer\nsrc/fitchart/__init__.py:6: in <module>\n    from fitchart.fake_classes import (\nE   ModuleNotFoundError: No module named 'fitchart'\n_______ ERROR collecting tests/original/test_overdraw_value_renderer.py ________\nImportError while importing test module '/scratch/work/v2/txusballesteros_fit-chart/tests/original/test_overdraw_value_renderer.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_overdraw_value_renderer.py:2: in <module>\n    from src.fitchart.overdraw_value_renderer import OverdrawValueRenderer\nsrc/fitchart/__init__.py:6: in <module>\n    from fitchart.fake_classes import (\nE   ModuleNotFoundError: No module named 'fitchart'\n___________ ERROR collecting tests/original/test_renderer_factory.py ___________\nImportError while importing test module '/scratch/work/v2/txusballesteros_fit-chart/tests/original/test_renderer_factory.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_renderer_factory.py:2: in <module>\n    from src.fitchart.renderer_factory import RendererFactory\nsrc/fitchart/__init__.py:6: in <module>\n    from fitchart.fake_classes import (\nE   ModuleNotFoundError: No module named 'fitchart'\n- generated xml file: /scratch/work/v2/txusballesteros_fit-chart/.harness-test-results.xml -\n=========================== short test summary info ============================\nERROR public_tests/test_base_renderer_public.py\nERROR public_tests/test_fake_classes_for_public_test.py\nERROR public_tests/test_linear_value_renderer_public.py\nERROR public_tests/test_overdraw_value_renderer_public.py\nERROR public_tests/test_renderer_factory_public.py\nERROR tests/original/test_base_renderer.py\nERROR tests/original/test_fake_classes_for_test.py\nERROR tests/original/test_linear_value_renderer.py\nERROR tests/original/test_overdraw_value_renderer.py\nERROR tests/original/test_renderer_factory.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 10 errors during collection !!!!!!!!!!!!!!!!!!!\n============================== 10 errors in 0.17s ==============================\n\n",
+          "failures": {
+            "::public_tests.test_base_renderer_public": "ModuleNotFoundError: No module named 'fitchart'",
+            "::public_tests.test_fake_classes_for_public_test": "ModuleNotFoundError: No module named 'fitchart'",
+            "::public_tests.test_linear_value_renderer_public": "ModuleNotFoundError: No module named 'fitchart'",
+            "::public_tests.test_overdraw_value_renderer_public": "ModuleNotFoundError: No module named 'fitchart'",
+            "::public_tests.test_renderer_factory_public": "ModuleNotFoundError: No module named 'fitchart'",
+            "::tests.original.test_base_renderer": "ModuleNotFoundError: No module named 'fitchart'",
+            "::tests.original.test_fake_classes_for_test": "ModuleNotFoundError: No module named 'fitchart'",
+            "::tests.original.test_linear_value_renderer": "ModuleNotFoundError: No module named 'fitchart'",
+            "::tests.original.test_overdraw_value_renderer": "ModuleNotFoundError: No module named 'fitchart'",
+            "::tests.original.test_renderer_factory": "ModuleNotFoundError: No module named 'fitchart'"
+          },
+          "passed_by_folder": {},
+          "error": "Collected/executed test identities differ from immutable baseline, or tests were skipped; Test collection: ============ short test summary info ============================\nERROR public_tests/test_base_renderer_public.py\nERROR public_tests/test_fake_classes_for_public_test.py\nERROR public_tests/test_linear_value_renderer_public.py\nERROR public_tests/test_overdraw_value_renderer_public.py\nERROR public_tests/test_renderer_factory_public.py\nERROR tests/original/test_base_renderer.py\nERROR tests/original/test_fake_classes_for_test.py\nERROR tests/original/test_linear_value_renderer.py\nERROR tests/original/test_overdraw_value_renderer.py\nERROR tests/original/test_renderer_factory.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 10 errors during collection !!!!!!!!!!!!!!!!!!!\nno tests collected, 10 errors in 0.18s\n\n"
+        },
+        {
+          "iteration": 5,
+          "phase": "repair",
+          "estimated_cost_usd": 0.1652,
+          "tokens": {
+            "input_tokens": 4248,
+            "output_tokens": 13365,
+            "cache_read_input_tokens": 494317,
+            "cache_creation_input_tokens": 35655
+          },
+          "agent_error": null,
+          "migration_passed": false,
+          "test_success_rate": null,
+          "passed": 0,
+          "failed": 10,
+          "skipped": 0,
+          "total": 10,
+          "expected_total": 16,
+          "suite_verified": false,
+          "protected_files_unchanged": true,
+          "evaluation_valid": false,
+          "exit_code": 2,
+          "output_tail": "2/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\npublic_tests/test_renderer_factory_public.py:2: in <module>\n    from src.fitchart.renderer_factory import RendererFactory\nsrc/fitchart/__init__.py:6: in <module>\n    from fitchart.fake_classes import (\nE   ModuleNotFoundError: No module named 'fitchart'\n____________ ERROR collecting tests/original/test_base_renderer.py _____________\nImportError while importing test module '/scratch/work/v2/txusballesteros_fit-chart/tests/original/test_base_renderer.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_base_renderer.py:1: in <module>\n    from src.fitchart.base_renderer import BaseRenderer\nsrc/fitchart/__init__.py:6: in <module>\n    from fitchart.fake_classes import (\nE   ModuleNotFoundError: No module named 'fitchart'\n________ ERROR collecting tests/original/test_fake_classes_for_test.py _________\nImportError while importing test module '/scratch/work/v2/txusballesteros_fit-chart/tests/original/test_fake_classes_for_test.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_fake_classes_for_test.py:2: in <module>\n    from src.fitchart.fake_classes import AnimationMode, Renderer, FitChartValue\nsrc/fitchart/__init__.py:6: in <module>\n    from fitchart.fake_classes import (\nE   ModuleNotFoundError: No module named 'fitchart'\n________ ERROR collecting tests/original/test_linear_value_renderer.py _________\nImportError while importing test module '/scratch/work/v2/txusballesteros_fit-chart/tests/original/test_linear_value_renderer.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_linear_value_renderer.py:3: in <module>\n    from src.fitchart.linear_value_renderer import LinearValueRenderer\nsrc/fitchart/__init__.py:6: in <module>\n    from fitchart.fake_classes import (\nE   ModuleNotFoundError: No module named 'fitchart'\n_______ ERROR collecting tests/original/test_overdraw_value_renderer.py ________\nImportError while importing test module '/scratch/work/v2/txusballesteros_fit-chart/tests/original/test_overdraw_value_renderer.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_overdraw_value_renderer.py:2: in <module>\n    from src.fitchart.overdraw_value_renderer import OverdrawValueRenderer\nsrc/fitchart/__init__.py:6: in <module>\n    from fitchart.fake_classes import (\nE   ModuleNotFoundError: No module named 'fitchart'\n___________ ERROR collecting tests/original/test_renderer_factory.py ___________\nImportError while importing test module '/scratch/work/v2/txusballesteros_fit-chart/tests/original/test_renderer_factory.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_renderer_factory.py:2: in <module>\n    from src.fitchart.renderer_factory import RendererFactory\nsrc/fitchart/__init__.py:6: in <module>\n    from fitchart.fake_classes import (\nE   ModuleNotFoundError: No module named 'fitchart'\n- generated xml file: /scratch/work/v2/txusballesteros_fit-chart/.harness-test-results.xml -\n=========================== short test summary info ============================\nERROR public_tests/test_base_renderer_public.py\nERROR public_tests/test_fake_classes_for_public_test.py\nERROR public_tests/test_linear_value_renderer_public.py\nERROR public_tests/test_overdraw_value_renderer_public.py\nERROR public_tests/test_renderer_factory_public.py\nERROR tests/original/test_base_renderer.py\nERROR tests/original/test_fake_classes_for_test.py\nERROR tests/original/test_linear_value_renderer.py\nERROR tests/original/test_overdraw_value_renderer.py\nERROR tests/original/test_renderer_factory.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 10 errors during collection !!!!!!!!!!!!!!!!!!!\n============================== 10 errors in 0.18s ==============================\n\n",
+          "failures": {
+            "::public_tests.test_base_renderer_public": "ModuleNotFoundError: No module named 'fitchart'",
+            "::public_tests.test_fake_classes_for_public_test": "ModuleNotFoundError: No module named 'fitchart'",
+            "::public_tests.test_linear_value_renderer_public": "ModuleNotFoundError: No module named 'fitchart'",
+            "::public_tests.test_overdraw_value_renderer_public": "ModuleNotFoundError: No module named 'fitchart'",
+            "::public_tests.test_renderer_factory_public": "ModuleNotFoundError: No module named 'fitchart'",
+            "::tests.original.test_base_renderer": "ModuleNotFoundError: No module named 'fitchart'",
+            "::tests.original.test_fake_classes_for_test": "ModuleNotFoundError: No module named 'fitchart'",
+            "::tests.original.test_linear_value_renderer": "ModuleNotFoundError: No module named 'fitchart'",
+            "::tests.original.test_overdraw_value_renderer": "ModuleNotFoundError: No module named 'fitchart'",
+            "::tests.original.test_renderer_factory": "ModuleNotFoundError: No module named 'fitchart'"
+          },
+          "passed_by_folder": {},
+          "error": "Collected/executed test identities differ from immutable baseline, or tests were skipped; Test collection: ============ short test summary info ============================\nERROR public_tests/test_base_renderer_public.py\nERROR public_tests/test_fake_classes_for_public_test.py\nERROR public_tests/test_linear_value_renderer_public.py\nERROR public_tests/test_overdraw_value_renderer_public.py\nERROR public_tests/test_renderer_factory_public.py\nERROR tests/original/test_base_renderer.py\nERROR tests/original/test_fake_classes_for_test.py\nERROR tests/original/test_linear_value_renderer.py\nERROR tests/original/test_overdraw_value_renderer.py\nERROR tests/original/test_renderer_factory.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 10 errors during collection !!!!!!!!!!!!!!!!!!!\nno tests collected, 10 errors in 0.16s\n\n"
+        }
+      ],
+      "cost_complete": true,
+      "passed": 0,
+      "expected_total": 16,
+      "error": "Collected/executed test identities differ from immutable baseline, or tests were skipped; Test collection: ============ short test summary info ============================\nERROR public_tests/test_base_renderer_public.py\nERROR public_tests/test_fake_classes_for_public_test.py\nERROR public_tests/test_linear_value_renderer_public.py\nERROR public_tests/test_overdraw_value_renderer_public.py\nERROR public_tests/test_renderer_factory_public.py\nERROR tests/original/test_base_renderer.py\nERROR tests/original/test_fake_classes_for_test.py\nERROR tests/original/test_linear_value_renderer.py\nERROR tests/original/test_overdraw_value_renderer.py\nERROR tests/original/test_renderer_factory.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 10 errors during collection !!!!!!!!!!!!!!!!!!!\nno tests collected, 10 errors in 0.16s\n\n",
+      "estimated_cost_usd": 0.7806,
+      "tokens": {
+        "input_tokens": 21216,
+        "output_tokens": 66071,
+        "cache_read_input_tokens": 2240662,
+        "cache_creation_input_tokens": 163496
+      }
+    },
+    {
+      "project": "googlearchive_android-BluetoothLeGatt",
+      "status": "passed",
+      "migration_passed": true,
+      "test_success_rate": 100.0,
+      "iterations": 5,
+      "variant": "v2",
+      "history": [
+        {
+          "iteration": 1,
+          "phase": "one_shot",
+          "estimated_cost_usd": 0.1865,
+          "tokens": {
+            "input_tokens": 4260,
+            "output_tokens": 14165,
+            "cache_read_input_tokens": 623404,
+            "cache_creation_input_tokens": 39162
+          },
+          "agent_error": null,
+          "migration_passed": true,
+          "test_success_rate": 100.0,
+          "passed": 19,
+          "failed": 0,
+          "skipped": 0,
+          "total": 19,
+          "expected_total": 19,
+          "suite_verified": true,
+          "protected_files_unchanged": true,
+          "evaluation_valid": true,
+          "exit_code": 0,
+          "output_tail": "============================= test session starts ==============================\nplatform linux -- Python 3.12.12, pytest-8.4.2, pluggy-1.7.0\nrootdir: /scratch/work/v2/googlearchive_android-BluetoothLeGatt\ncollected 19 items\n\npublic_tests/test_sample_gatt_attributes_edge_public.py ...              [ 15%]\npublic_tests/test_sample_gatt_attributes_public.py .....                 [ 42%]\ntests/original/test_bluetooth_le_service.py .                            [ 47%]\ntests/original/test_device_control_activity.py .                         [ 52%]\ntests/original/test_device_scan_activity.py .                            [ 57%]\ntests/original/test_sample_gatt_attributes.py .....                      [ 84%]\ntests/original/test_sample_gatt_attributes_edge.py ...                   [100%]\n\n- generated xml file: /scratch/work/v2/googlearchive_android-BluetoothLeGatt/.harness-test-results.xml -\n============================== 19 passed in 0.03s ==============================\n\n",
+          "failures": {},
+          "passed_by_folder": {
+            "public_tests": 8,
+            "tests": 11
+          },
+          "error": null
+        },
+        {
+          "iteration": 2,
+          "phase": "repair",
+          "estimated_cost_usd": 0.1611,
+          "tokens": {
+            "input_tokens": 4164,
+            "output_tokens": 14864,
+            "cache_read_input_tokens": 300461,
+            "cache_creation_input_tokens": 41985
+          },
+          "agent_error": null,
+          "migration_passed": true,
+          "test_success_rate": 100.0,
+          "passed": 19,
+          "failed": 0,
+          "skipped": 0,
+          "total": 19,
+          "expected_total": 19,
+          "suite_verified": true,
+          "protected_files_unchanged": true,
+          "evaluation_valid": true,
+          "exit_code": 0,
+          "output_tail": "============================= test session starts ==============================\nplatform linux -- Python 3.12.12, pytest-8.4.2, pluggy-1.7.0\nrootdir: /scratch/work/v2/googlearchive_android-BluetoothLeGatt\ncollected 19 items\n\npublic_tests/test_sample_gatt_attributes_edge_public.py ...              [ 15%]\npublic_tests/test_sample_gatt_attributes_public.py .....                 [ 42%]\ntests/original/test_bluetooth_le_service.py .                            [ 47%]\ntests/original/test_device_control_activity.py .                         [ 52%]\ntests/original/test_device_scan_activity.py .                            [ 57%]\ntests/original/test_sample_gatt_attributes.py .....                      [ 84%]\ntests/original/test_sample_gatt_attributes_edge.py ...                   [100%]\n\n- generated xml file: /scratch/work/v2/googlearchive_android-BluetoothLeGatt/.harness-test-results.xml -\n============================== 19 passed in 0.03s ==============================\n\n",
+          "failures": {},
+          "passed_by_folder": {
+            "public_tests": 8,
+            "tests": 11
+          },
+          "error": null
+        },
+        {
+          "iteration": 3,
+          "phase": "repair",
+          "estimated_cost_usd": 0.215,
+          "tokens": {
+            "input_tokens": 4364,
+            "output_tokens": 10841,
+            "cache_read_input_tokens": 1007797,
+            "cache_creation_input_tokens": 44437
+          },
+          "agent_error": "error_max_turns",
+          "migration_passed": true,
+          "test_success_rate": 100.0,
+          "passed": 19,
+          "failed": 0,
+          "skipped": 0,
+          "total": 19,
+          "expected_total": 19,
+          "suite_verified": true,
+          "protected_files_unchanged": true,
+          "evaluation_valid": true,
+          "exit_code": 0,
+          "output_tail": "============================= test session starts ==============================\nplatform linux -- Python 3.12.12, pytest-8.4.2, pluggy-1.7.0\nrootdir: /scratch/work/v2/googlearchive_android-BluetoothLeGatt\ncollected 19 items\n\npublic_tests/test_sample_gatt_attributes_edge_public.py ...              [ 15%]\npublic_tests/test_sample_gatt_attributes_public.py .....                 [ 42%]\ntests/original/test_bluetooth_le_service.py .                            [ 47%]\ntests/original/test_device_control_activity.py .                         [ 52%]\ntests/original/test_device_scan_activity.py .                            [ 57%]\ntests/original/test_sample_gatt_attributes.py .....                      [ 84%]\ntests/original/test_sample_gatt_attributes_edge.py ...                   [100%]\n\n- generated xml file: /scratch/work/v2/googlearchive_android-BluetoothLeGatt/.harness-test-results.xml -\n============================== 19 passed in 0.03s ==============================\n\n",
+          "failures": {},
+          "passed_by_folder": {
+            "public_tests": 8,
+            "tests": 11
+          },
+          "error": null
+        },
+        {
+          "iteration": 4,
+          "phase": "repair",
+          "estimated_cost_usd": 0.1423,
+          "tokens": {
+            "input_tokens": 4196,
+            "output_tokens": 12356,
+            "cache_read_input_tokens": 318847,
+            "cache_creation_input_tokens": 35432
+          },
+          "agent_error": null,
+          "migration_passed": true,
+          "test_success_rate": 100.0,
+          "passed": 19,
+          "failed": 0,
+          "skipped": 0,
+          "total": 19,
+          "expected_total": 19,
+          "suite_verified": true,
+          "protected_files_unchanged": true,
+          "evaluation_valid": true,
+          "exit_code": 0,
+          "output_tail": "============================= test session starts ==============================\nplatform linux -- Python 3.12.12, pytest-8.4.2, pluggy-1.7.0\nrootdir: /scratch/work/v2/googlearchive_android-BluetoothLeGatt\ncollected 19 items\n\npublic_tests/test_sample_gatt_attributes_edge_public.py ...              [ 15%]\npublic_tests/test_sample_gatt_attributes_public.py .....                 [ 42%]\ntests/original/test_bluetooth_le_service.py .                            [ 47%]\ntests/original/test_device_control_activity.py .                         [ 52%]\ntests/original/test_device_scan_activity.py .                            [ 57%]\ntests/original/test_sample_gatt_attributes.py .....                      [ 84%]\ntests/original/test_sample_gatt_attributes_edge.py ...                   [100%]\n\n- generated xml file: /scratch/work/v2/googlearchive_android-BluetoothLeGatt/.harness-test-results.xml -\n============================== 19 passed in 0.03s ==============================\n\n",
+          "failures": {},
+          "passed_by_folder": {
+            "public_tests": 8,
+            "tests": 11
+          },
+          "error": null
+        },
+        {
+          "iteration": 5,
+          "phase": "repair",
+          "estimated_cost_usd": 0.2364,
+          "tokens": {
+            "input_tokens": 4364,
+            "output_tokens": 13673,
+            "cache_read_input_tokens": 1044157,
+            "cache_creation_input_tokens": 47265
+          },
+          "agent_error": "error_max_turns",
+          "migration_passed": true,
+          "test_success_rate": 100.0,
+          "passed": 19,
+          "failed": 0,
+          "skipped": 0,
+          "total": 19,
+          "expected_total": 19,
+          "suite_verified": true,
+          "protected_files_unchanged": true,
+          "evaluation_valid": true,
+          "exit_code": 0,
+          "output_tail": "============================= test session starts ==============================\nplatform linux -- Python 3.12.12, pytest-8.4.2, pluggy-1.7.0\nrootdir: /scratch/work/v2/googlearchive_android-BluetoothLeGatt\ncollected 19 items\n\npublic_tests/test_sample_gatt_attributes_edge_public.py ...              [ 15%]\npublic_tests/test_sample_gatt_attributes_public.py .....                 [ 42%]\ntests/original/test_bluetooth_le_service.py .                            [ 47%]\ntests/original/test_device_control_activity.py .                         [ 52%]\ntests/original/test_device_scan_activity.py .                            [ 57%]\ntests/original/test_sample_gatt_attributes.py .....                      [ 84%]\ntests/original/test_sample_gatt_attributes_edge.py ...                   [100%]\n\n- generated xml file: /scratch/work/v2/googlearchive_android-BluetoothLeGatt/.harness-test-results.xml -\n============================== 19 passed in 0.03s ==============================\n\n",
+          "failures": {},
+          "passed_by_folder": {
+            "public_tests": 8,
+            "tests": 11
+          },
+          "error": null
+        }
+      ],
+      "cost_complete": true,
+      "passed": 19,
+      "expected_total": 19,
+      "error": "Claude SDK: error_max_turns",
+      "estimated_cost_usd": 0.9413,
+      "tokens": {
+        "input_tokens": 21348,
+        "output_tokens": 65899,
+        "cache_read_input_tokens": 3294666,
+        "cache_creation_input_tokens": 208281
+      }
+    }
+  ],
+  "summary": {
+    "migration_passed": 2,
+    "total_projects": 5,
+    "test_success_rate": null
+  }
+}

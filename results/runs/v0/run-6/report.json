@@ -1,0 +1,354 @@
+{
+  "config": {
+    "dataset_version": "RepoTransBench v1.0",
+    "dataset_summary_sha256": "c4430828b3a37548796b1d78b8211b4c6b2c1c7b850a7f5e46f12f6c04a99ef2",
+    "source_tree_sha256": "75946316c167048cd6b89aaa53c5ea8bab262fd8713ffe5c88f8c490a96e45d4",
+    "test_suite_sha256": "005d4bc56a53dfd54ca8429248372060ba51dc935a8c518bc3ede672eea1e587",
+    "project_ids": [
+      "aventrix_jnanoid",
+      "agarciadom_xeger",
+      "editorconfig_editorconfig-jetbrains",
+      "txusballesteros_fit-chart",
+      "googlearchive_android-BluetoothLeGatt"
+    ],
+    "model": "claude-haiku-4-5-20251001",
+    "variant": "v0",
+    "prompt_version": "minimal-1",
+    "evaluator_version": "static-junit-1",
+    "max_attempts": 1,
+    "budget_usd_per_project": 5.0,
+    "timeout_seconds": 180,
+    "python_version": "3.12.12",
+    "pytest_version": "8.4.2",
+    "claude_agent_sdk_version": "0.2.166"
+  },
+  "projects": [
+    {
+      "project": "aventrix_jnanoid",
+      "status": "failed",
+      "migration_passed": false,
+      "test_success_rate": 4.35,
+      "iterations": 1,
+      "variant": "v0",
+      "history": [
+        {
+          "iteration": 1,
+          "phase": "one_shot",
+          "estimated_cost_usd": 0.1742,
+          "tokens": {
+            "input_tokens": 4026,
+            "output_tokens": 19815,
+            "cache_read_input_tokens": 313350,
+            "cache_creation_input_tokens": 31736
+          },
+          "agent_error": null,
+          "migration_passed": false,
+          "test_success_rate": 4.35,
+          "passed": 1,
+          "failed": 22,
+          "skipped": 0,
+          "total": 23,
+          "expected_total": 23,
+          "suite_verified": true,
+          "protected_files_unchanged": true,
+          "evaluation_valid": true,
+          "exit_code": 1,
+          "output_tail": ".randomNanoId(random.SystemRandom(), None, 10)\n            ^^^^^^^^^^^^^^^^^^^^^^^^\nE           AttributeError: type object 'NanoIdUtils' has no attribute 'randomNanoId'. Did you mean: 'random_nano_id'?\n\ntests/original/test_nanoidutils.py:44: AttributeError\n______________________ test_random_nanoid_empty_alphabet _______________________\n\n    def test_random_nanoid_empty_alphabet():\n        with pytest.raises(ValueError):\n>           NanoIdUtils.randomNanoId(random.SystemRandom(), [], 10)\n            ^^^^^^^^^^^^^^^^^^^^^^^^\nE           AttributeError: type object 'NanoIdUtils' has no attribute 'randomNanoId'. Did you mean: 'random_nano_id'?\n\ntests/original/test_nanoidutils.py:48: AttributeError\n____________________ test_random_nanoid_oversized_alphabet _____________________\n\n    def test_random_nanoid_oversized_alphabet():\n        big_alphabet = [chr(ord('a') + (i % 26)) for i in range(256)]\n        with pytest.raises(ValueError):\n>           NanoIdUtils.randomNanoId(random.SystemRandom(), big_alphabet, 10)\n            ^^^^^^^^^^^^^^^^^^^^^^^^\nE           AttributeError: type object 'NanoIdUtils' has no attribute 'randomNanoId'. Did you mean: 'random_nano_id'?\n\ntests/original/test_nanoidutils.py:53: AttributeError\n_________________________ test_nanoid_is_url_friendly __________________________\n\n    def test_nanoid_is_url_friendly():\n>       nanoid = NanoIdUtils.randomNanoId()\n                 ^^^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: type object 'NanoIdUtils' has no attribute 'randomNanoId'. Did you mean: 'random_nano_id'?\n\ntests/original/test_nanoidutils.py:56: AttributeError\n__________________ test_random_nanoid_with_non_default_random __________________\n\n    def test_random_nanoid_with_non_default_random():\n        rng = random.Random(1234)\n>       nanoid = NanoIdUtils.randomNanoId(rng, NanoIdUtils.DEFAULT_ALPHABET, 11)\n                 ^^^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: type object 'NanoIdUtils' has no attribute 'randomNanoId'. Did you mean: 'random_nano_id'?\n\ntests/original/test_nanoidutils.py:68: AttributeError\n____________________ test_random_nanoid_with_small_alphabet ____________________\n\n    def test_random_nanoid_with_small_alphabet():\n        alphabet = ['a', 'b']\n>       nanoid = NanoIdUtils.randomNanoId(random.SystemRandom(), alphabet, 6)\n                 ^^^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: type object 'NanoIdUtils' has no attribute 'randomNanoId'. Did you mean: 'random_nano_id'?\n\ntests/original/test_nanoidutils.py:74: AttributeError\n____________________________ test_nanoid_uniqueness ____________________________\n\n    def test_nanoid_uniqueness():\n>       nanoid1 = NanoIdUtils.randomNanoId()\n                  ^^^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: type object 'NanoIdUtils' has no attribute 'randomNanoId'. Did you mean: 'random_nano_id'?\n\ntests/original/test_nanoidutils.py:80: AttributeError\n- generated xml file: /scratch/work/v0/aventrix_jnanoid/.harness-test-results.xml -\n=========================== short test summary info ============================\nFAILED public_tests/test_nanoidutils_public.py::test_random_nanoid_noargs_length_and_alphabet\nFAILED public_tests/test_nanoidutils_public.py::test_random_nanoid_custom_alphabet_public\nFAILED public_tests/test_nanoidutils_public.py::test_random_nanoid_null_alphabet_public\nFAILED public_tests/test_nanoidutils_public.py::test_random_nanoid_empty_alphabet_public\nFAILED public_tests/test_nanoidutils_public.py::test_random_nanoid_too_short_length_public\nFAILED public_tests/test_nanoidutils_public.py::test_random_nanoid_negative_length_public\nFAILED public_tests/test_nanoidutils_public.py::test_random_nanoid_alphabet_too_long_public\nFAILED public_tests/test_nanoidutils_public.py::test_random_nanoid_custom_random_public\nFAILED public_tests/test_nanoidutils_public.py::test_random_nanoid_default_random_public\nFAILED tests/original/test_nanoidutils.py::test_default_random_nanoid - Attri...\nFAILED tests/original/test_nanoidutils.py::test_random_nanoid_with_custom_size\nFAILED tests/original/test_nanoidutils.py::test_random_nanoid_with_min_max_size\nFAILED tests/original/test_nanoidutils.py::test_random_nanoid_zero_size - Att...\nFAILED tests/original/test_nanoidutils.py::test_random_nanoid_negative_size\nFAILED tests/original/test_nanoidutils.py::test_random_nanoid_null_random - A...\nFAILED tests/original/test_nanoidutils.py::test_random_nanoid_null_alphabet\nFAILED tests/original/test_nanoidutils.py::test_random_nanoid_empty_alphabet\nFAILED tests/original/test_nanoidutils.py::test_random_nanoid_oversized_alphabet\nFAILED tests/original/test_nanoidutils.py::test_nanoid_is_url_friendly - Attr...\nFAILED tests/original/test_nanoidutils.py::test_random_nanoid_with_non_default_random\nFAILED tests/original/test_nanoidutils.py::test_random_nanoid_with_small_alphabet\nFAILED tests/original/test_nanoidutils.py::test_nanoid_uniqueness - Attribute...\n========================= 22 failed, 1 passed in 0.07s =========================\n\n",
+          "failures": {
+            "public_tests.test_nanoidutils_public::test_random_nanoid_noargs_length_and_alphabet": "AttributeError: type object 'NanoIdUtils' has no attribute 'randomNanoId'. Did you mean: 'random_nano_id'?",
+            "public_tests.test_nanoidutils_public::test_random_nanoid_custom_alphabet_public": "AttributeError: type object 'NanoIdUtils' has no attribute 'randomNanoId'. Did you mean: 'random_nano_id'?",
+            "public_tests.test_nanoidutils_public::test_random_nanoid_null_alphabet_public": "AttributeError: type object 'NanoIdUtils' has no attribute 'randomNanoId'. Did you mean: 'random_nano_id'?",
+            "public_tests.test_nanoidutils_public::test_random_nanoid_empty_alphabet_public": "AttributeError: type object 'NanoIdUtils' has no attribute 'randomNanoId'. Did you mean: 'random_nano_id'?",
+            "public_tests.test_nanoidutils_public::test_random_nanoid_too_short_length_public": "AttributeError: type object 'NanoIdUtils' has no attribute 'randomNanoId'. Did you mean: 'random_nano_id'?",
+            "public_tests.test_nanoidutils_public::test_random_nanoid_negative_length_public": "AttributeError: type object 'NanoIdUtils' has no attribute 'randomNanoId'. Did you mean: 'random_nano_id'?",
+            "public_tests.test_nanoidutils_public::test_random_nanoid_alphabet_too_long_public": "AttributeError: type object 'NanoIdUtils' has no attribute 'randomNanoId'. Did you mean: 'random_nano_id'?",
+            "public_tests.test_nanoidutils_public::test_random_nanoid_custom_random_public": "AttributeError: type object 'NanoIdUtils' has no attribute 'randomNanoId'. Did you mean: 'random_nano_id'?",
+            "public_tests.test_nanoidutils_public::test_random_nanoid_default_random_public": "AttributeError: type object 'NanoIdUtils' has no attribute 'randomNanoId'. Did you mean: 'random_nano_id'?",
+            "tests.original.test_nanoidutils::test_default_random_nanoid": "AttributeError: type object 'NanoIdUtils' has no attribute 'randomNanoId'. Did you mean: 'random_nano_id'?",
+            "tests.original.test_nanoidutils::test_random_nanoid_with_custom_size": "AttributeError: type object 'NanoIdUtils' has no attribute 'randomNanoId'. Did you mean: 'random_nano_id'?",
+            "tests.original.test_nanoidutils::test_random_nanoid_with_min_max_size": "AttributeError: type object 'NanoIdUtils' has no attribute 'randomNanoId'. Did you mean: 'random_nano_id'?",
+            "tests.original.test_nanoidutils::test_random_nanoid_zero_size": "AttributeError: type object 'NanoIdUtils' has no attribute 'randomNanoId'. Did you mean: 'random_nano_id'?",
+            "tests.original.test_nanoidutils::test_random_nanoid_negative_size": "AttributeError: type object 'NanoIdUtils' has no attribute 'randomNanoId'. Did you mean: 'random_nano_id'?",
+            "tests.original.test_nanoidutils::test_random_nanoid_null_random": "AttributeError: type object 'NanoIdUtils' has no attribute 'randomNanoId'. Did you mean: 'random_nano_id'?",
+            "tests.original.test_nanoidutils::test_random_nanoid_null_alphabet": "AttributeError: type object 'NanoIdUtils' has no attribute 'randomNanoId'. Did you mean: 'random_nano_id'?",
+            "tests.original.test_nanoidutils::test_random_nanoid_empty_alphabet": "AttributeError: type object 'NanoIdUtils' has no attribute 'randomNanoId'. Did you mean: 'random_nano_id'?",
+            "tests.original.test_nanoidutils::test_random_nanoid_oversized_alphabet": "AttributeError: type object 'NanoIdUtils' has no attribute 'randomNanoId'. Did you mean: 'random_nano_id'?",
+            "tests.original.test_nanoidutils::test_nanoid_is_url_friendly": "AttributeError: type object 'NanoIdUtils' has no attribute 'randomNanoId'. Did you mean: 'random_nano_id'?",
+            "tests.original.test_nanoidutils::test_random_nanoid_with_non_default_random": "AttributeError: type object 'NanoIdUtils' has no attribute 'randomNanoId'. Did you mean: 'random_nano_id'?",
+            "tests.original.test_nanoidutils::test_random_nanoid_with_small_alphabet": "AttributeError: type object 'NanoIdUtils' has no attribute 'randomNanoId'. Did you mean: 'random_nano_id'?",
+            "tests.original.test_nanoidutils::test_nanoid_uniqueness": "AttributeError: type object 'NanoIdUtils' has no attribute 'randomNanoId'. Did you mean: 'random_nano_id'?"
+          },
+          "passed_by_folder": {
+            "tests": 1
+          },
+          "error": null
+        }
+      ],
+      "cost_complete": true,
+      "passed": 1,
+      "expected_total": 23,
+      "error": null,
+      "estimated_cost_usd": 0.1742,
+      "tokens": {
+        "input_tokens": 4026,
+        "output_tokens": 19815,
+        "cache_read_input_tokens": 313350,
+        "cache_creation_input_tokens": 31736
+      }
+    },
+    {
+      "project": "agarciadom_xeger",
+      "status": "failed",
+      "migration_passed": false,
+      "test_success_rate": 30.0,
+      "iterations": 1,
+      "variant": "v0",
+      "history": [
+        {
+          "iteration": 1,
+          "phase": "one_shot",
+          "estimated_cost_usd": 0.3085,
+          "tokens": {
+            "input_tokens": 4195,
+            "output_tokens": 28541,
+            "cache_read_input_tokens": 987855,
+            "cache_creation_input_tokens": 50149
+          },
+          "agent_error": "error_max_turns",
+          "migration_passed": false,
+          "test_success_rate": 30.0,
+          "passed": 12,
+          "failed": 28,
+          "skipped": 0,
+          "total": 40,
+          "expected_total": 40,
+          "suite_verified": true,
+          "protected_files_unchanged": true,
+          "evaluation_valid": true,
+          "exit_code": 1,
+          "output_tail": "random walk of at least that length\n        will be attempted. The walk will initially avoid states with no outgoing transitions until the target\n        length is reached: from then onwards, it will consider all transitions equally, and stop as soon as an\n        accept state has been reached or the maximum walk length has been exceeded. If the minimum length is not\n        reached or the maximum walk length has been exceeded, a FailedRandomWalkException exception will\n        be thrown. Callers could catch this exception to try again if desired.\n    \n        Args:\n            min_length: Minimum length for the range.\n            max_length: Maximum length for the range.\n    \n        Returns:\n            Generated string from the bounded random walk.\n    \n        Raises:\n            FailedRandomWalkException: The minimum random walk length was not reached, or the maximum random walk\n            length was exceeded.\n        \"\"\"\n        if HAS_EXREX:\n            return self._generate_bounded_with_exrex(min_length, max_length)\n        else:\n            # Fallback\n            result = self.generate()\n            if min_length <= len(result) <= max_length:\n                return result\n>           raise FailedRandomWalkException(\n                f\"Failed to generate string within bounds [{min_length}, {max_length}]\"\n            )\nE           src.xeger.FailedRandomWalkException: Failed to generate string within bounds [0, 0]\n\nsrc/xeger.py:164: FailedRandomWalkException\n__________________________ test_generate_normal_flow ___________________________\n\n    def test_generate_normal_flow():\n        gen = Xeger(\"abc|def\", random.Random(1))\n        s = gen.generate()\n>       assert s in (\"abc\", \"def\")\nE       AssertionError: assert 'a' in ('abc', 'def')\n\ntests/original/test_xeger_edge.py:32: AssertionError\n_________________ test_should_generate_random_number_correctly _________________\n\n    def test_should_generate_random_number_correctly():\n        rnd = random.Random()\n        for _ in range(100):\n>           number = Xeger.getRandomInt(3, 7, rnd)\n                     ^^^^^^^^^^^^^^^^^^\nE           AttributeError: type object 'Xeger' has no attribute 'getRandomInt'. Did you mean: 'get_random_int'?\n\ntests/original/test_xeger_utils.py:7: AttributeError\n- generated xml file: /scratch/work/v0/agarciadom_xeger/.harness-test-results.xml -\n=========================== short test summary info ============================\nFAILED public_tests/test_xeger_coverage_public.py::test_constructor_with_random_public\nFAILED public_tests/test_xeger_coverage_public.py::test_set_and_get_random_public\nFAILED public_tests/test_xeger_coverage_public.py::test_generate_simple_literal_public\nFAILED public_tests/test_xeger_coverage_public.py::test_get_random_int_works_on_simple_cases_public\nFAILED public_tests/test_xeger_coverage_public.py::test_generate_with_bounded_length_throws_minimum_public\nFAILED public_tests/test_xeger_coverage_public.py::test_generate_with_bounded_length_throws_maximum_public\nFAILED public_tests/test_xeger_coverage_public.py::test_generate_with_bounded_length_produces_acceptable_length_public\nFAILED public_tests/test_xeger_edge_public.py::test_generate_min_equals_max_public\nFAILED public_tests/test_xeger_edge_public.py::test_generate_accept_on_first_step_public\nFAILED public_tests/test_xeger_edge_public.py::test_generate_normal_flow_public\nFAILED public_tests/test_xeger_public.py::test_literal_generation_public - As...\nFAILED public_tests/test_xeger_public.py::test_simple_digit_generation_public\nFAILED public_tests/test_xeger_public.py::test_simple_alpha_generation_public\nFAILED public_tests/test_xeger_public.py::test_range_with_special_char_public\nFAILED public_tests/test_xeger_public.py::test_random_numeric_generation_public\nFAILED public_tests/test_xeger_utils_public.py::test_should_generate_random_number_correctly_public\nFAILED tests/original/test_xeger.py::test_should_generate_text_correctly - As...\nFAILED tests/original/test_xeger_coverage.py::test_constructor_with_random - ...\nFAILED tests/original/test_xeger_coverage.py::test_set_and_get_random - Attri...\nFAILED tests/original/test_xeger_coverage.py::test_generate_simple_literal - ...\nFAILED tests/original/test_xeger_coverage.py::test_get_random_int_works_on_simple_cases\nFAILED tests/original/test_xeger_coverage.py::test_generate_with_bounded_length_throws_minimum\nFAILED tests/original/test_xeger_coverage.py::test_generate_with_bounded_length_throws_maximum\nFAILED tests/original/test_xeger_coverage.py::test_generate_with_bounded_length_produces_acceptable_length\nFAILED tests/original/test_xeger_edge.py::test_generate_min_equals_max - src....\nFAILED tests/original/test_xeger_edge.py::test_generate_accept_on_first_step\nFAILED tests/original/test_xeger_edge.py::test_generate_normal_flow - Asserti...\nFAILED tests/original/test_xeger_utils.py::test_should_generate_random_number_correctly\n======================== 28 failed, 12 passed in 0.16s =========================\n\n",
+          "failures": {
+            "public_tests.test_xeger_coverage_public::test_constructor_with_random_public": "AttributeError: 'Xeger' object has no attribute 'getRandom'. Did you mean: 'get_random'?",
+            "public_tests.test_xeger_coverage_public::test_set_and_get_random_public": "AttributeError: 'Xeger' object has no attribute 'setRandom'. Did you mean: 'set_random'?",
+            "public_tests.test_xeger_coverage_public::test_generate_simple_literal_public": "AssertionError: assert 'a' == 'acd'",
+            "public_tests.test_xeger_coverage_public::test_get_random_int_works_on_simple_cases_public": "AttributeError: type object 'Xeger' has no attribute 'getRandomInt'. Did you mean: 'get_random_int'?",
+            "public_tests.test_xeger_coverage_public::test_generate_with_bounded_length_throws_minimum_public": "AssertionError: assert ('current = 0 < min = 2' in 'Failed to generate string within bounds [2, 2]' or 'current = 1 < min = 2' in 'Failed to generate string within bounds [2, 2]')",
+            "public_tests.test_xeger_coverage_public::test_generate_with_bounded_length_throws_maximum_public": "Failed: DID NOT RAISE <class 'src.xeger.FailedRandomWalkException'>",
+            "public_tests.test_xeger_coverage_public::test_generate_with_bounded_length_produces_acceptable_length_public": "AssertionError: assert None",
+            "public_tests.test_xeger_edge_public::test_generate_min_equals_max_public": "src.xeger.FailedRandomWalkException: Failed to generate string within bounds [3, 3]",
+            "public_tests.test_xeger_edge_public::test_generate_accept_on_first_step_public": "src.xeger.FailedRandomWalkException: Failed to generate string within bounds [0, 0]",
+            "public_tests.test_xeger_edge_public::test_generate_normal_flow_public": "AssertionError: assert 'a' in ('abc', 'xyz')",
+            "public_tests.test_xeger_public::test_literal_generation_public": "AssertionError: assert 'a' == 'abcXYZ'",
+            "public_tests.test_xeger_public::test_simple_digit_generation_public": "AssertionError: assert 1 == 4",
+            "public_tests.test_xeger_public::test_simple_alpha_generation_public": "AssertionError: assert 1 == 3",
+            "public_tests.test_xeger_public::test_range_with_special_char_public": "AssertionError: assert None",
+            "public_tests.test_xeger_public::test_random_numeric_generation_public": "AssertionError: assert 1 == 8",
+            "public_tests.test_xeger_utils_public::test_should_generate_random_number_correctly_public": "AttributeError: type object 'Xeger' has no attribute 'getRandomInt'. Did you mean: 'get_random_int'?",
+            "tests.original.test_xeger::test_should_generate_text_correctly": "AssertionError: assert None",
+            "tests.original.test_xeger_coverage::test_constructor_with_random": "AttributeError: 'Xeger' object has no attribute 'getRandom'. Did you mean: 'get_random'?",
+            "tests.original.test_xeger_coverage::test_set_and_get_random": "AttributeError: 'Xeger' object has no attribute 'setRandom'. Did you mean: 'set_random'?",
+            "tests.original.test_xeger_coverage::test_generate_simple_literal": "AssertionError: assert 'a' == 'abc'",
+            "tests.original.test_xeger_coverage::test_get_random_int_works_on_simple_cases": "AttributeError: type object 'Xeger' has no attribute 'getRandomInt'. Did you mean: 'get_random_int'?",
+            "tests.original.test_xeger_coverage::test_generate_with_bounded_length_throws_minimum": "AssertionError: assert ('current = 0 < min = 2' in 'Failed to generate string within bounds [2, 2]' or 'current = 1 < min = 2' in 'Failed to generate string within bounds [2, 2]')",
+            "tests.original.test_xeger_coverage::test_generate_with_bounded_length_throws_maximum": "Failed: DID NOT RAISE <class 'src.xeger.FailedRandomWalkException'>",
+            "tests.original.test_xeger_coverage::test_generate_with_bounded_length_produces_acceptable_length": "src.xeger.FailedRandomWalkException: Failed to generate string within bounds [2, 4]",
+            "tests.original.test_xeger_edge::test_generate_min_equals_max": "src.xeger.FailedRandomWalkException: Failed to generate string within bounds [4, 4]",
+            "tests.original.test_xeger_edge::test_generate_accept_on_first_step": "src.xeger.FailedRandomWalkException: Failed to generate string within bounds [0, 0]",
+            "tests.original.test_xeger_edge::test_generate_normal_flow": "AssertionError: assert 'a' in ('abc', 'def')",
+            "tests.original.test_xeger_utils::test_should_generate_random_number_correctly": "AttributeError: type object 'Xeger' has no attribute 'getRandomInt'. Did you mean: 'get_random_int'?"
+          },
+          "passed_by_folder": {
+            "public_tests": 5,
+            "tests": 7
+          },
+          "error": null
+        }
+      ],
+      "cost_complete": true,
+      "passed": 12,
+      "expected_total": 40,
+      "error": "Claude SDK: error_max_turns",
+      "estimated_cost_usd": 0.3085,
+      "tokens": {
+        "input_tokens": 4195,
+        "output_tokens": 28541,
+        "cache_read_input_tokens": 987855,
+        "cache_creation_input_tokens": 50149
+      }
+    },
+    {
+      "project": "editorconfig_editorconfig-jetbrains",
+      "status": "failed",
+      "migration_passed": false,
+      "test_success_rate": 83.33,
+      "iterations": 1,
+      "variant": "v0",
+      "history": [
+        {
+          "iteration": 1,
+          "phase": "one_shot",
+          "estimated_cost_usd": 0.2296,
+          "tokens": {
+            "input_tokens": 4143,
+            "output_tokens": 19084,
+            "cache_read_input_tokens": 797977,
+            "cache_creation_input_tokens": 40070
+          },
+          "agent_error": null,
+          "migration_passed": false,
+          "test_success_rate": 83.33,
+          "passed": 10,
+          "failed": 2,
+          "skipped": 0,
+          "total": 12,
+          "expected_total": 12,
+          "suite_verified": true,
+          "protected_files_unchanged": true,
+          "evaluation_valid": true,
+          "exit_code": 1,
+          "output_tail": "============================= test session starts ==============================\nplatform linux -- Python 3.12.12, pytest-8.4.2, pluggy-1.7.0\nrootdir: /scratch/work/v0/editorconfig_editorconfig-jetbrains\ncollected 12 items\n\npublic_tests/test_utils_public.py ....FF                                 [ 50%]\ntests/original/test_utils.py ......                                      [100%]\n\n=================================== FAILURES ===================================\n___________ test_invalid_config_message_makes_correct_string_public ____________\n\n    def test_invalid_config_message_makes_correct_string_public():\n        msg = utils.invalid_config_message(\"42\", \"answer\", \"deepfile\")\n>       assert msg == '\"42\" is not a valid value for answer for file deepfile'\nE       assert '\"42\" is not ...file deepfile' == '\"42\" is not ...file deepfile'\nE         \nE         - \"42\" is not a valid value for answer for file deepfile\nE         ?                               ^^^^ ^\nE         + \"42\" is not a valid value for key for file deepfile\nE         ?                               ^ ^\n\npublic_tests/test_utils_public.py:38: AssertionError\n___________ test_applied_config_message_makes_correct_string_public ____________\n\n    def test_applied_config_message_makes_correct_string_public():\n        msg = utils.applied_config_message(\"enabled\", \"feature\", \"file.txt\")\n>       assert msg == 'Applied \"enabled\" as feature for file file.txt'\nE       assert 'Applied \"ena...file file.txt' == 'Applied \"ena...file file.txt'\nE         \nE         - Applied \"enabled\" as feature for file file.txt\nE         ?                      ^ ^^^^^\nE         + Applied \"enabled\" as key for file file.txt\nE         ?                      ^ ^\n\npublic_tests/test_utils_public.py:42: AssertionError\n- generated xml file: /scratch/work/v0/editorconfig_editorconfig-jetbrains/.harness-test-results.xml -\n=========================== short test summary info ============================\nFAILED public_tests/test_utils_public.py::test_invalid_config_message_makes_correct_string_public\nFAILED public_tests/test_utils_public.py::test_applied_config_message_makes_correct_string_public\n========================= 2 failed, 10 passed in 0.03s =========================\n\n",
+          "failures": {
+            "public_tests.test_utils_public::test_invalid_config_message_makes_correct_string_public": "assert '\"42\" is not ...file deepfile' == '\"42\" is not ...file deepfile'",
+            "public_tests.test_utils_public::test_applied_config_message_makes_correct_string_public": "assert 'Applied \"ena...file file.txt' == 'Applied \"ena...file file.txt'"
+          },
+          "passed_by_folder": {
+            "public_tests": 4,
+            "tests": 6
+          },
+          "error": null
+        }
+      ],
+      "cost_complete": true,
+      "passed": 10,
+      "expected_total": 12,
+      "error": null,
+      "estimated_cost_usd": 0.2296,
+      "tokens": {
+        "input_tokens": 4143,
+        "output_tokens": 19084,
+        "cache_read_input_tokens": 797977,
+        "cache_creation_input_tokens": 40070
+      }
+    },
+    {
+      "project": "txusballesteros_fit-chart",
+      "status": "evaluation_invalid",
+      "migration_passed": false,
+      "test_success_rate": null,
+      "iterations": 1,
+      "variant": "v0",
+      "history": [
+        {
+          "iteration": 1,
+          "phase": "one_shot",
+          "estimated_cost_usd": 0.3311,
+          "tokens": {
+            "input_tokens": 4197,
+            "output_tokens": 30455,
+            "cache_read_input_tokens": 1096994,
+            "cache_creation_input_tokens": 51853
+          },
+          "agent_error": "error_max_turns",
+          "migration_passed": false,
+          "test_success_rate": null,
+          "passed": 0,
+          "failed": 10,
+          "skipped": 0,
+          "total": 10,
+          "expected_total": 16,
+          "suite_verified": false,
+          "protected_files_unchanged": true,
+          "evaluation_valid": false,
+          "exit_code": 2,
+          "output_tail": " <module>\n    from src.fitchart.overdraw_value_renderer import OverdrawValueRenderer\nE   ModuleNotFoundError: No module named 'src.fitchart'\n________ ERROR collecting public_tests/test_renderer_factory_public.py _________\nImportError while importing test module '/scratch/work/v0/txusballesteros_fit-chart/public_tests/test_renderer_factory_public.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\npublic_tests/test_renderer_factory_public.py:2: in <module>\n    from src.fitchart.renderer_factory import RendererFactory\nE   ModuleNotFoundError: No module named 'src.fitchart'\n____________ ERROR collecting tests/original/test_base_renderer.py _____________\nImportError while importing test module '/scratch/work/v0/txusballesteros_fit-chart/tests/original/test_base_renderer.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_base_renderer.py:1: in <module>\n    from src.fitchart.base_renderer import BaseRenderer\nE   ModuleNotFoundError: No module named 'src.fitchart'\n________ ERROR collecting tests/original/test_fake_classes_for_test.py _________\nImportError while importing test module '/scratch/work/v0/txusballesteros_fit-chart/tests/original/test_fake_classes_for_test.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_fake_classes_for_test.py:2: in <module>\n    from src.fitchart.fake_classes import AnimationMode, Renderer, FitChartValue\nE   ModuleNotFoundError: No module named 'src.fitchart'\n________ ERROR collecting tests/original/test_linear_value_renderer.py _________\nImportError while importing test module '/scratch/work/v0/txusballesteros_fit-chart/tests/original/test_linear_value_renderer.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_linear_value_renderer.py:3: in <module>\n    from src.fitchart.linear_value_renderer import LinearValueRenderer\nE   ModuleNotFoundError: No module named 'src.fitchart'\n_______ ERROR collecting tests/original/test_overdraw_value_renderer.py ________\nImportError while importing test module '/scratch/work/v0/txusballesteros_fit-chart/tests/original/test_overdraw_value_renderer.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_overdraw_value_renderer.py:2: in <module>\n    from src.fitchart.overdraw_value_renderer import OverdrawValueRenderer\nE   ModuleNotFoundError: No module named 'src.fitchart'\n___________ ERROR collecting tests/original/test_renderer_factory.py ___________\nImportError while importing test module '/scratch/work/v0/txusballesteros_fit-chart/tests/original/test_renderer_factory.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_renderer_factory.py:2: in <module>\n    from src.fitchart.renderer_factory import RendererFactory\nE   ModuleNotFoundError: No module named 'src.fitchart'\n- generated xml file: /scratch/work/v0/txusballesteros_fit-chart/.harness-test-results.xml -\n=========================== short test summary info ============================\nERROR public_tests/test_base_renderer_public.py\nERROR public_tests/test_fake_classes_for_public_test.py\nERROR public_tests/test_linear_value_renderer_public.py\nERROR public_tests/test_overdraw_value_renderer_public.py\nERROR public_tests/test_renderer_factory_public.py\nERROR tests/original/test_base_renderer.py\nERROR tests/original/test_fake_classes_for_test.py\nERROR tests/original/test_linear_value_renderer.py\nERROR tests/original/test_overdraw_value_renderer.py\nERROR tests/original/test_renderer_factory.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 10 errors during collection !!!!!!!!!!!!!!!!!!!\n============================== 10 errors in 0.19s ==============================\n\n",
+          "failures": {
+            "::public_tests.test_base_renderer_public": "ModuleNotFoundError: No module named 'src.fitchart'",
+            "::public_tests.test_fake_classes_for_public_test": "ModuleNotFoundError: No module named 'src.fitchart'",
+            "::public_tests.test_linear_value_renderer_public": "ModuleNotFoundError: No module named 'src.fitchart'",
+            "::public_tests.test_overdraw_value_renderer_public": "ModuleNotFoundError: No module named 'src.fitchart'",
+            "::public_tests.test_renderer_factory_public": "ModuleNotFoundError: No module named 'src.fitchart'",
+            "::tests.original.test_base_renderer": "ModuleNotFoundError: No module named 'src.fitchart'",
+            "::tests.original.test_fake_classes_for_test": "ModuleNotFoundError: No module named 'src.fitchart'",
+            "::tests.original.test_linear_value_renderer": "ModuleNotFoundError: No module named 'src.fitchart'",
+            "::tests.original.test_overdraw_value_renderer": "ModuleNotFoundError: No module named 'src.fitchart'",
+            "::tests.original.test_renderer_factory": "ModuleNotFoundError: No module named 'src.fitchart'"
+          },
+          "passed_by_folder": {},
+          "error": "Collected/executed test identities differ from immutable baseline, or tests were skipped; Test collection: ============ short test summary info ============================\nERROR public_tests/test_base_renderer_public.py\nERROR public_tests/test_fake_classes_for_public_test.py\nERROR public_tests/test_linear_value_renderer_public.py\nERROR public_tests/test_overdraw_value_renderer_public.py\nERROR public_tests/test_renderer_factory_public.py\nERROR tests/original/test_base_renderer.py\nERROR tests/original/test_fake_classes_for_test.py\nERROR tests/original/test_linear_value_renderer.py\nERROR tests/original/test_overdraw_value_renderer.py\nERROR tests/original/test_renderer_factory.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 10 errors during collection !!!!!!!!!!!!!!!!!!!\nno tests collected, 10 errors in 0.16s\n\n"
+        }
+      ],
+      "cost_complete": true,
+      "passed": 0,
+      "expected_total": 16,
+      "error": "Collected/executed test identities differ from immutable baseline, or tests were skipped; Test collection: ============ short test summary info ============================\nERROR public_tests/test_base_renderer_public.py\nERROR public_tests/test_fake_classes_for_public_test.py\nERROR public_tests/test_linear_value_renderer_public.py\nERROR public_tests/test_overdraw_value_renderer_public.py\nERROR public_tests/test_renderer_factory_public.py\nERROR tests/original/test_base_renderer.py\nERROR tests/original/test_fake_classes_for_test.py\nERROR tests/original/test_linear_value_renderer.py\nERROR tests/original/test_overdraw_value_renderer.py\nERROR tests/original/test_renderer_factory.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 10 errors during collection !!!!!!!!!!!!!!!!!!!\nno tests collected, 10 errors in 0.16s\n\n",
+      "estimated_cost_usd": 0.3311,
+      "tokens": {
+        "input_tokens": 4197,
+        "output_tokens": 30455,
+        "cache_read_input_tokens": 1096994,
+        "cache_creation_input_tokens": 51853
+      }
+    },
+    {
+      "project": "googlearchive_android-BluetoothLeGatt",
+      "status": "evaluation_invalid",
+      "migration_passed": false,
+      "test_success_rate": null,
+      "iterations": 1,
+      "variant": "v0",
+      "history": [
+        {
+          "iteration": 1,
+          "phase": "one_shot",
+          "estimated_cost_usd": 0.4314,
+          "tokens": {
+            "input_tokens": 4161,
+            "output_tokens": 45247,
+            "cache_read_input_tokens": 1200854,
+            "cache_creation_input_tokens": 64665
+          },
+          "agent_error": null,
+          "migration_passed": false,
+          "test_success_rate": null,
+          "passed": 0,
+          "failed": 7,
+          "skipped": 0,
+          "total": 7,
+          "expected_total": 19,
+          "suite_verified": false,
+          "protected_files_unchanged": true,
+          "evaluation_valid": false,
+          "exit_code": 2,
+          "output_tail": "tributes_public.py:2: in <module>\n    from src.bluetoothlegatt.sample_gatt_attributes import SampleGattAttributes\nsrc/__init__.py:15: in <module>\n    from sample_gatt_attributes import SampleGattAttributes\nE   ModuleNotFoundError: No module named 'sample_gatt_attributes'\n_________ ERROR collecting tests/original/test_bluetooth_le_service.py _________\nImportError while importing test module '/scratch/work/v0/googlearchive_android-BluetoothLeGatt/tests/original/test_bluetooth_le_service.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_bluetooth_le_service.py:2: in <module>\n    from src.bluetoothlegatt.bluetooth_le_service import BluetoothLeService\nsrc/__init__.py:15: in <module>\n    from sample_gatt_attributes import SampleGattAttributes\nE   ModuleNotFoundError: No module named 'sample_gatt_attributes'\n_______ ERROR collecting tests/original/test_device_control_activity.py ________\nImportError while importing test module '/scratch/work/v0/googlearchive_android-BluetoothLeGatt/tests/original/test_device_control_activity.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_device_control_activity.py:2: in <module>\n    from src.bluetoothlegatt.device_control_activity import DeviceControlActivity\nsrc/__init__.py:15: in <module>\n    from sample_gatt_attributes import SampleGattAttributes\nE   ModuleNotFoundError: No module named 'sample_gatt_attributes'\n_________ ERROR collecting tests/original/test_device_scan_activity.py _________\nImportError while importing test module '/scratch/work/v0/googlearchive_android-BluetoothLeGatt/tests/original/test_device_scan_activity.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_device_scan_activity.py:2: in <module>\n    from src.bluetoothlegatt.device_scan_activity import DeviceScanActivity\nsrc/__init__.py:15: in <module>\n    from sample_gatt_attributes import SampleGattAttributes\nE   ModuleNotFoundError: No module named 'sample_gatt_attributes'\n________ ERROR collecting tests/original/test_sample_gatt_attributes.py ________\nImportError while importing test module '/scratch/work/v0/googlearchive_android-BluetoothLeGatt/tests/original/test_sample_gatt_attributes.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_sample_gatt_attributes.py:2: in <module>\n    from src.bluetoothlegatt.sample_gatt_attributes import SampleGattAttributes\nsrc/__init__.py:15: in <module>\n    from sample_gatt_attributes import SampleGattAttributes\nE   ModuleNotFoundError: No module named 'sample_gatt_attributes'\n_____ ERROR collecting tests/original/test_sample_gatt_attributes_edge.py ______\nImportError while importing test module '/scratch/work/v0/googlearchive_android-BluetoothLeGatt/tests/original/test_sample_gatt_attributes_edge.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_sample_gatt_attributes_edge.py:2: in <module>\n    from src.bluetoothlegatt.sample_gatt_attributes import SampleGattAttributes\nsrc/__init__.py:15: in <module>\n    from sample_gatt_attributes import SampleGattAttributes\nE   ModuleNotFoundError: No module named 'sample_gatt_attributes'\n- generated xml file: /scratch/work/v0/googlearchive_android-BluetoothLeGatt/.harness-test-results.xml -\n=========================== short test summary info ============================\nERROR public_tests/test_sample_gatt_attributes_edge_public.py\nERROR public_tests/test_sample_gatt_attributes_public.py\nERROR tests/original/test_bluetooth_le_service.py\nERROR tests/original/test_device_control_activity.py\nERROR tests/original/test_device_scan_activity.py\nERROR tests/original/test_sample_gatt_attributes.py\nERROR tests/original/test_sample_gatt_attributes_edge.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 7 errors during collection !!!!!!!!!!!!!!!!!!!!\n============================== 7 errors in 0.09s ===============================\n\n",
+          "failures": {
+            "::public_tests.test_sample_gatt_attributes_edge_public": "ModuleNotFoundError: No module named 'sample_gatt_attributes'",
+            "::public_tests.test_sample_gatt_attributes_public": "ModuleNotFoundError: No module named 'sample_gatt_attributes'",
+            "::tests.original.test_bluetooth_le_service": "ModuleNotFoundError: No module named 'sample_gatt_attributes'",
+            "::tests.original.test_device_control_activity": "ModuleNotFoundError: No module named 'sample_gatt_attributes'",
+            "::tests.original.test_device_scan_activity": "ModuleNotFoundError: No module named 'sample_gatt_attributes'",
+            "::tests.original.test_sample_gatt_attributes": "ModuleNotFoundError: No module named 'sample_gatt_attributes'",
+            "::tests.original.test_sample_gatt_attributes_edge": "ModuleNotFoundError: No module named 'sample_gatt_attributes'"
+          },
+          "passed_by_folder": {},
+          "error": "Collected/executed test identities differ from immutable baseline, or tests were skipped; Test collection:  sample_gatt_attributes import SampleGattAttributes\nE   ModuleNotFoundError: No module named 'sample_gatt_attributes'\n=========================== short test summary info ============================\nERROR public_tests/test_sample_gatt_attributes_edge_public.py\nERROR public_tests/test_sample_gatt_attributes_public.py\nERROR tests/original/test_bluetooth_le_service.py\nERROR tests/original/test_device_control_activity.py\nERROR tests/original/test_device_scan_activity.py\nERROR tests/original/test_sample_gatt_attributes.py\nERROR tests/original/test_sample_gatt_attributes_edge.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 7 errors during collection !!!!!!!!!!!!!!!!!!!!\nno tests collected, 7 errors in 0.09s\n\n"
+        }
+      ],
+      "cost_complete": true,
+      "passed": 0,
+      "expected_total": 19,
+      "error": "Collected/executed test identities differ from immutable baseline, or tests were skipped; Test collection:  sample_gatt_attributes import SampleGattAttributes\nE   ModuleNotFoundError: No module named 'sample_gatt_attributes'\n=========================== short test summary info ============================\nERROR public_tests/test_sample_gatt_attributes_edge_public.py\nERROR public_tests/test_sample_gatt_attributes_public.py\nERROR tests/original/test_bluetooth_le_service.py\nERROR tests/original/test_device_control_activity.py\nERROR tests/original/test_device_scan_activity.py\nERROR tests/original/test_sample_gatt_attributes.py\nERROR tests/original/test_sample_gatt_attributes_edge.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 7 errors during collection !!!!!!!!!!!!!!!!!!!!\nno tests collected, 7 errors in 0.09s\n\n",
+      "estimated_cost_usd": 0.4314,
+      "tokens": {
+        "input_tokens": 4161,
+        "output_tokens": 45247,
+        "cache_read_input_tokens": 1200854,
+        "cache_creation_input_tokens": 64665
+      }
+    }
+  ],
+  "summary": {
+    "migration_passed": 0,
+    "total_projects": 5,
+    "test_success_rate": null
+  }
+}

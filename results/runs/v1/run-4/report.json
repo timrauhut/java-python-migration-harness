@@ -1,0 +1,320 @@
+{
+  "config": {
+    "dataset_version": "RepoTransBench v1.0",
+    "dataset_summary_sha256": "c4430828b3a37548796b1d78b8211b4c6b2c1c7b850a7f5e46f12f6c04a99ef2",
+    "source_tree_sha256": "75946316c167048cd6b89aaa53c5ea8bab262fd8713ffe5c88f8c490a96e45d4",
+    "test_suite_sha256": "005d4bc56a53dfd54ca8429248372060ba51dc935a8c518bc3ede672eea1e587",
+    "project_ids": [
+      "aventrix_jnanoid",
+      "agarciadom_xeger",
+      "editorconfig_editorconfig-jetbrains",
+      "txusballesteros_fit-chart",
+      "googlearchive_android-BluetoothLeGatt"
+    ],
+    "model": "claude-haiku-4-5-20251001",
+    "variant": "v1",
+    "prompt_version": "interface-rules-1",
+    "evaluator_version": "static-junit-1",
+    "max_attempts": 1,
+    "budget_usd_per_project": 5.0,
+    "timeout_seconds": 180,
+    "python_version": "3.12.12",
+    "pytest_version": "8.4.2",
+    "claude_agent_sdk_version": "0.2.166"
+  },
+  "projects": [
+    {
+      "project": "aventrix_jnanoid",
+      "status": "failed",
+      "migration_passed": false,
+      "test_success_rate": 52.17,
+      "iterations": 1,
+      "variant": "v1",
+      "history": [
+        {
+          "iteration": 1,
+          "phase": "one_shot",
+          "estimated_cost_usd": 0.1383,
+          "tokens": {
+            "input_tokens": 4277,
+            "output_tokens": 12486,
+            "cache_read_input_tokens": 398140,
+            "cache_creation_input_tokens": 25293
+          },
+          "agent_error": null,
+          "migration_passed": false,
+          "test_success_rate": 52.17,
+          "passed": 12,
+          "failed": 11,
+          "skipped": 0,
+          "total": 23,
+          "expected_total": 23,
+          "suite_verified": true,
+          "protected_files_unchanged": true,
+          "evaluation_valid": true,
+          "exit_code": 1,
+          "output_tail": "\")\n    \n        if alphabet is None:\n            raise ValueError(\"alphabet cannot be null.\")\n    \n        # Convert alphabet to string if it's a list/tuple\n        if isinstance(alphabet, (list, tuple)):\n            alphabet = ''.join(alphabet)\n    \n        if len(alphabet) == 0 or len(alphabet) >= 256:\n            raise ValueError(\"alphabet must contain between 1 and 255 symbols.\")\n    \n        if size <= 0:\n            raise ValueError(\"size must be greater than zero.\")\n    \n        # Calculate mask and step\n        mask = (2 << int(math.floor(math.log(len(alphabet) - 1) / math.log(2)))) - 1\n        step = int(math.ceil(1.6 * mask * size / len(alphabet)))\n    \n        id_builder = []\n    \n        while True:\n            # Get random bytes\n            bytes_array = bytearray(step)\n>           random.nextBytes(bytes_array)\n            ^^^^^^^^^^^^^^^^\nE           AttributeError: 'Random' object has no attribute 'nextBytes'\n\nsrc/jnanoid/nano_id_utils.py:157: AttributeError\n____________________ test_random_nanoid_with_small_alphabet ____________________\n\n    def test_random_nanoid_with_small_alphabet():\n        alphabet = ['a', 'b']\n>       nanoid = NanoIdUtils.randomNanoId(random.SystemRandom(), alphabet, 6)\n                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\ntests/original/test_nanoidutils.py:74: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nrandom = <random.SystemRandom object at 0xaaaab7159770>, alphabet = 'ab'\nsize = 6\n\n    @staticmethod\n    def randomNanoId(random=None, alphabet=None, size=None):\n        \"\"\"\n        Static factory to retrieve a NanoId String.\n    \n        Can be called in two ways:\n        1. randomNanoId() - uses all defaults (secure random, default alphabet, size 21)\n        2. randomNanoId(random, alphabet, size) - custom random generator, alphabet, and size\n    \n        Args:\n            random: The random number generator (object with nextBytes method).\n                   Can be None to use default secure generator.\n            alphabet: The symbols used in the NanoId String. Can be str or list/tuple.\n                     Can be None to use default alphabet.\n            size: The number of symbols in the NanoId String. Can be None to use default.\n    \n        Returns:\n            A randomly generated NanoId String.\n    \n        Raises:\n            ValueError: If parameters are invalid.\n        \"\"\"\n        # Handle default parameters - if all None, use defaults\n        if random is None:\n            random = NanoIdUtils.DEFAULT_NUMBER_GENERATOR\n        if alphabet is None:\n            alphabet = NanoIdUtils.DEFAULT_ALPHABET\n        if size is None:\n            size = NanoIdUtils.DEFAULT_SIZE\n    \n        # Validate inputs\n        if random is None:\n            raise ValueError(\"random cannot be null.\")\n    \n        if alphabet is None:\n            raise ValueError(\"alphabet cannot be null.\")\n    \n        # Convert alphabet to string if it's a list/tuple\n        if isinstance(alphabet, (list, tuple)):\n            alphabet = ''.join(alphabet)\n    \n        if len(alphabet) == 0 or len(alphabet) >= 256:\n            raise ValueError(\"alphabet must contain between 1 and 255 symbols.\")\n    \n        if size <= 0:\n            raise ValueError(\"size must be greater than zero.\")\n    \n        # Calculate mask and step\n        mask = (2 << int(math.floor(math.log(len(alphabet) - 1) / math.log(2)))) - 1\n        step = int(math.ceil(1.6 * mask * size / len(alphabet)))\n    \n        id_builder = []\n    \n        while True:\n            # Get random bytes\n            bytes_array = bytearray(step)\n>           random.nextBytes(bytes_array)\n            ^^^^^^^^^^^^^^^^\nE           AttributeError: 'SystemRandom' object has no attribute 'nextBytes'\n\nsrc/jnanoid/nano_id_utils.py:157: AttributeError\n- generated xml file: /scratch/work/v1/aventrix_jnanoid/.harness-test-results.xml -\n=========================== short test summary info ============================\nFAILED public_tests/test_nanoidutils_public.py::test_random_nanoid_custom_alphabet_public\nFAILED public_tests/test_nanoidutils_public.py::test_random_nanoid_null_alphabet_public\nFAILED public_tests/test_nanoidutils_public.py::test_random_nanoid_custom_random_public\nFAILED public_tests/test_nanoidutils_public.py::test_random_nanoid_default_random_public\nFAILED tests/original/test_nanoidutils.py::test_random_nanoid_with_custom_size\nFAILED tests/original/test_nanoidutils.py::test_random_nanoid_with_min_max_size\nFAILED tests/original/test_nanoidutils.py::test_random_nanoid_null_random - F...\nFAILED tests/original/test_nanoidutils.py::test_random_nanoid_null_alphabet\nFAILED tests/original/test_nanoidutils.py::test_nanoid_is_url_friendly - Attr...\nFAILED tests/original/test_nanoidutils.py::test_random_nanoid_with_non_default_random\nFAILED tests/original/test_nanoidutils.py::test_random_nanoid_with_small_alphabet\n======================== 11 failed, 12 passed in 0.07s =========================\n\n",
+          "failures": {
+            "public_tests.test_nanoidutils_public::test_random_nanoid_custom_alphabet_public": "AttributeError: 'SystemRandom' object has no attribute 'nextBytes'",
+            "public_tests.test_nanoidutils_public::test_random_nanoid_null_alphabet_public": "AttributeError: 'SystemRandom' object has no attribute 'nextBytes'",
+            "public_tests.test_nanoidutils_public::test_random_nanoid_custom_random_public": "AttributeError: 'Random' object has no attribute 'nextBytes'",
+            "public_tests.test_nanoidutils_public::test_random_nanoid_default_random_public": "AttributeError: 'SystemRandom' object has no attribute 'nextBytes'",
+            "tests.original.test_nanoidutils::test_random_nanoid_with_custom_size": "AttributeError: 'SystemRandom' object has no attribute 'nextBytes'",
+            "tests.original.test_nanoidutils::test_random_nanoid_with_min_max_size": "AttributeError: 'SystemRandom' object has no attribute 'nextBytes'",
+            "tests.original.test_nanoidutils::test_random_nanoid_null_random": "Failed: DID NOT RAISE <class 'ValueError'>",
+            "tests.original.test_nanoidutils::test_random_nanoid_null_alphabet": "AttributeError: 'SystemRandom' object has no attribute 'nextBytes'",
+            "tests.original.test_nanoidutils::test_nanoid_is_url_friendly": "AttributeError: type object 'NanoIdUtils' has no attribute 'is_url_friendly'",
+            "tests.original.test_nanoidutils::test_random_nanoid_with_non_default_random": "AttributeError: 'Random' object has no attribute 'nextBytes'",
+            "tests.original.test_nanoidutils::test_random_nanoid_with_small_alphabet": "AttributeError: 'SystemRandom' object has no attribute 'nextBytes'"
+          },
+          "passed_by_folder": {
+            "public_tests": 5,
+            "tests": 7
+          },
+          "error": null
+        }
+      ],
+      "cost_complete": true,
+      "passed": 12,
+      "expected_total": 23,
+      "error": null,
+      "estimated_cost_usd": 0.1383,
+      "tokens": {
+        "input_tokens": 4277,
+        "output_tokens": 12486,
+        "cache_read_input_tokens": 398140,
+        "cache_creation_input_tokens": 25293
+      }
+    },
+    {
+      "project": "agarciadom_xeger",
+      "status": "evaluation_invalid",
+      "migration_passed": false,
+      "test_success_rate": null,
+      "iterations": 1,
+      "variant": "v1",
+      "history": [
+        {
+          "iteration": 1,
+          "phase": "one_shot",
+          "estimated_cost_usd": 0.5184,
+          "tokens": {
+            "input_tokens": 4360,
+            "output_tokens": 51240,
+            "cache_read_input_tokens": 1595365,
+            "cache_creation_input_tokens": 78542
+          },
+          "agent_error": "error_max_turns",
+          "migration_passed": false,
+          "test_success_rate": null,
+          "passed": 0,
+          "failed": 5,
+          "skipped": 0,
+          "total": 5,
+          "expected_total": 40,
+          "suite_verified": false,
+          "protected_files_unchanged": true,
+          "evaluation_valid": false,
+          "exit_code": 2,
+          "output_tail": "============================= test session starts ==============================\nplatform linux -- Python 3.12.12, pytest-8.4.2, pluggy-1.7.0\nrootdir: /scratch/work/v1/agarciadom_xeger\ncollected 7 items / 5 errors\n\n==================================== ERRORS ====================================\n_________ ERROR collecting public_tests/test_xeger_coverage_public.py __________\nImportError while importing test module '/scratch/work/v1/agarciadom_xeger/public_tests/test_xeger_coverage_public.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\npublic_tests/test_xeger_coverage_public.py:3: in <module>\n    from src.xeger import Xeger, FailedRandomWalkException\nE   ImportError: cannot import name 'FailedRandomWalkException' from 'src.xeger' (/scratch/work/v1/agarciadom_xeger/src/xeger.py)\n___________ ERROR collecting public_tests/test_xeger_edge_public.py ____________\nImportError while importing test module '/scratch/work/v1/agarciadom_xeger/public_tests/test_xeger_edge_public.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\npublic_tests/test_xeger_edge_public.py:3: in <module>\n    from src.xeger import Xeger, FailedRandomWalkException\nE   ImportError: cannot import name 'FailedRandomWalkException' from 'src.xeger' (/scratch/work/v1/agarciadom_xeger/src/xeger.py)\n________________ ERROR collecting tests/original/test_xeger.py _________________\nImportError while importing test module '/scratch/work/v1/agarciadom_xeger/tests/original/test_xeger.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_xeger.py:3: in <module>\n    from src.xeger import Xeger, FailedRandomWalkException\nE   ImportError: cannot import name 'FailedRandomWalkException' from 'src.xeger' (/scratch/work/v1/agarciadom_xeger/src/xeger.py)\n____________ ERROR collecting tests/original/test_xeger_coverage.py ____________\nImportError while importing test module '/scratch/work/v1/agarciadom_xeger/tests/original/test_xeger_coverage.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_xeger_coverage.py:3: in <module>\n    from src.xeger import Xeger, FailedRandomWalkException\nE   ImportError: cannot import name 'FailedRandomWalkException' from 'src.xeger' (/scratch/work/v1/agarciadom_xeger/src/xeger.py)\n______________ ERROR collecting tests/original/test_xeger_edge.py ______________\nImportError while importing test module '/scratch/work/v1/agarciadom_xeger/tests/original/test_xeger_edge.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_xeger_edge.py:3: in <module>\n    from src.xeger import Xeger, FailedRandomWalkException\nE   ImportError: cannot import name 'FailedRandomWalkException' from 'src.xeger' (/scratch/work/v1/agarciadom_xeger/src/xeger.py)\n=============================== warnings summary ===============================\nsrc/xeger.py:21\n  /scratch/work/v1/agarciadom_xeger/src/xeger.py:21: DeprecationWarning: module 'sre_parse' is deprecated\n    import sre_parse\n\nsrc/xeger.py:22\n  /scratch/work/v1/agarciadom_xeger/src/xeger.py:22: DeprecationWarning: module 'sre_constants' is deprecated\n    import sre_constants\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n- generated xml file: /scratch/work/v1/agarciadom_xeger/.harness-test-results.xml -\n=========================== short test summary info ============================\nERROR public_tests/test_xeger_coverage_public.py\nERROR public_tests/test_xeger_edge_public.py\nERROR tests/original/test_xeger.py\nERROR tests/original/test_xeger_coverage.py\nERROR tests/original/test_xeger_edge.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 5 errors during collection !!!!!!!!!!!!!!!!!!!!\n======================== 2 warnings, 5 errors in 0.09s =========================\n\n",
+          "failures": {
+            "::public_tests.test_xeger_coverage_public": "ImportError: cannot import name 'FailedRandomWalkException' from 'src.xeger' (/scratch/work/v1/agarciadom_xeger/src/xeger.py)",
+            "::public_tests.test_xeger_edge_public": "ImportError: cannot import name 'FailedRandomWalkException' from 'src.xeger' (/scratch/work/v1/agarciadom_xeger/src/xeger.py)",
+            "::tests.original.test_xeger": "ImportError: cannot import name 'FailedRandomWalkException' from 'src.xeger' (/scratch/work/v1/agarciadom_xeger/src/xeger.py)",
+            "::tests.original.test_xeger_coverage": "ImportError: cannot import name 'FailedRandomWalkException' from 'src.xeger' (/scratch/work/v1/agarciadom_xeger/src/xeger.py)",
+            "::tests.original.test_xeger_edge": "ImportError: cannot import name 'FailedRandomWalkException' from 'src.xeger' (/scratch/work/v1/agarciadom_xeger/src/xeger.py)"
+          },
+          "passed_by_folder": {},
+          "error": "Collected/executed test identities differ from immutable baseline, or tests were skipped; Test collection: arning: module 'sre_parse' is deprecated\n    import sre_parse\n\nsrc/xeger.py:22\n  /scratch/work/v1/agarciadom_xeger/src/xeger.py:22: DeprecationWarning: module 'sre_constants' is deprecated\n    import sre_constants\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n=========================== short test summary info ============================\nERROR public_tests/test_xeger_coverage_public.py\nERROR public_tests/test_xeger_edge_public.py\nERROR tests/original/test_xeger.py\nERROR tests/original/test_xeger_coverage.py\nERROR tests/original/test_xeger_edge.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 5 errors during collection !!!!!!!!!!!!!!!!!!!!\n7 tests collected, 5 errors in 0.08s\n\n"
+        }
+      ],
+      "cost_complete": true,
+      "passed": 0,
+      "expected_total": 40,
+      "error": "Collected/executed test identities differ from immutable baseline, or tests were skipped; Test collection: arning: module 'sre_parse' is deprecated\n    import sre_parse\n\nsrc/xeger.py:22\n  /scratch/work/v1/agarciadom_xeger/src/xeger.py:22: DeprecationWarning: module 'sre_constants' is deprecated\n    import sre_constants\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n=========================== short test summary info ============================\nERROR public_tests/test_xeger_coverage_public.py\nERROR public_tests/test_xeger_edge_public.py\nERROR tests/original/test_xeger.py\nERROR tests/original/test_xeger_coverage.py\nERROR tests/original/test_xeger_edge.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 5 errors during collection !!!!!!!!!!!!!!!!!!!!\n7 tests collected, 5 errors in 0.08s\n\n",
+      "estimated_cost_usd": 0.5184,
+      "tokens": {
+        "input_tokens": 4360,
+        "output_tokens": 51240,
+        "cache_read_input_tokens": 1595365,
+        "cache_creation_input_tokens": 78542
+      }
+    },
+    {
+      "project": "editorconfig_editorconfig-jetbrains",
+      "status": "failed",
+      "migration_passed": false,
+      "test_success_rate": 0.0,
+      "iterations": 1,
+      "variant": "v1",
+      "history": [
+        {
+          "iteration": 1,
+          "phase": "one_shot",
+          "estimated_cost_usd": 0.1035,
+          "tokens": {
+            "input_tokens": 4210,
+            "output_tokens": 7682,
+            "cache_read_input_tokens": 314205,
+            "cache_creation_input_tokens": 23500
+          },
+          "agent_error": null,
+          "migration_passed": false,
+          "test_success_rate": 0.0,
+          "passed": 0,
+          "failed": 12,
+          "skipped": 0,
+          "total": 12,
+          "expected_total": 12,
+          "suite_verified": true,
+          "protected_files_unchanged": true,
+          "evaluation_valid": true,
+          "exit_code": 1,
+          "output_tail": "public_tests/test_utils_public.py:30: TypeError\n___________ test_invalid_config_message_makes_correct_string_public ____________\n\n    def test_invalid_config_message_makes_correct_string_public():\n>       msg = utils.invalid_config_message(\"42\", \"answer\", \"deepfile\")\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: module 'src.editorconfig.utils' has no attribute 'invalid_config_message'. Did you mean: 'invalidConfigMessage'?\n\npublic_tests/test_utils_public.py:37: AttributeError\n___________ test_applied_config_message_makes_correct_string_public ____________\n\n    def test_applied_config_message_makes_correct_string_public():\n>       msg = utils.applied_config_message(\"enabled\", \"feature\", \"file.txt\")\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: module 'src.editorconfig.utils' has no attribute 'applied_config_message'. Did you mean: 'appliedConfigMessage'?\n\npublic_tests/test_utils_public.py:41: AttributeError\n_________________ test_config_value_for_key_finds_existing_key _________________\n\n    def test_config_value_for_key_finds_existing_key():\n>       pairs = [FakeOutPair(\"foo\", \"bar\"), FakeOutPair(\"baz\", \"qux\")]\n                 ^^^^^^^^^^^^^^^^^^^^^^^^^\nE       TypeError: Can't instantiate abstract class FakeOutPair without an implementation for abstract methods 'getKey', 'getVal'\n\ntests/original/test_utils.py:17: TypeError\n___________ test_config_value_for_key_returns_empty_for_missing_key ____________\n\n    def test_config_value_for_key_returns_empty_for_missing_key():\n>       pairs = [FakeOutPair(\"foo\", \"bar\")]\n                 ^^^^^^^^^^^^^^^^^^^^^^^^^\nE       TypeError: Can't instantiate abstract class FakeOutPair without an implementation for abstract methods 'getKey', 'getVal'\n\ntests/original/test_utils.py:22: TypeError\n_____________________ test_config_value_for_key_empty_list _____________________\n\n    def test_config_value_for_key_empty_list():\n>       assert utils.config_value_for_key([], \"foo\") == \"\"\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: module 'src.editorconfig.utils' has no attribute 'config_value_for_key'. Did you mean: 'configValueForKey'?\n\ntests/original/test_utils.py:26: AttributeError\n__________ test_config_value_for_key_multiple_same_keys_returns_first __________\n\n    def test_config_value_for_key_multiple_same_keys_returns_first():\n        pairs = [\n>           FakeOutPair(\"foo\", \"first\"),\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n            FakeOutPair(\"foo\", \"second\"),\n            FakeOutPair(\"bar\", \"other\"),\n        ]\nE       TypeError: Can't instantiate abstract class FakeOutPair without an implementation for abstract methods 'getKey', 'getVal'\n\ntests/original/test_utils.py:30: TypeError\n_______________ test_invalid_config_message_makes_correct_string _______________\n\n    def test_invalid_config_message_makes_correct_string():\n>       msg = utils.invalid_config_message(\"value\", \"key\", \"file\")\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: module 'src.editorconfig.utils' has no attribute 'invalid_config_message'. Did you mean: 'invalidConfigMessage'?\n\ntests/original/test_utils.py:37: AttributeError\n_______________ test_applied_config_message_makes_correct_string _______________\n\n    def test_applied_config_message_makes_correct_string():\n>       msg = utils.applied_config_message(\"value\", \"key\", \"file\")\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: module 'src.editorconfig.utils' has no attribute 'applied_config_message'. Did you mean: 'appliedConfigMessage'?\n\ntests/original/test_utils.py:41: AttributeError\n- generated xml file: /scratch/work/v1/editorconfig_editorconfig-jetbrains/.harness-test-results.xml -\n=========================== short test summary info ============================\nFAILED public_tests/test_utils_public.py::test_config_value_for_key_finds_different_existing_key\nFAILED public_tests/test_utils_public.py::test_config_value_for_key_returns_empty_for_another_missing_key\nFAILED public_tests/test_utils_public.py::test_config_value_for_key_empty_list_still_returns_empty\nFAILED public_tests/test_utils_public.py::test_config_value_for_key_multiple_same_keys_returns_first_public\nFAILED public_tests/test_utils_public.py::test_invalid_config_message_makes_correct_string_public\nFAILED public_tests/test_utils_public.py::test_applied_config_message_makes_correct_string_public\nFAILED tests/original/test_utils.py::test_config_value_for_key_finds_existing_key\nFAILED tests/original/test_utils.py::test_config_value_for_key_returns_empty_for_missing_key\nFAILED tests/original/test_utils.py::test_config_value_for_key_empty_list - A...\nFAILED tests/original/test_utils.py::test_config_value_for_key_multiple_same_keys_returns_first\nFAILED tests/original/test_utils.py::test_invalid_config_message_makes_correct_string\nFAILED tests/original/test_utils.py::test_applied_config_message_makes_correct_string\n============================== 12 failed in 0.03s ==============================\n\n",
+          "failures": {
+            "public_tests.test_utils_public::test_config_value_for_key_finds_different_existing_key": "TypeError: Can't instantiate abstract class FakeOutPair without an implementation for abstract methods 'getKey', 'getVal'",
+            "public_tests.test_utils_public::test_config_value_for_key_returns_empty_for_another_missing_key": "TypeError: Can't instantiate abstract class FakeOutPair without an implementation for abstract methods 'getKey', 'getVal'",
+            "public_tests.test_utils_public::test_config_value_for_key_empty_list_still_returns_empty": "AttributeError: module 'src.editorconfig.utils' has no attribute 'config_value_for_key'. Did you mean: 'configValueForKey'?",
+            "public_tests.test_utils_public::test_config_value_for_key_multiple_same_keys_returns_first_public": "TypeError: Can't instantiate abstract class FakeOutPair without an implementation for abstract methods 'getKey', 'getVal'",
+            "public_tests.test_utils_public::test_invalid_config_message_makes_correct_string_public": "AttributeError: module 'src.editorconfig.utils' has no attribute 'invalid_config_message'. Did you mean: 'invalidConfigMessage'?",
+            "public_tests.test_utils_public::test_applied_config_message_makes_correct_string_public": "AttributeError: module 'src.editorconfig.utils' has no attribute 'applied_config_message'. Did you mean: 'appliedConfigMessage'?",
+            "tests.original.test_utils::test_config_value_for_key_finds_existing_key": "TypeError: Can't instantiate abstract class FakeOutPair without an implementation for abstract methods 'getKey', 'getVal'",
+            "tests.original.test_utils::test_config_value_for_key_returns_empty_for_missing_key": "TypeError: Can't instantiate abstract class FakeOutPair without an implementation for abstract methods 'getKey', 'getVal'",
+            "tests.original.test_utils::test_config_value_for_key_empty_list": "AttributeError: module 'src.editorconfig.utils' has no attribute 'config_value_for_key'. Did you mean: 'configValueForKey'?",
+            "tests.original.test_utils::test_config_value_for_key_multiple_same_keys_returns_first": "TypeError: Can't instantiate abstract class FakeOutPair without an implementation for abstract methods 'getKey', 'getVal'",
+            "tests.original.test_utils::test_invalid_config_message_makes_correct_string": "AttributeError: module 'src.editorconfig.utils' has no attribute 'invalid_config_message'. Did you mean: 'invalidConfigMessage'?",
+            "tests.original.test_utils::test_applied_config_message_makes_correct_string": "AttributeError: module 'src.editorconfig.utils' has no attribute 'applied_config_message'. Did you mean: 'appliedConfigMessage'?"
+          },
+          "passed_by_folder": {},
+          "error": null
+        }
+      ],
+      "cost_complete": true,
+      "passed": 0,
+      "expected_total": 12,
+      "error": null,
+      "estimated_cost_usd": 0.1035,
+      "tokens": {
+        "input_tokens": 4210,
+        "output_tokens": 7682,
+        "cache_read_input_tokens": 314205,
+        "cache_creation_input_tokens": 23500
+      }
+    },
+    {
+      "project": "txusballesteros_fit-chart",
+      "status": "evaluation_invalid",
+      "migration_passed": false,
+      "test_success_rate": null,
+      "iterations": 1,
+      "variant": "v1",
+      "history": [
+        {
+          "iteration": 1,
+          "phase": "one_shot",
+          "estimated_cost_usd": 0.0926,
+          "tokens": {
+            "input_tokens": 4184,
+            "output_tokens": 7208,
+            "cache_read_input_tokens": 246440,
+            "cache_creation_input_tokens": 22062
+          },
+          "agent_error": null,
+          "migration_passed": false,
+          "test_success_rate": null,
+          "passed": 0,
+          "failed": 10,
+          "skipped": 0,
+          "total": 10,
+          "expected_total": 16,
+          "suite_verified": false,
+          "protected_files_unchanged": true,
+          "evaluation_valid": false,
+          "exit_code": 2,
+          "output_tail": "^^^^^^^^^^^^^^^^^^^^^^^^^^\npublic_tests/test_renderer_factory_public.py:3: in <module>\n    from src.fitchart.fake_classes import AnimationMode, FitChartValue\nE   ImportError: cannot import name 'AnimationMode' from 'src.fitchart.fake_classes' (/scratch/work/v1/txusballesteros_fit-chart/src/fitchart/fake_classes.py)\n____________ ERROR collecting tests/original/test_base_renderer.py _____________\nImportError while importing test module '/scratch/work/v1/txusballesteros_fit-chart/tests/original/test_base_renderer.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_base_renderer.py:3: in <module>\n    from src.fitchart.fake_classes import FitChartValue\nE   ImportError: cannot import name 'FitChartValue' from 'src.fitchart.fake_classes' (/scratch/work/v1/txusballesteros_fit-chart/src/fitchart/fake_classes.py)\n________ ERROR collecting tests/original/test_fake_classes_for_test.py _________\nImportError while importing test module '/scratch/work/v1/txusballesteros_fit-chart/tests/original/test_fake_classes_for_test.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_fake_classes_for_test.py:2: in <module>\n    from src.fitchart.fake_classes import AnimationMode, Renderer, FitChartValue\nE   ImportError: cannot import name 'AnimationMode' from 'src.fitchart.fake_classes' (/scratch/work/v1/txusballesteros_fit-chart/src/fitchart/fake_classes.py)\n________ ERROR collecting tests/original/test_linear_value_renderer.py _________\nImportError while importing test module '/scratch/work/v1/txusballesteros_fit-chart/tests/original/test_linear_value_renderer.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_linear_value_renderer.py:4: in <module>\n    from src.fitchart.fake_classes import FitChartValue\nE   ImportError: cannot import name 'FitChartValue' from 'src.fitchart.fake_classes' (/scratch/work/v1/txusballesteros_fit-chart/src/fitchart/fake_classes.py)\n_______ ERROR collecting tests/original/test_overdraw_value_renderer.py ________\nImportError while importing test module '/scratch/work/v1/txusballesteros_fit-chart/tests/original/test_overdraw_value_renderer.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_overdraw_value_renderer.py:3: in <module>\n    from src.fitchart.fake_classes import FitChartValue\nE   ImportError: cannot import name 'FitChartValue' from 'src.fitchart.fake_classes' (/scratch/work/v1/txusballesteros_fit-chart/src/fitchart/fake_classes.py)\n___________ ERROR collecting tests/original/test_renderer_factory.py ___________\nImportError while importing test module '/scratch/work/v1/txusballesteros_fit-chart/tests/original/test_renderer_factory.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_renderer_factory.py:3: in <module>\n    from src.fitchart.fake_classes import AnimationMode, FitChartValue\nE   ImportError: cannot import name 'AnimationMode' from 'src.fitchart.fake_classes' (/scratch/work/v1/txusballesteros_fit-chart/src/fitchart/fake_classes.py)\n- generated xml file: /scratch/work/v1/txusballesteros_fit-chart/.harness-test-results.xml -\n=========================== short test summary info ============================\nERROR public_tests/test_base_renderer_public.py\nERROR public_tests/test_fake_classes_for_public_test.py\nERROR public_tests/test_linear_value_renderer_public.py\nERROR public_tests/test_overdraw_value_renderer_public.py\nERROR public_tests/test_renderer_factory_public.py\nERROR tests/original/test_base_renderer.py\nERROR tests/original/test_fake_classes_for_test.py\nERROR tests/original/test_linear_value_renderer.py\nERROR tests/original/test_overdraw_value_renderer.py\nERROR tests/original/test_renderer_factory.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 10 errors during collection !!!!!!!!!!!!!!!!!!!\n============================== 10 errors in 0.18s ==============================\n\n",
+          "failures": {
+            "::public_tests.test_base_renderer_public": "ImportError: cannot import name 'FitChartValue' from 'src.fitchart.fake_classes' (/scratch/work/v1/txusballesteros_fit-chart/src/fitchart/fake_classes.py)",
+            "::public_tests.test_fake_classes_for_public_test": "ImportError: cannot import name 'AnimationMode' from 'src.fitchart.fake_classes' (/scratch/work/v1/txusballesteros_fit-chart/src/fitchart/fake_classes.py)",
+            "::public_tests.test_linear_value_renderer_public": "ImportError: cannot import name 'FitChartValue' from 'src.fitchart.fake_classes' (/scratch/work/v1/txusballesteros_fit-chart/src/fitchart/fake_classes.py)",
+            "::public_tests.test_overdraw_value_renderer_public": "ImportError: cannot import name 'FitChartValue' from 'src.fitchart.fake_classes' (/scratch/work/v1/txusballesteros_fit-chart/src/fitchart/fake_classes.py)",
+            "::public_tests.test_renderer_factory_public": "ImportError: cannot import name 'AnimationMode' from 'src.fitchart.fake_classes' (/scratch/work/v1/txusballesteros_fit-chart/src/fitchart/fake_classes.py)",
+            "::tests.original.test_base_renderer": "ImportError: cannot import name 'FitChartValue' from 'src.fitchart.fake_classes' (/scratch/work/v1/txusballesteros_fit-chart/src/fitchart/fake_classes.py)",
+            "::tests.original.test_fake_classes_for_test": "ImportError: cannot import name 'AnimationMode' from 'src.fitchart.fake_classes' (/scratch/work/v1/txusballesteros_fit-chart/src/fitchart/fake_classes.py)",
+            "::tests.original.test_linear_value_renderer": "ImportError: cannot import name 'FitChartValue' from 'src.fitchart.fake_classes' (/scratch/work/v1/txusballesteros_fit-chart/src/fitchart/fake_classes.py)",
+            "::tests.original.test_overdraw_value_renderer": "ImportError: cannot import name 'FitChartValue' from 'src.fitchart.fake_classes' (/scratch/work/v1/txusballesteros_fit-chart/src/fitchart/fake_classes.py)",
+            "::tests.original.test_renderer_factory": "ImportError: cannot import name 'AnimationMode' from 'src.fitchart.fake_classes' (/scratch/work/v1/txusballesteros_fit-chart/src/fitchart/fake_classes.py)"
+          },
+          "passed_by_folder": {},
+          "error": "Collected/executed test identities differ from immutable baseline, or tests were skipped; Test collection: ============ short test summary info ============================\nERROR public_tests/test_base_renderer_public.py\nERROR public_tests/test_fake_classes_for_public_test.py\nERROR public_tests/test_linear_value_renderer_public.py\nERROR public_tests/test_overdraw_value_renderer_public.py\nERROR public_tests/test_renderer_factory_public.py\nERROR tests/original/test_base_renderer.py\nERROR tests/original/test_fake_classes_for_test.py\nERROR tests/original/test_linear_value_renderer.py\nERROR tests/original/test_overdraw_value_renderer.py\nERROR tests/original/test_renderer_factory.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 10 errors during collection !!!!!!!!!!!!!!!!!!!\nno tests collected, 10 errors in 0.17s\n\n"
+        }
+      ],
+      "cost_complete": true,
+      "passed": 0,
+      "expected_total": 16,
+      "error": "Collected/executed test identities differ from immutable baseline, or tests were skipped; Test collection: ============ short test summary info ============================\nERROR public_tests/test_base_renderer_public.py\nERROR public_tests/test_fake_classes_for_public_test.py\nERROR public_tests/test_linear_value_renderer_public.py\nERROR public_tests/test_overdraw_value_renderer_public.py\nERROR public_tests/test_renderer_factory_public.py\nERROR tests/original/test_base_renderer.py\nERROR tests/original/test_fake_classes_for_test.py\nERROR tests/original/test_linear_value_renderer.py\nERROR tests/original/test_overdraw_value_renderer.py\nERROR tests/original/test_renderer_factory.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 10 errors during collection !!!!!!!!!!!!!!!!!!!\nno tests collected, 10 errors in 0.17s\n\n",
+      "estimated_cost_usd": 0.0926,
+      "tokens": {
+        "input_tokens": 4184,
+        "output_tokens": 7208,
+        "cache_read_input_tokens": 246440,
+        "cache_creation_input_tokens": 22062
+      }
+    },
+    {
+      "project": "googlearchive_android-BluetoothLeGatt",
+      "status": "passed",
+      "migration_passed": true,
+      "test_success_rate": 100.0,
+      "iterations": 1,
+      "variant": "v1",
+      "history": [
+        {
+          "iteration": 1,
+          "phase": "one_shot",
+          "estimated_cost_usd": 0.1205,
+          "tokens": {
+            "input_tokens": 4188,
+            "output_tokens": 8683,
+            "cache_read_input_tokens": 348676,
+            "cache_creation_input_tokens": 30303
+          },
+          "agent_error": null,
+          "migration_passed": true,
+          "test_success_rate": 100.0,
+          "passed": 19,
+          "failed": 0,
+          "skipped": 0,
+          "total": 19,
+          "expected_total": 19,
+          "suite_verified": true,
+          "protected_files_unchanged": true,
+          "evaluation_valid": true,
+          "exit_code": 0,
+          "output_tail": "============================= test session starts ==============================\nplatform linux -- Python 3.12.12, pytest-8.4.2, pluggy-1.7.0\nrootdir: /scratch/work/v1/googlearchive_android-BluetoothLeGatt\ncollected 19 items\n\npublic_tests/test_sample_gatt_attributes_edge_public.py ...              [ 15%]\npublic_tests/test_sample_gatt_attributes_public.py .....                 [ 42%]\ntests/original/test_bluetooth_le_service.py .                            [ 47%]\ntests/original/test_device_control_activity.py .                         [ 52%]\ntests/original/test_device_scan_activity.py .                            [ 57%]\ntests/original/test_sample_gatt_attributes.py .....                      [ 84%]\ntests/original/test_sample_gatt_attributes_edge.py ...                   [100%]\n\n- generated xml file: /scratch/work/v1/googlearchive_android-BluetoothLeGatt/.harness-test-results.xml -\n============================== 19 passed in 0.03s ==============================\n\n",
+          "failures": {},
+          "passed_by_folder": {
+            "public_tests": 8,
+            "tests": 11
+          },
+          "error": null
+        }
+      ],
+      "cost_complete": true,
+      "passed": 19,
+      "expected_total": 19,
+      "error": null,
+      "estimated_cost_usd": 0.1205,
+      "tokens": {
+        "input_tokens": 4188,
+        "output_tokens": 8683,
+        "cache_read_input_tokens": 348676,
+        "cache_creation_input_tokens": 30303
+      }
+    }
+  ],
+  "summary": {
+    "migration_passed": 1,
+    "total_projects": 5,
+    "test_success_rate": null
+  }
+}

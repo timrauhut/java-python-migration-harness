@@ -1,0 +1,815 @@
+{
+  "config": {
+    "dataset_version": "RepoTransBench v1.0",
+    "dataset_summary_sha256": "c4430828b3a37548796b1d78b8211b4c6b2c1c7b850a7f5e46f12f6c04a99ef2",
+    "source_tree_sha256": "75946316c167048cd6b89aaa53c5ea8bab262fd8713ffe5c88f8c490a96e45d4",
+    "test_suite_sha256": "005d4bc56a53dfd54ca8429248372060ba51dc935a8c518bc3ede672eea1e587",
+    "project_ids": [
+      "aventrix_jnanoid",
+      "agarciadom_xeger",
+      "editorconfig_editorconfig-jetbrains",
+      "txusballesteros_fit-chart",
+      "googlearchive_android-BluetoothLeGatt"
+    ],
+    "model": "claude-haiku-4-5-20251001",
+    "variant": "v3",
+    "prompt_version": "interface-rules-1+public-repair-1",
+    "evaluator_version": "static-junit-1",
+    "max_attempts": 5,
+    "budget_usd_per_project": 5.0,
+    "timeout_seconds": 180,
+    "python_version": "3.12.12",
+    "pytest_version": "8.4.2",
+    "claude_agent_sdk_version": "0.2.166"
+  },
+  "projects": [
+    {
+      "project": "aventrix_jnanoid",
+      "status": "failed",
+      "migration_passed": false,
+      "test_success_rate": 95.65,
+      "iterations": 4,
+      "variant": "v3",
+      "history": [
+        {
+          "iteration": 1,
+          "phase": "one_shot",
+          "estimated_cost_usd": 0.0446,
+          "tokens": {
+            "input_tokens": 4125,
+            "output_tokens": 3943,
+            "cache_read_input_tokens": 75242,
+            "cache_creation_input_tokens": 10462
+          },
+          "agent_error": null,
+          "migration_passed": false,
+          "test_success_rate": null,
+          "passed": 0,
+          "failed": 2,
+          "skipped": 0,
+          "total": 2,
+          "expected_total": 23,
+          "suite_verified": false,
+          "protected_files_unchanged": true,
+          "evaluation_valid": false,
+          "exit_code": 2,
+          "output_tail": "============================= test session starts ==============================\nplatform linux -- Python 3.12.12, pytest-8.4.2, pluggy-1.7.0\nrootdir: /scratch/work/v3/aventrix_jnanoid\ncollected 0 items / 2 errors\n\n==================================== ERRORS ====================================\n___________ ERROR collecting public_tests/test_nanoidutils_public.py ___________\nImportError while importing test module '/scratch/work/v3/aventrix_jnanoid/public_tests/test_nanoidutils_public.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\npublic_tests/test_nanoidutils_public.py:3: in <module>\n    from src.jnanoid.nano_id_utils import NanoIdUtils\nE   ImportError: cannot import name 'NanoIdUtils' from 'src.jnanoid.nano_id_utils' (/scratch/work/v3/aventrix_jnanoid/src/jnanoid/nano_id_utils.py)\n_____________ ERROR collecting tests/original/test_nanoidutils.py ______________\nImportError while importing test module '/scratch/work/v3/aventrix_jnanoid/tests/original/test_nanoidutils.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_nanoidutils.py:4: in <module>\n    from src.jnanoid.nano_id_utils import NanoIdUtils\nE   ImportError: cannot import name 'NanoIdUtils' from 'src.jnanoid.nano_id_utils' (/scratch/work/v3/aventrix_jnanoid/src/jnanoid/nano_id_utils.py)\n- generated xml file: /scratch/work/v3/aventrix_jnanoid/.harness-test-results.xml -\n=========================== short test summary info ============================\nERROR public_tests/test_nanoidutils_public.py\nERROR tests/original/test_nanoidutils.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 2 errors during collection !!!!!!!!!!!!!!!!!!!!\n============================== 2 errors in 0.08s ===============================\n\n",
+          "failures": {
+            "::public_tests.test_nanoidutils_public": "ImportError: cannot import name 'NanoIdUtils' from 'src.jnanoid.nano_id_utils' (/scratch/work/v3/aventrix_jnanoid/src/jnanoid/nano_id_utils.py)",
+            "::tests.original.test_nanoidutils": "ImportError: cannot import name 'NanoIdUtils' from 'src.jnanoid.nano_id_utils' (/scratch/work/v3/aventrix_jnanoid/src/jnanoid/nano_id_utils.py)"
+          },
+          "passed_by_folder": {},
+          "error": "Collected/executed test identities differ from immutable baseline, or tests were skipped; Test collection: _init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_nanoidutils.py:4: in <module>\n    from src.jnanoid.nano_id_utils import NanoIdUtils\nE   ImportError: cannot import name 'NanoIdUtils' from 'src.jnanoid.nano_id_utils' (/scratch/work/v3/aventrix_jnanoid/src/jnanoid/nano_id_utils.py)\n=========================== short test summary info ============================\nERROR public_tests/test_nanoidutils_public.py\nERROR tests/original/test_nanoidutils.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 2 errors during collection !!!!!!!!!!!!!!!!!!!!\nno tests collected, 2 errors in 0.07s\n\n",
+          "public_feedback": {
+            "all_public_passed": false,
+            "public_test_output": "\n==================================== ERRORS ====================================\n___________ ERROR collecting public_tests/test_nanoidutils_public.py ___________\nImportError while importing test module '/scratch/work/v3/aventrix_jnanoid/public_tests/test_nanoidutils_public.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\npublic_tests/test_nanoidutils_public.py:3: in <module>\n    from src.jnanoid.nano_id_utils import NanoIdUtils\nE   ImportError: cannot import name 'NanoIdUtils' from 'src.jnanoid.nano_id_utils' (/scratch/work/v3/aventrix_jnanoid/src/jnanoid/nano_id_utils.py)\n=========================== short test summary info ============================\nERROR public_tests/test_nanoidutils_public.py\n!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n1 error in 0.06s\n\n"
+          }
+        },
+        {
+          "iteration": 2,
+          "phase": "repair",
+          "estimated_cost_usd": 0.1233,
+          "tokens": {
+            "input_tokens": 122,
+            "output_tokens": 14878,
+            "cache_read_input_tokens": 156621,
+            "cache_creation_input_tokens": 26261
+          },
+          "agent_error": null,
+          "migration_passed": false,
+          "test_success_rate": 52.17,
+          "passed": 12,
+          "failed": 11,
+          "skipped": 0,
+          "total": 23,
+          "expected_total": 23,
+          "suite_verified": true,
+          "protected_files_unchanged": true,
+          "evaluation_valid": true,
+          "exit_code": 1,
+          "output_tail": "rror(\"random cannot be null.\")\n    \n        if alphabet is None:\n            raise ValueError(\"alphabet cannot be null.\")\n    \n        # Convert alphabet to list if it's a string\n        if isinstance(alphabet, str):\n            alphabet = list(alphabet)\n    \n        if len(alphabet) == 0 or len(alphabet) >= 256:\n            raise ValueError(\"alphabet must contain between 1 and 255 symbols.\")\n    \n        if size <= 0:\n            raise ValueError(\"size must be greater than zero.\")\n    \n        # Calculate mask and step\n        mask = (2 << int(math.floor(math.log(len(alphabet) - 1) / math.log(2)))) - 1\n        step = int(math.ceil(1.6 * mask * size / len(alphabet)))\n    \n        id_builder = []\n    \n        while True:\n            # Generate random bytes\n            byte_array = [0] * step\n>           random.nextBytes(byte_array)\n            ^^^^^^^^^^^^^^^^\nE           AttributeError: 'Random' object has no attribute 'nextBytes'\n\nsrc/jnanoid/nano_id_utils.py:130: AttributeError\n____________________ test_random_nanoid_with_small_alphabet ____________________\n\n    def test_random_nanoid_with_small_alphabet():\n        alphabet = ['a', 'b']\n>       nanoid = NanoIdUtils.randomNanoId(random.SystemRandom(), alphabet, 6)\n                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\ntests/original/test_nanoidutils.py:74: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nrandom = <random.SystemRandom object at 0xaaaacf749110>, alphabet = ['a', 'b']\nsize = 6\n\n    @staticmethod\n    def randomNanoId(random=None, alphabet=None, size=None):\n        \"\"\"\n        Static factory to retrieve a NanoId String.\n    \n        Can be called in two ways:\n        - randomNanoId() - uses default random generator, alphabet, and size (21)\n        - randomNanoId(random, alphabet, size) - uses provided parameters\n    \n        Args:\n            random: The random number generator (Random or _SecureRandom instance).\n                    If None, uses DEFAULT_NUMBER_GENERATOR.\n            alphabet: The symbols used in the NanoId String (list of chars or string).\n                      If None, uses DEFAULT_ALPHABET.\n            size: The number of symbols in the NanoId String.\n                  If None, uses DEFAULT_SIZE.\n    \n        Returns:\n            A randomly generated NanoId String.\n    \n        Raises:\n            ValueError: If any parameter validation fails.\n        \"\"\"\n        # Handle overloading - if called with no arguments, use defaults\n        if random is None:\n            random = NanoIdUtils.DEFAULT_NUMBER_GENERATOR\n        if alphabet is None:\n            alphabet = NanoIdUtils.DEFAULT_ALPHABET\n        if size is None:\n            size = NanoIdUtils.DEFAULT_SIZE\n    \n        # Validate parameters\n        if random is None:\n            raise ValueError(\"random cannot be null.\")\n    \n        if alphabet is None:\n            raise ValueError(\"alphabet cannot be null.\")\n    \n        # Convert alphabet to list if it's a string\n        if isinstance(alphabet, str):\n            alphabet = list(alphabet)\n    \n        if len(alphabet) == 0 or len(alphabet) >= 256:\n            raise ValueError(\"alphabet must contain between 1 and 255 symbols.\")\n    \n        if size <= 0:\n            raise ValueError(\"size must be greater than zero.\")\n    \n        # Calculate mask and step\n        mask = (2 << int(math.floor(math.log(len(alphabet) - 1) / math.log(2)))) - 1\n        step = int(math.ceil(1.6 * mask * size / len(alphabet)))\n    \n        id_builder = []\n    \n        while True:\n            # Generate random bytes\n            byte_array = [0] * step\n>           random.nextBytes(byte_array)\n            ^^^^^^^^^^^^^^^^\nE           AttributeError: 'SystemRandom' object has no attribute 'nextBytes'\n\nsrc/jnanoid/nano_id_utils.py:130: AttributeError\n- generated xml file: /scratch/work/v3/aventrix_jnanoid/.harness-test-results.xml -\n=========================== short test summary info ============================\nFAILED public_tests/test_nanoidutils_public.py::test_random_nanoid_custom_alphabet_public\nFAILED public_tests/test_nanoidutils_public.py::test_random_nanoid_null_alphabet_public\nFAILED public_tests/test_nanoidutils_public.py::test_random_nanoid_custom_random_public\nFAILED public_tests/test_nanoidutils_public.py::test_random_nanoid_default_random_public\nFAILED tests/original/test_nanoidutils.py::test_random_nanoid_with_custom_size\nFAILED tests/original/test_nanoidutils.py::test_random_nanoid_with_min_max_size\nFAILED tests/original/test_nanoidutils.py::test_random_nanoid_null_random - F...\nFAILED tests/original/test_nanoidutils.py::test_random_nanoid_null_alphabet\nFAILED tests/original/test_nanoidutils.py::test_nanoid_is_url_friendly - Attr...\nFAILED tests/original/test_nanoidutils.py::test_random_nanoid_with_non_default_random\nFAILED tests/original/test_nanoidutils.py::test_random_nanoid_with_small_alphabet\n======================== 11 failed, 12 passed in 0.07s =========================\n\n",
+          "failures": {
+            "public_tests.test_nanoidutils_public::test_random_nanoid_custom_alphabet_public": "AttributeError: 'SystemRandom' object has no attribute 'nextBytes'",
+            "public_tests.test_nanoidutils_public::test_random_nanoid_null_alphabet_public": "AttributeError: 'SystemRandom' object has no attribute 'nextBytes'",
+            "public_tests.test_nanoidutils_public::test_random_nanoid_custom_random_public": "AttributeError: 'Random' object has no attribute 'nextBytes'",
+            "public_tests.test_nanoidutils_public::test_random_nanoid_default_random_public": "AttributeError: 'SystemRandom' object has no attribute 'nextBytes'",
+            "tests.original.test_nanoidutils::test_random_nanoid_with_custom_size": "AttributeError: 'SystemRandom' object has no attribute 'nextBytes'",
+            "tests.original.test_nanoidutils::test_random_nanoid_with_min_max_size": "AttributeError: 'SystemRandom' object has no attribute 'nextBytes'",
+            "tests.original.test_nanoidutils::test_random_nanoid_null_random": "Failed: DID NOT RAISE <class 'ValueError'>",
+            "tests.original.test_nanoidutils::test_random_nanoid_null_alphabet": "AttributeError: 'SystemRandom' object has no attribute 'nextBytes'",
+            "tests.original.test_nanoidutils::test_nanoid_is_url_friendly": "AttributeError: type object 'NanoIdUtils' has no attribute 'is_url_friendly'",
+            "tests.original.test_nanoidutils::test_random_nanoid_with_non_default_random": "AttributeError: 'Random' object has no attribute 'nextBytes'",
+            "tests.original.test_nanoidutils::test_random_nanoid_with_small_alphabet": "AttributeError: 'SystemRandom' object has no attribute 'nextBytes'"
+          },
+          "passed_by_folder": {
+            "public_tests": 5,
+            "tests": 7
+          },
+          "error": null,
+          "public_feedback": {
+            "all_public_passed": false,
+            "public_test_output": ".FF....FF                                                                [100%]\n=================================== FAILURES ===================================\n__________________ test_random_nanoid_custom_alphabet_public ___________________\npublic_tests/test_nanoidutils_public.py:24: in test_random_nanoid_custom_alphabet_public\n    nanoid = NanoIdUtils.randomNanoId(rng, custom_alphabet, size)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nsrc/jnanoid/nano_id_utils.py:130: in randomNanoId\n    random.nextBytes(byte_array)\n    ^^^^^^^^^^^^^^^^\nE   AttributeError: 'SystemRandom' object has no attribute 'nextBytes'\n___________________ test_random_nanoid_null_alphabet_public ____________________\npublic_tests/test_nanoidutils_public.py:34: in test_random_nanoid_null_alphabet_public\n    NanoIdUtils.randomNanoId(rng, None, 10)\nsrc/jnanoid/nano_id_utils.py:130: in randomNanoId\n    random.nextBytes(byte_array)\n    ^^^^^^^^^^^^^^^^\nE   AttributeError: 'SystemRandom' object has no attribute 'nextBytes'\n___________________ test_random_nanoid_custom_random_public ____________________\npublic_tests/test_nanoidutils_public.py:63: in test_random_nanoid_custom_random_public\n    nanoid = NanoIdUtils.randomNanoId(predictable_random, alphabet, size)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nsrc/jnanoid/nano_id_utils.py:130: in randomNanoId\n    random.nextBytes(byte_array)\n    ^^^^^^^^^^^^^^^^\nE   AttributeError: 'Random' object has no attribute 'nextBytes'\n___________________ test_random_nanoid_default_random_public ___________________\npublic_tests/test_nanoidutils_public.py:76: in test_random_nanoid_default_random_public\n    nanoid = NanoIdUtils.randomNanoId(rng, default_alphabet, length)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nsrc/jnanoid/nano_id_utils.py:130: in randomNanoId\n    random.nextBytes(byte_array)\n    ^^^^^^^^^^^^^^^^\nE   AttributeError: 'SystemRandom' object has no attribute 'nextBytes'\n=========================== short test summary info ============================\nFAILED public_tests/test_nanoidutils_public.py::test_random_nanoid_custom_alphabet_public\nFAILED public_tests/test_nanoidutils_public.py::test_random_nanoid_null_alphabet_public\nFAILED public_tests/test_nanoidutils_public.py::test_random_nanoid_custom_random_public\nFAILED public_tests/test_nanoidutils_public.py::test_random_nanoid_default_random_public\n4 failed, 5 passed in 0.03s\n\n"
+          }
+        },
+        {
+          "iteration": 3,
+          "phase": "repair",
+          "estimated_cost_usd": 0.0545,
+          "tokens": {
+            "input_tokens": 74,
+            "output_tokens": 5895,
+            "cache_read_input_tokens": 65894,
+            "cache_creation_input_tokens": 14483
+          },
+          "agent_error": null,
+          "migration_passed": false,
+          "test_success_rate": 82.61,
+          "passed": 19,
+          "failed": 4,
+          "skipped": 0,
+          "total": 23,
+          "expected_total": 23,
+          "suite_verified": true,
+          "protected_files_unchanged": true,
+          "evaluation_valid": true,
+          "exit_code": 1,
+          "output_tail": "============================= test session starts ==============================\nplatform linux -- Python 3.12.12, pytest-8.4.2, pluggy-1.7.0\nrootdir: /scratch/work/v3/aventrix_jnanoid\ncollected 23 items\n\npublic_tests/test_nanoidutils_public.py ..F......                        [ 39%]\ntests/original/test_nanoidutils.py .....FF..F....                        [100%]\n\n=================================== FAILURES ===================================\n___________________ test_random_nanoid_null_alphabet_public ____________________\n\n    def test_random_nanoid_null_alphabet_public():\n        rng = random.SystemRandom()\n>       with pytest.raises(ValueError):\n             ^^^^^^^^^^^^^^^^^^^^^^^^^\nE       Failed: DID NOT RAISE <class 'ValueError'>\n\npublic_tests/test_nanoidutils_public.py:33: Failed\n________________________ test_random_nanoid_null_random ________________________\n\n    def test_random_nanoid_null_random():\n>       with pytest.raises(ValueError):\n             ^^^^^^^^^^^^^^^^^^^^^^^^^\nE       Failed: DID NOT RAISE <class 'ValueError'>\n\ntests/original/test_nanoidutils.py:39: Failed\n_______________________ test_random_nanoid_null_alphabet _______________________\n\n    def test_random_nanoid_null_alphabet():\n>       with pytest.raises(ValueError):\n             ^^^^^^^^^^^^^^^^^^^^^^^^^\nE       Failed: DID NOT RAISE <class 'ValueError'>\n\ntests/original/test_nanoidutils.py:43: Failed\n_________________________ test_nanoid_is_url_friendly __________________________\n\n    def test_nanoid_is_url_friendly():\n        nanoid = NanoIdUtils.randomNanoId()\n>       assert NanoIdUtils.is_url_friendly(nanoid)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: type object 'NanoIdUtils' has no attribute 'is_url_friendly'\n\ntests/original/test_nanoidutils.py:57: AttributeError\n- generated xml file: /scratch/work/v3/aventrix_jnanoid/.harness-test-results.xml -\n=========================== short test summary info ============================\nFAILED public_tests/test_nanoidutils_public.py::test_random_nanoid_null_alphabet_public\nFAILED tests/original/test_nanoidutils.py::test_random_nanoid_null_random - F...\nFAILED tests/original/test_nanoidutils.py::test_random_nanoid_null_alphabet\nFAILED tests/original/test_nanoidutils.py::test_nanoid_is_url_friendly - Attr...\n========================= 4 failed, 19 passed in 0.05s =========================\n\n",
+          "failures": {
+            "public_tests.test_nanoidutils_public::test_random_nanoid_null_alphabet_public": "Failed: DID NOT RAISE <class 'ValueError'>",
+            "tests.original.test_nanoidutils::test_random_nanoid_null_random": "Failed: DID NOT RAISE <class 'ValueError'>",
+            "tests.original.test_nanoidutils::test_random_nanoid_null_alphabet": "Failed: DID NOT RAISE <class 'ValueError'>",
+            "tests.original.test_nanoidutils::test_nanoid_is_url_friendly": "AttributeError: type object 'NanoIdUtils' has no attribute 'is_url_friendly'"
+          },
+          "passed_by_folder": {
+            "public_tests": 8,
+            "tests": 11
+          },
+          "error": null,
+          "public_feedback": {
+            "all_public_passed": false,
+            "public_test_output": "..F......                                                                [100%]\n=================================== FAILURES ===================================\n___________________ test_random_nanoid_null_alphabet_public ____________________\npublic_tests/test_nanoidutils_public.py:33: in test_random_nanoid_null_alphabet_public\n    with pytest.raises(ValueError):\n         ^^^^^^^^^^^^^^^^^^^^^^^^^\nE   Failed: DID NOT RAISE <class 'ValueError'>\n=========================== short test summary info ============================\nFAILED public_tests/test_nanoidutils_public.py::test_random_nanoid_null_alphabet_public\n1 failed, 8 passed in 0.02s\n\n"
+          }
+        },
+        {
+          "iteration": 4,
+          "phase": "repair",
+          "estimated_cost_usd": 0.0592,
+          "tokens": {
+            "input_tokens": 114,
+            "output_tokens": 5249,
+            "cache_read_input_tokens": 122838,
+            "cache_creation_input_tokens": 16208
+          },
+          "agent_error": null,
+          "migration_passed": false,
+          "test_success_rate": 95.65,
+          "passed": 22,
+          "failed": 1,
+          "skipped": 0,
+          "total": 23,
+          "expected_total": 23,
+          "suite_verified": true,
+          "protected_files_unchanged": true,
+          "evaluation_valid": true,
+          "exit_code": 1,
+          "output_tail": "============================= test session starts ==============================\nplatform linux -- Python 3.12.12, pytest-8.4.2, pluggy-1.7.0\nrootdir: /scratch/work/v3/aventrix_jnanoid\ncollected 23 items\n\npublic_tests/test_nanoidutils_public.py .........                        [ 39%]\ntests/original/test_nanoidutils.py .........F....                        [100%]\n\n=================================== FAILURES ===================================\n_________________________ test_nanoid_is_url_friendly __________________________\n\n    def test_nanoid_is_url_friendly():\n        nanoid = NanoIdUtils.randomNanoId()\n>       assert NanoIdUtils.is_url_friendly(nanoid)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: type object 'NanoIdUtils' has no attribute 'is_url_friendly'\n\ntests/original/test_nanoidutils.py:57: AttributeError\n- generated xml file: /scratch/work/v3/aventrix_jnanoid/.harness-test-results.xml -\n=========================== short test summary info ============================\nFAILED tests/original/test_nanoidutils.py::test_nanoid_is_url_friendly - Attr...\n========================= 1 failed, 22 passed in 0.04s =========================\n\n",
+          "failures": {
+            "tests.original.test_nanoidutils::test_nanoid_is_url_friendly": "AttributeError: type object 'NanoIdUtils' has no attribute 'is_url_friendly'"
+          },
+          "passed_by_folder": {
+            "public_tests": 9,
+            "tests": 13
+          },
+          "error": null,
+          "public_feedback": {
+            "all_public_passed": true,
+            "public_test_output": ".........                                                                [100%]\n9 passed in 0.01s\n\n"
+          }
+        }
+      ],
+      "cost_complete": true,
+      "passed": 22,
+      "expected_total": 23,
+      "error": null,
+      "estimated_cost_usd": 0.2815,
+      "tokens": {
+        "input_tokens": 4435,
+        "output_tokens": 29965,
+        "cache_read_input_tokens": 420595,
+        "cache_creation_input_tokens": 67414
+      }
+    },
+    {
+      "project": "agarciadom_xeger",
+      "status": "failed",
+      "migration_passed": false,
+      "test_success_rate": 95.0,
+      "iterations": 3,
+      "variant": "v3",
+      "history": [
+        {
+          "iteration": 1,
+          "phase": "one_shot",
+          "estimated_cost_usd": 0.4232,
+          "tokens": {
+            "input_tokens": 4334,
+            "output_tokens": 41769,
+            "cache_read_input_tokens": 1290608,
+            "cache_creation_input_tokens": 64656
+          },
+          "agent_error": null,
+          "migration_passed": false,
+          "test_success_rate": 47.5,
+          "passed": 19,
+          "failed": 21,
+          "skipped": 0,
+          "total": 40,
+          "expected_total": 40,
+          "suite_verified": true,
+          "protected_files_unchanged": true,
+          "evaluation_valid": true,
+          "exit_code": 1,
+          "output_tail": "gth constraints.\"\"\"\n        builder: List[str] = []\n        walkLength = 0\n        state = self.automaton.getInitialState()\n    \n        # First, get to the target length\n        targetLength = Xeger.getRandomInt(minLength, maxLength, self.random)\n    \n        while walkLength < targetLength:\n            transitions = state.getSortedTransitions(False)\n    \n            if len(transitions) == 0:\n                if walkLength >= minLength and state.isAccept():\n                    return ''.join(builder)\n                elif walkLength < minLength:\n                    raise FailedRandomWalkException(\n                        f\"Reached accept state before minimum length \"\n                        f\"(current = {walkLength} < min = {minLength})\"\n                    )\n                else:\n                    raise FailedRandomWalkException(\n                        f\"Reached non-accept state before maximum length\"\n                    )\n    \n            # Prefer non-final transitions\n            nonFinalTransitions = [\n                t for t in transitions if len(t.getDest().getTransitions()) > 0\n            ]\n            if nonFinalTransitions:\n                transitions = nonFinalTransitions\n    \n            option = Xeger.getRandomInt(0, len(transitions) - 1, self.random)\n            transition = transitions[option]\n            self._appendChoice(builder, transition)\n            state = transition.getDest()\n            walkLength += 1\n    \n        # Now get to an accept state\n        while not state.isAccept() and walkLength < maxLength:\n            transitions = state.getSortedTransitions(False)\n    \n            if len(transitions) == 0:\n                if state.isAccept():\n                    return ''.join(builder)\n                else:\n                    break\n    \n            option = Xeger.getRandomInt(0, len(transitions) - 1, self.random)\n            transition = transitions[option]\n            self._appendChoice(builder, transition)\n            state = transition.getDest()\n            walkLength += 1\n    \n        if state.isAccept():\n            return ''.join(builder)\n        else:\n>           raise FailedRandomWalkException(\n                f\"Exceeded maximum walk length ({maxLength}) before reaching \"\n                f\"an accept state: target length was {targetLength} \"\n                f\"(min length = {minLength})\"\n            )\nE           src.xeger.FailedRandomWalkException: Exceeded maximum walk length (0) before reaching an accept state: target length was 0 (min length = 0)\n\nsrc/xeger.py:512: FailedRandomWalkException\n__________________________ test_generate_normal_flow ___________________________\n\n    def test_generate_normal_flow():\n        gen = Xeger(\"abc|def\", random.Random(1))\n        s = gen.generate()\n>       assert s in (\"abc\", \"def\")\nE       AssertionError: assert 'a' in ('abc', 'def')\n\ntests/original/test_xeger_edge.py:32: AssertionError\n- generated xml file: /scratch/work/v3/agarciadom_xeger/.harness-test-results.xml -\n=========================== short test summary info ============================\nFAILED public_tests/test_xeger_coverage_public.py::test_generate_simple_literal_public\nFAILED public_tests/test_xeger_coverage_public.py::test_generate_with_default_random_public\nFAILED public_tests/test_xeger_coverage_public.py::test_generate_with_bounded_length_throws_minimum_public\nFAILED public_tests/test_xeger_coverage_public.py::test_generate_with_bounded_length_throws_maximum_public\nFAILED public_tests/test_xeger_coverage_public.py::test_generate_with_bounded_length_produces_acceptable_length_public\nFAILED public_tests/test_xeger_edge_public.py::test_generate_min_equals_max_public\nFAILED public_tests/test_xeger_edge_public.py::test_generate_accept_on_first_step_public\nFAILED public_tests/test_xeger_edge_public.py::test_generate_normal_flow_public\nFAILED public_tests/test_xeger_public.py::test_literal_generation_public - As...\nFAILED public_tests/test_xeger_public.py::test_simple_digit_generation_public\nFAILED public_tests/test_xeger_public.py::test_simple_alpha_generation_public\nFAILED public_tests/test_xeger_public.py::test_range_with_special_char_public\nFAILED public_tests/test_xeger_public.py::test_random_numeric_generation_public\nFAILED tests/original/test_xeger.py::test_should_generate_text_correctly - As...\nFAILED tests/original/test_xeger_coverage.py::test_generate_simple_literal - ...\nFAILED tests/original/test_xeger_coverage.py::test_generate_with_default_random\nFAILED tests/original/test_xeger_coverage.py::test_generate_with_bounded_length_throws_minimum\nFAILED tests/original/test_xeger_coverage.py::test_generate_with_bounded_length_produces_acceptable_length\nFAILED tests/original/test_xeger_edge.py::test_generate_min_equals_max - src....\nFAILED tests/original/test_xeger_edge.py::test_generate_accept_on_first_step\nFAILED tests/original/test_xeger_edge.py::test_generate_normal_flow - Asserti...\n======================== 21 failed, 19 passed in 1.28s =========================\n\n",
+          "failures": {
+            "public_tests.test_xeger_coverage_public::test_generate_simple_literal_public": "AssertionError: assert '' == 'acd'",
+            "public_tests.test_xeger_coverage_public::test_generate_with_default_random_public": "AssertionError: assert '' == 'z'",
+            "public_tests.test_xeger_coverage_public::test_generate_with_bounded_length_throws_minimum_public": "Failed: DID NOT RAISE <class 'src.xeger.FailedRandomWalkException'>",
+            "public_tests.test_xeger_coverage_public::test_generate_with_bounded_length_throws_maximum_public": "Failed: DID NOT RAISE <class 'src.xeger.FailedRandomWalkException'>",
+            "public_tests.test_xeger_coverage_public::test_generate_with_bounded_length_produces_acceptable_length_public": "src.xeger.FailedRandomWalkException: Exceeded maximum walk length (3) before reaching an accept state: target length was 3 (min length = 1)",
+            "public_tests.test_xeger_edge_public::test_generate_min_equals_max_public": "src.xeger.FailedRandomWalkException: Exceeded maximum walk length (3) before reaching an accept state: target length was 3 (min length = 3)",
+            "public_tests.test_xeger_edge_public::test_generate_accept_on_first_step_public": "src.xeger.FailedRandomWalkException: Exceeded maximum walk length (0) before reaching an accept state: target length was 0 (min length = 0)",
+            "public_tests.test_xeger_edge_public::test_generate_normal_flow_public": "AssertionError: assert 'a' in ('abc', 'xyz')",
+            "public_tests.test_xeger_public::test_literal_generation_public": "AssertionError: assert '' == 'abcXYZ'",
+            "public_tests.test_xeger_public::test_simple_digit_generation_public": "AssertionError: assert 0 == 4",
+            "public_tests.test_xeger_public::test_simple_alpha_generation_public": "AssertionError: assert 0 == 3",
+            "public_tests.test_xeger_public::test_range_with_special_char_public": "AssertionError: assert None",
+            "public_tests.test_xeger_public::test_random_numeric_generation_public": "AssertionError: assert 1 == 8",
+            "tests.original.test_xeger::test_should_generate_text_correctly": "AssertionError: assert None",
+            "tests.original.test_xeger_coverage::test_generate_simple_literal": "AssertionError: assert '' == 'abc'",
+            "tests.original.test_xeger_coverage::test_generate_with_default_random": "AssertionError: assert '' == 'b'",
+            "tests.original.test_xeger_coverage::test_generate_with_bounded_length_throws_minimum": "Failed: DID NOT RAISE <class 'src.xeger.FailedRandomWalkException'>",
+            "tests.original.test_xeger_coverage::test_generate_with_bounded_length_produces_acceptable_length": "src.xeger.FailedRandomWalkException: Exceeded maximum walk length (4) before reaching an accept state: target length was 2 (min length = 2)",
+            "tests.original.test_xeger_edge::test_generate_min_equals_max": "src.xeger.FailedRandomWalkException: Exceeded maximum walk length (4) before reaching an accept state: target length was 4 (min length = 4)",
+            "tests.original.test_xeger_edge::test_generate_accept_on_first_step": "src.xeger.FailedRandomWalkException: Exceeded maximum walk length (0) before reaching an accept state: target length was 0 (min length = 0)",
+            "tests.original.test_xeger_edge::test_generate_normal_flow": "AssertionError: assert 'a' in ('abc', 'def')"
+          },
+          "passed_by_folder": {
+            "public_tests": 8,
+            "tests": 11
+          },
+          "error": null,
+          "public_feedback": {
+            "all_public_passed": false,
+            "public_test_output": "public ____________\npublic_tests/test_xeger_coverage_public.py:42: in test_generate_with_bounded_length_throws_maximum_public\n    with pytest.raises(FailedRandomWalkException) as exc:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   Failed: DID NOT RAISE <class 'src.xeger.FailedRandomWalkException'>\n_____ test_generate_with_bounded_length_produces_acceptable_length_public ______\npublic_tests/test_xeger_coverage_public.py:48: in test_generate_with_bounded_length_produces_acceptable_length_public\n    val = xeger.generate(1, 3)\n          ^^^^^^^^^^^^^^^^^^^^\nsrc/xeger.py:453: in generate\n    return self._generateBounded(minLength, maxLength)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nsrc/xeger.py:512: in _generateBounded\n    raise FailedRandomWalkException(\nE   src.xeger.FailedRandomWalkException: Exceeded maximum walk length (3) before reaching an accept state: target length was 3 (min length = 1)\n_____________________ test_generate_min_equals_max_public ______________________\npublic_tests/test_xeger_edge_public.py:12: in test_generate_min_equals_max_public\n    s = generator.generate(3, 3)\n        ^^^^^^^^^^^^^^^^^^^^^^^^\nsrc/xeger.py:453: in generate\n    return self._generateBounded(minLength, maxLength)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nsrc/xeger.py:512: in _generateBounded\n    raise FailedRandomWalkException(\nE   src.xeger.FailedRandomWalkException: Exceeded maximum walk length (3) before reaching an accept state: target length was 3 (min length = 3)\n__________________ test_generate_accept_on_first_step_public ___________________\npublic_tests/test_xeger_edge_public.py:23: in test_generate_accept_on_first_step_public\n    s = generator.generate(0, 0)\n        ^^^^^^^^^^^^^^^^^^^^^^^^\nsrc/xeger.py:453: in generate\n    return self._generateBounded(minLength, maxLength)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nsrc/xeger.py:512: in _generateBounded\n    raise FailedRandomWalkException(\nE   src.xeger.FailedRandomWalkException: Exceeded maximum walk length (0) before reaching an accept state: target length was 0 (min length = 0)\n_______________________ test_generate_normal_flow_public _______________________\npublic_tests/test_xeger_edge_public.py:30: in test_generate_normal_flow_public\n    assert s in (\"abc\", \"xyz\")\nE   AssertionError: assert 'a' in ('abc', 'xyz')\n________________________ test_literal_generation_public ________________________\npublic_tests/test_xeger_public.py:8: in test_literal_generation_public\n    assert result == \"abcXYZ\"\nE   AssertionError: assert '' == 'abcXYZ'\nE     \nE     - abcXYZ\n_____________________ test_simple_digit_generation_public ______________________\npublic_tests/test_xeger_public.py:14: in test_simple_digit_generation_public\n    assert len(result) == 4\nE   AssertionError: assert 0 == 4\nE    +  where 0 = len('')\n_____________________ test_simple_alpha_generation_public ______________________\npublic_tests/test_xeger_public.py:21: in test_simple_alpha_generation_public\n    assert len(result) == 3\nE   AssertionError: assert 0 == 3\nE    +  where 0 = len('')\n_____________________ test_range_with_special_char_public ______________________\npublic_tests/test_xeger_public.py:28: in test_range_with_special_char_public\n    assert re.fullmatch(r\"[M-Q]{2}-[7-9]{2}\", str_)\nE   AssertionError: assert None\nE    +  where None = <function fullmatch at 0xffffb78cb600>('[M-Q]{2}-[7-9]{2}', '')\nE    +    where <function fullmatch at 0xffffb78cb600> = re.fullmatch\n____________________ test_random_numeric_generation_public _____________________\npublic_tests/test_xeger_public.py:34: in test_random_numeric_generation_public\n    assert len(str_) == 8\nE   AssertionError: assert 1 == 8\nE    +  where 1 = len('8')\n=========================== short test summary info ============================\nFAILED public_tests/test_xeger_coverage_public.py::test_generate_simple_literal_public\nFAILED public_tests/test_xeger_coverage_public.py::test_generate_with_default_random_public\nFAILED public_tests/test_xeger_coverage_public.py::test_generate_with_bounded_length_throws_minimum_public\nFAILED public_tests/test_xeger_coverage_public.py::test_generate_with_bounded_length_throws_maximum_public\nFAILED public_tests/test_xeger_coverage_public.py::test_generate_with_bounded_length_produces_acceptable_length_public\nFAILED public_tests/test_xeger_edge_public.py::test_generate_min_equals_max_public\nFAILED public_tests/test_xeger_edge_public.py::test_generate_accept_on_first_step_public\nFAILED public_tests/test_xeger_edge_public.py::test_generate_normal_flow_public\nFAILED public_tests/test_xeger_public.py::test_literal_generation_public - As...\nFAILED public_tests/test_xeger_public.py::test_simple_digit_generation_public\nFAILED public_tests/test_xeger_public.py::test_simple_alpha_generation_public\nFAILED public_tests/test_xeger_public.py::test_range_with_special_char_public\nFAILED public_tests/test_xeger_public.py::test_random_numeric_generation_public\n13 failed, 8 passed in 0.05s\n\n"
+          }
+        },
+        {
+          "iteration": 2,
+          "phase": "repair",
+          "estimated_cost_usd": 0.4107,
+          "tokens": {
+            "input_tokens": 178,
+            "output_tokens": 50966,
+            "cache_read_input_tokens": 663985,
+            "cache_creation_input_tokens": 71090
+          },
+          "agent_error": null,
+          "migration_passed": false,
+          "test_success_rate": 65.0,
+          "passed": 26,
+          "failed": 14,
+          "skipped": 0,
+          "total": 40,
+          "expected_total": 40,
+          "suite_verified": true,
+          "protected_files_unchanged": true,
+          "evaluation_valid": true,
+          "exit_code": 1,
+          "output_tail": "on: Exceeded maximum walk length (4) before reaching an accept state: target length was 4 (min length = 4)\n\nsrc/xeger.py:512: FailedRandomWalkException\n______________________ test_generate_accept_on_first_step ______________________\n\n    def test_generate_accept_on_first_step():\n        gen = Xeger(\"a*\", random.Random(42))\n>       s = gen.generate(0, 0)\n            ^^^^^^^^^^^^^^^^^^\n\ntests/original/test_xeger_edge.py:25: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \nsrc/xeger.py:453: in generate\n    return self._generateBounded(minLength, maxLength)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = <src.xeger.Xeger object at 0xffff98899a60>, minLength = 0, maxLength = 0\n\n    def _generateBounded(self, minLength: int, maxLength: int) -> str:\n        \"\"\"Generate a string with length constraints.\"\"\"\n        builder: List[str] = []\n        walkLength = 0\n        state = self.automaton.getInitialState()\n    \n        # First, get to the target length\n        targetLength = Xeger.getRandomInt(minLength, maxLength, self.random)\n    \n        while walkLength < targetLength:\n            transitions = state.getSortedTransitions(False)\n    \n            if len(transitions) == 0:\n                if walkLength >= minLength and state.isAccept():\n                    return ''.join(builder)\n                elif walkLength < minLength:\n                    raise FailedRandomWalkException(\n                        f\"Reached accept state before minimum length \"\n                        f\"(current = {walkLength} < min = {minLength})\"\n                    )\n                else:\n                    raise FailedRandomWalkException(\n                        f\"Reached non-accept state before maximum length\"\n                    )\n    \n            # Prefer non-final transitions\n            nonFinalTransitions = [\n                t for t in transitions if len(t.getDest().getTransitions()) > 0\n            ]\n            if nonFinalTransitions:\n                transitions = nonFinalTransitions\n    \n            option = Xeger.getRandomInt(0, len(transitions) - 1, self.random)\n            transition = transitions[option]\n            self._appendChoice(builder, transition)\n            state = transition.getDest()\n            walkLength += 1\n    \n        # Now get to an accept state\n        while not state.isAccept() and walkLength < maxLength:\n            transitions = state.getSortedTransitions(False)\n    \n            if len(transitions) == 0:\n                if state.isAccept():\n                    return ''.join(builder)\n                else:\n                    break\n    \n            option = Xeger.getRandomInt(0, len(transitions) - 1, self.random)\n            transition = transitions[option]\n            self._appendChoice(builder, transition)\n            state = transition.getDest()\n            walkLength += 1\n    \n        if state.isAccept():\n            return ''.join(builder)\n        else:\n>           raise FailedRandomWalkException(\n                f\"Exceeded maximum walk length ({maxLength}) before reaching \"\n                f\"an accept state: target length was {targetLength} \"\n                f\"(min length = {minLength})\"\n            )\nE           src.xeger.FailedRandomWalkException: Exceeded maximum walk length (0) before reaching an accept state: target length was 0 (min length = 0)\n\nsrc/xeger.py:512: FailedRandomWalkException\n- generated xml file: /scratch/work/v3/agarciadom_xeger/.harness-test-results.xml -\n=========================== short test summary info ============================\nFAILED public_tests/test_xeger_coverage_public.py::test_generate_with_bounded_length_throws_minimum_public\nFAILED public_tests/test_xeger_coverage_public.py::test_generate_with_bounded_length_throws_maximum_public\nFAILED public_tests/test_xeger_coverage_public.py::test_generate_with_bounded_length_produces_acceptable_length_public\nFAILED public_tests/test_xeger_edge_public.py::test_generate_min_equals_max_public\nFAILED public_tests/test_xeger_edge_public.py::test_generate_accept_on_first_step_public\nFAILED public_tests/test_xeger_public.py::test_simple_digit_generation_public\nFAILED public_tests/test_xeger_public.py::test_simple_alpha_generation_public\nFAILED public_tests/test_xeger_public.py::test_range_with_special_char_public\nFAILED public_tests/test_xeger_public.py::test_random_numeric_generation_public\nFAILED tests/original/test_xeger.py::test_should_generate_text_correctly - As...\nFAILED tests/original/test_xeger_coverage.py::test_generate_with_bounded_length_throws_minimum\nFAILED tests/original/test_xeger_coverage.py::test_generate_with_bounded_length_produces_acceptable_length\nFAILED tests/original/test_xeger_edge.py::test_generate_min_equals_max - src....\nFAILED tests/original/test_xeger_edge.py::test_generate_accept_on_first_step\n======================== 14 failed, 26 passed in 1.43s =========================\n\n",
+          "failures": {
+            "public_tests.test_xeger_coverage_public::test_generate_with_bounded_length_throws_minimum_public": "Failed: DID NOT RAISE <class 'src.xeger.FailedRandomWalkException'>",
+            "public_tests.test_xeger_coverage_public::test_generate_with_bounded_length_throws_maximum_public": "Failed: DID NOT RAISE <class 'src.xeger.FailedRandomWalkException'>",
+            "public_tests.test_xeger_coverage_public::test_generate_with_bounded_length_produces_acceptable_length_public": "src.xeger.FailedRandomWalkException: Exceeded maximum walk length (3) before reaching an accept state: target length was 3 (min length = 1)",
+            "public_tests.test_xeger_edge_public::test_generate_min_equals_max_public": "src.xeger.FailedRandomWalkException: Exceeded maximum walk length (3) before reaching an accept state: target length was 3 (min length = 3)",
+            "public_tests.test_xeger_edge_public::test_generate_accept_on_first_step_public": "src.xeger.FailedRandomWalkException: Exceeded maximum walk length (0) before reaching an accept state: target length was 0 (min length = 0)",
+            "public_tests.test_xeger_public::test_simple_digit_generation_public": "AssertionError: assert 2 == 4",
+            "public_tests.test_xeger_public::test_simple_alpha_generation_public": "AssertionError: assert 4 == 3",
+            "public_tests.test_xeger_public::test_range_with_special_char_public": "AssertionError: assert None",
+            "public_tests.test_xeger_public::test_random_numeric_generation_public": "AssertionError: assert 1 == 8",
+            "tests.original.test_xeger::test_should_generate_text_correctly": "AssertionError: assert None",
+            "tests.original.test_xeger_coverage::test_generate_with_bounded_length_throws_minimum": "Failed: DID NOT RAISE <class 'src.xeger.FailedRandomWalkException'>",
+            "tests.original.test_xeger_coverage::test_generate_with_bounded_length_produces_acceptable_length": "src.xeger.FailedRandomWalkException: Exceeded maximum walk length (4) before reaching an accept state: target length was 2 (min length = 2)",
+            "tests.original.test_xeger_edge::test_generate_min_equals_max": "src.xeger.FailedRandomWalkException: Exceeded maximum walk length (4) before reaching an accept state: target length was 4 (min length = 4)",
+            "tests.original.test_xeger_edge::test_generate_accept_on_first_step": "src.xeger.FailedRandomWalkException: Exceeded maximum walk length (0) before reaching an accept state: target length was 0 (min length = 0)"
+          },
+          "passed_by_folder": {
+            "public_tests": 12,
+            "tests": 14
+          },
+          "error": null,
+          "public_feedback": {
+            "all_public_passed": false,
+            "public_test_output": ".....FFF...F.F..FFFF.                                                    [100%]\n=================================== FAILURES ===================================\n___________ test_generate_with_bounded_length_throws_minimum_public ____________\npublic_tests/test_xeger_coverage_public.py:35: in test_generate_with_bounded_length_throws_minimum_public\n    with pytest.raises(FailedRandomWalkException) as exc:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   Failed: DID NOT RAISE <class 'src.xeger.FailedRandomWalkException'>\n___________ test_generate_with_bounded_length_throws_maximum_public ____________\npublic_tests/test_xeger_coverage_public.py:42: in test_generate_with_bounded_length_throws_maximum_public\n    with pytest.raises(FailedRandomWalkException) as exc:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   Failed: DID NOT RAISE <class 'src.xeger.FailedRandomWalkException'>\n_____ test_generate_with_bounded_length_produces_acceptable_length_public ______\npublic_tests/test_xeger_coverage_public.py:48: in test_generate_with_bounded_length_produces_acceptable_length_public\n    val = xeger.generate(1, 3)\n          ^^^^^^^^^^^^^^^^^^^^\nsrc/xeger.py:453: in generate\n    return self._generateBounded(minLength, maxLength)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nsrc/xeger.py:512: in _generateBounded\n    raise FailedRandomWalkException(\nE   src.xeger.FailedRandomWalkException: Exceeded maximum walk length (3) before reaching an accept state: target length was 3 (min length = 1)\n_____________________ test_generate_min_equals_max_public ______________________\npublic_tests/test_xeger_edge_public.py:12: in test_generate_min_equals_max_public\n    s = generator.generate(3, 3)\n        ^^^^^^^^^^^^^^^^^^^^^^^^\nsrc/xeger.py:453: in generate\n    return self._generateBounded(minLength, maxLength)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nsrc/xeger.py:512: in _generateBounded\n    raise FailedRandomWalkException(\nE   src.xeger.FailedRandomWalkException: Exceeded maximum walk length (3) before reaching an accept state: target length was 3 (min length = 3)\n__________________ test_generate_accept_on_first_step_public ___________________\npublic_tests/test_xeger_edge_public.py:23: in test_generate_accept_on_first_step_public\n    s = generator.generate(0, 0)\n        ^^^^^^^^^^^^^^^^^^^^^^^^\nsrc/xeger.py:453: in generate\n    return self._generateBounded(minLength, maxLength)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nsrc/xeger.py:512: in _generateBounded\n    raise FailedRandomWalkException(\nE   src.xeger.FailedRandomWalkException: Exceeded maximum walk length (0) before reaching an accept state: target length was 0 (min length = 0)\n_____________________ test_simple_digit_generation_public ______________________\npublic_tests/test_xeger_public.py:14: in test_simple_digit_generation_public\n    assert len(result) == 4\nE   AssertionError: assert 8 == 4\nE    +  where 8 = len('55665464')\n_____________________ test_simple_alpha_generation_public ______________________\npublic_tests/test_xeger_public.py:21: in test_simple_alpha_generation_public\n    assert len(result) == 3\nE   AssertionError: assert 5 == 3\nE    +  where 5 = len('BABAA')\n_____________________ test_range_with_special_char_public ______________________\npublic_tests/test_xeger_public.py:28: in test_range_with_special_char_public\n    assert re.fullmatch(r\"[M-Q]{2}-[7-9]{2}\", str_)\nE   AssertionError: assert None\nE    +  where None = <function fullmatch at 0xffff9ef3b600>('[M-Q]{2}-[7-9]{2}', 'P-8998')\nE    +    where <function fullmatch at 0xffff9ef3b600> = re.fullmatch\n____________________ test_random_numeric_generation_public _____________________\npublic_tests/test_xeger_public.py:34: in test_random_numeric_generation_public\n    assert len(str_) == 8\nE   AssertionError: assert 2 == 8\nE    +  where 2 = len('98')\n=========================== short test summary info ============================\nFAILED public_tests/test_xeger_coverage_public.py::test_generate_with_bounded_length_throws_minimum_public\nFAILED public_tests/test_xeger_coverage_public.py::test_generate_with_bounded_length_throws_maximum_public\nFAILED public_tests/test_xeger_coverage_public.py::test_generate_with_bounded_length_produces_acceptable_length_public\nFAILED public_tests/test_xeger_edge_public.py::test_generate_min_equals_max_public\nFAILED public_tests/test_xeger_edge_public.py::test_generate_accept_on_first_step_public\nFAILED public_tests/test_xeger_public.py::test_simple_digit_generation_public\nFAILED public_tests/test_xeger_public.py::test_simple_alpha_generation_public\nFAILED public_tests/test_xeger_public.py::test_range_with_special_char_public\nFAILED public_tests/test_xeger_public.py::test_random_numeric_generation_public\n9 failed, 12 passed in 0.05s\n\n"
+          }
+        },
+        {
+          "iteration": 3,
+          "phase": "repair",
+          "estimated_cost_usd": 0.482,
+          "tokens": {
+            "input_tokens": 242,
+            "output_tokens": 53154,
+            "cache_read_input_tokens": 1227087,
+            "cache_creation_input_tokens": 74368
+          },
+          "agent_error": null,
+          "migration_passed": false,
+          "test_success_rate": 95.0,
+          "passed": 38,
+          "failed": 2,
+          "skipped": 0,
+          "total": 40,
+          "expected_total": 40,
+          "suite_verified": true,
+          "protected_files_unchanged": true,
+          "evaluation_valid": true,
+          "exit_code": 1,
+          "output_tail": "============================= test session starts ==============================\nplatform linux -- Python 3.12.12, pytest-8.4.2, pluggy-1.7.0\nrootdir: /scratch/work/v3/agarciadom_xeger\ncollected 40 items\n\npublic_tests/test_xeger_coverage_public.py ..........                    [ 25%]\npublic_tests/test_xeger_edge_public.py .....                             [ 37%]\npublic_tests/test_xeger_public.py .....                                  [ 50%]\npublic_tests/test_xeger_utils_public.py .                                [ 52%]\ntests/original/test_xeger.py F..                                         [ 60%]\ntests/original/test_xeger_coverage.py .......F..                         [ 85%]\ntests/original/test_xeger_edge.py .....                                  [ 97%]\ntests/original/test_xeger_utils.py .                                     [100%]\n\n=================================== FAILURES ===================================\n_____________________ test_should_generate_text_correctly ______________________\n\n    def test_should_generate_text_correctly():\n        regex = \"[ab]{4,6}c\"\n        generator = Xeger(regex)\n        for _ in range(100):\n            text = generator.generate()\n>           assert re.fullmatch(regex, text)\nE           AssertionError: assert None\nE            +  where None = <function fullmatch at 0xffff8a943560>('[ab]{4,6}c', 'ac')\nE            +    where <function fullmatch at 0xffff8a943560> = re.fullmatch\n\ntests/original/test_xeger.py:10: AssertionError\n_________ test_generate_with_bounded_length_produces_acceptable_length _________\n\n    def test_generate_with_bounded_length_produces_acceptable_length():\n        xeger = Xeger(\"a{2,4}\", random.Random(2))\n>       val = xeger.generate(2, 4)\n              ^^^^^^^^^^^^^^^^^^^^\n\ntests/original/test_xeger_coverage.py:48: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \nsrc/xeger.py:461: in generate\n    return self._generateBounded(minLength, maxLength)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = <src.xeger.Xeger object at 0xffff8974a1b0>, minLength = 2, maxLength = 4\n\n    def _generateBounded(self, minLength: int, maxLength: int) -> str:\n        \"\"\"Generate a string with length constraints.\"\"\"\n        builder: List[str] = []\n        walkLength = 0\n        state = self.automaton.getInitialState()\n    \n        # Follow epsilon from initial state\n        state = self._followEpsilonClosureSingle(state)\n    \n        # First, get to the target length\n        targetLength = Xeger.getRandomInt(minLength, maxLength, self.random)\n    \n        while walkLength < targetLength:\n            # Get only non-epsilon transitions and expand epsilon paths\n            transitions = self._getExpandedTransitions(state)\n    \n            if len(transitions) == 0:\n                # Check if we can reach accept via epsilon\n                if (walkLength >= minLength and\n                    (state.isAccept() or self._canReachAcceptViaEpsilon(state))):\n                    return ''.join(builder)\n                elif walkLength < minLength:\n>                   raise FailedRandomWalkException(\n                        f\"Reached accept state before minimum length \"\n                        f\"(current = {walkLength} < min = {minLength})\"\n                    )\nE                   src.xeger.FailedRandomWalkException: Reached accept state before minimum length (current = 1 < min = 2)\n\nsrc/xeger.py:485: FailedRandomWalkException\n- generated xml file: /scratch/work/v3/agarciadom_xeger/.harness-test-results.xml -\n=========================== short test summary info ============================\nFAILED tests/original/test_xeger.py::test_should_generate_text_correctly - As...\nFAILED tests/original/test_xeger_coverage.py::test_generate_with_bounded_length_produces_acceptable_length\n========================= 2 failed, 38 passed in 1.73s =========================\n\n",
+          "failures": {
+            "tests.original.test_xeger::test_should_generate_text_correctly": "AssertionError: assert None",
+            "tests.original.test_xeger_coverage::test_generate_with_bounded_length_produces_acceptable_length": "src.xeger.FailedRandomWalkException: Reached accept state before minimum length (current = 1 < min = 2)"
+          },
+          "passed_by_folder": {
+            "public_tests": 21,
+            "tests": 17
+          },
+          "error": null,
+          "public_feedback": {
+            "all_public_passed": true,
+            "public_test_output": ".....................                                                    [100%]\n21 passed in 0.02s\n\n"
+          }
+        }
+      ],
+      "cost_complete": true,
+      "passed": 38,
+      "expected_total": 40,
+      "error": null,
+      "estimated_cost_usd": 1.316,
+      "tokens": {
+        "input_tokens": 4754,
+        "output_tokens": 145889,
+        "cache_read_input_tokens": 3181680,
+        "cache_creation_input_tokens": 210114
+      }
+    },
+    {
+      "project": "editorconfig_editorconfig-jetbrains",
+      "status": "failed",
+      "migration_passed": false,
+      "test_success_rate": 66.67,
+      "iterations": 5,
+      "variant": "v3",
+      "history": [
+        {
+          "iteration": 1,
+          "phase": "one_shot",
+          "estimated_cost_usd": 0.0947,
+          "tokens": {
+            "input_tokens": 4194,
+            "output_tokens": 6712,
+            "cache_read_input_tokens": 278196,
+            "cache_creation_input_tokens": 23174
+          },
+          "agent_error": null,
+          "migration_passed": false,
+          "test_success_rate": 0.0,
+          "passed": 0,
+          "failed": 12,
+          "skipped": 0,
+          "total": 12,
+          "expected_total": 12,
+          "suite_verified": true,
+          "protected_files_unchanged": true,
+          "evaluation_valid": true,
+          "exit_code": 1,
+          "output_tail": "alid_config_message(\"42\", \"answer\", \"deepfile\")\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: module 'src.editorconfig.utils' has no attribute 'invalid_config_message'. Did you mean: 'invalidConfigMessage'?\n\npublic_tests/test_utils_public.py:37: AttributeError\n___________ test_applied_config_message_makes_correct_string_public ____________\n\n    def test_applied_config_message_makes_correct_string_public():\n>       msg = utils.applied_config_message(\"enabled\", \"feature\", \"file.txt\")\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: module 'src.editorconfig.utils' has no attribute 'applied_config_message'. Did you mean: 'appliedConfigMessage'?\n\npublic_tests/test_utils_public.py:41: AttributeError\n_________________ test_config_value_for_key_finds_existing_key _________________\n\n    def test_config_value_for_key_finds_existing_key():\n        pairs = [FakeOutPair(\"foo\", \"bar\"), FakeOutPair(\"baz\", \"qux\")]\n>       assert utils.config_value_for_key(pairs, \"foo\") == \"bar\"\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: module 'src.editorconfig.utils' has no attribute 'config_value_for_key'. Did you mean: 'configValueForKey'?\n\ntests/original/test_utils.py:18: AttributeError\n___________ test_config_value_for_key_returns_empty_for_missing_key ____________\n\n    def test_config_value_for_key_returns_empty_for_missing_key():\n        pairs = [FakeOutPair(\"foo\", \"bar\")]\n>       assert utils.config_value_for_key(pairs, \"notfound\") == \"\"\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: module 'src.editorconfig.utils' has no attribute 'config_value_for_key'. Did you mean: 'configValueForKey'?\n\ntests/original/test_utils.py:23: AttributeError\n_____________________ test_config_value_for_key_empty_list _____________________\n\n    def test_config_value_for_key_empty_list():\n>       assert utils.config_value_for_key([], \"foo\") == \"\"\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: module 'src.editorconfig.utils' has no attribute 'config_value_for_key'. Did you mean: 'configValueForKey'?\n\ntests/original/test_utils.py:26: AttributeError\n__________ test_config_value_for_key_multiple_same_keys_returns_first __________\n\n    def test_config_value_for_key_multiple_same_keys_returns_first():\n        pairs = [\n            FakeOutPair(\"foo\", \"first\"),\n            FakeOutPair(\"foo\", \"second\"),\n            FakeOutPair(\"bar\", \"other\"),\n        ]\n>       assert utils.config_value_for_key(pairs, \"foo\") == \"first\"\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: module 'src.editorconfig.utils' has no attribute 'config_value_for_key'. Did you mean: 'configValueForKey'?\n\ntests/original/test_utils.py:34: AttributeError\n_______________ test_invalid_config_message_makes_correct_string _______________\n\n    def test_invalid_config_message_makes_correct_string():\n>       msg = utils.invalid_config_message(\"value\", \"key\", \"file\")\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: module 'src.editorconfig.utils' has no attribute 'invalid_config_message'. Did you mean: 'invalidConfigMessage'?\n\ntests/original/test_utils.py:37: AttributeError\n_______________ test_applied_config_message_makes_correct_string _______________\n\n    def test_applied_config_message_makes_correct_string():\n>       msg = utils.applied_config_message(\"value\", \"key\", \"file\")\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: module 'src.editorconfig.utils' has no attribute 'applied_config_message'. Did you mean: 'appliedConfigMessage'?\n\ntests/original/test_utils.py:41: AttributeError\n- generated xml file: /scratch/work/v3/editorconfig_editorconfig-jetbrains/.harness-test-results.xml -\n=========================== short test summary info ============================\nFAILED public_tests/test_utils_public.py::test_config_value_for_key_finds_different_existing_key\nFAILED public_tests/test_utils_public.py::test_config_value_for_key_returns_empty_for_another_missing_key\nFAILED public_tests/test_utils_public.py::test_config_value_for_key_empty_list_still_returns_empty\nFAILED public_tests/test_utils_public.py::test_config_value_for_key_multiple_same_keys_returns_first_public\nFAILED public_tests/test_utils_public.py::test_invalid_config_message_makes_correct_string_public\nFAILED public_tests/test_utils_public.py::test_applied_config_message_makes_correct_string_public\nFAILED tests/original/test_utils.py::test_config_value_for_key_finds_existing_key\nFAILED tests/original/test_utils.py::test_config_value_for_key_returns_empty_for_missing_key\nFAILED tests/original/test_utils.py::test_config_value_for_key_empty_list - A...\nFAILED tests/original/test_utils.py::test_config_value_for_key_multiple_same_keys_returns_first\nFAILED tests/original/test_utils.py::test_invalid_config_message_makes_correct_string\nFAILED tests/original/test_utils.py::test_applied_config_message_makes_correct_string\n============================== 12 failed in 0.04s ==============================\n\n",
+          "failures": {
+            "public_tests.test_utils_public::test_config_value_for_key_finds_different_existing_key": "AttributeError: module 'src.editorconfig.utils' has no attribute 'config_value_for_key'. Did you mean: 'configValueForKey'?",
+            "public_tests.test_utils_public::test_config_value_for_key_returns_empty_for_another_missing_key": "AttributeError: module 'src.editorconfig.utils' has no attribute 'config_value_for_key'. Did you mean: 'configValueForKey'?",
+            "public_tests.test_utils_public::test_config_value_for_key_empty_list_still_returns_empty": "AttributeError: module 'src.editorconfig.utils' has no attribute 'config_value_for_key'. Did you mean: 'configValueForKey'?",
+            "public_tests.test_utils_public::test_config_value_for_key_multiple_same_keys_returns_first_public": "AttributeError: module 'src.editorconfig.utils' has no attribute 'config_value_for_key'. Did you mean: 'configValueForKey'?",
+            "public_tests.test_utils_public::test_invalid_config_message_makes_correct_string_public": "AttributeError: module 'src.editorconfig.utils' has no attribute 'invalid_config_message'. Did you mean: 'invalidConfigMessage'?",
+            "public_tests.test_utils_public::test_applied_config_message_makes_correct_string_public": "AttributeError: module 'src.editorconfig.utils' has no attribute 'applied_config_message'. Did you mean: 'appliedConfigMessage'?",
+            "tests.original.test_utils::test_config_value_for_key_finds_existing_key": "AttributeError: module 'src.editorconfig.utils' has no attribute 'config_value_for_key'. Did you mean: 'configValueForKey'?",
+            "tests.original.test_utils::test_config_value_for_key_returns_empty_for_missing_key": "AttributeError: module 'src.editorconfig.utils' has no attribute 'config_value_for_key'. Did you mean: 'configValueForKey'?",
+            "tests.original.test_utils::test_config_value_for_key_empty_list": "AttributeError: module 'src.editorconfig.utils' has no attribute 'config_value_for_key'. Did you mean: 'configValueForKey'?",
+            "tests.original.test_utils::test_config_value_for_key_multiple_same_keys_returns_first": "AttributeError: module 'src.editorconfig.utils' has no attribute 'config_value_for_key'. Did you mean: 'configValueForKey'?",
+            "tests.original.test_utils::test_invalid_config_message_makes_correct_string": "AttributeError: module 'src.editorconfig.utils' has no attribute 'invalid_config_message'. Did you mean: 'invalidConfigMessage'?",
+            "tests.original.test_utils::test_applied_config_message_makes_correct_string": "AttributeError: module 'src.editorconfig.utils' has no attribute 'applied_config_message'. Did you mean: 'appliedConfigMessage'?"
+          },
+          "passed_by_folder": {},
+          "error": null,
+          "public_feedback": {
+            "all_public_passed": false,
+            "public_test_output": "FFFFFF                                                                   [100%]\n=================================== FAILURES ===================================\n____________ test_config_value_for_key_finds_different_existing_key ____________\npublic_tests/test_utils_public.py:18: in test_config_value_for_key_finds_different_existing_key\n    assert utils.config_value_for_key(pairs, \"alpha\") == \"beta\"\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   AttributeError: module 'src.editorconfig.utils' has no attribute 'config_value_for_key'. Did you mean: 'configValueForKey'?\n_______ test_config_value_for_key_returns_empty_for_another_missing_key ________\npublic_tests/test_utils_public.py:23: in test_config_value_for_key_returns_empty_for_another_missing_key\n    assert utils.config_value_for_key(pairs, \"absent\") == \"\"\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   AttributeError: module 'src.editorconfig.utils' has no attribute 'config_value_for_key'. Did you mean: 'configValueForKey'?\n___________ test_config_value_for_key_empty_list_still_returns_empty ___________\npublic_tests/test_utils_public.py:26: in test_config_value_for_key_empty_list_still_returns_empty\n    assert utils.config_value_for_key([], \"doesnotexist\") == \"\"\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   AttributeError: module 'src.editorconfig.utils' has no attribute 'config_value_for_key'. Did you mean: 'configValueForKey'?\n______ test_config_value_for_key_multiple_same_keys_returns_first_public _______\npublic_tests/test_utils_public.py:34: in test_config_value_for_key_multiple_same_keys_returns_first_public\n    assert utils.config_value_for_key(pairs, \"dup\") == \"uno\"\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   AttributeError: module 'src.editorconfig.utils' has no attribute 'config_value_for_key'. Did you mean: 'configValueForKey'?\n___________ test_invalid_config_message_makes_correct_string_public ____________\npublic_tests/test_utils_public.py:37: in test_invalid_config_message_makes_correct_string_public\n    msg = utils.invalid_config_message(\"42\", \"answer\", \"deepfile\")\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   AttributeError: module 'src.editorconfig.utils' has no attribute 'invalid_config_message'. Did you mean: 'invalidConfigMessage'?\n___________ test_applied_config_message_makes_correct_string_public ____________\npublic_tests/test_utils_public.py:41: in test_applied_config_message_makes_correct_string_public\n    msg = utils.applied_config_message(\"enabled\", \"feature\", \"file.txt\")\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   AttributeError: module 'src.editorconfig.utils' has no attribute 'applied_config_message'. Did you mean: 'appliedConfigMessage'?\n=========================== short test summary info ============================\nFAILED public_tests/test_utils_public.py::test_config_value_for_key_finds_different_existing_key\nFAILED public_tests/test_utils_public.py::test_config_value_for_key_returns_empty_for_another_missing_key\nFAILED public_tests/test_utils_public.py::test_config_value_for_key_empty_list_still_returns_empty\nFAILED public_tests/test_utils_public.py::test_config_value_for_key_multiple_same_keys_returns_first_public\nFAILED public_tests/test_utils_public.py::test_invalid_config_message_makes_correct_string_public\nFAILED public_tests/test_utils_public.py::test_applied_config_message_makes_correct_string_public\n6 failed in 0.02s\n\n"
+          }
+        },
+        {
+          "iteration": 2,
+          "phase": "repair",
+          "estimated_cost_usd": 0.0299,
+          "tokens": {
+            "input_tokens": 50,
+            "output_tokens": 2930,
+            "cache_read_input_tokens": 35518,
+            "cache_creation_input_tokens": 8999
+          },
+          "agent_error": null,
+          "migration_passed": false,
+          "test_success_rate": 50.0,
+          "passed": 6,
+          "failed": 6,
+          "skipped": 0,
+          "total": 12,
+          "expected_total": 12,
+          "suite_verified": true,
+          "protected_files_unchanged": true,
+          "evaluation_valid": true,
+          "exit_code": 1,
+          "output_tail": "============================= test session starts ==============================\nplatform linux -- Python 3.12.12, pytest-8.4.2, pluggy-1.7.0\nrootdir: /scratch/work/v3/editorconfig_editorconfig-jetbrains\ncollected 12 items\n\npublic_tests/test_utils_public.py F..FFF                                 [ 50%]\ntests/original/test_utils.py F..F..                                      [100%]\n\n=================================== FAILURES ===================================\n____________ test_config_value_for_key_finds_different_existing_key ____________\n\n    def test_config_value_for_key_finds_different_existing_key():\n        pairs = [FakeOutPair(\"alpha\", \"beta\"), FakeOutPair(\"gamma\", \"delta\")]\n>       assert utils.config_value_for_key(pairs, \"alpha\") == \"beta\"\nE       AssertionError: assert '' == 'beta'\nE         \nE         - beta\n\npublic_tests/test_utils_public.py:18: AssertionError\n______ test_config_value_for_key_multiple_same_keys_returns_first_public _______\n\n    def test_config_value_for_key_multiple_same_keys_returns_first_public():\n        pairs = [\n            FakeOutPair(\"dup\", \"uno\"),\n            FakeOutPair(\"dup\", \"dos\"),\n            FakeOutPair(\"other\", \"tres\")\n        ]\n>       assert utils.config_value_for_key(pairs, \"dup\") == \"uno\"\nE       AssertionError: assert '' == 'uno'\nE         \nE         - uno\n\npublic_tests/test_utils_public.py:34: AssertionError\n___________ test_invalid_config_message_makes_correct_string_public ____________\n\n    def test_invalid_config_message_makes_correct_string_public():\n        msg = utils.invalid_config_message(\"42\", \"answer\", \"deepfile\")\n>       assert msg == '\"42\" is not a valid value for answer for file deepfile'\nE       assert '\"42\" is not ...file deepfile' == '\"42\" is not ...file deepfile'\nE         \nE         - \"42\" is not a valid value for answer for file deepfile\nE         ?                               ^^^^ ^\nE         + \"42\" is not a valid value for key for file deepfile\nE         ?                               ^ ^\n\npublic_tests/test_utils_public.py:38: AssertionError\n___________ test_applied_config_message_makes_correct_string_public ____________\n\n    def test_applied_config_message_makes_correct_string_public():\n        msg = utils.applied_config_message(\"enabled\", \"feature\", \"file.txt\")\n>       assert msg == 'Applied \"enabled\" as feature for file file.txt'\nE       assert 'Applied \"ena...file file.txt' == 'Applied \"ena...file file.txt'\nE         \nE         - Applied \"enabled\" as feature for file file.txt\nE         ?                      ^ ^^^^^\nE         + Applied \"enabled\" as key for file file.txt\nE         ?                      ^ ^\n\npublic_tests/test_utils_public.py:42: AssertionError\n_________________ test_config_value_for_key_finds_existing_key _________________\n\n    def test_config_value_for_key_finds_existing_key():\n        pairs = [FakeOutPair(\"foo\", \"bar\"), FakeOutPair(\"baz\", \"qux\")]\n>       assert utils.config_value_for_key(pairs, \"foo\") == \"bar\"\nE       AssertionError: assert '' == 'bar'\nE         \nE         - bar\n\ntests/original/test_utils.py:18: AssertionError\n__________ test_config_value_for_key_multiple_same_keys_returns_first __________\n\n    def test_config_value_for_key_multiple_same_keys_returns_first():\n        pairs = [\n            FakeOutPair(\"foo\", \"first\"),\n            FakeOutPair(\"foo\", \"second\"),\n            FakeOutPair(\"bar\", \"other\"),\n        ]\n>       assert utils.config_value_for_key(pairs, \"foo\") == \"first\"\nE       AssertionError: assert '' == 'first'\nE         \nE         - first\n\ntests/original/test_utils.py:34: AssertionError\n- generated xml file: /scratch/work/v3/editorconfig_editorconfig-jetbrains/.harness-test-results.xml -\n=========================== short test summary info ============================\nFAILED public_tests/test_utils_public.py::test_config_value_for_key_finds_different_existing_key\nFAILED public_tests/test_utils_public.py::test_config_value_for_key_multiple_same_keys_returns_first_public\nFAILED public_tests/test_utils_public.py::test_invalid_config_message_makes_correct_string_public\nFAILED public_tests/test_utils_public.py::test_applied_config_message_makes_correct_string_public\nFAILED tests/original/test_utils.py::test_config_value_for_key_finds_existing_key\nFAILED tests/original/test_utils.py::test_config_value_for_key_multiple_same_keys_returns_first\n========================= 6 failed, 6 passed in 0.03s ==========================\n\n",
+          "failures": {
+            "public_tests.test_utils_public::test_config_value_for_key_finds_different_existing_key": "AssertionError: assert '' == 'beta'",
+            "public_tests.test_utils_public::test_config_value_for_key_multiple_same_keys_returns_first_public": "AssertionError: assert '' == 'uno'",
+            "public_tests.test_utils_public::test_invalid_config_message_makes_correct_string_public": "assert '\"42\" is not ...file deepfile' == '\"42\" is not ...file deepfile'",
+            "public_tests.test_utils_public::test_applied_config_message_makes_correct_string_public": "assert 'Applied \"ena...file file.txt' == 'Applied \"ena...file file.txt'",
+            "tests.original.test_utils::test_config_value_for_key_finds_existing_key": "AssertionError: assert '' == 'bar'",
+            "tests.original.test_utils::test_config_value_for_key_multiple_same_keys_returns_first": "AssertionError: assert '' == 'first'"
+          },
+          "passed_by_folder": {
+            "public_tests": 2,
+            "tests": 4
+          },
+          "error": null,
+          "public_feedback": {
+            "all_public_passed": false,
+            "public_test_output": "F..FFF                                                                   [100%]\n=================================== FAILURES ===================================\n____________ test_config_value_for_key_finds_different_existing_key ____________\npublic_tests/test_utils_public.py:18: in test_config_value_for_key_finds_different_existing_key\n    assert utils.config_value_for_key(pairs, \"alpha\") == \"beta\"\nE   AssertionError: assert '' == 'beta'\nE     \nE     - beta\n______ test_config_value_for_key_multiple_same_keys_returns_first_public _______\npublic_tests/test_utils_public.py:34: in test_config_value_for_key_multiple_same_keys_returns_first_public\n    assert utils.config_value_for_key(pairs, \"dup\") == \"uno\"\nE   AssertionError: assert '' == 'uno'\nE     \nE     - uno\n___________ test_invalid_config_message_makes_correct_string_public ____________\npublic_tests/test_utils_public.py:38: in test_invalid_config_message_makes_correct_string_public\n    assert msg == '\"42\" is not a valid value for answer for file deepfile'\nE   assert '\"42\" is not ...file deepfile' == '\"42\" is not ...file deepfile'\nE     \nE     - \"42\" is not a valid value for answer for file deepfile\nE     ?                               ^^^^ ^\nE     + \"42\" is not a valid value for key for file deepfile\nE     ?                               ^ ^\n___________ test_applied_config_message_makes_correct_string_public ____________\npublic_tests/test_utils_public.py:42: in test_applied_config_message_makes_correct_string_public\n    assert msg == 'Applied \"enabled\" as feature for file file.txt'\nE   assert 'Applied \"ena...file file.txt' == 'Applied \"ena...file file.txt'\nE     \nE     - Applied \"enabled\" as feature for file file.txt\nE     ?                      ^ ^^^^^\nE     + Applied \"enabled\" as key for file file.txt\nE     ?                      ^ ^\n=========================== short test summary info ============================\nFAILED public_tests/test_utils_public.py::test_config_value_for_key_finds_different_existing_key\nFAILED public_tests/test_utils_public.py::test_config_value_for_key_multiple_same_keys_returns_first_public\nFAILED public_tests/test_utils_public.py::test_invalid_config_message_makes_correct_string_public\nFAILED public_tests/test_utils_public.py::test_applied_config_message_makes_correct_string_public\n4 failed, 2 passed in 0.03s\n\n"
+          }
+        },
+        {
+          "iteration": 3,
+          "phase": "repair",
+          "estimated_cost_usd": 0.1501,
+          "tokens": {
+            "input_tokens": 186,
+            "output_tokens": 17810,
+            "cache_read_input_tokens": 265728,
+            "cache_creation_input_tokens": 27218
+          },
+          "agent_error": null,
+          "migration_passed": false,
+          "test_success_rate": 66.67,
+          "passed": 8,
+          "failed": 4,
+          "skipped": 0,
+          "total": 12,
+          "expected_total": 12,
+          "suite_verified": true,
+          "protected_files_unchanged": true,
+          "evaluation_valid": true,
+          "exit_code": 1,
+          "output_tail": "============================= test session starts ==============================\nplatform linux -- Python 3.12.12, pytest-8.4.2, pluggy-1.7.0\nrootdir: /scratch/work/v3/editorconfig_editorconfig-jetbrains\ncollected 12 items\n\npublic_tests/test_utils_public.py F..F..                                 [ 50%]\ntests/original/test_utils.py F..F..                                      [100%]\n\n=================================== FAILURES ===================================\n____________ test_config_value_for_key_finds_different_existing_key ____________\n\n    def test_config_value_for_key_finds_different_existing_key():\n        pairs = [FakeOutPair(\"alpha\", \"beta\"), FakeOutPair(\"gamma\", \"delta\")]\n>       assert utils.config_value_for_key(pairs, \"alpha\") == \"beta\"\nE       AssertionError: assert '' == 'beta'\nE         \nE         - beta\n\npublic_tests/test_utils_public.py:18: AssertionError\n______ test_config_value_for_key_multiple_same_keys_returns_first_public _______\n\n    def test_config_value_for_key_multiple_same_keys_returns_first_public():\n        pairs = [\n            FakeOutPair(\"dup\", \"uno\"),\n            FakeOutPair(\"dup\", \"dos\"),\n            FakeOutPair(\"other\", \"tres\")\n        ]\n>       assert utils.config_value_for_key(pairs, \"dup\") == \"uno\"\nE       AssertionError: assert '' == 'uno'\nE         \nE         - uno\n\npublic_tests/test_utils_public.py:34: AssertionError\n_________________ test_config_value_for_key_finds_existing_key _________________\n\n    def test_config_value_for_key_finds_existing_key():\n        pairs = [FakeOutPair(\"foo\", \"bar\"), FakeOutPair(\"baz\", \"qux\")]\n>       assert utils.config_value_for_key(pairs, \"foo\") == \"bar\"\nE       AssertionError: assert '' == 'bar'\nE         \nE         - bar\n\ntests/original/test_utils.py:18: AssertionError\n__________ test_config_value_for_key_multiple_same_keys_returns_first __________\n\n    def test_config_value_for_key_multiple_same_keys_returns_first():\n        pairs = [\n            FakeOutPair(\"foo\", \"first\"),\n            FakeOutPair(\"foo\", \"second\"),\n            FakeOutPair(\"bar\", \"other\"),\n        ]\n>       assert utils.config_value_for_key(pairs, \"foo\") == \"first\"\nE       AssertionError: assert '' == 'first'\nE         \nE         - first\n\ntests/original/test_utils.py:34: AssertionError\n- generated xml file: /scratch/work/v3/editorconfig_editorconfig-jetbrains/.harness-test-results.xml -\n=========================== short test summary info ============================\nFAILED public_tests/test_utils_public.py::test_config_value_for_key_finds_different_existing_key\nFAILED public_tests/test_utils_public.py::test_config_value_for_key_multiple_same_keys_returns_first_public\nFAILED tests/original/test_utils.py::test_config_value_for_key_finds_existing_key\nFAILED tests/original/test_utils.py::test_config_value_for_key_multiple_same_keys_returns_first\n========================= 4 failed, 8 passed in 0.03s ==========================\n\n",
+          "failures": {
+            "public_tests.test_utils_public::test_config_value_for_key_finds_different_existing_key": "AssertionError: assert '' == 'beta'",
+            "public_tests.test_utils_public::test_config_value_for_key_multiple_same_keys_returns_first_public": "AssertionError: assert '' == 'uno'",
+            "tests.original.test_utils::test_config_value_for_key_finds_existing_key": "AssertionError: assert '' == 'bar'",
+            "tests.original.test_utils::test_config_value_for_key_multiple_same_keys_returns_first": "AssertionError: assert '' == 'first'"
+          },
+          "passed_by_folder": {
+            "public_tests": 4,
+            "tests": 4
+          },
+          "error": null,
+          "public_feedback": {
+            "all_public_passed": false,
+            "public_test_output": "F..F..                                                                   [100%]\n=================================== FAILURES ===================================\n____________ test_config_value_for_key_finds_different_existing_key ____________\npublic_tests/test_utils_public.py:18: in test_config_value_for_key_finds_different_existing_key\n    assert utils.config_value_for_key(pairs, \"alpha\") == \"beta\"\nE   AssertionError: assert '' == 'beta'\nE     \nE     - beta\n______ test_config_value_for_key_multiple_same_keys_returns_first_public _______\npublic_tests/test_utils_public.py:34: in test_config_value_for_key_multiple_same_keys_returns_first_public\n    assert utils.config_value_for_key(pairs, \"dup\") == \"uno\"\nE   AssertionError: assert '' == 'uno'\nE     \nE     - uno\n=========================== short test summary info ============================\nFAILED public_tests/test_utils_public.py::test_config_value_for_key_finds_different_existing_key\nFAILED public_tests/test_utils_public.py::test_config_value_for_key_multiple_same_keys_returns_first_public\n2 failed, 4 passed in 0.01s\n\n"
+          }
+        },
+        {
+          "iteration": 4,
+          "phase": "repair",
+          "estimated_cost_usd": 0.3374,
+          "tokens": {
+            "input_tokens": 290,
+            "output_tokens": 40592,
+            "cache_read_input_tokens": 710617,
+            "cache_creation_input_tokens": 50307
+          },
+          "agent_error": null,
+          "migration_passed": false,
+          "test_success_rate": 50.0,
+          "passed": 6,
+          "failed": 6,
+          "skipped": 0,
+          "total": 12,
+          "expected_total": 12,
+          "suite_verified": true,
+          "protected_files_unchanged": true,
+          "evaluation_valid": true,
+          "exit_code": 1,
+          "output_tail": "============================= test session starts ==============================\nplatform linux -- Python 3.12.12, pytest-8.4.2, pluggy-1.7.0\nrootdir: /scratch/work/v3/editorconfig_editorconfig-jetbrains\ncollected 12 items\n\npublic_tests/test_utils_public.py F..FFF                                 [ 50%]\ntests/original/test_utils.py F..F..                                      [100%]\n\n=================================== FAILURES ===================================\n____________ test_config_value_for_key_finds_different_existing_key ____________\n\n    def test_config_value_for_key_finds_different_existing_key():\n        pairs = [FakeOutPair(\"alpha\", \"beta\"), FakeOutPair(\"gamma\", \"delta\")]\n>       assert utils.config_value_for_key(pairs, \"alpha\") == \"beta\"\nE       AssertionError: assert '' == 'beta'\nE         \nE         - beta\n\npublic_tests/test_utils_public.py:18: AssertionError\n______ test_config_value_for_key_multiple_same_keys_returns_first_public _______\n\n    def test_config_value_for_key_multiple_same_keys_returns_first_public():\n        pairs = [\n            FakeOutPair(\"dup\", \"uno\"),\n            FakeOutPair(\"dup\", \"dos\"),\n            FakeOutPair(\"other\", \"tres\")\n        ]\n>       assert utils.config_value_for_key(pairs, \"dup\") == \"uno\"\nE       AssertionError: assert '' == 'uno'\nE         \nE         - uno\n\npublic_tests/test_utils_public.py:34: AssertionError\n___________ test_invalid_config_message_makes_correct_string_public ____________\n\n    def test_invalid_config_message_makes_correct_string_public():\n        msg = utils.invalid_config_message(\"42\", \"answer\", \"deepfile\")\n>       assert msg == '\"42\" is not a valid value for answer for file deepfile'\nE       assert '\"42\" is not ...file deepfile' == '\"42\" is not ...file deepfile'\nE         \nE         - \"42\" is not a valid value for answer for file deepfile\nE         ?                               ^^^^ ^\nE         + \"42\" is not a valid value for key for file deepfile\nE         ?                               ^ ^\n\npublic_tests/test_utils_public.py:38: AssertionError\n___________ test_applied_config_message_makes_correct_string_public ____________\n\n    def test_applied_config_message_makes_correct_string_public():\n        msg = utils.applied_config_message(\"enabled\", \"feature\", \"file.txt\")\n>       assert msg == 'Applied \"enabled\" as feature for file file.txt'\nE       assert 'Applied \"ena...file file.txt' == 'Applied \"ena...file file.txt'\nE         \nE         - Applied \"enabled\" as feature for file file.txt\nE         ?                      ^ ^^^^^\nE         + Applied \"enabled\" as key for file file.txt\nE         ?                      ^ ^\n\npublic_tests/test_utils_public.py:42: AssertionError\n_________________ test_config_value_for_key_finds_existing_key _________________\n\n    def test_config_value_for_key_finds_existing_key():\n        pairs = [FakeOutPair(\"foo\", \"bar\"), FakeOutPair(\"baz\", \"qux\")]\n>       assert utils.config_value_for_key(pairs, \"foo\") == \"bar\"\nE       AssertionError: assert '' == 'bar'\nE         \nE         - bar\n\ntests/original/test_utils.py:18: AssertionError\n__________ test_config_value_for_key_multiple_same_keys_returns_first __________\n\n    def test_config_value_for_key_multiple_same_keys_returns_first():\n        pairs = [\n            FakeOutPair(\"foo\", \"first\"),\n            FakeOutPair(\"foo\", \"second\"),\n            FakeOutPair(\"bar\", \"other\"),\n        ]\n>       assert utils.config_value_for_key(pairs, \"foo\") == \"first\"\nE       AssertionError: assert '' == 'first'\nE         \nE         - first\n\ntests/original/test_utils.py:34: AssertionError\n- generated xml file: /scratch/work/v3/editorconfig_editorconfig-jetbrains/.harness-test-results.xml -\n=========================== short test summary info ============================\nFAILED public_tests/test_utils_public.py::test_config_value_for_key_finds_different_existing_key\nFAILED public_tests/test_utils_public.py::test_config_value_for_key_multiple_same_keys_returns_first_public\nFAILED public_tests/test_utils_public.py::test_invalid_config_message_makes_correct_string_public\nFAILED public_tests/test_utils_public.py::test_applied_config_message_makes_correct_string_public\nFAILED tests/original/test_utils.py::test_config_value_for_key_finds_existing_key\nFAILED tests/original/test_utils.py::test_config_value_for_key_multiple_same_keys_returns_first\n========================= 6 failed, 6 passed in 0.03s ==========================\n\n",
+          "failures": {
+            "public_tests.test_utils_public::test_config_value_for_key_finds_different_existing_key": "AssertionError: assert '' == 'beta'",
+            "public_tests.test_utils_public::test_config_value_for_key_multiple_same_keys_returns_first_public": "AssertionError: assert '' == 'uno'",
+            "public_tests.test_utils_public::test_invalid_config_message_makes_correct_string_public": "assert '\"42\" is not ...file deepfile' == '\"42\" is not ...file deepfile'",
+            "public_tests.test_utils_public::test_applied_config_message_makes_correct_string_public": "assert 'Applied \"ena...file file.txt' == 'Applied \"ena...file file.txt'",
+            "tests.original.test_utils::test_config_value_for_key_finds_existing_key": "AssertionError: assert '' == 'bar'",
+            "tests.original.test_utils::test_config_value_for_key_multiple_same_keys_returns_first": "AssertionError: assert '' == 'first'"
+          },
+          "passed_by_folder": {
+            "public_tests": 2,
+            "tests": 4
+          },
+          "error": null,
+          "public_feedback": {
+            "all_public_passed": false,
+            "public_test_output": "F..FFF                                                                   [100%]\n=================================== FAILURES ===================================\n____________ test_config_value_for_key_finds_different_existing_key ____________\npublic_tests/test_utils_public.py:18: in test_config_value_for_key_finds_different_existing_key\n    assert utils.config_value_for_key(pairs, \"alpha\") == \"beta\"\nE   AssertionError: assert '' == 'beta'\nE     \nE     - beta\n______ test_config_value_for_key_multiple_same_keys_returns_first_public _______\npublic_tests/test_utils_public.py:34: in test_config_value_for_key_multiple_same_keys_returns_first_public\n    assert utils.config_value_for_key(pairs, \"dup\") == \"uno\"\nE   AssertionError: assert '' == 'uno'\nE     \nE     - uno\n___________ test_invalid_config_message_makes_correct_string_public ____________\npublic_tests/test_utils_public.py:38: in test_invalid_config_message_makes_correct_string_public\n    assert msg == '\"42\" is not a valid value for answer for file deepfile'\nE   assert '\"42\" is not ...file deepfile' == '\"42\" is not ...file deepfile'\nE     \nE     - \"42\" is not a valid value for answer for file deepfile\nE     ?                               ^^^^ ^\nE     + \"42\" is not a valid value for key for file deepfile\nE     ?                               ^ ^\n___________ test_applied_config_message_makes_correct_string_public ____________\npublic_tests/test_utils_public.py:42: in test_applied_config_message_makes_correct_string_public\n    assert msg == 'Applied \"enabled\" as feature for file file.txt'\nE   assert 'Applied \"ena...file file.txt' == 'Applied \"ena...file file.txt'\nE     \nE     - Applied \"enabled\" as feature for file file.txt\nE     ?                      ^ ^^^^^\nE     + Applied \"enabled\" as key for file file.txt\nE     ?                      ^ ^\n=========================== short test summary info ============================\nFAILED public_tests/test_utils_public.py::test_config_value_for_key_finds_different_existing_key\nFAILED public_tests/test_utils_public.py::test_config_value_for_key_multiple_same_keys_returns_first_public\nFAILED public_tests/test_utils_public.py::test_invalid_config_message_makes_correct_string_public\nFAILED public_tests/test_utils_public.py::test_applied_config_message_makes_correct_string_public\n4 failed, 2 passed in 0.01s\n\n"
+          }
+        },
+        {
+          "iteration": 5,
+          "phase": "repair",
+          "estimated_cost_usd": 0.0675,
+          "tokens": {
+            "input_tokens": 162,
+            "output_tokens": 6424,
+            "cache_read_input_tokens": 164520,
+            "cache_creation_input_tokens": 14852
+          },
+          "agent_error": null,
+          "migration_passed": false,
+          "test_success_rate": 66.67,
+          "passed": 8,
+          "failed": 4,
+          "skipped": 0,
+          "total": 12,
+          "expected_total": 12,
+          "suite_verified": true,
+          "protected_files_unchanged": true,
+          "evaluation_valid": true,
+          "exit_code": 1,
+          "output_tail": "============================= test session starts ==============================\nplatform linux -- Python 3.12.12, pytest-8.4.2, pluggy-1.7.0\nrootdir: /scratch/work/v3/editorconfig_editorconfig-jetbrains\ncollected 12 items\n\npublic_tests/test_utils_public.py F..F..                                 [ 50%]\ntests/original/test_utils.py F..F..                                      [100%]\n\n=================================== FAILURES ===================================\n____________ test_config_value_for_key_finds_different_existing_key ____________\n\n    def test_config_value_for_key_finds_different_existing_key():\n        pairs = [FakeOutPair(\"alpha\", \"beta\"), FakeOutPair(\"gamma\", \"delta\")]\n>       assert utils.config_value_for_key(pairs, \"alpha\") == \"beta\"\nE       AssertionError: assert '' == 'beta'\nE         \nE         - beta\n\npublic_tests/test_utils_public.py:18: AssertionError\n______ test_config_value_for_key_multiple_same_keys_returns_first_public _______\n\n    def test_config_value_for_key_multiple_same_keys_returns_first_public():\n        pairs = [\n            FakeOutPair(\"dup\", \"uno\"),\n            FakeOutPair(\"dup\", \"dos\"),\n            FakeOutPair(\"other\", \"tres\")\n        ]\n>       assert utils.config_value_for_key(pairs, \"dup\") == \"uno\"\nE       AssertionError: assert '' == 'uno'\nE         \nE         - uno\n\npublic_tests/test_utils_public.py:34: AssertionError\n_________________ test_config_value_for_key_finds_existing_key _________________\n\n    def test_config_value_for_key_finds_existing_key():\n        pairs = [FakeOutPair(\"foo\", \"bar\"), FakeOutPair(\"baz\", \"qux\")]\n>       assert utils.config_value_for_key(pairs, \"foo\") == \"bar\"\nE       AssertionError: assert '' == 'bar'\nE         \nE         - bar\n\ntests/original/test_utils.py:18: AssertionError\n__________ test_config_value_for_key_multiple_same_keys_returns_first __________\n\n    def test_config_value_for_key_multiple_same_keys_returns_first():\n        pairs = [\n            FakeOutPair(\"foo\", \"first\"),\n            FakeOutPair(\"foo\", \"second\"),\n            FakeOutPair(\"bar\", \"other\"),\n        ]\n>       assert utils.config_value_for_key(pairs, \"foo\") == \"first\"\nE       AssertionError: assert '' == 'first'\nE         \nE         - first\n\ntests/original/test_utils.py:34: AssertionError\n- generated xml file: /scratch/work/v3/editorconfig_editorconfig-jetbrains/.harness-test-results.xml -\n=========================== short test summary info ============================\nFAILED public_tests/test_utils_public.py::test_config_value_for_key_finds_different_existing_key\nFAILED public_tests/test_utils_public.py::test_config_value_for_key_multiple_same_keys_returns_first_public\nFAILED tests/original/test_utils.py::test_config_value_for_key_finds_existing_key\nFAILED tests/original/test_utils.py::test_config_value_for_key_multiple_same_keys_returns_first\n========================= 4 failed, 8 passed in 0.03s ==========================\n\n",
+          "failures": {
+            "public_tests.test_utils_public::test_config_value_for_key_finds_different_existing_key": "AssertionError: assert '' == 'beta'",
+            "public_tests.test_utils_public::test_config_value_for_key_multiple_same_keys_returns_first_public": "AssertionError: assert '' == 'uno'",
+            "tests.original.test_utils::test_config_value_for_key_finds_existing_key": "AssertionError: assert '' == 'bar'",
+            "tests.original.test_utils::test_config_value_for_key_multiple_same_keys_returns_first": "AssertionError: assert '' == 'first'"
+          },
+          "passed_by_folder": {
+            "public_tests": 4,
+            "tests": 4
+          },
+          "error": null
+        }
+      ],
+      "cost_complete": true,
+      "passed": 8,
+      "expected_total": 12,
+      "error": null,
+      "estimated_cost_usd": 0.6796,
+      "tokens": {
+        "input_tokens": 4882,
+        "output_tokens": 74468,
+        "cache_read_input_tokens": 1454579,
+        "cache_creation_input_tokens": 124550
+      }
+    },
+    {
+      "project": "txusballesteros_fit-chart",
+      "status": "passed",
+      "migration_passed": true,
+      "test_success_rate": 100.0,
+      "iterations": 3,
+      "variant": "v3",
+      "history": [
+        {
+          "iteration": 1,
+          "phase": "one_shot",
+          "estimated_cost_usd": 0.1206,
+          "tokens": {
+            "input_tokens": 4200,
+            "output_tokens": 9515,
+            "cache_read_input_tokens": 328062,
+            "cache_creation_input_tokens": 28716
+          },
+          "agent_error": null,
+          "migration_passed": false,
+          "test_success_rate": null,
+          "passed": 0,
+          "failed": 10,
+          "skipped": 0,
+          "total": 10,
+          "expected_total": 16,
+          "suite_verified": false,
+          "protected_files_unchanged": true,
+          "evaluation_valid": false,
+          "exit_code": 2,
+          "output_tail": "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\npublic_tests/test_renderer_factory_public.py:2: in <module>\n    from src.fitchart.renderer_factory import RendererFactory\nsrc/fitchart/renderer_factory.py:25: in <module>\n    from fitchart import AnimationMode\nE   ModuleNotFoundError: No module named 'fitchart'\n____________ ERROR collecting tests/original/test_base_renderer.py _____________\nImportError while importing test module '/scratch/work/v3/txusballesteros_fit-chart/tests/original/test_base_renderer.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_base_renderer.py:3: in <module>\n    from src.fitchart.fake_classes import FitChartValue\nE   ImportError: cannot import name 'FitChartValue' from 'src.fitchart.fake_classes' (/scratch/work/v3/txusballesteros_fit-chart/src/fitchart/fake_classes.py)\n________ ERROR collecting tests/original/test_fake_classes_for_test.py _________\nImportError while importing test module '/scratch/work/v3/txusballesteros_fit-chart/tests/original/test_fake_classes_for_test.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_fake_classes_for_test.py:2: in <module>\n    from src.fitchart.fake_classes import AnimationMode, Renderer, FitChartValue\nE   ImportError: cannot import name 'AnimationMode' from 'src.fitchart.fake_classes' (/scratch/work/v3/txusballesteros_fit-chart/src/fitchart/fake_classes.py)\n________ ERROR collecting tests/original/test_linear_value_renderer.py _________\nImportError while importing test module '/scratch/work/v3/txusballesteros_fit-chart/tests/original/test_linear_value_renderer.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_linear_value_renderer.py:3: in <module>\n    from src.fitchart.linear_value_renderer import LinearValueRenderer\nsrc/fitchart/linear_value_renderer.py:25: in <module>\n    from fitchart.base_renderer import BaseRenderer\nE   ModuleNotFoundError: No module named 'fitchart'\n_______ ERROR collecting tests/original/test_overdraw_value_renderer.py ________\nImportError while importing test module '/scratch/work/v3/txusballesteros_fit-chart/tests/original/test_overdraw_value_renderer.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_overdraw_value_renderer.py:2: in <module>\n    from src.fitchart.overdraw_value_renderer import OverdrawValueRenderer\nsrc/fitchart/overdraw_value_renderer.py:25: in <module>\n    from fitchart.base_renderer import BaseRenderer\nE   ModuleNotFoundError: No module named 'fitchart'\n___________ ERROR collecting tests/original/test_renderer_factory.py ___________\nImportError while importing test module '/scratch/work/v3/txusballesteros_fit-chart/tests/original/test_renderer_factory.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_renderer_factory.py:2: in <module>\n    from src.fitchart.renderer_factory import RendererFactory\nsrc/fitchart/renderer_factory.py:25: in <module>\n    from fitchart import AnimationMode\nE   ModuleNotFoundError: No module named 'fitchart'\n- generated xml file: /scratch/work/v3/txusballesteros_fit-chart/.harness-test-results.xml -\n=========================== short test summary info ============================\nERROR public_tests/test_base_renderer_public.py\nERROR public_tests/test_fake_classes_for_public_test.py\nERROR public_tests/test_linear_value_renderer_public.py\nERROR public_tests/test_overdraw_value_renderer_public.py\nERROR public_tests/test_renderer_factory_public.py\nERROR tests/original/test_base_renderer.py\nERROR tests/original/test_fake_classes_for_test.py\nERROR tests/original/test_linear_value_renderer.py\nERROR tests/original/test_overdraw_value_renderer.py\nERROR tests/original/test_renderer_factory.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 10 errors during collection !!!!!!!!!!!!!!!!!!!\n============================== 10 errors in 0.19s ==============================\n\n",
+          "failures": {
+            "::public_tests.test_base_renderer_public": "ImportError: cannot import name 'FitChartValue' from 'src.fitchart.fake_classes' (/scratch/work/v3/txusballesteros_fit-chart/src/fitchart/fake_classes.py)",
+            "::public_tests.test_fake_classes_for_public_test": "ImportError: cannot import name 'AnimationMode' from 'src.fitchart.fake_classes' (/scratch/work/v3/txusballesteros_fit-chart/src/fitchart/fake_classes.py)",
+            "::public_tests.test_linear_value_renderer_public": "ModuleNotFoundError: No module named 'fitchart'",
+            "::public_tests.test_overdraw_value_renderer_public": "ModuleNotFoundError: No module named 'fitchart'",
+            "::public_tests.test_renderer_factory_public": "ModuleNotFoundError: No module named 'fitchart'",
+            "::tests.original.test_base_renderer": "ImportError: cannot import name 'FitChartValue' from 'src.fitchart.fake_classes' (/scratch/work/v3/txusballesteros_fit-chart/src/fitchart/fake_classes.py)",
+            "::tests.original.test_fake_classes_for_test": "ImportError: cannot import name 'AnimationMode' from 'src.fitchart.fake_classes' (/scratch/work/v3/txusballesteros_fit-chart/src/fitchart/fake_classes.py)",
+            "::tests.original.test_linear_value_renderer": "ModuleNotFoundError: No module named 'fitchart'",
+            "::tests.original.test_overdraw_value_renderer": "ModuleNotFoundError: No module named 'fitchart'",
+            "::tests.original.test_renderer_factory": "ModuleNotFoundError: No module named 'fitchart'"
+          },
+          "passed_by_folder": {},
+          "error": "Collected/executed test identities differ from immutable baseline, or tests were skipped; Test collection: ============ short test summary info ============================\nERROR public_tests/test_base_renderer_public.py\nERROR public_tests/test_fake_classes_for_public_test.py\nERROR public_tests/test_linear_value_renderer_public.py\nERROR public_tests/test_overdraw_value_renderer_public.py\nERROR public_tests/test_renderer_factory_public.py\nERROR tests/original/test_base_renderer.py\nERROR tests/original/test_fake_classes_for_test.py\nERROR tests/original/test_linear_value_renderer.py\nERROR tests/original/test_overdraw_value_renderer.py\nERROR tests/original/test_renderer_factory.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 10 errors during collection !!!!!!!!!!!!!!!!!!!\nno tests collected, 10 errors in 0.18s\n\n",
+          "public_feedback": {
+            "all_public_passed": false,
+            "public_test_output": "\n==================================== ERRORS ====================================\n__________ ERROR collecting public_tests/test_base_renderer_public.py __________\nImportError while importing test module '/scratch/work/v3/txusballesteros_fit-chart/public_tests/test_base_renderer_public.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\npublic_tests/test_base_renderer_public.py:2: in <module>\n    from src.fitchart.fake_classes import FitChartValue\nE   ImportError: cannot import name 'FitChartValue' from 'src.fitchart.fake_classes' (/scratch/work/v3/txusballesteros_fit-chart/src/fitchart/fake_classes.py)\n______ ERROR collecting public_tests/test_fake_classes_for_public_test.py ______\nImportError while importing test module '/scratch/work/v3/txusballesteros_fit-chart/public_tests/test_fake_classes_for_public_test.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\npublic_tests/test_fake_classes_for_public_test.py:1: in <module>\n    from src.fitchart.fake_classes import AnimationMode, Renderer, FitChartValue\nE   ImportError: cannot import name 'AnimationMode' from 'src.fitchart.fake_classes' (/scratch/work/v3/txusballesteros_fit-chart/src/fitchart/fake_classes.py)\n______ ERROR collecting public_tests/test_linear_value_renderer_public.py ______\nImportError while importing test module '/scratch/work/v3/txusballesteros_fit-chart/public_tests/test_linear_value_renderer_public.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\npublic_tests/test_linear_value_renderer_public.py:2: in <module>\n    from src.fitchart.linear_value_renderer import LinearValueRenderer\nsrc/fitchart/linear_value_renderer.py:25: in <module>\n    from fitchart.base_renderer import BaseRenderer\nE   ModuleNotFoundError: No module named 'fitchart'\n_____ ERROR collecting public_tests/test_overdraw_value_renderer_public.py _____\nImportError while importing test module '/scratch/work/v3/txusballesteros_fit-chart/public_tests/test_overdraw_value_renderer_public.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\npublic_tests/test_overdraw_value_renderer_public.py:2: in <module>\n    from src.fitchart.overdraw_value_renderer import OverdrawValueRenderer\nsrc/fitchart/overdraw_value_renderer.py:25: in <module>\n    from fitchart.base_renderer import BaseRenderer\nE   ModuleNotFoundError: No module named 'fitchart'\n________ ERROR collecting public_tests/test_renderer_factory_public.py _________\nImportError while importing test module '/scratch/work/v3/txusballesteros_fit-chart/public_tests/test_renderer_factory_public.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\npublic_tests/test_renderer_factory_public.py:2: in <module>\n    from src.fitchart.renderer_factory import RendererFactory\nsrc/fitchart/renderer_factory.py:25: in <module>\n    from fitchart import AnimationMode\nE   ModuleNotFoundError: No module named 'fitchart'\n=========================== short test summary info ============================\nERROR public_tests/test_base_renderer_public.py\nERROR public_tests/test_fake_classes_for_public_test.py\nERROR public_tests/test_linear_value_renderer_public.py\nERROR public_tests/test_overdraw_value_renderer_public.py\nERROR public_tests/test_renderer_factory_public.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 5 errors during collection !!!!!!!!!!!!!!!!!!!!\n5 errors in 0.14s\n\n"
+          }
+        },
+        {
+          "iteration": 2,
+          "phase": "repair",
+          "estimated_cost_usd": 0.1463,
+          "tokens": {
+            "input_tokens": 290,
+            "output_tokens": 9158,
+            "cache_read_input_tokens": 607807,
+            "cache_creation_input_tokens": 31233
+          },
+          "agent_error": null,
+          "migration_passed": false,
+          "test_success_rate": 75.0,
+          "passed": 12,
+          "failed": 4,
+          "skipped": 0,
+          "total": 16,
+          "expected_total": 16,
+          "suite_verified": true,
+          "protected_files_unchanged": true,
+          "evaluation_valid": true,
+          "exit_code": 1,
+          "output_tail": "========\nplatform linux -- Python 3.12.12, pytest-8.4.2, pluggy-1.7.0\nrootdir: /scratch/work/v3/txusballesteros_fit-chart\ncollected 16 items\n\npublic_tests/test_base_renderer_public.py .                              [  6%]\npublic_tests/test_fake_classes_for_public_test.py F                      [ 12%]\npublic_tests/test_linear_value_renderer_public.py ...                    [ 31%]\npublic_tests/test_overdraw_value_renderer_public.py .                    [ 37%]\npublic_tests/test_renderer_factory_public.py FF                          [ 50%]\ntests/original/test_base_renderer.py .                                   [ 56%]\ntests/original/test_fake_classes_for_test.py F                           [ 62%]\ntests/original/test_linear_value_renderer.py ...                         [ 81%]\ntests/original/test_overdraw_value_renderer.py .                         [ 87%]\ntests/original/test_renderer_factory.py ..                               [100%]\n\n=================================== FAILURES ===================================\n________________________ test_fake_classes_exist_public ________________________\n\n    def test_fake_classes_exist_public():\n        fc = FitChartValue(42, 0x123)\n        assert fc.getValue() == 42\n        assert fc.getColor() == 0x123\n        fc.setStartAngle(33)\n        assert fc.getStartAngle() == 33\n        fc.setSweepAngle(77)\n        assert fc.getSweepAngle() == 77\n>       fc.setPaint(\"paint_pub\")\n\npublic_tests/test_fake_classes_for_public_test.py:11: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = <src.fitchart.fake_classes.FitChartValue object at 0xffffa3e16e70>\npaint = 'paint_pub'\n\n    def setPaint(self, paint):\n        self.paint = paint\n        if paint is not None:\n>           paint.setColor(self.color)\n            ^^^^^^^^^^^^^^\nE           AttributeError: 'str' object has no attribute 'setColor'\n\nsrc/fitchart/fake_classes.py:151: AttributeError\n____ test_create_renderer_returns_linear_value_renderer_with_different_area ____\n\n    def test_create_renderer_returns_linear_value_renderer_with_different_area():\n        value = MagicMock(spec=FitChartValue)\n        area = RectF(1, 2, 80, 60)\n>       renderer = RendererFactory.create(area, value, AnimationMode.LINEAR)\n                   ^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: type object 'RendererFactory' has no attribute 'create'\n\npublic_tests/test_renderer_factory_public.py:14: AttributeError\n___ test_create_renderer_returns_overdraw_value_renderer_with_different_area ___\n\n    def test_create_renderer_returns_overdraw_value_renderer_with_different_area():\n        value = MagicMock(spec=FitChartValue)\n        area = RectF(3, 4, 70, 30)\n>       renderer = RendererFactory.create(area, value, AnimationMode.OVERDRAW)\n                   ^^^^^^^^^^^^^^^^^^^^^^\nE       AttributeError: type object 'RendererFactory' has no attribute 'create'\n\npublic_tests/test_renderer_factory_public.py:20: AttributeError\n___________________________ test_fake_classes_exist ____________________________\n\n    def test_fake_classes_exist():\n        fc = FitChartValue(1, 2)\n        assert fc.getValue() == 1\n        assert fc.getColor() == 2\n        fc.setStartAngle(10)\n        assert fc.getStartAngle() == 10\n        fc.setSweepAngle(20)\n        assert fc.getSweepAngle() == 20\n>       fc.setPaint(\"paint_obj\")\n\ntests/original/test_fake_classes_for_test.py:12: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = <src.fitchart.fake_classes.FitChartValue object at 0xffffa3ea1730>\npaint = 'paint_obj'\n\n    def setPaint(self, paint):\n        self.paint = paint\n        if paint is not None:\n>           paint.setColor(self.color)\n            ^^^^^^^^^^^^^^\nE           AttributeError: 'str' object has no attribute 'setColor'\n\nsrc/fitchart/fake_classes.py:151: AttributeError\n=============================== warnings summary ===============================\npublic_tests/test_base_renderer_public.py:8\n  /scratch/work/v3/txusballesteros_fit-chart/public_tests/test_base_renderer_public.py:8: PytestCollectionWarning: cannot collect test class 'TestRenderer' because it has a __init__ constructor (from: public_tests/test_base_renderer_public.py)\n    class TestRenderer(BaseRenderer):\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n- generated xml file: /scratch/work/v3/txusballesteros_fit-chart/.harness-test-results.xml -\n=========================== short test summary info ============================\nFAILED public_tests/test_fake_classes_for_public_test.py::test_fake_classes_exist_public\nFAILED public_tests/test_renderer_factory_public.py::test_create_renderer_returns_linear_value_renderer_with_different_area\nFAILED public_tests/test_renderer_factory_public.py::test_create_renderer_returns_overdraw_value_renderer_with_different_area\nFAILED tests/original/test_fake_classes_for_test.py::test_fake_classes_exist\n=================== 4 failed, 12 passed, 1 warning in 0.13s ====================\n\n",
+          "failures": {
+            "public_tests.test_fake_classes_for_public_test::test_fake_classes_exist_public": "AttributeError: 'str' object has no attribute 'setColor'",
+            "public_tests.test_renderer_factory_public::test_create_renderer_returns_linear_value_renderer_with_different_area": "AttributeError: type object 'RendererFactory' has no attribute 'create'",
+            "public_tests.test_renderer_factory_public::test_create_renderer_returns_overdraw_value_renderer_with_different_area": "AttributeError: type object 'RendererFactory' has no attribute 'create'",
+            "tests.original.test_fake_classes_for_test::test_fake_classes_exist": "AttributeError: 'str' object has no attribute 'setColor'"
+          },
+          "passed_by_folder": {
+            "public_tests": 5,
+            "tests": 7
+          },
+          "error": null,
+          "public_feedback": {
+            "all_public_passed": false,
+            "public_test_output": ".F....FF                                                                 [100%]\n=================================== FAILURES ===================================\n________________________ test_fake_classes_exist_public ________________________\npublic_tests/test_fake_classes_for_public_test.py:11: in test_fake_classes_exist_public\n    fc.setPaint(\"paint_pub\")\nsrc/fitchart/fake_classes.py:151: in setPaint\n    paint.setColor(self.color)\n    ^^^^^^^^^^^^^^\nE   AttributeError: 'str' object has no attribute 'setColor'\n____ test_create_renderer_returns_linear_value_renderer_with_different_area ____\npublic_tests/test_renderer_factory_public.py:14: in test_create_renderer_returns_linear_value_renderer_with_different_area\n    renderer = RendererFactory.create(area, value, AnimationMode.LINEAR)\n               ^^^^^^^^^^^^^^^^^^^^^^\nE   AttributeError: type object 'RendererFactory' has no attribute 'create'\n___ test_create_renderer_returns_overdraw_value_renderer_with_different_area ___\npublic_tests/test_renderer_factory_public.py:20: in test_create_renderer_returns_overdraw_value_renderer_with_different_area\n    renderer = RendererFactory.create(area, value, AnimationMode.OVERDRAW)\n               ^^^^^^^^^^^^^^^^^^^^^^\nE   AttributeError: type object 'RendererFactory' has no attribute 'create'\n=============================== warnings summary ===============================\npublic_tests/test_base_renderer_public.py:8\n  /scratch/work/v3/txusballesteros_fit-chart/public_tests/test_base_renderer_public.py:8: PytestCollectionWarning: cannot collect test class 'TestRenderer' because it has a __init__ constructor (from: public_tests/test_base_renderer_public.py)\n    class TestRenderer(BaseRenderer):\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n=========================== short test summary info ============================\nFAILED public_tests/test_fake_classes_for_public_test.py::test_fake_classes_exist_public\nFAILED public_tests/test_renderer_factory_public.py::test_create_renderer_returns_linear_value_renderer_with_different_area\nFAILED public_tests/test_renderer_factory_public.py::test_create_renderer_returns_overdraw_value_renderer_with_different_area\n3 failed, 5 passed, 1 warning in 0.14s\n\n"
+          }
+        },
+        {
+          "iteration": 3,
+          "phase": "repair",
+          "estimated_cost_usd": 0.0774,
+          "tokens": {
+            "input_tokens": 114,
+            "output_tokens": 7268,
+            "cache_read_input_tokens": 153848,
+            "cache_creation_input_tokens": 20302
+          },
+          "agent_error": null,
+          "migration_passed": true,
+          "test_success_rate": 100.0,
+          "passed": 16,
+          "failed": 0,
+          "skipped": 0,
+          "total": 16,
+          "expected_total": 16,
+          "suite_verified": true,
+          "protected_files_unchanged": true,
+          "evaluation_valid": true,
+          "exit_code": 0,
+          "output_tail": "============================= test session starts ==============================\nplatform linux -- Python 3.12.12, pytest-8.4.2, pluggy-1.7.0\nrootdir: /scratch/work/v3/txusballesteros_fit-chart\ncollected 16 items\n\npublic_tests/test_base_renderer_public.py .                              [  6%]\npublic_tests/test_fake_classes_for_public_test.py .                      [ 12%]\npublic_tests/test_linear_value_renderer_public.py ...                    [ 31%]\npublic_tests/test_overdraw_value_renderer_public.py .                    [ 37%]\npublic_tests/test_renderer_factory_public.py ..                          [ 50%]\ntests/original/test_base_renderer.py .                                   [ 56%]\ntests/original/test_fake_classes_for_test.py .                           [ 62%]\ntests/original/test_linear_value_renderer.py ...                         [ 81%]\ntests/original/test_overdraw_value_renderer.py .                         [ 87%]\ntests/original/test_renderer_factory.py ..                               [100%]\n\n=============================== warnings summary ===============================\npublic_tests/test_base_renderer_public.py:8\n  /scratch/work/v3/txusballesteros_fit-chart/public_tests/test_base_renderer_public.py:8: PytestCollectionWarning: cannot collect test class 'TestRenderer' because it has a __init__ constructor (from: public_tests/test_base_renderer_public.py)\n    class TestRenderer(BaseRenderer):\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n- generated xml file: /scratch/work/v3/txusballesteros_fit-chart/.harness-test-results.xml -\n======================== 16 passed, 1 warning in 0.11s =========================\n\n",
+          "failures": {},
+          "passed_by_folder": {
+            "public_tests": 8,
+            "tests": 8
+          },
+          "error": null
+        }
+      ],
+      "cost_complete": true,
+      "passed": 16,
+      "expected_total": 16,
+      "error": null,
+      "estimated_cost_usd": 0.3444,
+      "tokens": {
+        "input_tokens": 4604,
+        "output_tokens": 25941,
+        "cache_read_input_tokens": 1089717,
+        "cache_creation_input_tokens": 80251
+      }
+    },
+    {
+      "project": "googlearchive_android-BluetoothLeGatt",
+      "status": "evaluation_invalid",
+      "migration_passed": false,
+      "test_success_rate": null,
+      "iterations": 2,
+      "variant": "v3",
+      "history": [
+        {
+          "iteration": 1,
+          "phase": "one_shot",
+          "estimated_cost_usd": 0.112,
+          "tokens": {
+            "input_tokens": 4180,
+            "output_tokens": 7678,
+            "cache_read_input_tokens": 309412,
+            "cache_creation_input_tokens": 30702
+          },
+          "agent_error": null,
+          "migration_passed": false,
+          "test_success_rate": null,
+          "passed": 0,
+          "failed": 5,
+          "skipped": 0,
+          "total": 5,
+          "expected_total": 19,
+          "suite_verified": false,
+          "protected_files_unchanged": true,
+          "evaluation_valid": false,
+          "exit_code": 2,
+          "output_tail": "================================ ERRORS ====================================\n___ ERROR collecting public_tests/test_sample_gatt_attributes_edge_public.py ___\nImportError while importing test module '/scratch/work/v3/googlearchive_android-BluetoothLeGatt/public_tests/test_sample_gatt_attributes_edge_public.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\npublic_tests/test_sample_gatt_attributes_edge_public.py:2: in <module>\n    from src.bluetoothlegatt.sample_gatt_attributes import SampleGattAttributes\nE   ImportError: cannot import name 'SampleGattAttributes' from 'src.bluetoothlegatt.sample_gatt_attributes' (/scratch/work/v3/googlearchive_android-BluetoothLeGatt/src/bluetoothlegatt/sample_gatt_attributes.py)\n_____ ERROR collecting public_tests/test_sample_gatt_attributes_public.py ______\nImportError while importing test module '/scratch/work/v3/googlearchive_android-BluetoothLeGatt/public_tests/test_sample_gatt_attributes_public.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\npublic_tests/test_sample_gatt_attributes_public.py:2: in <module>\n    from src.bluetoothlegatt.sample_gatt_attributes import SampleGattAttributes\nE   ImportError: cannot import name 'SampleGattAttributes' from 'src.bluetoothlegatt.sample_gatt_attributes' (/scratch/work/v3/googlearchive_android-BluetoothLeGatt/src/bluetoothlegatt/sample_gatt_attributes.py)\n_________ ERROR collecting tests/original/test_device_scan_activity.py _________\nImportError while importing test module '/scratch/work/v3/googlearchive_android-BluetoothLeGatt/tests/original/test_device_scan_activity.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_device_scan_activity.py:2: in <module>\n    from src.bluetoothlegatt.device_scan_activity import DeviceScanActivity\nE   ImportError: cannot import name 'DeviceScanActivity' from 'src.bluetoothlegatt.device_scan_activity' (/scratch/work/v3/googlearchive_android-BluetoothLeGatt/src/bluetoothlegatt/device_scan_activity.py)\n________ ERROR collecting tests/original/test_sample_gatt_attributes.py ________\nImportError while importing test module '/scratch/work/v3/googlearchive_android-BluetoothLeGatt/tests/original/test_sample_gatt_attributes.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_sample_gatt_attributes.py:2: in <module>\n    from src.bluetoothlegatt.sample_gatt_attributes import SampleGattAttributes\nE   ImportError: cannot import name 'SampleGattAttributes' from 'src.bluetoothlegatt.sample_gatt_attributes' (/scratch/work/v3/googlearchive_android-BluetoothLeGatt/src/bluetoothlegatt/sample_gatt_attributes.py)\n_____ ERROR collecting tests/original/test_sample_gatt_attributes_edge.py ______\nImportError while importing test module '/scratch/work/v3/googlearchive_android-BluetoothLeGatt/tests/original/test_sample_gatt_attributes_edge.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_sample_gatt_attributes_edge.py:2: in <module>\n    from src.bluetoothlegatt.sample_gatt_attributes import SampleGattAttributes\nE   ImportError: cannot import name 'SampleGattAttributes' from 'src.bluetoothlegatt.sample_gatt_attributes' (/scratch/work/v3/googlearchive_android-BluetoothLeGatt/src/bluetoothlegatt/sample_gatt_attributes.py)\n- generated xml file: /scratch/work/v3/googlearchive_android-BluetoothLeGatt/.harness-test-results.xml -\n=========================== short test summary info ============================\nERROR public_tests/test_sample_gatt_attributes_edge_public.py\nERROR public_tests/test_sample_gatt_attributes_public.py\nERROR tests/original/test_device_scan_activity.py\nERROR tests/original/test_sample_gatt_attributes.py\nERROR tests/original/test_sample_gatt_attributes_edge.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 5 errors during collection !!!!!!!!!!!!!!!!!!!!\n============================== 5 errors in 0.08s ===============================\n\n",
+          "failures": {
+            "::public_tests.test_sample_gatt_attributes_edge_public": "ImportError: cannot import name 'SampleGattAttributes' from 'src.bluetoothlegatt.sample_gatt_attributes' (/scratch/work/v3/googlearchive_android-BluetoothLeGatt/src/bluetoothlegatt/sample_gatt_attributes.py)",
+            "::public_tests.test_sample_gatt_attributes_public": "ImportError: cannot import name 'SampleGattAttributes' from 'src.bluetoothlegatt.sample_gatt_attributes' (/scratch/work/v3/googlearchive_android-BluetoothLeGatt/src/bluetoothlegatt/sample_gatt_attributes.py)",
+            "::tests.original.test_device_scan_activity": "ImportError: cannot import name 'DeviceScanActivity' from 'src.bluetoothlegatt.device_scan_activity' (/scratch/work/v3/googlearchive_android-BluetoothLeGatt/src/bluetoothlegatt/device_scan_activity.py)",
+            "::tests.original.test_sample_gatt_attributes": "ImportError: cannot import name 'SampleGattAttributes' from 'src.bluetoothlegatt.sample_gatt_attributes' (/scratch/work/v3/googlearchive_android-BluetoothLeGatt/src/bluetoothlegatt/sample_gatt_attributes.py)",
+            "::tests.original.test_sample_gatt_attributes_edge": "ImportError: cannot import name 'SampleGattAttributes' from 'src.bluetoothlegatt.sample_gatt_attributes' (/scratch/work/v3/googlearchive_android-BluetoothLeGatt/src/bluetoothlegatt/sample_gatt_attributes.py)"
+          },
+          "passed_by_folder": {},
+          "error": "Collected/executed test identities differ from immutable baseline, or tests were skipped; Test collection: ttributes\nE   ImportError: cannot import name 'SampleGattAttributes' from 'src.bluetoothlegatt.sample_gatt_attributes' (/scratch/work/v3/googlearchive_android-BluetoothLeGatt/src/bluetoothlegatt/sample_gatt_attributes.py)\n=========================== short test summary info ============================\nERROR public_tests/test_sample_gatt_attributes_edge_public.py\nERROR public_tests/test_sample_gatt_attributes_public.py\nERROR tests/original/test_device_scan_activity.py\nERROR tests/original/test_sample_gatt_attributes.py\nERROR tests/original/test_sample_gatt_attributes_edge.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 5 errors during collection !!!!!!!!!!!!!!!!!!!!\n2 tests collected, 5 errors in 0.07s\n\n",
+          "public_feedback": {
+            "all_public_passed": false,
+            "public_test_output": "\n==================================== ERRORS ====================================\n___ ERROR collecting public_tests/test_sample_gatt_attributes_edge_public.py ___\nImportError while importing test module '/scratch/work/v3/googlearchive_android-BluetoothLeGatt/public_tests/test_sample_gatt_attributes_edge_public.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\npublic_tests/test_sample_gatt_attributes_edge_public.py:2: in <module>\n    from src.bluetoothlegatt.sample_gatt_attributes import SampleGattAttributes\nE   ImportError: cannot import name 'SampleGattAttributes' from 'src.bluetoothlegatt.sample_gatt_attributes' (/scratch/work/v3/googlearchive_android-BluetoothLeGatt/src/bluetoothlegatt/sample_gatt_attributes.py)\n_____ ERROR collecting public_tests/test_sample_gatt_attributes_public.py ______\nImportError while importing test module '/scratch/work/v3/googlearchive_android-BluetoothLeGatt/public_tests/test_sample_gatt_attributes_public.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\npublic_tests/test_sample_gatt_attributes_public.py:2: in <module>\n    from src.bluetoothlegatt.sample_gatt_attributes import SampleGattAttributes\nE   ImportError: cannot import name 'SampleGattAttributes' from 'src.bluetoothlegatt.sample_gatt_attributes' (/scratch/work/v3/googlearchive_android-BluetoothLeGatt/src/bluetoothlegatt/sample_gatt_attributes.py)\n=========================== short test summary info ============================\nERROR public_tests/test_sample_gatt_attributes_edge_public.py\nERROR public_tests/test_sample_gatt_attributes_public.py\n!!!!!!!!!!!!!!!!!!! Interrupted: 2 errors during collection !!!!!!!!!!!!!!!!!!!!\n2 errors in 0.05s\n\n"
+          }
+        },
+        {
+          "iteration": 2,
+          "phase": "repair",
+          "estimated_cost_usd": 0.1313,
+          "tokens": {
+            "input_tokens": 274,
+            "output_tokens": 10252,
+            "cache_read_input_tokens": 440366,
+            "cache_creation_input_tokens": 28332
+          },
+          "agent_error": null,
+          "migration_passed": false,
+          "test_success_rate": null,
+          "passed": 0,
+          "failed": 1,
+          "skipped": 0,
+          "total": 1,
+          "expected_total": 19,
+          "suite_verified": false,
+          "protected_files_unchanged": true,
+          "evaluation_valid": false,
+          "exit_code": 2,
+          "output_tail": "============================= test session starts ==============================\nplatform linux -- Python 3.12.12, pytest-8.4.2, pluggy-1.7.0\nrootdir: /scratch/work/v3/googlearchive_android-BluetoothLeGatt\ncollected 18 items / 1 error\n\n==================================== ERRORS ====================================\n_________ ERROR collecting tests/original/test_device_scan_activity.py _________\nImportError while importing test module '/scratch/work/v3/googlearchive_android-BluetoothLeGatt/tests/original/test_device_scan_activity.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/local/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_device_scan_activity.py:2: in <module>\n    from src.bluetoothlegatt.device_scan_activity import DeviceScanActivity\nE   ImportError: cannot import name 'DeviceScanActivity' from 'src.bluetoothlegatt.device_scan_activity' (/scratch/work/v3/googlearchive_android-BluetoothLeGatt/src/bluetoothlegatt/device_scan_activity.py)\n- generated xml file: /scratch/work/v3/googlearchive_android-BluetoothLeGatt/.harness-test-results.xml -\n=========================== short test summary info ============================\nERROR tests/original/test_device_scan_activity.py\n!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n=============================== 1 error in 0.07s ===============================\n\n",
+          "failures": {
+            "::tests.original.test_device_scan_activity": "ImportError: cannot import name 'DeviceScanActivity' from 'src.bluetoothlegatt.device_scan_activity' (/scratch/work/v3/googlearchive_android-BluetoothLeGatt/src/bluetoothlegatt/device_scan_activity.py)"
+          },
+          "passed_by_folder": {},
+          "error": "Collected/executed test identities differ from immutable baseline, or tests were skipped; Test collection: ap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_device_scan_activity.py:2: in <module>\n    from src.bluetoothlegatt.device_scan_activity import DeviceScanActivity\nE   ImportError: cannot import name 'DeviceScanActivity' from 'src.bluetoothlegatt.device_scan_activity' (/scratch/work/v3/googlearchive_android-BluetoothLeGatt/src/bluetoothlegatt/device_scan_activity.py)\n=========================== short test summary info ============================\nERROR tests/original/test_device_scan_activity.py\n!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n18 tests collected, 1 error in 0.07s\n\n",
+          "public_feedback": {
+            "all_public_passed": true,
+            "public_test_output": "........                                                                 [100%]\n8 passed in 0.01s\n\n"
+          }
+        }
+      ],
+      "cost_complete": true,
+      "passed": 0,
+      "expected_total": 19,
+      "error": "Collected/executed test identities differ from immutable baseline, or tests were skipped; Test collection: ap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/original/test_device_scan_activity.py:2: in <module>\n    from src.bluetoothlegatt.device_scan_activity import DeviceScanActivity\nE   ImportError: cannot import name 'DeviceScanActivity' from 'src.bluetoothlegatt.device_scan_activity' (/scratch/work/v3/googlearchive_android-BluetoothLeGatt/src/bluetoothlegatt/device_scan_activity.py)\n=========================== short test summary info ============================\nERROR tests/original/test_device_scan_activity.py\n!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n18 tests collected, 1 error in 0.07s\n\n",
+      "estimated_cost_usd": 0.2433,
+      "tokens": {
+        "input_tokens": 4454,
+        "output_tokens": 17930,
+        "cache_read_input_tokens": 749778,
+        "cache_creation_input_tokens": 59034
+      }
+    }
+  ],
+  "summary": {
+    "migration_passed": 1,
+    "total_projects": 5,
+    "test_success_rate": null
+  }
+}
