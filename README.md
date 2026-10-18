@@ -6,7 +6,7 @@ A small, reproducible harness that specializes a coding agent (Claude Agent SDK,
 |---|---|---|---|---|
 | **v0** | Minimal prompt, one attempt | 22.6% ± 7.5 | 0.3 of 5 | $1.49 |
 | **v1** | + interface rules in the system prompt | 32.7% ± 14.3 | 0.3 of 5 | $0.84 |
-| **v2** | v1 with 5 attempts, no feedback (control) | 20.5% ± 18.2 | 0.7 of 5 | $4.37 |
+| **v2** | v1 with 5 attempts, no feedback (control) | 20.4% ± 18.2 | 0.7 of 5 | $4.37 |
 | **v3** | v1 + up to 4 repairs with **public**-test feedback | **84.1% ± 16.6** | **2.3 of 5** | $2.28 |
 
 - **Tests passed:** share of the 110 official tests that pass, averaged over 6 runs. All tests in an invalid suite receive zero credit. SD is the sample standard deviation over the six runs.
