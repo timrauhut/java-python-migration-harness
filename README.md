@@ -23,8 +23,18 @@ Full report: [`results/report.html`](results/report.html) · failure analysis pe
 
 - **Agent:** file tools only (`Read`, `Write`, `Edit`, `Glob`, `Grep`), with no shell or web access. It sees the Java sources and the benchmark's `project_structure.txt`, and a hook blocks writes outside `src/`. Limits are 40 turns per attempt and $5 per project.
 - **Evaluation:** the generated `src/` is copied into an untouched copy of the official project, and its `run_tests.sh` is run there. The score comes from the JUnit XML output, never from the agent. Changed test IDs, skipped tests or modified protected files make a run invalid, and an invalid suite scores 0.
-- **Public vs. hidden tests:** v3 only gets feedback from `public_tests/` (52 tests) and stops once they all pass. The 58 hidden tests are only scored.
+- **Public vs. hidden tests:** v3 only gets feedback from `public_tests/` (52 tests) and stops once they all pass. The 58 hidden tests are run for scoring only; their results never reach the agent.
 - **Failure categories:** [`failures.py`](failures.py) groups every failure by its pytest error (missing name, missing module, wrong call signature, wrong result …). These counts decide what the next version changes.
+
+**One v3 attempt, step by step.** The agent never runs code or tests; every test run happens in the harness between attempts.
+
+1. The agent writes or repairs `src/`.
+2. The harness copies `src/` into a sealed copy of the official project.
+3. It runs `run_tests.sh` over all tests. This is the score; it goes into `report.json` only.
+4. It runs `pytest public_tests/` separately.
+5. If all public tests pass, or 5 attempts or $5 are used, it stops and the last attempt's score counts. Otherwise the public pytest output goes into the repair prompt, and the agent starts again at step 1.
+
+v0 and v1 run steps 1–3 once. v2 runs them 5 times with the same prompt and no test output.
 
 **Benchmark projects:**
 
